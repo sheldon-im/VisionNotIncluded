@@ -2,6 +2,8 @@
 
 ## Unreleased changes since 1.2.1
 
+* Plant branches (Arbor Tree, Bonbon Tree, etc.) now say "branch" on the tile cursor to distinguish them from the trunk
+
 ## 1.2.1
 
 * Ctrl+Delete cancels all orders on the current map while the cancel tool is active, respecting the active filter

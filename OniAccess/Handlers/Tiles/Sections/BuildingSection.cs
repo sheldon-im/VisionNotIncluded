@@ -791,13 +791,22 @@ namespace OniAccess.Handlers.Tiles.Sections {
 		private static string GetBuildingName(GameObject go, KSelectable selectable) {
 			if (IsDecorOverlay())
 				return selectable.GetName();
+			string name;
 			var facade = go.GetComponent<BuildingFacade>();
 			if (facade != null && !facade.IsOriginal) {
 				var building = go.GetComponent<Building>();
 				if (building != null)
-					return building.Def.Name;
+					name = building.Def.Name;
+				else
+					name = selectable.GetName();
+			} else {
+				name = selectable.GetName();
 			}
-			return selectable.GetName();
+			var kpid = go.GetComponent<KPrefabID>();
+			if (kpid != null && kpid.HasTag(GameTags.PlantBranch))
+				name = string.Format(
+					(string)STRINGS.ONIACCESS.GLANCE.PLANT_BRANCH, name);
+			return name;
 		}
 
 		private static void ReadPixelPack(

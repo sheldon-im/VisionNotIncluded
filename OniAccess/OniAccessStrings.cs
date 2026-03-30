@@ -912,6 +912,8 @@ namespace STRINGS {
 
 		// Tile cursor glance info: brief summaries of what occupies a tile
 		public class GLANCE {
+			// {0} = plant name (e.g. "Arbor Tree")
+			public static LocString PLANT_BRANCH = "{0} branch";
 			// {0} = building name being constructed
 			public static LocString UNDER_CONSTRUCTION = "constructing {0}";
 			// {0} = building name marked for deconstruction

@@ -1,5 +1,7 @@
 # Game Mechanics Reference
 
+When answering gameplay or "how do I..." questions, read `README.md` (project root) first. It documents every screen, key binding, and announcement the mod provides. Ground answers in the mod's actual controls and speech output — don't guess based on generic ONI knowledge.
+
 This directory contains three sources of game knowledge. Use all relevant sources when answering questions.
 
 ## Topic files (65 .md files)

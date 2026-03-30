@@ -2016,6 +2016,11 @@ msgctxt "STRINGS.ONIACCESS.GLANCE.OVERLAY_DECOR"
 msgid "{0}{1} decor"
 msgstr "{0}{1} decoración"
 
+#. STRINGS.ONIACCESS.GLANCE.PLANT_BRANCH
+msgctxt "STRINGS.ONIACCESS.GLANCE.PLANT_BRANCH"
+msgid "{0} branch"
+msgstr "{0} rama"
+
 #. STRINGS.ONIACCESS.GLANCE.POWER_INPUT
 msgctxt "STRINGS.ONIACCESS.GLANCE.POWER_INPUT"
 msgid "power input"
@@ -2418,6 +2423,11 @@ msgstr "Aplicar ajustes y salir"
 msgctxt "STRINGS.ONIACCESS.HELP.TOOLS_HELP.APPLY_SETTINGS"
 msgid "Apply settings"
 msgstr "Aplicar ajustes"
+
+#. STRINGS.ONIACCESS.HELP.TOOLS_HELP.CANCEL_ALL
+msgctxt "STRINGS.ONIACCESS.HELP.TOOLS_HELP.CANCEL_ALL"
+msgid "Cancel all on map"
+msgstr "Cancelar todo en el mapa"
 
 #. STRINGS.ONIACCESS.HELP.TOOLS_HELP.CANCEL_TOOL
 msgctxt "STRINGS.ONIACCESS.HELP.TOOLS_HELP.CANCEL_TOOL"
@@ -4651,6 +4661,11 @@ msgstr "{0}"
 msgctxt "STRINGS.ONIACCESS.TOOLS.ACTIVATION_WITH_FILTER"
 msgid "{0}, {1}, {2}"
 msgstr "{0}, {1}, {2}"
+
+#. STRINGS.ONIACCESS.TOOLS.CANCEL_ALL_MAP
+msgctxt "STRINGS.ONIACCESS.TOOLS.CANCEL_ALL_MAP"
+msgid "cancelled {0} on entire map"
+msgstr "cancelados {0} en todo el mapa"
 
 #. STRINGS.ONIACCESS.TOOLS.CANCELED
 msgctxt "STRINGS.ONIACCESS.TOOLS.CANCELED"

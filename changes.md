@@ -2,6 +2,7 @@
 
 ## Unreleased changes since 1.2.1
 
+* Supply Closet item reveals now announce immediately when the server confirms, without waiting for animations to finish
 * Plant branches (Arbor Tree, Bonbon Tree, etc.) now say "branch" on the tile cursor to distinguish them from the trunk
 
 ## 1.2.1

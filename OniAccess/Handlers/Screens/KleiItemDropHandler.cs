@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Database;
 using HarmonyLib;
 using OniAccess.Util;
 
@@ -7,60 +8,89 @@ namespace OniAccess.Handlers.Screens {
 	/// <summary>
 	/// Handler for KleiItemDropScreen: cosmetic item reveal triggered from Supply Closet.
 	///
-	/// This is a coroutine-driven sequential presentation — an animated pod reveals items
-	/// one at a time, with buttons fading in/out via CanvasGroup alpha at each stage.
-	/// At any moment there are at most 2-3 buttons visible.
-	///
-	/// Tick() polls for state changes (item reveal, error, button availability) since the
-	/// coroutines animate elements asynchronously.
+	/// Uses Harmony postfix patches on PresentItem, OnOpenItemRequestResponse, and
+	/// PresentNoItemAvailablePrompt to detect state changes, replacing the old
+	/// polling approach. Item data is resolved directly from the permit database
+	/// rather than waiting for coroutine-driven label population.
 	///
 	/// Lifecycle note: Like LockerMenuScreen, OnActivate() calls Show(false) during prefab
 	/// init, so a Harmony patch on KleiItemDropScreen.Show pushes/pops this handler.
+	///
+	/// Timing: PresentItem and PresentNoItemAvailablePrompt are called inside Show()
+	/// (via OnShow → PresentNextUnopenedItem) before the Show postfix pushes this
+	/// handler. Static pending fields capture that data for OnActivate to consume.
+	/// Subsequent calls (item 2+, exhaustion) happen while the handler is active
+	/// and go through the normal patch → handler path.
 	/// </summary>
 	public class KleiItemDropHandler: BaseWidgetHandler {
 		public override string DisplayName => (string)STRINGS.ONIACCESS.HANDLERS.ITEM_DROP;
 
 		public override IReadOnlyList<HelpEntry> HelpEntries { get; }
 
-		// State tracking to detect transitions and avoid repeat announcements
-		private bool _announcedItemInfo;
-		private bool _announcedError;
-		private string _lastAcceptButtonText;
+		/// Coroutine animations take ~2 seconds before buttons appear.
+		protected override int MaxDiscoveryRetries => 300;
 
-		// Cached component references resolved once in OnActivate via Traverse.
-		// These are live Unity component refs (allowed by caching rules);
-		// visibility/content is always read fresh from the components themselves.
-		private UnityEngine.RectTransform _acceptButtonRect;
+		enum Stage { Initial, WaitingForAccept, WaitingForServer, ItemRevealed, NoItemAvailable }
+
+		private Stage _stage;
+		private KleiItems.ItemData _currentItem;
+
+		// Live Unity component refs resolved once in OnActivate via Traverse.
 		private KButton _acceptButton;
 		private KButton _acknowledgeButton;
-		private UnityEngine.RectTransform _itemTextContainer;
-		private LocText _itemNameLabel;
-		private LocText _itemRarityLabel;
-		private LocText _itemCategoryLabel;
-		private LocText _itemDescriptionLabel;
-		private LocText _errorMessage;
 		private KButton _closeButton;
+		private LocText _unopenedItemCountLabel;
+		private LocText _userMessageLabel;
+		private LocText _errorMessage;
+
+		// Static pending fields: captures data from patches that fire during Show()
+		// before the handler is pushed. Consumed in OnActivate.
+		internal static KleiItems.ItemData PendingItem;
+		internal static bool HasPendingItem;
+		internal static bool HasPendingNoItem;
 
 		public KleiItemDropHandler(KScreen screen) : base(screen) {
 			HelpEntries = BuildHelpEntries();
 		}
 
 		public override void OnActivate() {
-			_announcedItemInfo = false;
-			_announcedError = false;
-			_lastAcceptButtonText = null;
+			_stage = Stage.Initial;
 
 			var t = Traverse.Create(_screen);
-			_acceptButtonRect = t.Field<UnityEngine.RectTransform>("acceptButtonRect").Value;
 			_acceptButton = t.Field<KButton>("acceptButton").Value;
 			_acknowledgeButton = t.Field<KButton>("acknowledgeButton").Value;
-			_itemTextContainer = t.Field<UnityEngine.RectTransform>("itemTextContainer").Value;
-			_itemNameLabel = t.Field<LocText>("itemNameLabel").Value;
-			_itemRarityLabel = t.Field<LocText>("itemRarityLabel").Value;
-			_itemCategoryLabel = t.Field<LocText>("itemCategoryLabel").Value;
-			_itemDescriptionLabel = t.Field<LocText>("itemDescriptionLabel").Value;
-			_errorMessage = t.Field<LocText>("errorMessage").Value;
 			_closeButton = t.Field<KButton>("closeButton").Value;
+			_unopenedItemCountLabel = t.Field<LocText>("unopenedItemCountLabel").Value;
+			_userMessageLabel = t.Field<LocText>("userMessageLabel").Value;
+			_errorMessage = t.Field<LocText>("errorMessage").Value;
+
+			// Consume data from patches that fired during Show() before this handler
+			// was pushed. Set stage before base.OnActivate() so DiscoverWidgets uses it.
+			if (HasPendingItem) {
+				HasPendingItem = false;
+				_currentItem = PendingItem;
+				_stage = Stage.WaitingForAccept;
+
+				// Speak the item count; the accept button itself will be announced by
+				// deferred rediscovery when the coroutine animation makes it visible.
+				// Read text directly — the label may not be activeInHierarchy yet if a
+				// parent is still hidden by the coroutine, but SetText has already run.
+				string countText = _unopenedItemCountLabel != null
+					? _unopenedItemCountLabel.text : null;
+				if (!string.IsNullOrEmpty(countText)) {
+					Speech.SpeechPipeline.SpeakInterrupt(countText);
+				}
+			} else if (HasPendingNoItem) {
+				HasPendingNoItem = false;
+				_stage = Stage.NoItemAvailable;
+
+				if (_userMessageLabel != null) {
+					string text = _userMessageLabel.text;
+					if (!string.IsNullOrEmpty(text)) {
+						Speech.SpeechPipeline.SpeakInterrupt(text);
+					}
+				}
+			}
 
 			base.OnActivate();
 		}
@@ -68,156 +98,154 @@ namespace OniAccess.Handlers.Screens {
 		public override bool DiscoverWidgets(KScreen screen) {
 			_widgets.Clear();
 
-			// acceptButton — visible when acceptButtonRect is active and CanvasGroup alpha > 0.5
-			try {
-				if (_acceptButtonRect != null && _acceptButtonRect.gameObject.activeInHierarchy) {
-					var cg = _acceptButtonRect.GetComponent<UnityEngine.CanvasGroup>();
-					if (cg == null || cg.alpha > 0.5f) {
-						if (_acceptButton != null) {
-							string label = GetButtonLabel(_acceptButton, (string)STRINGS.ONIACCESS.BUTTONS.ACCEPT);
-							_widgets.Add(new ButtonWidget {
-								Label = label,
-								Component = _acceptButton,
-								GameObject = _acceptButton.gameObject
-							});
-						}
-					}
+			if (_stage == Stage.WaitingForAccept || _stage == Stage.NoItemAvailable) {
+				if (_acceptButton != null && _acceptButton.gameObject.activeInHierarchy) {
+					string label = GetButtonLabel(_acceptButton, (string)STRINGS.ONIACCESS.BUTTONS.ACCEPT);
+					_widgets.Add(new ButtonWidget {
+						Label = label,
+						Component = _acceptButton,
+						GameObject = _acceptButton.gameObject
+					});
 				}
-			} catch (System.Exception ex) {
-				Log.Error($"KleiItemDropHandler: acceptButton discovery failed: {ex.Message}");
 			}
 
-			// acknowledgeButton — visible when active and parent itemTextContainer has alpha > 0.5
-			try {
+			if (_stage == Stage.ItemRevealed) {
 				if (_acknowledgeButton != null && _acknowledgeButton.gameObject.activeInHierarchy) {
-					bool visible = true;
-					if (_itemTextContainer != null) {
-						var cg = _itemTextContainer.GetComponent<UnityEngine.CanvasGroup>();
-						if (cg != null && cg.alpha <= 0.5f) visible = false;
-					}
-					if (visible) {
-						string label = GetButtonLabel(_acknowledgeButton, (string)STRINGS.UI.CONFIRMDIALOG.OK);
-						_widgets.Add(new ButtonWidget {
-							Label = label,
-							Component = _acknowledgeButton,
-							GameObject = _acknowledgeButton.gameObject
-						});
-					}
+					string label = GetButtonLabel(_acknowledgeButton, (string)STRINGS.UI.CONFIRMDIALOG.OK);
+					_widgets.Add(new ButtonWidget {
+						Label = label,
+						Component = _acknowledgeButton,
+						GameObject = _acknowledgeButton.gameObject
+					});
 				}
-			} catch (System.Exception ex) {
-				Log.Error($"KleiItemDropHandler: acknowledgeButton discovery failed: {ex.Message}");
 			}
 
-			// closeButton — uses plain SetActive, no alpha fade
 			if (_closeButton != null && _closeButton.gameObject.activeInHierarchy) {
-				string label = null;
 				var locText = _closeButton.GetComponentInChildren<LocText>();
-				if (locText != null && !string.IsNullOrEmpty(locText.text))
-					label = locText.text;
-				_widgets.Add(new ButtonWidget {
-					Label = label,
-					Component = _closeButton,
-					GameObject = _closeButton.gameObject
-				});
+				string label = locText != null && !string.IsNullOrEmpty(locText.text)
+					? locText.text : null;
+				// Skip if no label — the button is an unlabeled X; Escape closes the screen.
+				if (label != null) {
+					_widgets.Add(new ButtonWidget {
+						Label = label,
+						Component = _closeButton,
+						GameObject = _closeButton.gameObject
+					});
+				}
 			}
 
-			Log.Debug($"KleiItemDropHandler.DiscoverWidgets: {_widgets.Count} widgets");
+			Log.Debug($"KleiItemDropHandler.DiscoverWidgets: {_widgets.Count} widgets, stage={_stage}");
 			return true;
 		}
 
 		public override bool Tick() {
-			// Re-discover widgets (buttons appear/disappear via coroutines)
-			int prevCount = _widgets.Count;
 			DiscoverWidgets(_screen);
 
-			// Clamp cursor index if widget count changed
 			if (_widgets.Count > 0 && CurrentIndex >= _widgets.Count) {
 				CurrentIndex = _widgets.Count - 1;
-			}
-
-			// Detect item reveal: itemNameLabel goes from empty to populated
-			try {
-				if (_itemNameLabel != null) {
-					string nameText = _itemNameLabel.text;
-					if (!string.IsNullOrEmpty(nameText)) {
-						if (!_announcedItemInfo) {
-							_announcedItemInfo = true;
-
-							string rarity = _itemRarityLabel != null ? _itemRarityLabel.text : "";
-							string category = _itemCategoryLabel != null ? _itemCategoryLabel.text : "";
-							string description = _itemDescriptionLabel != null ? _itemDescriptionLabel.text : "";
-
-							var parts = new List<string>();
-							if (!string.IsNullOrEmpty(rarity)) parts.Add(rarity);
-							if (!string.IsNullOrEmpty(category)) parts.Add(category);
-							parts.Add(nameText);
-							if (!string.IsNullOrEmpty(description)) parts.Add(description);
-
-							Speech.SpeechPipeline.SpeakQueued(string.Join(", ", parts.ToArray()));
-						}
-					} else {
-						// Labels cleared — reset for next item reveal
-						_announcedItemInfo = false;
-					}
-				}
-			} catch (System.Exception ex) {
-				Log.Error($"KleiItemDropHandler: item info detection failed: {ex.Message}");
-			}
-
-			// Detect error: errorMessage activated
-			try {
-				if (_errorMessage != null) {
-					if (_errorMessage.gameObject.activeSelf) {
-						if (!_announcedError) {
-							_announcedError = true;
-							string errorText = _errorMessage.text;
-							if (!string.IsNullOrEmpty(errorText)) {
-								Speech.SpeechPipeline.SpeakQueued(errorText);
-							}
-						}
-					} else {
-						_announcedError = false;
-					}
-				}
-			} catch (System.Exception ex) {
-				Log.Error($"KleiItemDropHandler: error detection failed: {ex.Message}");
-			}
-
-			// Detect new button availability: accept button text changes or widgets appear from zero
-			try {
-				if (_acceptButton != null) {
-					var locText = _acceptButton.GetComponentInChildren<LocText>();
-					string currentText = locText != null ? locText.text : null;
-					if (currentText != _lastAcceptButtonText && !string.IsNullOrEmpty(currentText)) {
-						// Only announce if the button is actually visible
-						if (_widgets.Count > 0 && _widgets[0].Component == _acceptButton) {
-							Speech.SpeechPipeline.SpeakQueued(currentText);
-						}
-					}
-					_lastAcceptButtonText = currentText;
-				}
-			} catch (System.Exception ex) {
-				Log.Error($"KleiItemDropHandler: accept button detection failed: {ex.Message}");
 			}
 
 			return base.Tick();
 		}
 
 		/// <summary>
-		/// Base check + CanvasGroup alpha > 0.5 check on widget or parent.
+		/// Called from Harmony postfix on KleiItemDropScreen.PresentItem.
+		/// Only fires for items 2+ (the first fires during Show() before the handler
+		/// is pushed, so it goes through the pending field path instead).
 		/// </summary>
-		protected override bool IsWidgetValid(Widget widget) {
-			if (widget == null || widget.GameObject == null) return false;
-			if (!widget.GameObject.activeInHierarchy) return false;
+		internal void OnItemPresented(KleiItems.ItemData item, bool firstItemPresentation) {
+			_currentItem = item;
+			_stage = Stage.WaitingForAccept;
+			// Non-first items: game calls RequestReveal immediately, so OnRevealResponse
+			// will fire shortly. No accept button is shown.
+		}
 
-			// Check CanvasGroup alpha on the widget or its parent
-			var cg = widget.GameObject.GetComponent<UnityEngine.CanvasGroup>();
-			if (cg != null && cg.alpha <= 0.5f) return false;
+		/// <summary>
+		/// Called from Harmony postfix on KleiItemDropScreen.OnOpenItemRequestResponse.
+		/// The handler is always active by the time server responses arrive.
+		/// </summary>
+		internal void OnRevealResponse(bool success) {
+			if (success) {
+				_stage = Stage.ItemRevealed;
+				string announcement = BuildItemAnnouncement(_currentItem);
+				if (announcement != null) {
+					Speech.SpeechPipeline.SpeakInterrupt(announcement);
+				}
+			} else {
+				_stage = Stage.WaitingForAccept;
+				if (_errorMessage != null && _errorMessage.gameObject.activeSelf) {
+					string errorText = _errorMessage.text;
+					if (!string.IsNullOrEmpty(errorText)) {
+						Speech.SpeechPipeline.SpeakInterrupt(errorText);
+					}
+				}
+			}
+		}
 
-			var parentCg = widget.GameObject.GetComponentInParent<UnityEngine.CanvasGroup>();
-			if (parentCg != null && parentCg.alpha <= 0.5f) return false;
+		/// <summary>
+		/// Called from Harmony postfix on KleiItemDropScreen.PresentNoItemAvailablePrompt.
+		/// Only fires after items are exhausted (the initial no-items case fires during
+		/// Show() and goes through the pending field path).
+		/// </summary>
+		internal void OnNoItemAvailable() {
+			_stage = Stage.NoItemAvailable;
+			if (_userMessageLabel != null) {
+				string text = _userMessageLabel.text;
+				if (!string.IsNullOrEmpty(text)) {
+					Speech.SpeechPipeline.SpeakInterrupt(text);
+				}
+			}
+		}
 
-			return base.IsWidgetValid(widget);
+		/// <summary>
+		/// Resolve item info from the permit database, matching the game's own
+		/// resolution logic in PresentItemRoutine.
+		/// </summary>
+		private static string BuildItemAnnouncement(KleiItems.ItemData item) {
+			try {
+				var parts = new List<string>();
+
+				if (PermitItems.TryGetBoxInfo(item, out string name, out string desc, out _)) {
+					// Mystery box: rarity is always Loyalty
+					parts.Add(PermitRarity.Loyalty.GetLocStringName());
+					parts.Add(name);
+					if (!string.IsNullOrEmpty(desc)) parts.Add(desc);
+				} else {
+					PermitResource permit = Db.Get().Permits.Get(item.Id);
+					parts.Add(permit.Rarity.GetLocStringName());
+
+					string category;
+					switch (permit.Category) {
+						case PermitCategory.Building:
+							category = Assets.GetPrefab(new Tag((permit as BuildingFacadeResource).PrefabID)).GetProperName();
+							break;
+						case PermitCategory.JoyResponse:
+							category = PermitCategories.GetDisplayName(permit.Category);
+							if (permit is BalloonArtistFacadeResource) {
+								category = category + ": " + (string)STRINGS.UI.KLEI_INVENTORY_SCREEN.CATEGORIES.JOY_RESPONSES.BALLOON_ARTIST;
+							}
+							break;
+						case PermitCategory.Artwork:
+							category = PermitCategories.GetDisplayName(permit.Category);
+							if (permit is ArtableStage artStage) {
+								category = Assets.GetPrefab(new Tag(artStage.prefabId)).GetProperName();
+							}
+							break;
+						default:
+							category = PermitCategories.GetDisplayName(permit.Category);
+							break;
+					}
+					if (!string.IsNullOrEmpty(category)) parts.Add(category);
+
+					parts.Add(permit.Name);
+					if (!string.IsNullOrEmpty(permit.Description)) parts.Add(permit.Description);
+				}
+
+				return string.Join(", ", parts.ToArray());
+			} catch (System.Exception ex) {
+				Log.Error($"KleiItemDropHandler.BuildItemAnnouncement failed for item {item.Id}: {ex}");
+				return null;
+			}
 		}
 	}
 }

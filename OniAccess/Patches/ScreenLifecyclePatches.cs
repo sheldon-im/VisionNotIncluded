@@ -100,6 +100,48 @@ namespace OniAccess.Patches {
 			ShowDispatch.Handle(__instance, show);
 	}
 
+	/// Notify KleiItemDropHandler when an item is presented for reveal.
+	/// On first open, this fires inside Show() before the handler is pushed,
+	/// so we store the item in static pending fields for OnActivate to consume.
+	[HarmonyPatch(typeof(KleiItemDropScreen), nameof(KleiItemDropScreen.PresentItem))]
+	internal static class KleiItemDropScreen_PresentItem_Patch {
+		private static void Postfix(KleiItemDropScreen __instance, KleiItems.ItemData item, bool firstItemPresentation) {
+			if (!ModToggle.IsEnabled) return;
+			if (HandlerStack.ActiveHandler is KleiItemDropHandler handler && handler.Screen == __instance) {
+				handler.OnItemPresented(item, firstItemPresentation);
+			} else {
+				KleiItemDropHandler.PendingItem = item;
+				KleiItemDropHandler.HasPendingItem = true;
+			}
+		}
+	}
+
+	/// Notify KleiItemDropHandler when the server responds to a reveal request.
+	[HarmonyPatch(typeof(KleiItemDropScreen), nameof(KleiItemDropScreen.OnOpenItemRequestResponse))]
+	internal static class KleiItemDropScreen_OnOpenItemRequestResponse_Patch {
+		private static void Postfix(KleiItemDropScreen __instance, KleiItems.Result result) {
+			if (!ModToggle.IsEnabled) return;
+			if (HandlerStack.ActiveHandler is KleiItemDropHandler handler && handler.Screen == __instance) {
+				handler.OnRevealResponse(result.Success);
+			}
+		}
+	}
+
+	/// Notify KleiItemDropHandler when no items are available.
+	/// On first open with no items, this fires inside Show() before the handler
+	/// is pushed, so we set a pending flag for OnActivate to consume.
+	[HarmonyPatch(typeof(KleiItemDropScreen), nameof(KleiItemDropScreen.PresentNoItemAvailablePrompt))]
+	internal static class KleiItemDropScreen_PresentNoItemAvailablePrompt_Patch {
+		private static void Postfix(KleiItemDropScreen __instance) {
+			if (!ModToggle.IsEnabled) return;
+			if (HandlerStack.ActiveHandler is KleiItemDropHandler handler && handler.Screen == __instance) {
+				handler.OnNoItemAvailable();
+			} else {
+				KleiItemDropHandler.HasPendingNoItem = true;
+			}
+		}
+	}
+
 	/// Patch OnShow — PauseScreen overrides OnShow, not Show.
 	[HarmonyPatch(typeof(PauseScreen), "OnShow")]
 	internal static class PauseScreen_OnShow_Patch {

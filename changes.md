@@ -2,6 +2,8 @@
 
 ## Unreleased changes since 1.2.2
 
+* Supply Closet: Duplicants screen is now accessible -- browse personalities, cycle outfit types, view outfit details, and open the editor or wardrobe
+
 ## 1.2.2
 
 * Wardrobe and designer: clothing items now include their descriptions in speech output

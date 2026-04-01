@@ -445,16 +445,38 @@ namespace OniAccess.Patches {
 		}
 	}
 
-	/// OutfitBrowserScreen does not declare OnCmpDisable, so patch the
-	/// declaring type (KMonoBehaviour) and filter by instance type.
+	/// OutfitBrowserScreen and MinionBrowserScreen do not declare OnCmpDisable,
+	/// so patch the declaring type (KMonoBehaviour) and filter by instance type.
 	[HarmonyPatch(typeof(KMonoBehaviour), "OnCmpDisable")]
-	internal static class OutfitBrowserScreen_OnCmpDisable_Patch {
+	internal static class KMonoBehaviour_OnCmpDisable_Patch {
 		private static void Postfix(KMonoBehaviour __instance) {
-			if (!(__instance is OutfitBrowserScreen screen)) return;
 			if (!ModToggle.IsEnabled) return;
-			if (HandlerStack.ActiveHandler is OutfitBrowserHandler handler
-				&& handler.BrowserScreen == screen)
-				HandlerStack.Pop();
+
+			if (__instance is OutfitBrowserScreen obs) {
+				if (HandlerStack.ActiveHandler is OutfitBrowserHandler obHandler
+					&& obHandler.BrowserScreen == obs)
+					HandlerStack.Pop();
+				return;
+			}
+
+			if (__instance is MinionBrowserScreen mbs) {
+				if (HandlerStack.ActiveHandler is MinionBrowserHandler mbHandler
+					&& mbHandler.BrowserScreen == mbs)
+					HandlerStack.Pop();
+			}
+		}
+	}
+
+	/// MinionBrowserScreen extends KMonoBehaviour (not KScreen), same
+	/// lifecycle pattern as OutfitBrowserScreen.
+	[HarmonyPatch(typeof(MinionBrowserScreen), "OnCmpEnable")]
+	internal static class MinionBrowserScreen_OnCmpEnable_Patch {
+		private static void Postfix(MinionBrowserScreen __instance) {
+			if (!ModToggle.IsEnabled) return;
+			if (!__instance.Config.isValid) return; // not yet configured
+			if (HandlerStack.ActiveHandler is MinionBrowserHandler h
+				&& h.BrowserScreen == __instance) return;
+			HandlerStack.Push(new MinionBrowserHandler(__instance));
 		}
 	}
 

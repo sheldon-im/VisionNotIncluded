@@ -59,6 +59,7 @@ namespace STRINGS {
 			public static LocString INVENTORY = "Inventory";
 			public static LocString WARDROBE = "Wardrobe";
 			public static LocString OUTFIT_DESIGNER = "Outfit designer";
+			public static LocString DUPLICANT_BROWSER = "Duplicants";
 			public static LocString ITEM_DROP = "Claim blueprints";
 			public static LocString WELCOME_MESSAGE = "Welcome message";
 			public static LocString STORY_MESSAGE = "Story message";
@@ -150,8 +151,11 @@ namespace STRINGS {
 			public static LocString TYPE_CLOTHING = "Clothing";
 			public static LocString TYPE_ATMO_SUIT = "Atmo Suit";
 			public static LocString TYPE_JET_SUIT = "Jet Suit";
+			public static LocString TYPE_JOY_RESPONSE = "Overjoyed Response";
 			public static LocString CONTAINS_LOCKED = "contains unowned items";
 			public static LocString NO_OUTFITS = "No outfits";
+			// {0} = current name, {1} = personality name
+			public static LocString DUPE_RENAMED = "{0} ({1})";
 		}
 
 		// Outfit designer screen

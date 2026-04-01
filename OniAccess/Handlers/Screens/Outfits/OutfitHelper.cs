@@ -34,6 +34,38 @@ namespace OniAccess.Handlers.Screens.Outfits {
 		}
 
 		internal static string GetOutfitTypeLabel(ClothingOutfitUtility.OutfitType type) {
+			return GetAllOutfitTypeLabel(type);
+		}
+
+		// ========================================
+		// MINION BROWSER OUTFIT TYPE LABELS (includes JoyResponse)
+		// ========================================
+
+		// Order must match ClothingOutfitUtility.OutfitType enum values
+		// (Clothing=0, JoyResponse=1, AtmoSuit=2, JetSuit=3) because
+		// MinionBrowserScreen.CyclerUI indexes by enum integer.
+		private static readonly ClothingOutfitUtility.OutfitType[] AllOutfitTypes = {
+			ClothingOutfitUtility.OutfitType.Clothing,
+			ClothingOutfitUtility.OutfitType.JoyResponse,
+			ClothingOutfitUtility.OutfitType.AtmoSuit,
+			ClothingOutfitUtility.OutfitType.JetSuit
+		};
+
+		internal static int AllOutfitTypeCount => AllOutfitTypes.Length;
+
+		internal static ClothingOutfitUtility.OutfitType GetAllOutfitType(int index) {
+			int wrapped = ((index % AllOutfitTypes.Length) + AllOutfitTypes.Length) % AllOutfitTypes.Length;
+			return AllOutfitTypes[wrapped];
+		}
+
+		internal static int IndexOfAllOutfitType(ClothingOutfitUtility.OutfitType type) {
+			for (int i = 0; i < AllOutfitTypes.Length; i++) {
+				if (AllOutfitTypes[i] == type) return i;
+			}
+			return 0;
+		}
+
+		internal static string GetAllOutfitTypeLabel(ClothingOutfitUtility.OutfitType type) {
 			string typeName;
 			switch (type) {
 				case ClothingOutfitUtility.OutfitType.Clothing:
@@ -45,11 +77,39 @@ namespace OniAccess.Handlers.Screens.Outfits {
 				case ClothingOutfitUtility.OutfitType.JetSuit:
 					typeName = (string)STRINGS.ONIACCESS.WARDROBE.TYPE_JET_SUIT;
 					break;
+				case ClothingOutfitUtility.OutfitType.JoyResponse:
+					typeName = (string)STRINGS.ONIACCESS.WARDROBE.TYPE_JOY_RESPONSE;
+					break;
 				default:
 					typeName = type.ToString();
 					break;
 			}
 			return string.Format((string)STRINGS.ONIACCESS.WARDROBE.OUTFIT_TYPE, typeName);
+		}
+
+		// ========================================
+		// JOY RESPONSE COMPOSITION
+		// ========================================
+
+		internal static List<string> GetJoyResponseComposition(MinionBrowserScreen.GridItem gridItem) {
+			var result = new List<string>();
+			string slotName = Database.PermitCategories.GetDisplayName(Database.PermitCategory.JoyResponse);
+			string itemName;
+
+			var target = gridItem.GetJoyResponseOutfitTarget();
+			var facadeId = target.ReadFacadeId();
+			if (facadeId.HasValue) {
+				var facade = Db.Get().Permits.BalloonArtistFacades.TryGet(facadeId.Unwrap());
+				itemName = facade != null ? facade.Name
+					: KleiItemsUI.GetNoneClothingItemStrings(Database.PermitCategory.JoyResponse).name;
+			} else {
+				itemName = KleiItemsUI.GetNoneClothingItemStrings(Database.PermitCategory.JoyResponse).name;
+			}
+
+			result.Add(string.Format(
+				(string)STRINGS.ONIACCESS.WARDROBE.SLOT_ITEM,
+				slotName, itemName));
+			return result;
 		}
 
 		// ========================================

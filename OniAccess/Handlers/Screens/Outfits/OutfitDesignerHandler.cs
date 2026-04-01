@@ -19,7 +19,7 @@ namespace OniAccess.Handlers.Screens.Outfits {
 	/// handler bypasses ContextDetector. Harmony patches on OnCmpEnable/
 	/// OnCmpDisable push and pop it directly on the HandlerStack.
 	/// </summary>
-	public class OutfitDesignerHandler : NestedMenuHandler {
+	public class OutfitDesignerHandler: NestedMenuHandler {
 		private readonly OutfitDesignerScreen _designerScreen;
 
 		public OutfitDesignerHandler(OutfitDesignerScreen screen) : base(screen: null) {

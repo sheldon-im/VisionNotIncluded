@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 using OniAccess.Util;
 
 namespace OniAccess.Speech {
-	public class TolkBackend : ISpeechBackend {
+	public class TolkBackend: ISpeechBackend {
 		[DllImport("Tolk.dll", CallingConvention = CallingConvention.Cdecl)]
 		private static extern void Tolk_Load();
 

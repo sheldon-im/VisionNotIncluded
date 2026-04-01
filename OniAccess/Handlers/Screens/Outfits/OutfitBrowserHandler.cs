@@ -15,7 +15,7 @@ namespace OniAccess.Handlers.Screens.Outfits {
 	/// handler bypasses ContextDetector. Harmony patches on OnCmpEnable/
 	/// OnCmpDisable push and pop it directly on the HandlerStack.
 	/// </summary>
-	public class OutfitBrowserHandler : TabbedScreenHandler {
+	public class OutfitBrowserHandler: TabbedScreenHandler {
 		private enum TabId { Gallery, Detail }
 
 		private readonly OutfitGalleryTab _galleryTab;

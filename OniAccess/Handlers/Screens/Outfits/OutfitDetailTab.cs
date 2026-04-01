@@ -17,7 +17,7 @@ namespace OniAccess.Handlers.Screens.Outfits {
 	/// - Rename (only when CanWriteName)
 	/// - Delete (only when CanDelete)
 	/// </summary>
-	internal class OutfitDetailTab : BaseMenuHandler, IScreenTab {
+	internal class OutfitDetailTab: BaseMenuHandler, IScreenTab {
 		private readonly OutfitBrowserHandler _parent;
 		private readonly List<DetailItem> _items = new List<DetailItem>();
 		private ClothingOutfitTarget? _outfit;

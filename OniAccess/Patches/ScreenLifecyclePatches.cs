@@ -437,8 +437,8 @@ namespace OniAccess.Patches {
 		private static void Postfix(OutfitBrowserScreen __instance) {
 			if (!ModToggle.IsEnabled) return;
 			if (!__instance.Config.isValid) return; // not yet configured
-			// Configure() calls SetActive(false)/SetActive(true) on re-open,
-			// which fires OnCmpDisable then OnCmpEnable — skip if already active
+													// Configure() calls SetActive(false)/SetActive(true) on re-open,
+													// which fires OnCmpDisable then OnCmpEnable — skip if already active
 			if (HandlerStack.ActiveHandler is OutfitBrowserHandler h
 				&& h.BrowserScreen == __instance) return;
 			HandlerStack.Push(new OutfitBrowserHandler(__instance));

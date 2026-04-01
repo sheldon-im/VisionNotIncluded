@@ -16,7 +16,7 @@ namespace OniAccess.Handlers.Screens.Outfits {
 	/// Enter on "New outfit" clicks the game's add button.
 	/// Type-ahead searches all items including the type selector and "New outfit".
 	/// </summary>
-	internal class OutfitGalleryTab : BaseMenuHandler, IScreenTab {
+	internal class OutfitGalleryTab: BaseMenuHandler, IScreenTab {
 		private readonly OutfitBrowserHandler _parent;
 		private List<ClothingOutfitTarget> _outfits;
 		private ClothingOutfitUtility.OutfitType _outfitType;

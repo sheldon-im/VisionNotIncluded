@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 using OniAccess.Util;
 
 namespace OniAccess.Speech {
-	public class PrismBackend : ISpeechBackend {
+	public class PrismBackend: ISpeechBackend {
 		[StructLayout(LayoutKind.Sequential)]
 		private struct PrismConfig {
 			public byte version;

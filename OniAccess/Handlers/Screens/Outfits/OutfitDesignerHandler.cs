@@ -259,10 +259,25 @@ namespace OniAccess.Handlers.Screens.Outfits {
 			var fieldName = actionIndex == 0 ? "primaryButton" : "secondaryButton";
 			var button = Traverse.Create(_designerScreen)
 				.Field<KButton>(fieldName).Value;
-			if (button != null && button.isInteractable) {
-				button.SignalClick(KKeyCode.None);
-				PlaySound("HUD_Click");
+			if (button == null) return;
+
+			if (!button.isInteractable) {
+				PlaySound("Negative");
+				var tooltip = button.gameObject.GetComponent<ToolTip>();
+				if (tooltip != null) {
+					string reason = Widgets.WidgetOps.ReadAllTooltipText(tooltip);
+					if (!string.IsNullOrEmpty(reason)) {
+						SpeechPipeline.SpeakInterrupt(reason);
+						return;
+					}
+				}
+				SpeechPipeline.SpeakInterrupt(
+					(string)STRINGS.ONIACCESS.FABRICATOR.UNAVAILABLE);
+				return;
 			}
+
+			button.SignalClick(KKeyCode.None);
+			PlaySound("HUD_Click");
 		}
 
 		// ========================================

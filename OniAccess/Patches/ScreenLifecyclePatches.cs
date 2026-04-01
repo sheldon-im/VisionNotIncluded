@@ -463,6 +463,13 @@ namespace OniAccess.Patches {
 				if (HandlerStack.ActiveHandler is MinionBrowserHandler mbHandler
 					&& mbHandler.BrowserScreen == mbs)
 					HandlerStack.Pop();
+				return;
+			}
+
+			if (__instance is JoyResponseDesignerScreen jrds) {
+				if (HandlerStack.ActiveHandler is JoyResponseDesignerHandler jrHandler
+					&& jrHandler.DesignerScreen == jrds)
+					HandlerStack.Pop();
 			}
 		}
 	}
@@ -482,6 +489,19 @@ namespace OniAccess.Patches {
 
 	/// OutfitDesignerScreen extends KMonoBehaviour (not KScreen), same
 	/// lifecycle pattern as OutfitBrowserScreen.
+	/// JoyResponseDesignerScreen extends KMonoBehaviour (not KScreen), same
+	/// lifecycle pattern as OutfitBrowserScreen.
+	[HarmonyPatch(typeof(JoyResponseDesignerScreen), "OnCmpEnable")]
+	internal static class JoyResponseDesignerScreen_OnCmpEnable_Patch {
+		private static void Postfix(JoyResponseDesignerScreen __instance) {
+			if (!ModToggle.IsEnabled) return;
+			if (!__instance.Config.isValid) return;
+			if (HandlerStack.ActiveHandler is JoyResponseDesignerHandler h
+				&& h.DesignerScreen == __instance) return;
+			HandlerStack.Push(new JoyResponseDesignerHandler(__instance));
+		}
+	}
+
 	[HarmonyPatch(typeof(OutfitDesignerScreen), "OnCmpEnable")]
 	internal static class OutfitDesignerScreen_OnCmpEnable_Patch {
 		private static void Postfix(OutfitDesignerScreen __instance) {

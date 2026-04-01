@@ -74,6 +74,7 @@ namespace STRINGS {
 			public static LocString WORLD_SELECTOR = "World list";
 			public static LocString DISINFECT_SETTINGS = "disinfect settings";
 			public static LocString CONFIG = "Settings";
+			public static LocString JOY_RESPONSE_DESIGNER = "Overjoyed response designer";
 		}
 
 		// Config screen option labels

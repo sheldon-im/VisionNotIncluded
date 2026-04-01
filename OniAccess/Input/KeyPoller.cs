@@ -36,7 +36,7 @@ namespace OniAccess.Input {
 			if (!_startupDone) {
 				_startupDone = true;
 				try {
-					var mainMenu = UnityEngine.Object.FindObjectOfType<MainMenu>();
+					var mainMenu = UnityEngine.Object.FindFirstObjectByType<MainMenu>();
 					if (mainMenu != null)
 						ContextDetector.OnScreenActivated(mainMenu);
 				} catch (System.Exception ex) {

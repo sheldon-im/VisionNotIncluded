@@ -84,9 +84,16 @@ namespace OniAccess.Handlers.Tools {
 			var sourceGO = Traverse.Create(tool)
 				.Field("sourceGameObject").GetValue<GameObject>();
 
-			bool success = CopyBuildingSettings.ApplyCopy(cell, sourceGO);
+			var targetId = CopyBuildingSettings.ResolveTarget(
+				CopyBuildingSettings.ResolveLayer(sourceGO), cell);
+			var sourceId = sourceGO.GetComponent<KPrefabID>();
+			var sourceSettings = sourceGO.GetComponent<CopyBuildingSettings>();
+
+			bool success = targetId != null && sourceId != null && sourceSettings != null
+				&& targetId.gameObject != sourceGO
+				&& CopyBuildingSettings.ApplyCopy(targetId, sourceGO, sourceId, sourceSettings);
 			if (success) {
-				var targetGO = GetTargetGO(cell, sourceGO);
+				var targetGO = targetId.gameObject;
 				if (FarmCopyFailed(sourceGO, targetGO)) {
 					BaseScreenHandler.PlaySound("Negative");
 					SpeechPipeline.SpeakInterrupt(
@@ -135,16 +142,6 @@ namespace OniAccess.Handlers.Tools {
 
 			return string.Format(
 				(string)STRINGS.ONIACCESS.TOOLS.COPY_SETTINGS_ACTIVATION, name);
-		}
-
-		private static GameObject GetTargetGO(int cell, GameObject sourceGO) {
-			ObjectLayer layer = ObjectLayer.Building;
-			if (sourceGO.GetComponent<MoverLayerOccupier>() != null)
-				layer = ObjectLayer.Mover;
-			var building = sourceGO.GetComponent<BuildingComplete>();
-			if (building != null)
-				layer = building.Def.ObjectLayer;
-			return Grid.Objects[cell, (int)layer];
 		}
 
 		private static bool FarmCopyFailed(GameObject sourceGO, GameObject targetGO) {

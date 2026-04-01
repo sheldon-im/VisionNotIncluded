@@ -347,7 +347,7 @@ namespace OniAccess.Handlers {
 			Util.Log.Debug("ContextDetector.DetectAndActivate called");
 
 			// Find all live KScreens in the scene (ground truth, not a private stack)
-			var allScreens = UnityEngine.Object.FindObjectsOfType<KScreen>();
+			var allScreens = UnityEngine.Object.FindObjectsByType<KScreen>(UnityEngine.FindObjectsSortMode.None);
 
 			// Filter to registered, visible screens
 			var matches = new System.Collections.Generic.List<KScreen>();

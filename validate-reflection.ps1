@@ -485,8 +485,8 @@ foreach ($file in $csFiles) {
         Add-VarType $varTypes $m.Groups[1].Value $m.Groups[2].Value
     }
 
-    # --- GetComponent<T>(): varName = expr.GetComponent<TypeName>() ---
-    foreach ($m in [regex]::Matches($rawContent, '(\w+)\s*=\s*[^;]+\.GetComponent<(\w+)>\s*\(')) {
+    # --- GetComponent/GetComponentInChildren<T>(): varName = expr.GetComponent*<TypeName>() ---
+    foreach ($m in [regex]::Matches($rawContent, '(\w+)\s*=\s*[^;]+\.GetComponent\w*<(\w+)>\s*\(')) {
         Add-VarType $varTypes $m.Groups[1].Value $m.Groups[2].Value
     }
 

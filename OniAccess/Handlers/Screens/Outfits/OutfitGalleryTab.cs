@@ -9,9 +9,11 @@ namespace OniAccess.Handlers.Screens.Outfits {
 	///
 	/// Index 0 = outfit type selector (Clothing / AtmoSuit / JetSuit).
 	///           Left/Right cycles between types.
-	/// Index 1..N = outfit entries for the current type.
+	/// Index 1 = "None" entry (only when picking for a dupe; clears the outfit).
+	/// Index 1..N (or 2..N) = outfit entries for the current type.
 	/// Last = "New outfit" entry (opens the outfit designer).
 	///
+	/// Enter on "None" jumps to the detail tab with no outfit selected.
 	/// Enter on an outfit jumps to the detail tab.
 	/// Enter on "New outfit" clicks the game's add button.
 	/// Type-ahead searches all items including the type selector and "New outfit".
@@ -27,6 +29,9 @@ namespace OniAccess.Handlers.Screens.Outfits {
 			_outfitType = ClothingOutfitUtility.OutfitType.Clothing;
 			_outfitTypeIndex = 0;
 		}
+
+		private bool HasNoneEntry =>
+			_parent.BrowserScreen.Config.isPickingOutfitForDupe;
 
 		public string TabName => (string)STRINGS.ONIACCESS.WARDROBE.GALLERY_TAB;
 
@@ -87,17 +92,26 @@ namespace OniAccess.Handlers.Screens.Outfits {
 		// BaseMenuHandler overrides
 		// ========================================
 
-		// +1 for type selector at top, +1 for "New outfit" at bottom
-		public override int ItemCount => GetOutfits().Count + 2;
+		// +1 for type selector at top, +1 for "New outfit" at bottom,
+		// +1 for "None" entry when picking for a dupe
+		public override int ItemCount => GetOutfits().Count + 2 + (HasNoneEntry ? 1 : 0);
 
 		public override string GetItemLabel(int index) {
 			if (index == 0)
 				return OutfitHelper.GetOutfitTypeLabel(_outfitType);
 
-			var outfits = GetOutfits();
-			int outfitIndex = index - 1;
+			int offset = 1;
 
-			if (outfitIndex < outfits.Count)
+			if (HasNoneEntry) {
+				if (index == offset)
+					return KleiItemsUI.GetNoneOutfitName(_outfitType);
+				offset++;
+			}
+
+			var outfits = GetOutfits();
+			int outfitIndex = index - offset;
+
+			if (outfitIndex >= 0 && outfitIndex < outfits.Count)
 				return OutfitHelper.GetOutfitLabel(outfits[outfitIndex]);
 
 			// Last item: "New outfit"
@@ -118,10 +132,21 @@ namespace OniAccess.Handlers.Screens.Outfits {
 		protected override void ActivateCurrentItem() {
 			if (CurrentIndex == 0) return; // type selector — no activate
 
-			var outfits = GetOutfits();
-			int outfitIndex = CurrentIndex - 1;
+			int offset = 1;
 
-			if (outfitIndex < outfits.Count) {
+			if (HasNoneEntry) {
+				if (CurrentIndex == offset) {
+					PlaySound("HUD_Click_Open");
+					_parent.JumpToDetailTabNone();
+					return;
+				}
+				offset++;
+			}
+
+			var outfits = GetOutfits();
+			int outfitIndex = CurrentIndex - offset;
+
+			if (outfitIndex >= 0 && outfitIndex < outfits.Count) {
 				PlaySound("HUD_Click_Open");
 				_parent.JumpToDetailTab(outfits[outfitIndex]);
 				return;
@@ -156,9 +181,10 @@ namespace OniAccess.Handlers.Screens.Outfits {
 
 		private bool NavigateToOutfit(ClothingOutfitTarget outfit) {
 			var outfits = GetOutfits();
+			int offset = 1 + (HasNoneEntry ? 1 : 0);
 			for (int i = 0; i < outfits.Count; i++) {
 				if (outfits[i].Equals(outfit)) {
-					CurrentIndex = i + 1;
+					CurrentIndex = i + offset;
 					_search.Clear();
 					SuppressSearchThisFrame();
 					return true;

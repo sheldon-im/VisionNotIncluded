@@ -21,6 +21,8 @@ namespace OniAccess.Handlers.Screens.Outfits {
 		private readonly OutfitBrowserHandler _parent;
 		private readonly List<DetailItem> _items = new List<DetailItem>();
 		private ClothingOutfitTarget? _outfit;
+		private bool _isNone;
+		private ClothingOutfitUtility.OutfitType _noneOutfitType;
 
 		internal OutfitDetailTab(OutfitBrowserHandler parent) : base(screen: null) {
 			_parent = parent;
@@ -61,12 +63,32 @@ namespace OniAccess.Handlers.Screens.Outfits {
 
 		internal void LoadOutfit(ClothingOutfitTarget outfit) {
 			_outfit = outfit;
+			_isNone = false;
+			RebuildItems();
+			CurrentIndex = 0;
+		}
+
+		internal void LoadNone(ClothingOutfitUtility.OutfitType outfitType) {
+			_outfit = null;
+			_isNone = true;
+			_noneOutfitType = outfitType;
 			RebuildItems();
 			CurrentIndex = 0;
 		}
 
 		private void RebuildItems() {
 			_items.Clear();
+
+			if (_isNone) {
+				_items.Add(new DetailItem {
+					text = KleiItemsUI.GetNoneOutfitName(_noneOutfitType)
+				});
+				var browserScreen = _parent.BrowserScreen;
+				if (browserScreen != null)
+					TryAddButton(browserScreen, "pickOutfitButton", DetailAction.Pick);
+				return;
+			}
+
 			if (!_outfit.HasValue) return;
 
 			var outfit = _outfit.Value;
@@ -80,20 +102,20 @@ namespace OniAccess.Handlers.Screens.Outfits {
 				_items.Add(new DetailItem { text = line });
 
 			// Action buttons — read labels from live button text
-			var browserScreen = _parent.BrowserScreen;
-			if (browserScreen != null) {
+			var browserScreen2 = _parent.BrowserScreen;
+			if (browserScreen2 != null) {
 				// Pick (only when picking for a dupe)
-				if (browserScreen.Config.isPickingOutfitForDupe)
-					TryAddButton(browserScreen, "pickOutfitButton", DetailAction.Pick);
+				if (browserScreen2.Config.isPickingOutfitForDupe)
+					TryAddButton(browserScreen2, "pickOutfitButton", DetailAction.Pick);
 
-				TryAddButton(browserScreen, "editOutfitButton", DetailAction.Edit);
+				TryAddButton(browserScreen2, "editOutfitButton", DetailAction.Edit);
 
 				if (outfit.CanWriteName)
-					TryAddButton(browserScreen, "renameOutfitButton", DetailAction.Rename,
+					TryAddButton(browserScreen2, "renameOutfitButton", DetailAction.Rename,
 						(string)STRINGS.UI.OUTFIT_BROWSER_SCREEN.TOOLTIP_RENAME_OUTFIT);
 
 				if (outfit.CanDelete)
-					TryAddButton(browserScreen, "deleteOutfitButton", DetailAction.Delete,
+					TryAddButton(browserScreen2, "deleteOutfitButton", DetailAction.Delete,
 						(string)STRINGS.UI.OUTFIT_BROWSER_SCREEN.TOOLTIP_DELETE_OUTFIT);
 			}
 		}

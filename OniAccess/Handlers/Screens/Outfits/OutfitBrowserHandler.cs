@@ -137,6 +137,22 @@ namespace OniAccess.Handlers.Screens.Outfits {
 		}
 
 		/// <summary>
+		/// Switch to detail tab with no outfit (the "None" entry).
+		/// Clears the game-side selection so the pick button will reset to default.
+		/// </summary>
+		internal void JumpToDetailTabNone() {
+			if (ActiveTabIndex == (int)TabId.Detail) return;
+
+			_browserScreen.state.SelectedOutfitOpt = Option.None;
+
+			_detailTab.LoadNone(_galleryTab.CurrentOutfitType);
+			DeactivateCurrentTab();
+			ActiveTabIndex = (int)TabId.Detail;
+			PlaySound("HUD_Mouseover");
+			ActivateCurrentTab(announce: true);
+		}
+
+		/// <summary>
 		/// Switch from detail tab to gallery, landing on the last-viewed outfit.
 		/// </summary>
 		private void JumpToGalleryOnOutfit() {

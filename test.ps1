@@ -37,7 +37,7 @@ if (-not $env:ONI_MANAGED) {
 }
 
 $TestProject = "$PSScriptRoot\OniAccess.Tests\OniAccess.Tests.csproj"
-$TestExe     = "$PSScriptRoot\OniAccess.Tests\bin\Debug\net472\OniAccess.Tests.exe"
+$TestExe     = "$PSScriptRoot\OniAccess.Tests\bin\Debug\net48\OniAccess.Tests.exe"
 
 Write-Host "Building tests..." -ForegroundColor Cyan
 dotnet build $TestProject -c Debug

@@ -55,6 +55,10 @@ namespace OniAccess.Speech {
 		// Sprites already warned about (suppress repeated log spam)
 		private static readonly HashSet<string> _warnedSprites = new HashSet<string>();
 
+		// " (Original)" suffix the game appends to every non-mutated plant once
+		// any mutation is discovered for that species.
+		private static string _originalMutationSuffix;
+
 		/// <summary>
 		/// Register a sprite name to spoken text mapping.
 		/// Meaningful sprites (e.g., "warning") are converted to words;
@@ -75,6 +79,16 @@ namespace OniAccess.Speech {
 			RegisterSprite("warning", (string)STRINGS.ONIACCESS.SPRITES.WARNING);
 			RegisterSprite("logic_signal_green", (string)STRINGS.ONIACCESS.SPRITES.LOGIC_GREEN);
 			RegisterSprite("logic_signal_red", (string)STRINGS.ONIACCESS.SPRITES.LOGIC_RED);
+			SetOriginalMutationLabel((string)STRINGS.CREATURES.PLANT_MUTATIONS.NONE.NAME);
+		}
+
+		/// <summary>
+		/// Set the "original plant" mutation label that should be stripped from
+		/// plant names. Called by InitializeDefaults with the game's localized
+		/// string; tests can call directly with a literal.
+		/// </summary>
+		public static void SetOriginalMutationLabel(string label) {
+			_originalMutationSuffix = string.IsNullOrEmpty(label) ? null : " (" + label + ")";
 		}
 
 		/// <summary>
@@ -111,6 +125,11 @@ namespace OniAccess.Speech {
 			// messages and tooltips. Screen readers announce it as "bullet" which
 			// breaks speech flow.
 			text = text.Replace("\u2022", "");
+
+			// Strip "(Original)" mutation label the game appends to non-mutated
+			// plants once any mutation is discovered for that species.
+			if (_originalMutationSuffix != null)
+				text = text.Replace(_originalMutationSuffix, "");
 
 			// Resolve game template placeholders: {Hotkey/ActionName} → key name,
 			// (ClickType/click) → "click" or "press" depending on controller.

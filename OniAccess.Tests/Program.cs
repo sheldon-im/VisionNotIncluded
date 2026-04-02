@@ -127,6 +127,9 @@ namespace OniAccess.Tests {
 			results.Add(TextFilterPreservesNumericBrackets());
 			results.Add(TextFilterStripsControlChars());
 			results.Add(TextFilterCombinedMarkup());
+			TextFilter.SetOriginalMutationLabel("Original");
+			results.Add(TextFilterStripsOriginalMutation());
+			results.Add(TextFilterPreservesMutatedPlant());
 
 			// --- Log class ---
 			results.Add(LogWarnRoutesToWarnFn());
@@ -1215,6 +1218,18 @@ namespace OniAccess.Tests {
 				"<sprite name=warning><b><color=red>Overheat [45%]</color></b> {Hotkey}Ctrl+X");
 			bool ok = result == "warning: Overheat 45%";
 			return Assert("TextFilterCombinedMarkup", ok, $"got \"{result}\"");
+		}
+
+		private static (string, bool, string) TextFilterStripsOriginalMutation() {
+			string result = TextFilter.FilterForSpeech("Mealwood (Original)");
+			bool ok = result == "Mealwood";
+			return Assert("TextFilterStripsOriginalMutation", ok, $"got \"{result}\"");
+		}
+
+		private static (string, bool, string) TextFilterPreservesMutatedPlant() {
+			string result = TextFilter.FilterForSpeech("Mealwood (Squashed, Exuberant)");
+			bool ok = result == "Mealwood (Squashed, Exuberant)";
+			return Assert("TextFilterPreservesMutatedPlant", ok, $"got \"{result}\"");
 		}
 
 		// ========================================

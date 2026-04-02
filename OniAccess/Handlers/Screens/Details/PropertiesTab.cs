@@ -138,7 +138,7 @@ namespace OniAccess.Handlers.Screens.Details {
 				sections.Add(detailsSection);
 			}
 
-			detailsSection.Items.Add(new LabelWidget {
+			detailsSection.Items.Insert(0, new LabelWidget {
 				Key = "pathing",
 				SpeechFunc = () => FormatPathing(navigator)
 			});

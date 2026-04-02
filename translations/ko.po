@@ -1627,6 +1627,256 @@ msgctxt "STRINGS.ONIACCESS.DLC.OWNED_NOT_ACTIVE"
 msgid "Owned, not active"
 msgstr "보유, 비활성"
 
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.ABE
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.ABE"
+msgid "Brown skin with a shock of spiky white hair swept dramatically backward, like he styled it in a wind tunnel and committed to the results. Big round eyes and a small, contented smile. He wears a blue jumpsuit with gold trim and a matching belt, giving him the look of a tiny, well-dressed dandelion."
+msgstr "갈색 피부에 뾰족한 흰 머리카락이 뒤로 극적으로 쓸려 있는데, 마치 풍동에서 스타일링한 결과를 그대로 밀고 나가기로 한 것 같다. 크고 동그란 눈과 작고 만족스러운 미소. 금색 장식이 달린 파란 점프수트에 어울리는 벨트를 착용하고 있어, 작고 잘 차려입은 민들레 같은 모습이다."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.ADA
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.ADA"
+msgid "Dark brown skin framed by a magnificent cloud of curly brown hair that doubles the apparent size of her head. Her brow is furrowed and her mouth is set in a flat line that says she has already judged you and found you lacking. She wears a red-and-black jumpsuit with a yellow belt, arms hanging at her sides like she can't be bothered to do anything with them."
+msgstr "짙은 갈색 피부에 머리 크기를 두 배로 보이게 하는 웅장한 갈색 곱슬머리 구름이 얼굴을 감싸고 있다. 이마에 주름이 잡히고 입은 일자로 다물어져 있는데, 이미 당신을 평가하고 부족하다고 결론 내린 표정이다. 노란 벨트가 달린 빨간색과 검은색 점프수트를 입고, 팔은 양쪽에 축 늘어뜨린 채 뭔가 할 생각이 전혀 없어 보인다."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.AMARI
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.AMARI"
+msgid "Dark brown skin and short dark locs that stick out in every direction like a crown of small antennae. He's got a warm, easygoing smile and stands with his hands on his hips in a pose that radiates \"I've got this.\" Yellow-green top, black pants, and a belt that's doing its best to hold the whole outfit together."
+msgstr "짙은 갈색 피부에 작은 안테나 왕관처럼 사방으로 뻗은 짧고 어두운 드레드락. 따뜻하고 느긋한 미소를 짓고 허리에 손을 얹은 자세로 \"내가 다 알아서 할게\"라는 기운을 풍긴다. 황록색 상의, 검은 바지, 그리고 전체 의상을 간신히 붙들고 있는 벨트."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.ARI
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.ARI"
+msgid "Pale skin and a dark mohawk that stands at attention like it has somewhere important to be. Their eyes are permanently narrowed into a skeptical squint, paired with thick eyebrows and a mouth that can't quite decide between a smirk and a scowl. They wear a yellow-and-orange striped top with black pants, looking like a very small, very suspicious bumblebee."
+msgstr "창백한 피부에 어딘가 중요한 곳에 가야 할 것처럼 꼿꼿이 서 있는 어두운 모히칸. 두꺼운 눈썹 아래 눈은 영구적으로 의심 가득한 가늘게 뜬 상태이고, 입은 능글맞은 웃음과 째려보는 것 사이에서 결정을 못 내린다. 노란색과 주황색 줄무늬 상의에 검은 바지를 입어, 아주 작고 아주 수상한 꿀벌 같다."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.ASHKAN
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.ASHKAN"
+msgid "Light-medium skin with dark hair slicked neatly to one side. His eyes are squeezed shut in a beaming smile so wide it takes up most of his face, like someone just told a joke only he heard. He wears a teal top with yellow shoulder accents and black pants, looking pleasantly overdressed for asteroid life."
+msgstr "밝은 중간 톤 피부에 짙은 머리카락이 한쪽으로 깔끔하게 빗어져 있다. 얼굴 대부분을 차지할 만큼 환하게 웃으며 눈을 꼭 감고 있는데, 자기만 들은 농담이 있는 것 같다. 노란색 어깨 장식이 달린 청록색 상의에 검은 바지를 입고, 소행성 생활치고는 기분 좋게 과하게 차려입었다."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.BANHI
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.BANHI"
+msgid "Dark brown skin and dark hair pulled into two neat buns perched on top of her head. Her eyes are half-lidded and her mouth is set in a slight frown, the universal expression of someone who is too cool to be here. She wears a dark top splashed with a bold orange pattern and black pants, arms hanging at her sides like she can't be bothered to do anything with them either."
+msgstr "짙은 갈색 피부에 짙은 머리카락이 머리 꼭대기에 두 개의 깔끔한 번으로 올려져 있다. 반쯤 감긴 눈에 입은 약간 찡그린 상태로, 여기 있기엔 너무 쿨한 사람의 보편적 표정이다. 대담한 주황색 무늬가 있는 어두운 상의에 검은 바지를 입고, 팔은 양쪽에 축 늘어뜨린 채 역시나 뭔가 할 생각이 전혀 없다."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.BUBBLES
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.BUBBLES"
+msgid "Light skin and lavender hair twisted into two buns that sit atop her head like a pair of angry little cinnamon rolls. Her brow is furrowed and her mouth is clenched in a grimace that suggests she is about three seconds from headbutting someone. She wears a blue top with yellow accents and black pants, fists balled at her sides. Everything about her posture says the name \"Bubbles\" was not her choice."
+msgstr "밝은 피부에 라벤더색 머리가 머리 위에 성난 작은 시나몬 롤 한 쌍처럼 두 개의 번으로 꼬여 있다. 이마에 주름이 잡히고 입을 꽉 다물어, 3초 후면 누군가에게 박치기를 할 것 같다. 노란 장식이 달린 파란 상의에 검은 바지를 입고, 주먹을 불끈 쥐고 있다. 자세의 모든 것이 \"버블스\"라는 이름은 본인의 선택이 아니었다고 말하고 있다."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.BURT
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.BURT"
+msgid "Dark brown skin with dark hair gathered into a tidy bun on top of his head. He sports a wide, toothy grin that takes up roughly a third of his face and suggests he just remembered something wonderful. He wears a red top with a gold collar and black pants, arms slightly outstretched like he's about to offer you a hug whether you want one or not."
+msgstr "짙은 갈색 피부에 짙은 머리카락이 머리 꼭대기에 깔끔한 번으로 묶여 있다. 얼굴의 대략 3분의 1을 차지하는 활짝 이빨 미소가 마치 방금 뭔가 멋진 걸 떠올린 것 같다. 금색 칼라의 빨간 상의에 검은 바지를 입고, 팔을 살짝 벌린 채 원하든 말든 포옹해 줄 기세다."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.CAMILLE
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.CAMILLE"
+msgid "Medium-dark skin and a swooping bob of auburn hair that falls across one side of her face. Her expression sits in the narrow zone between wistful and mildly unimpressed, brow slightly furrowed like she's remembering something from a long time ago and isn't sure she likes it. Blue top with yellow accents and black pants."
+msgstr "중간 짙은 톤의 피부에 적갈색 단발이 얼굴 한쪽으로 흘러내린다. 표정은 그리움과 약간의 무감동 사이 좁은 영역에 있고, 이마가 살짝 찌푸려져 오래전 기억을 떠올리며 그게 좋았는지 확신이 없는 것 같다. 노란 장식의 파란 상의에 검은 바지."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.CATALINA
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.CATALINA"
+msgid "Light skin and a blonde bob that bounces with the force of her enthusiasm. Her eyes are squeezed shut and her grin is enormous, showing every tooth she owns, like someone who has decided that smiling hard enough counts as a personality. She's caught mid-stride in a maroon top with gold accents and black pants, one arm flung out, running full tilt toward something the rest of us can't see."
+msgstr "밝은 피부에 열정의 힘으로 튀어 오르는 금발 단발. 눈을 꼭 감고 이빨을 총동원한 거대한 미소를 짓고 있는데, 열심히 웃으면 그것 자체가 성격이 된다고 결심한 사람 같다. 금색 장식의 적갈색 상의에 검은 바지 차림으로 한쪽 팔을 내뻗으며 나머지 사람들은 볼 수 없는 무언가를 향해 전속력으로 달리는 중이다."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.CHIP
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.CHIP"
+msgid "Dark brown skin with the left half of their face replaced by a silver metal plate, one organic eye and one dark cybernetic lens. A row of golden, kernel-shaped LED bumps runs across the top of their head in place of hair. They wear a purple top with glowing cyan trim and black pants, with mechanical arms that end in chunky teal-jointed fists. Despite being roughly forty percent replacement parts, they're wearing a cheerful little smile."
+msgstr "짙은 갈색 피부에 얼굴 왼쪽 절반이 은색 금속판으로 대체되어 있고, 유기 눈 하나와 어두운 사이버네틱 렌즈 하나. 머리카락 대신 금색 옥수수 알 모양 LED 돌기가 머리 꼭대기를 가로지른다. 빛나는 시안 테두리의 보라 상의에 검은 바지, 청록 관절의 묵직한 주먹으로 끝나는 기계팔. 대략 40퍼센트가 교체 부품임에도 유쾌한 작은 미소를 짓고 있다."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.DEVON
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.DEVON"
+msgid "Pale skin and a mop of wavy brown hair that flops to one side like it gave up halfway through styling itself. Wide eyes and a tiny mouth frozen in a look of mild surprise, as though they just walked into a room and forgot why. They wear an orange patterned top and black pants, standing with their hands clasped together in a posture that suggests they would very much like to be somewhere else but are too polite to leave."
+msgstr "창백한 피부에 스타일링 도중 포기한 것처럼 한쪽으로 축 늘어진 웨이브 갈색 머리. 큰 눈과 작은 입이 가벼운 놀람 속에 얼어붙어, 방금 방에 들어왔는데 왜 왔는지 잊어버린 것 같다. 주황색 무늬 상의에 검은 바지를 입고, 손을 모은 채 서 있는데, 다른 곳에 가고 싶지만 너무 예의 바라서 떠나지 못하는 것 같다."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.EDWIREDO
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.EDWIREDO"
+msgid "Pale skin with an enormous dark cybernetic lens covering most of the right side of his face, filled with a teal grid pattern. His remaining eye is a small dot above a content little smile, giving the impression that losing half his face to machinery hasn't dampened his mood. A teal fin crests the top of his head and mechanical ports stud the side of his skull. Purple top with glowing cyan trim, black pants, one hand raised in a friendly wave."
+msgstr "창백한 피부에 청록 격자 패턴으로 채워진 거대한 어두운 사이버네틱 렌즈가 얼굴 오른쪽 대부분을 덮고 있다. 남은 눈은 만족스러운 작은 미소 위의 작은 점인데, 얼굴 절반을 기계에 빼앗겨도 기분은 전혀 꺾이지 않은 인상이다. 청록색 지느러미가 머리 꼭대기를 장식하고 두개골 옆에 기계 포트가 박혀 있다. 빛나는 시안 테두리의 보라 상의, 검은 바지, 한 손을 들어 친근하게 흔들고 있다."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.ELLIE
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.ELLIE"
+msgid "Olive skin and a cascade of wavy blonde hair that frames her face like a set of curtains she refuses to tie back. She has a big toothy smile and bright, eager eyes that are practically vibrating with excitement about something she hasn't told you yet. She wears a blue-and-orange striped top with black pants."
+msgstr "올리브색 피부에 묶을 생각이 전혀 없는 커튼처럼 얼굴을 감싸는 물결치는 금발. 커다란 이빨 미소와 밝고 열정적인 눈이 아직 말하지 않은 무언가에 대한 흥분으로 사실상 진동하고 있다. 파랑과 주황 줄무늬 상의에 검은 바지."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.FRANKIE
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.FRANKIE"
+msgid "Tan skin topped by a sweep of dark hair and, more importantly, two of the most commanding eyebrows ever printed by a Printing Pod. They sit above a flat, no-nonsense expression like a pair of caterpillars that have achieved self-actualization. The rest of Frankie is there too, wearing a blue-and-gold top with black pants, but honestly the eyebrows are doing all the heavy lifting."
+msgstr "황갈색 피부 위로 짙은 머리카락이 쓸려 있고, 더 중요한 것은 인쇄 포드가 찍어낸 것 중 가장 위풍당당한 눈썹 두 개. 자아실현을 이룬 애벌레 한 쌍처럼 무표정하고 단호한 표정 위에 자리 잡고 있다. 프랭키의 나머지 부분도 파랑과 금색 상의에 검은 바지를 입고 있지만, 솔직히 눈썹이 다 하고 있다."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.FREYJA
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.FREYJA"
+msgid "Pale skin and a flowing mane of silver-white hair that sweeps around her face and past her shoulders, shimmering with a faint icy blue tint. She has big dark eyes and a small, self-satisfied smirk, the face of someone who knows something you don't and is enjoying it. Blue top with gold accents and black pants, fists at her sides. She looks like winter personified and slightly up to no good."
+msgstr "창백한 피부에 얼굴을 감싸며 어깨를 넘기는 은백색 머리카락이 흘러내리고, 희미한 얼음빛 파란 색조가 반짝인다. 큰 어두운 눈과 작고 자기만족적인 미소는 당신이 모르는 걸 알고 즐기는 사람의 얼굴이다. 금색 장식의 파란 상의에 검은 바지, 주먹을 양옆에. 겨울을 의인화한 것 같으면서 약간 수상한 일을 꾸미고 있는 것 같다."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.GIZMO
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.GIZMO"
+msgid "Tan skin with a mechanical monocle bolted over his left eye, its lens glinting with magnification rings. His head is ringed by a halo of circuit boards and metal components arranged like a tech-scrap crown, where hair would normally be. He has one small organic eye and a pleased little smile beneath the monocle, looking like the happiest thing in the room and also the most heavily accessorized. Purple top with cyan accents, black pants, one hand up in a wave."
+msgstr "황갈색 피부에 왼쪽 눈 위에 볼트로 고정된 기계식 모노클, 렌즈에는 확대 링이 반짝인다. 머리카락이 있어야 할 자리에 회로 기판과 금속 부품이 테크 스크랩 왕관처럼 머리를 둘러싸고 있다. 모노클 아래로 작은 유기 눈 하나와 흡족한 작은 미소가 있어, 방에서 가장 행복하고 동시에 가장 액세서리를 많이 한 존재다. 시안 장식의 보라 상의, 검은 바지, 한 손을 들어 흔들고 있다."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.GOSSMANN
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.GOSSMANN"
+msgid "Pale skin and blonde hair pulled back into a little flip at the side. Her eyes are scrunched shut and she's wearing a lopsided grin, leaning slightly to one side like she just told a joke and is already laughing at it before anyone else can react. Gold top with dark accents and black pants. Her whole posture radiates the energy of someone who is absolutely about to do something silly."
+msgstr "창백한 피부에 금발이 옆으로 살짝 뒤집어 묶여 있다. 눈을 찡그려 감고 비뚤어진 미소를 지으며 한쪽으로 살짝 기울어져 있는데, 방금 농담을 하고 다른 사람이 반응하기도 전에 이미 웃고 있는 것 같다. 어두운 장식의 금색 상의에 검은 바지. 전체 자세에서 지금 당장 뭔가 바보 같은 짓을 하려는 에너지가 뿜어져 나온다."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.HAROLD
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.HAROLD"
+msgid "Medium-brown skin and a generous halo of dark curly hair that adds considerable volume to an otherwise unremarkable silhouette. His eyes droop slightly and his mouth is set in a flat line, the face of a man who is present and accounted for and not much else. Teal-and-yellow striped top, black pants. Harold is here."
+msgstr "중간 갈색 피부에 그 외에는 평범한 실루엣에 상당한 볼륨을 더하는 넉넉한 짙은 곱슬머리 후광. 눈이 살짝 처지고 입은 일자로 다물어져 있어, 출석은 했지만 그 이상은 별로인 남자의 얼굴이다. 청록과 노란 줄무늬 상의, 검은 바지. 해롤드는 여기 있다."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.HASSAN
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.HASSAN"
+msgid "Tan skin and brown hair swept loosely to one side. His eyes are cast downward and slightly to the left, as though he's trying very hard not to make eye contact with whoever is looking at him right now. Arms crossed over an orange top with teal accents and black pants. His whole posture is a polite request to not be perceived."
+msgstr "황갈색 피부에 갈색 머리가 한쪽으로 느슨하게 쓸려 있다. 눈은 아래로 그리고 약간 왼쪽을 향해 있는데, 지금 자기를 보고 있는 사람과 눈을 마주치지 않으려고 필사적인 것 같다. 청록 장식의 주황 상의에 검은 바지 위로 팔짱을 끼고 있다. 전체 자세가 인식되지 않기를 바라는 정중한 요청이다."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.HIGBY
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.HIGBY"
+msgid "Pale skin and dark hair slicked back, with what appears to be a bone or feather tucked behind one ear as an accessory. He has big dark eyes and a wide, toothy grin, fists up in an enthusiastic stride like a man who is going somewhere and is thrilled about it. Gold-yellow top with a darker belt and black pants. He looks like the most upbeat caveman you've ever met."
+msgstr "창백한 피부에 짙은 머리카락이 뒤로 빗어져 있고, 한쪽 귀 뒤에 뼈나 깃털 같은 것이 액세서리로 꽂혀 있다. 큰 어두운 눈과 활짝 이빨 미소를 짓고, 주먹을 들어올린 채 열정적으로 성큼성큼 걷고 있는데, 어딘가로 가고 있으며 그것에 대해 신이 난 사람이다. 짙은 벨트의 금황색 상의에 검은 바지. 지금까지 만난 원시인 중 가장 긍정적인 사람 같다."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.JEAN
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.JEAN"
+msgid "Pale skin and dark hair pulled into a small topknot, giving their head the silhouette of an apple with a stem. Their eyes are wide and slightly unfocused, paired with a faint smile that suggests the lights are on but the occupant has stepped out briefly. Teal top with gold accents and black pants, arms out at their sides as though they forgot they had them."
+msgstr "창백한 피부에 짙은 머리가 작은 상투로 묶여 머리 실루엣이 꼭지 달린 사과 같다. 눈은 크고 약간 초점이 안 맞으며, 불은 켜져 있지만 주인이 잠깐 나간 것 같은 희미한 미소가 함께한다. 금색 장식의 청록 상의에 검은 바지, 팔은 양쪽에 벌려져 있는데 팔이 있다는 걸 잊은 것 같다."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.JORGE
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.JORGE"
+msgid "Dark brown skin almost entirely hidden beneath layers of ragged wraps and bandages. A massive tangle of dark olive-green hair spills over his face and down past his shoulders, obscuring everything but a pair of eyes peeking out from the undergrowth. A thick scarf covers his lower face. He wears rough, hand-wound cloth instead of the standard jumpsuit, looking like a man who has been alone on an asteroid for a very long time and has dressed accordingly."
+msgstr "짙은 갈색 피부가 너덜너덜한 천과 붕대 겹겹이 아래 거의 완전히 숨겨져 있다. 짙은 올리브 녹색의 거대한 엉킨 머리카락이 얼굴 위로 쏟아져 어깨를 넘기며, 덤불 속에서 내다보는 눈 한 쌍 외에는 모든 것을 가린다. 두꺼운 스카프가 아랫얼굴을 덮고 있다. 표준 점프수트 대신 거친 수제 천을 입고 있어, 소행성에서 아주 오랫동안 혼자였고 그에 맞게 옷을 입은 사람 같다."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.JOSHUA
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.JOSHUA"
+msgid "Dark brown skin and short dark hair. His eyes are closed and he wears a soft, blissful smile, balanced on one foot with his arms stretched wide like a child pretending to be an airplane. Blue top with orange accents and black pants. He has the round, gentle face and carefree posture of a duplicant who has never once been startled by anything."
+msgstr "짙은 갈색 피부에 짧은 짙은 머리카락. 눈을 감고 부드럽고 황홀한 미소를 지으며, 비행기 흉내를 내는 아이처럼 한 발로 서서 팔을 활짝 벌리고 있다. 주황 장식의 파란 상의에 검은 바지. 둥글고 부드러운 얼굴과 근심 없는 자세가 한 번도 놀란 적이 없는 복제체의 것이다."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.LEIRA
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.LEIRA"
+msgid "Medium-brown skin and a big, buoyant puff of curly brown hair that looks like it could cushion a fall from any height. She has bright eyes and a wide, toothy smile, hands clasped together in front of her in the universal gesture of someone who is genuinely delighted to see you. Yellow top with black trim and black pants."
+msgstr "중간 갈색 피부에 어떤 높이에서 떨어져도 충격을 흡수할 것 같은 크고 탄력 있는 갈색 곱슬머리 뭉치. 밝은 눈과 활짝 이빨 미소, 앞에서 손을 모은 채 진심으로 당신을 반가워하는 보편적 제스처를 취하고 있다. 검은 테두리의 노란 상의에 검은 바지."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.LIAM
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.LIAM"
+msgid "Pale skin topped with a fluffy mop of bright blue curls that look like someone glued a cloud to his head and dyed it. His eyes are wide and his mouth is stretched into a huge grin, arms thrown wide open as though he's about to embrace the entire asteroid. Teal top with gold accents and black pants. He radiates the unhinged enthusiasm of someone who has not yet realized what he's gotten himself into."
+msgstr "창백한 피부 위에 머리에 구름을 붙이고 염색한 것 같은 포슬포슬한 밝은 파란 곱슬머리. 눈이 크고 입이 거대한 미소로 늘어져 있으며, 소행성 전체를 껴안으려는 듯 팔을 활짝 벌리고 있다. 금색 장식의 청록 상의에 검은 바지. 자기가 무엇에 발을 들여놨는지 아직 깨닫지 못한 사람의 걷잡을 수 없는 열정을 내뿜고 있다."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.LINDSAY
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.LINDSAY"
+msgid "Medium-brown skin and a neat brown bob that swoops across her forehead. Her eyes are closed in a composed, pleasant smile, the kind that says everything is fine and will remain fine as long as nobody does anything stupid. Yellow top with lighter accents and black pants. She stands with an easy, relaxed posture that somehow still communicates she could ruin your day if provoked."
+msgstr "중간 갈색 피부에 이마를 가로질러 넘어가는 깔끔한 갈색 단발. 눈을 감고 차분하고 기분 좋은 미소를 짓고 있는데, 아무도 바보 같은 짓만 안 하면 다 괜찮을 거라는 종류의 미소다. 밝은 장식의 노란 상의에 검은 바지. 여유롭고 편안한 자세로 서 있지만, 건드리면 하루를 망칠 수 있다는 것이 어딘가에서 전해진다."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.MAE
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.MAE"
+msgid "Light skin and a bold blonde pompadour swept back with dark sides, the kind of hairstyle that requires more confidence than most people have. She wears a steady, knowing look with a slight upturn at the corners of her mouth. Red-orange patterned top and black pants. She stands with her weight settled and her chin up, a person who has already decided how this is going to go."
+msgstr "밝은 피부에 대부분의 사람이 갖추지 못한 자신감을 요구하는 대담한 금발 폼파두르가 짙은 옆머리와 함께 뒤로 쓸려 있다. 입꼬리가 살짝 올라간 차분하고 아는 듯한 눈빛. 빨강-주황 무늬 상의에 검은 바지. 무게중심을 잡고 턱을 치켜든 채 서 있는데, 이미 어떻게 될지 결정을 내린 사람이다."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.MARIE
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.MARIE"
+msgid "Pale skin and a heap of golden-yellow curls piled on top of her head like a fancy dessert. She has a faint, suspicious glow about her and a wobbly little grimace that suggests she knows exactly why she's glowing and has decided not to address it. Orange-gold top and black pants. She stands with a stiff uncertainty, like someone posing for a photo they didn't agree to."
+msgstr "창백한 피부에 고급 디저트처럼 머리 위에 쌓인 금황색 곱슬머리 더미. 희미하고 수상한 빛이 감돌며, 흔들리는 작은 찡그린 표정은 왜 빛나는지 정확히 알지만 언급하지 않기로 한 것 같다. 주황-금색 상의에 검은 바지. 동의하지 않은 사진을 찍히는 사람처럼 뻣뻣한 불확실함으로 서 있다."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.MAX
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.MAX"
+msgid "Tan skin and a tuft of curly brown hair that sits on their head like a concerned shrub. Their brow is creased and their eyes are wide, staring slightly off to one side at something only they can see and clearly wish they couldn't. Blue top with orange accents, black pants, arms hanging limply at their sides."
+msgstr "황갈색 피부에 걱정스러운 관목처럼 머리 위에 앉은 갈색 곱슬머리 한 뭉치. 이마에 주름이 잡히고 눈은 크게 떠져, 자기만 볼 수 있고 분명히 못 봤으면 좋겠는 무언가를 한쪽으로 응시하고 있다. 주황 장식의 파란 상의, 검은 바지, 팔은 양쪽에 축 늘어져 있다."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.MAYA
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.MAYA"
+msgid "Tan skin and brown hair pulled back in a loose braid, streaked through with a bold band of grey that she clearly did not earn from relaxation. She has big dark eyes and a warm smile, one hand raised in an easy wave. Teal top with gold accents and black pants. She has the relaxed, unfazed look of someone who has seen some things and waved hello to all of them."
+msgstr "황갈색 피부에 갈색 머리가 느슨한 땋은머리로 묶여 있고, 분명 편안히 쉬어서 얻은 것이 아닌 굵은 회색 줄이 지나간다. 큰 어두운 눈과 따뜻한 미소, 한 손을 들어 가볍게 흔들고 있다. 금색 장식의 청록 상의에 검은 바지. 여러 가지를 겪었고 그 모든 것에 인사를 건넨 사람의 여유롭고 동요 없는 표정이다."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.MEEP
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.MEEP"
+msgid "Light skin and a flat brown haircut with a little tuft on top, like someone started styling it and gave up. A thick, unbroken unibrow sits above wide, eager eyes, and enormous buck teeth jut out proudly from a permanent grin. Gold top, black pants, caught mid-bounce on one foot with his arms out, looking like a wind-up toy that someone forgot to aim in a useful direction."
+msgstr "밝은 피부에 꼭대기에 작은 뭉치가 있는 납작한 갈색 머리, 스타일링을 시작했다가 포기한 것 같다. 두껍고 끊어지지 않는 일자 눈썹이 크고 열정적인 눈 위에 자리하고, 거대한 앞니가 영구적인 미소에서 당당하게 튀어나와 있다. 금색 상의, 검은 바지, 한 발로 통통 뛰는 중에 팔을 벌리고 있어, 누군가 유용한 방향으로 겨냥하는 걸 깜빡한 태엽 장난감 같다."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.MI_MA
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.MI_MA"
+msgid "Pale skin and a big puff of grey curly hair, the kind that has seen decades and is not impressed by any of them. Her eyes are narrowed into a permanent squint and her mouth is a thin, flat line of judgment. Blue top with gold accents, black pants. She has the posture and expression of a grandmother who has already decided you're not dressed warmly enough."
+msgstr "창백한 피부에 수십 년을 겪었지만 그 어느 것에도 감명받지 못한 큰 회색 곱슬머리 뭉치. 눈은 영구적으로 가늘게 떠져 있고 입은 심판의 가늘고 일직선이다. 금색 장식의 파란 상의, 검은 바지. 이미 당신이 옷을 충분히 따뜻하게 입지 않았다고 판단한 할머니의 자세와 표정이다."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.NAILS
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.NAILS"
+msgid "Tan skin and sandy hair held back by a purple headband. Their eyes are closed and they're wearing a soft, contented smile, standing in a relaxed slouch with one arm tucked behind their back. Teal top with yellow accents and black pants. They look like they just had a really good stretch and are still enjoying it."
+msgstr "황갈색 피부에 보라색 헤어밴드로 뒤로 잡은 모래색 머리카락. 눈을 감고 부드럽고 만족스러운 미소를 지으며, 한 팔을 등 뒤에 넣고 편안하게 구부정하게 서 있다. 노란 장식의 청록 상의에 검은 바지. 방금 정말 시원하게 기지개를 켰고 아직 그 기분을 즐기고 있는 것 같다."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.NIKOLA
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.NIKOLA"
+msgid "Pale skin and a wild explosion of spiky blonde hair that shoots upward and outward, as though he recently stuck a fork in something electrical and has no regrets about it. His expression is flat and unreadable, mouth set in a straight line, eyes staring forward with the quiet intensity of a man doing calculations you didn't ask for. Gold-yellow top, black pants."
+msgstr "창백한 피부에 위와 바깥으로 뻗어나가는 뾰족한 금발의 거친 폭발, 최근에 포크를 전기 뭔가에 꽂았고 후회는 전혀 없는 것 같다. 표정은 무표정하고 읽을 수 없으며, 입은 일직선, 눈은 아무도 요청하지 않은 계산을 하는 남자의 조용한 강렬함으로 정면을 응시한다. 금황색 상의, 검은 바지."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.NISBET
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.NISBET"
+msgid "Pale skin and a shaggy mane of reddish-brown hair that sweeps across her face. She has big green eyes and a small, tight-lipped expression, hands clasped in front of her in a way that could be read as shy if you didn't know better. Dark top with a bold orange pattern and black pants. She's compact and unassuming, with the tightly coiled posture of someone who takes up less space than she needs to."
+msgstr "창백한 피부에 얼굴을 가로질러 쓸리는 적갈색의 덥수룩한 갈기머리. 큰 녹색 눈과 작고 입을 꽉 다문 표정, 앞에서 손을 모으고 있는데 사정을 모르면 수줍어 보일 수 있다. 대담한 주황 무늬의 어두운 상의에 검은 바지. 작고 눈에 띄지 않으며, 필요한 것보다 적은 공간을 차지하는 사람의 단단히 감긴 자세다."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.OTTO
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.OTTO"
+msgid "Tan skin and a head of tight blonde curls. Their eyes are wide and their mouth is doing a nervous little squiggle, a face permanently braced for impact. Teal top with orange accents and black pants, standing with a stiff, uncertain posture like someone who just heard a loud noise and hasn't located the source."
+msgstr "황갈색 피부에 촘촘한 금발 곱슬머리. 눈은 크게 떠지고 입은 불안한 작은 구불거림을 하고 있어, 영구적으로 충격에 대비한 얼굴이다. 주황 장식의 청록 상의에 검은 바지, 방금 큰 소리를 들었는데 출처를 찾지 못한 사람처럼 뻣뻣하고 불확실한 자세로 서 있다."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.PEI
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.PEI"
+msgid "Pale skin and light blue hair swept up into a high bun with wispy bangs framing her face. She has big dark eyes and a perky little smile, fists raised in a peppy, can-do pose that suggests boundless enthusiasm and not necessarily a plan. Green top with darker accents and black pants."
+msgstr "창백한 피부에 연한 파란 머리카락이 높은 번으로 올려져 있고, 가느다란 앞머리가 얼굴을 감싼다. 큰 어두운 눈과 활기찬 작은 미소, 주먹을 들어올린 씩씩한 자세가 끝없는 열정을 시사하지만 반드시 계획이 있는 것은 아니다. 짙은 장식의 초록 상의에 검은 바지."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.QUINN
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.QUINN"
+msgid "Light skin and a bright orange bowl cut with straight-across bangs, the kind of haircut that commits fully and asks no questions. They have big dark eyes and a cheerful little smile, standing with their arms out in a relaxed, open posture. Red top with yellow accents and black pants. They look like the friendliest person at a party you didn't know you were attending."
+msgstr "밝은 피부에 일자 앞머리의 밝은 주황색 바가지 머리, 완전히 밀고 나가고 질문은 안 하는 종류의 머리 스타일. 큰 어두운 눈과 유쾌한 작은 미소로, 팔을 벌리고 편안하고 열린 자세로 서 있다. 노란 장식의 빨간 상의에 검은 바지. 참석한 줄도 몰랐던 파티에서 가장 친근한 사람 같다."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.REN
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.REN"
+msgid "Pale skin and dark hair that juts upward in stiff, uneven spikes. His brow is slightly furrowed and his mouth is a small, flat line, eyes fixed on a point well past the camera. Maroon top with gold accents, black pants. He has the thousand-yard stare of a very small, very spiky statue."
+msgstr "창백한 피부에 짙은 머리카락이 뻣뻣하고 고르지 않은 뾰족한 모양으로 위를 향한다. 이마가 살짝 찌푸려지고 입은 작고 일직선이며, 눈은 카메라 훨씬 너머의 한 점을 응시한다. 금색 장식의 적갈색 상의, 검은 바지. 아주 작고 아주 뾰족한 조각상의 먼 곳을 응시하는 눈빛을 가지고 있다."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.ROWAN
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.ROWAN"
+msgid "Light skin and a mop of curly auburn hair. His eyes are squeezed shut and his mouth is stretched into a colossal grin showing every available tooth, arms flung wide, balanced on one foot like he's about to launch into either a hug or a musical number. Teal top with yellow accents and black pants. Every part of him is at maximum extension."
+msgstr "밝은 피부에 적갈색 곱슬머리 덩어리. 눈을 꼭 감고 입이 동원 가능한 이빨을 모두 보여주는 거대한 미소로 늘어나 있으며, 팔을 활짝 벌리고 한 발로 서서 포옹이든 뮤지컬 넘버든 시작하려는 참이다. 노란 장식의 청록 상의에 검은 바지. 모든 부분이 최대로 펼쳐져 있다."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.RUBY
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.RUBY"
+msgid "Dark brown skin and a close-cropped brown buzz cut. Their eyes are slightly narrowed and their mouth curls into a subtle smirk, the look of someone who already knows the answer to the question they just asked you. Dark top with a bold orange pattern and black pants, hands tucked behind their back in a pose that's equal parts casual and vaguely threatening."
+msgstr "짙은 갈색 피부에 짧게 깎은 갈색 버즈컷. 눈이 살짝 가늘어지고 입이 미묘한 능글맞은 웃음을 짓는데, 방금 당신에게 한 질문의 답을 이미 아는 사람의 표정이다. 대담한 주황 무늬의 어두운 상의에 검은 바지, 손을 등 뒤로 넣은 자세가 캐주얼함과 은근한 위협이 반반이다."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.SENA
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.SENA"
+msgid "Dark brown skin and dark hair swept up into an elegant updo, pinned with a gold flower that matches the gold earring dangling from one ear. She has big dark eyes and a composed, satisfied smile. She wears a lavender top with bold gold stripes and matching gold cuffs, looking significantly more put-together than anyone on an asteroid has any right to be. Black pants, standing with her arms at her sides, radiating the energy of a woman who accessorized on purpose."
+msgstr "짙은 갈색 피부에 짙은 머리카락이 우아한 업스타일로 올려져 있고, 한쪽 귀에 달린 금색 귀걸이와 어울리는 금색 꽃으로 고정되어 있다. 큰 어두운 눈과 차분하고 만족스러운 미소. 굵은 금색 줄무늬와 어울리는 금색 커프가 있는 라벤더 상의를 입고 있어, 소행성에 있는 누구보다도 훨씬 말끔하다. 검은 바지, 팔을 양옆에 두고 서서 의도적으로 액세서리를 갖춘 여성의 에너지를 발산한다."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.SONYAR
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.SONYAR"
+msgid "Dark brown skin with silver metal plating covering the left side of her face. A spray of rainbow-colored streaks, pink, blue, green, and yellow, erupts from the top of her head like a neon mohawk that refused to pick just one color. She has one organic eye and a confident little smirk. Purple top with glowing cyan trim, mechanical arms with teal joints, black pants. She stands with her fists at her sides, looking like the kind of upgrade that voids the warranty."
+msgstr "짙은 갈색 피부에 은색 금속 도금이 얼굴 왼쪽을 덮고 있다. 분홍, 파랑, 초록, 노랑의 무지개색 줄기가 머리 꼭대기에서 하나의 색만 고르기를 거부한 네온 모히칸처럼 솟아오른다. 유기 눈 하나와 자신감 넘치는 작은 능글맞은 웃음. 빛나는 시안 테두리의 보라 상의, 청록 관절의 기계팔, 검은 바지. 주먹을 양옆에 두고 서서, 보증을 무효화하는 종류의 업그레이드처럼 보인다."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.STEELA
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.STEELA"
+msgid "Pale skin and an enormous puff of metallic silver curls that look like they were wound from actual steel wool. A dark visor band runs across her eyes, behind which two round white lenses glow like headlights. She wears a small, composed smile beneath the visor, the expression of someone who has processed the situation and found it mildly amusing. Purple top with cyan trim, mechanical fists, black pants."
+msgstr "창백한 피부에 실제 철수세미로 감은 것 같은 거대한 금속 은색 곱슬머리 뭉치. 어두운 바이저 밴드가 눈을 가로지르며, 그 뒤에서 두 개의 둥근 흰 렌즈가 헤드라이트처럼 빛난다. 바이저 아래로 작고 차분한 미소를 짓고 있는데, 상황을 처리하고 약간 재미있다고 판단한 사람의 표정이다. 시안 테두리의 보라 상의, 기계 주먹, 검은 바지."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.STEVE
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.STEVE"
+msgid "Dark brown skin and a neat dark flat-top haircut with sharply defined edges. He has a knowing smile and stands with his fists on his hips in a classic superhero pose, radiating a confidence that may or may not be backed up by anything. Blue top with an orange belt and black pants. He looks like a man who is absolutely certain about things."
+msgstr "짙은 갈색 피부에 날카롭게 다듬어진 짙은 색 플랫탑 머리. 아는 듯한 미소를 짓고 허리에 주먹을 올린 전형적인 슈퍼히어로 자세로 서서, 뭔가 뒷받침이 되든 안 되든 자신감을 발산한다. 주황 벨트의 파란 상의에 검은 바지. 모든 것에 절대적으로 확신하는 남자처럼 보인다."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.STINKY
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.STINKY"
+msgid "Pale skin and shaggy brown hair that sticks out in clumps, looking like it hasn't been introduced to a comb in its entire existence. A white headband stretches across his forehead, and below it he wears a big, oblivious grin. A ragged animal pelt is draped over his shoulders on top of a yellow shirt, black pants. Faint green wavy lines emanate from his general vicinity. He is completely unbothered by this."
+msgstr "창백한 피부에 뭉텅이로 삐죽삐죽 나온 덥수룩한 갈색 머리카락, 태어나서 한 번도 빗을 만난 적이 없어 보인다. 흰 머리띠가 이마를 가로지르고, 그 아래로 천진난만한 활짝 미소. 노란 셔츠 위에 너덜너덜한 동물 가죽이 어깨에 걸쳐져 있고, 검은 바지. 그 근처에서 희미한 초록 물결선이 뿜어져 나온다. 본인은 전혀 신경 쓰지 않는다."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.TRAVALDO
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.TRAVALDO"
+msgid "Dark brown skin and short dark hair with a sharp part on one side. His face is completely, aggressively neutral, mouth a straight horizontal line, eyes level and unblinking. Yellow top with black trim and black pants. He stands with his arms slightly out, palms open, projecting all the emotional range of a filing cabinet."
+msgstr "짙은 갈색 피부에 한쪽에 날카로운 가르마가 있는 짧은 짙은 머리. 얼굴은 완전히, 공격적으로 무표정하며, 입은 수평 일직선, 눈은 수평이고 깜빡이지 않는다. 검은 테두리의 노란 상의에 검은 바지. 팔을 살짝 벌리고 손바닥을 편 채 서서, 서류 캐비닛의 전체 감정 범위를 투사한다."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.TURNER
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.TURNER"
+msgid "Pale skin and light brown hair swept to one side. They're wearing a wide, toothy grin that's trying very hard to look natural and not quite getting there, eyes bright and slightly too open. Blue top with gold accents and black pants, caught mid-step with their arms out, the body language of someone who is acutely aware that they are being perceived and cannot decide what to do about it."
+msgstr "창백한 피부에 연한 갈색 머리가 한쪽으로 쓸려 있다. 자연스럽게 보이려고 무척 노력하지만 아직 도달하지 못한 활짝 이빨 미소, 밝고 약간 지나치게 열린 눈. 금색 장식의 파란 상의에 검은 바지, 팔을 벌린 채 걷는 중에 포착되어, 자신이 인식되고 있다는 것을 극도로 의식하면서 어떻게 해야 할지 결정하지 못하는 사람의 몸짓이다."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.ULTI
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.ULTI"
+msgid "Tan skin with the right side of their head encased in silver plating, housing a large circular teal lens where an eye used to be. A swept-back fin of lavender-pink hair crowns the top of their head. Their remaining organic eye is small and cheerful, paired with a pleased little smile. Purple top with glowing cyan trim, black pants with teal-accented joints, one hand raised in a casual wave. They look like someone who is fifty percent machine and one hundred percent fine with it."
+msgstr "황갈색 피부에 머리 오른쪽이 은색 도금으로 감싸져 있고, 눈이 있던 자리에 큰 원형 청록 렌즈가 들어 있다. 라벤더 핑크 머리카락의 뒤로 쓸린 지느러미가 머리 꼭대기를 장식한다. 남은 유기 눈은 작고 유쾌하며, 흡족한 작은 미소와 짝을 이룬다. 빛나는 시안 테두리의 보라 상의, 청록 장식 관절의 검은 바지, 한 손을 들어 가볍게 흔들고 있다. 50퍼센트는 기계이고 100퍼센트 그것에 만족하는 사람 같다."
+
 #. STRINGS.ONIACCESS.DUPES.FOLLOW.FOLLOWING
 msgctxt "STRINGS.ONIACCESS.DUPES.FOLLOW.FOLLOWING"
 msgid "following {0}"
@@ -2540,6 +2790,11 @@ msgstr "콜로니 보유: {0}"
 msgctxt "STRINGS.ONIACCESS.INFO.DIFFICULTY"
 msgid "Difficulty"
 msgstr "난이도"
+
+#. STRINGS.ONIACCESS.INFO.DUPE_DESCRIPTION
+msgctxt "STRINGS.ONIACCESS.INFO.DUPE_DESCRIPTION"
+msgid "description: {0}"
+msgstr "외형: {0}"
 
 #. STRINGS.ONIACCESS.INFO.INTEREST
 msgctxt "STRINGS.ONIACCESS.INFO.INTEREST"

@@ -1627,6 +1627,256 @@ msgctxt "STRINGS.ONIACCESS.DLC.OWNED_NOT_ACTIVE"
 msgid "Owned, not active"
 msgstr "已拥有, 未启用"
 
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.ABE
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.ABE"
+msgid "Brown skin with a shock of spiky white hair swept dramatically backward, like he styled it in a wind tunnel and committed to the results. Big round eyes and a small, contented smile. He wears a blue jumpsuit with gold trim and a matching belt, giving him the look of a tiny, well-dressed dandelion."
+msgstr "棕色皮肤，一头炸起的白色刺发戏剧性地向后飞扬，像是在风洞里做的造型然后就这么认了。圆溜溜的大眼睛，带着一抹满足的微笑。他穿着蓝色连体衣配金色镶边和同色腰带，活像一株穿戴整齐的小蒲公英。"
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.ADA
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.ADA"
+msgid "Dark brown skin framed by a magnificent cloud of curly brown hair that doubles the apparent size of her head. Her brow is furrowed and her mouth is set in a flat line that says she has already judged you and found you lacking. She wears a red-and-black jumpsuit with a yellow belt, arms hanging at her sides like she can't be bothered to do anything with them."
+msgstr "深棕色皮肤，被一蓬壮观的棕色卷发云环绕，头的视觉体积直接翻倍。眉头紧锁，嘴巴抿成一条直线，分明在说她已经审判了你并判定你不合格。她穿着红黑连体衣配黄色腰带，双臂垂在身侧，一副懒得搭理的样子。"
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.AMARI
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.AMARI"
+msgid "Dark brown skin and short dark locs that stick out in every direction like a crown of small antennae. He's got a warm, easygoing smile and stands with his hands on his hips in a pose that radiates \"I've got this.\" Yellow-green top, black pants, and a belt that's doing its best to hold the whole outfit together."
+msgstr "深棕色皮肤，短短的深色脏辫向四面八方支棱着，像一圈小天线组成的王冠。他带着温暖随和的笑容，双手叉腰，整个姿势都在散发\"我罩得住\"的气场。黄绿色上衣，黑色裤子，腰带正在竭尽全力把整套行头箍在一起。"
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.ARI
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.ARI"
+msgid "Pale skin and a dark mohawk that stands at attention like it has somewhere important to be. Their eyes are permanently narrowed into a skeptical squint, paired with thick eyebrows and a mouth that can't quite decide between a smirk and a scowl. They wear a yellow-and-orange striped top with black pants, looking like a very small, very suspicious bumblebee."
+msgstr "白皙皮肤，深色莫霍克发型笔直竖立，仿佛有什么重要的地方要去。双眼永久性地眯成怀疑的细缝，配上浓眉和一张在冷笑与怒容之间犹豫不决的嘴。黄橙条纹上衣配黑色裤子，看起来像一只很小、很多疑的大黄蜂。"
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.ASHKAN
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.ASHKAN"
+msgid "Light-medium skin with dark hair slicked neatly to one side. His eyes are squeezed shut in a beaming smile so wide it takes up most of his face, like someone just told a joke only he heard. He wears a teal top with yellow shoulder accents and black pants, looking pleasantly overdressed for asteroid life."
+msgstr "中等偏浅肤色，深色头发整齐地梳向一侧。眼睛在灿烂的笑容中挤成了缝，笑容大到占据了大半张脸，像是有人讲了个只有他听到的笑话。他穿着青色上衣配黄色肩饰和黑色裤子，对小行星生活来说穿得体面得有点过头了。"
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.BANHI
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.BANHI"
+msgid "Dark brown skin and dark hair pulled into two neat buns perched on top of her head. Her eyes are half-lidded and her mouth is set in a slight frown, the universal expression of someone who is too cool to be here. She wears a dark top splashed with a bold orange pattern and black pants, arms hanging at her sides like she can't be bothered to do anything with them either."
+msgstr "深棕色皮肤，深色头发挽成两个整齐的丸子头端坐在头顶。半睁半闭的眼睛，嘴角微微下撇——这是全宇宙通用的\"本人太酷不屑于此\"的表情。她穿着深色上衣配醒目的橙色图案和黑色裤子，双臂垂在身侧，同样一副懒得动弹的架势。"
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.BUBBLES
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.BUBBLES"
+msgid "Light skin and lavender hair twisted into two buns that sit atop her head like a pair of angry little cinnamon rolls. Her brow is furrowed and her mouth is clenched in a grimace that suggests she is about three seconds from headbutting someone. She wears a blue top with yellow accents and black pants, fists balled at her sides. Everything about her posture says the name \"Bubbles\" was not her choice."
+msgstr "白皙皮肤，薰衣草色头发拧成两个丸子头蹲在头顶，活像一对愤怒的小肉桂卷。眉头紧皱，嘴巴咬紧成一副要在三秒内用头撞人的表情。她穿着蓝色上衣配黄色装饰和黑色裤子，双拳紧握在身侧。她浑身上下的姿态都在说\"泡泡\"这个名字不是她自己选的。"
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.BURT
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.BURT"
+msgid "Dark brown skin with dark hair gathered into a tidy bun on top of his head. He sports a wide, toothy grin that takes up roughly a third of his face and suggests he just remembered something wonderful. He wears a red top with a gold collar and black pants, arms slightly outstretched like he's about to offer you a hug whether you want one or not."
+msgstr "深棕色皮肤，深色头发在头顶扎成一个整齐的发髻。他咧着一个占据大约三分之一张脸的露齿大笑，像是刚想起了什么美好的事情。他穿着红色上衣配金色衣领和黑色裤子，双臂微微张开，像是不管你愿不愿意都要给你一个拥抱。"
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.CAMILLE
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.CAMILLE"
+msgid "Medium-dark skin and a swooping bob of auburn hair that falls across one side of her face. Her expression sits in the narrow zone between wistful and mildly unimpressed, brow slightly furrowed like she's remembering something from a long time ago and isn't sure she likes it. Blue top with yellow accents and black pants."
+msgstr "中深肤色，一头栗红色波波头优雅地垂落在脸的一侧。她的表情恰好停留在若有所思和不太感冒之间的狭窄地带，眉头微蹙，像在回忆很久以前的事情而且不太确定自己喜不喜欢。蓝色上衣配黄色装饰和黑色裤子。"
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.CATALINA
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.CATALINA"
+msgid "Light skin and a blonde bob that bounces with the force of her enthusiasm. Her eyes are squeezed shut and her grin is enormous, showing every tooth she owns, like someone who has decided that smiling hard enough counts as a personality. She's caught mid-stride in a maroon top with gold accents and black pants, one arm flung out, running full tilt toward something the rest of us can't see."
+msgstr "白皙皮肤，金色波波头随着她的热情弹跳不止。眼睛笑得挤成了缝，咧着个巨大的笑容展示她所有的牙齿，像是一个认定只要笑得够用力就能当性格特征的人。栗色上衣配金色装饰和黑色裤子，被定格在大步向前的瞬间，一只胳膊甩出去，全力冲向我们其他人都看不见的什么东西。"
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.CHIP
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.CHIP"
+msgid "Dark brown skin with the left half of their face replaced by a silver metal plate, one organic eye and one dark cybernetic lens. A row of golden, kernel-shaped LED bumps runs across the top of their head in place of hair. They wear a purple top with glowing cyan trim and black pants, with mechanical arms that end in chunky teal-jointed fists. Despite being roughly forty percent replacement parts, they're wearing a cheerful little smile."
+msgstr "深棕色皮肤，左半边脸被银色金属板替换，一只有机眼和一个暗色机械镜头。一排金色颗粒状LED凸起沿头顶排列代替了头发。紫色上衣配发光青色镶边和黑色裤子，机械手臂末端是青色关节的粗壮拳头。尽管大约四成身体是替换零件，脸上依然挂着愉快的小微笑。"
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.DEVON
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.DEVON"
+msgid "Pale skin and a mop of wavy brown hair that flops to one side like it gave up halfway through styling itself. Wide eyes and a tiny mouth frozen in a look of mild surprise, as though they just walked into a room and forgot why. They wear an orange patterned top and black pants, standing with their hands clasped together in a posture that suggests they would very much like to be somewhere else but are too polite to leave."
+msgstr "白皙皮肤，一头波浪棕发耷拉向一侧，像是造型造到一半就放弃了。睁大的眼睛和微张的小嘴定格在一副轻微惊讶的表情上，仿佛刚走进一个房间就忘了为什么来的。橙色花纹上衣配黑色裤子，双手交握在一起，姿态分明在说非常想去别的地方但太有礼貌而走不掉。"
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.EDWIREDO
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.EDWIREDO"
+msgid "Pale skin with an enormous dark cybernetic lens covering most of the right side of his face, filled with a teal grid pattern. His remaining eye is a small dot above a content little smile, giving the impression that losing half his face to machinery hasn't dampened his mood. A teal fin crests the top of his head and mechanical ports stud the side of his skull. Purple top with glowing cyan trim, black pants, one hand raised in a friendly wave."
+msgstr "白皙皮肤，巨大的暗色机械镜头覆盖了右半边脸的大部分，里面充满青色网格图案。剩余的那只眼睛是满足小微笑上方的一个小圆点，给人的感觉是半张脸被机械占据丝毫没影响他的心情。一片青色鳍状物从头顶升起，机械接口点缀在头骨侧面。紫色上衣配发光青色镶边，黑色裤子，一只手举起友好地挥动。"
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.ELLIE
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.ELLIE"
+msgid "Olive skin and a cascade of wavy blonde hair that frames her face like a set of curtains she refuses to tie back. She has a big toothy smile and bright, eager eyes that are practically vibrating with excitement about something she hasn't told you yet. She wears a blue-and-orange striped top with black pants."
+msgstr "橄榄色皮肤，一瀑波浪金发如同她拒绝束起的窗帘般垂落在脸两侧。她露齿大笑，明亮急切的眼睛几乎在因为某件她还没告诉你的事而激动得发颤。蓝橙条纹上衣配黑色裤子。"
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.FRANKIE
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.FRANKIE"
+msgid "Tan skin topped by a sweep of dark hair and, more importantly, two of the most commanding eyebrows ever printed by a Printing Pod. They sit above a flat, no-nonsense expression like a pair of caterpillars that have achieved self-actualization. The rest of Frankie is there too, wearing a blue-and-gold top with black pants, but honestly the eyebrows are doing all the heavy lifting."
+msgstr "小麦色皮肤，深色头发往一边扫去，更重要的是，两道打印舱有史以来印出的最具统治力的眉毛。它们高踞在一副不苟言笑的表情之上，像两条实现了自我价值的毛毛虫。Frankie的其余部分也在，穿着蓝金色上衣配黑色裤子，但说实话全靠眉毛在撑场面。"
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.FREYJA
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.FREYJA"
+msgid "Pale skin and a flowing mane of silver-white hair that sweeps around her face and past her shoulders, shimmering with a faint icy blue tint. She has big dark eyes and a small, self-satisfied smirk, the face of someone who knows something you don't and is enjoying it. Blue top with gold accents and black pants, fists at her sides. She looks like winter personified and slightly up to no good."
+msgstr "白皙皮肤，一头银白色长发飘逸地绕过脸颊垂至肩膀以下，泛着淡淡的冰蓝色光泽。大大的黑色眼睛配上一抹自得其乐的小笑，分明是知道了你不知道的什么事并且很享受的表情。蓝色上衣配金色装饰和黑色裤子，双拳垂在身侧。她看起来像冬天本人，而且有点不怀好意。"
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.GIZMO
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.GIZMO"
+msgid "Tan skin with a mechanical monocle bolted over his left eye, its lens glinting with magnification rings. His head is ringed by a halo of circuit boards and metal components arranged like a tech-scrap crown, where hair would normally be. He has one small organic eye and a pleased little smile beneath the monocle, looking like the happiest thing in the room and also the most heavily accessorized. Purple top with cyan accents, black pants, one hand up in a wave."
+msgstr "小麦色皮肤，一个机械单片镜用螺栓固定在左眼上，镜片闪烁着放大环的光芒。头上环绕着一圈电路板和金属部件，排列成科技废料王冠的样子，取代了头发原本的位置。单片镜下方是一只小小的有机眼和一个满足的小微笑，看起来既是房间里最开心的存在，也是配饰最多的。紫色上衣配青色装饰，黑色裤子，一只手举起挥动。"
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.GOSSMANN
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.GOSSMANN"
+msgid "Pale skin and blonde hair pulled back into a little flip at the side. Her eyes are scrunched shut and she's wearing a lopsided grin, leaning slightly to one side like she just told a joke and is already laughing at it before anyone else can react. Gold top with dark accents and black pants. Her whole posture radiates the energy of someone who is absolutely about to do something silly."
+msgstr "白皙皮肤，金色头发向后扎起，在侧边翘出一个小卷。眼睛笑得眯成了缝，咧着一个歪歪的笑容，身体微微倾向一侧，像是刚讲完一个笑话已经在别人反应过来之前自己先笑了。金色上衣配深色装饰和黑色裤子。她整个人的姿态都在散发一股绝对马上要干点傻事的劲头。"
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.HAROLD
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.HAROLD"
+msgid "Medium-brown skin and a generous halo of dark curly hair that adds considerable volume to an otherwise unremarkable silhouette. His eyes droop slightly and his mouth is set in a flat line, the face of a man who is present and accounted for and not much else. Teal-and-yellow striped top, black pants. Harold is here."
+msgstr "中棕色皮肤，一圈丰厚的深色卷发为本来毫无特色的轮廓增添了可观的体积。眼睛微微下垂，嘴巴抿成一条直线，一张在场且签到了但也仅此而已的脸。青黄条纹上衣，黑色裤子。Harold在这儿了。"
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.HASSAN
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.HASSAN"
+msgid "Tan skin and brown hair swept loosely to one side. His eyes are cast downward and slightly to the left, as though he's trying very hard not to make eye contact with whoever is looking at him right now. Arms crossed over an orange top with teal accents and black pants. His whole posture is a polite request to not be perceived."
+msgstr "小麦色皮肤，棕色头发松散地扫向一侧。目光向下偏左投去，仿佛在非常努力地避免与此刻正在看他的人对上视线。双臂交叉在橙色上衣前面，配青色装饰和黑色裤子。他整个人的姿态是一个礼貌的请求：别注意到我。"
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.HIGBY
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.HIGBY"
+msgid "Pale skin and dark hair slicked back, with what appears to be a bone or feather tucked behind one ear as an accessory. He has big dark eyes and a wide, toothy grin, fists up in an enthusiastic stride like a man who is going somewhere and is thrilled about it. Gold-yellow top with a darker belt and black pants. He looks like the most upbeat caveman you've ever met."
+msgstr "白皙皮肤，深色头发向后梳光，耳后别着一根看起来像骨头或羽毛的饰品。大大的黑色眼睛配上咧到耳根的露齿笑，握着拳头迈着欢快的大步，像一个要去某个地方并且为此激动不已的人。金黄色上衣配深色腰带和黑色裤子。他看起来像你见过的最乐观的穴居人。"
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.JEAN
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.JEAN"
+msgid "Pale skin and dark hair pulled into a small topknot, giving their head the silhouette of an apple with a stem. Their eyes are wide and slightly unfocused, paired with a faint smile that suggests the lights are on but the occupant has stepped out briefly. Teal top with gold accents and black pants, arms out at their sides as though they forgot they had them."
+msgstr "白皙皮肤，深色头发扎成一个小丸子头，让脑袋的轮廓像一个带蒂的苹果。睁大的眼睛略显失焦，配上一抹隐约的微笑，暗示着灯是亮着的但人暂时出去了。青色上衣配金色装饰和黑色裤子，双臂摊在身体两侧，仿佛忘了自己还有胳膊这回事。"
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.JORGE
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.JORGE"
+msgid "Dark brown skin almost entirely hidden beneath layers of ragged wraps and bandages. A massive tangle of dark olive-green hair spills over his face and down past his shoulders, obscuring everything but a pair of eyes peeking out from the undergrowth. A thick scarf covers his lower face. He wears rough, hand-wound cloth instead of the standard jumpsuit, looking like a man who has been alone on an asteroid for a very long time and has dressed accordingly."
+msgstr "深棕色皮肤几乎完全隐没在层层破旧的裹布和绷带之下。一大团深橄榄绿色的头发倾泻过脸庞垂至肩膀以下，遮住了除一双从灌木丛中窥探的眼睛之外的一切。一条厚围巾盖住了下半张脸。他穿着粗糙的手工缠布而非标准连体衣，看起来像一个在小行星上独自待了很久很久并且穿着也与之相称的人。"
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.JOSHUA
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.JOSHUA"
+msgid "Dark brown skin and short dark hair. His eyes are closed and he wears a soft, blissful smile, balanced on one foot with his arms stretched wide like a child pretending to be an airplane. Blue top with orange accents and black pants. He has the round, gentle face and carefree posture of a duplicant who has never once been startled by anything."
+msgstr "深棕色皮肤，短短的深色头发。眼睛闭着，带着柔和幸福的微笑，单脚站立双臂大张，像一个假装自己是飞机的小孩。蓝色上衣配橙色装饰和黑色裤子。他有着一张圆润温和的脸和无忧无虑的姿态，像一个从未被任何事吓到过的复制人。"
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.LEIRA
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.LEIRA"
+msgid "Medium-brown skin and a big, buoyant puff of curly brown hair that looks like it could cushion a fall from any height. She has bright eyes and a wide, toothy smile, hands clasped together in front of her in the universal gesture of someone who is genuinely delighted to see you. Yellow top with black trim and black pants."
+msgstr "中棕色皮肤，一大蓬蓬松有弹性的棕色卷发，看起来能缓冲从任何高度的坠落。明亮的眼睛和灿烂的露齿笑，双手在身前合握——这是全宇宙通用的真心高兴见到你的手势。黄色上衣配黑色镶边和黑色裤子。"
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.LIAM
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.LIAM"
+msgid "Pale skin topped with a fluffy mop of bright blue curls that look like someone glued a cloud to his head and dyed it. His eyes are wide and his mouth is stretched into a huge grin, arms thrown wide open as though he's about to embrace the entire asteroid. Teal top with gold accents and black pants. He radiates the unhinged enthusiasm of someone who has not yet realized what he's gotten himself into."
+msgstr "白皙皮肤，头顶一蓬蓬松的亮蓝色卷发，看起来像有人在他头上粘了一朵云然后染了色。眼睛睁得大大的，嘴巴咧成一个巨大的笑容，双臂大张仿佛要拥抱整颗小行星。青色上衣配金色装饰和黑色裤子。他散发着一种还没意识到自己掉进了什么坑的疯狂热情。"
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.LINDSAY
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.LINDSAY"
+msgid "Medium-brown skin and a neat brown bob that swoops across her forehead. Her eyes are closed in a composed, pleasant smile, the kind that says everything is fine and will remain fine as long as nobody does anything stupid. Yellow top with lighter accents and black pants. She stands with an easy, relaxed posture that somehow still communicates she could ruin your day if provoked."
+msgstr "中棕色皮肤，整齐的棕色波波头斜掠过额头。眼睛在从容愉悦的微笑中闭着——那种在说一切都好而且只要没人作妖就会继续好下去的笑。黄色上衣配浅色装饰和黑色裤子。她的站姿轻松自在，但不知怎的依然在传达一种被惹急了能毁掉你一整天的讯息。"
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.MAE
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.MAE"
+msgid "Light skin and a bold blonde pompadour swept back with dark sides, the kind of hairstyle that requires more confidence than most people have. She wears a steady, knowing look with a slight upturn at the corners of her mouth. Red-orange patterned top and black pants. She stands with her weight settled and her chin up, a person who has already decided how this is going to go."
+msgstr "白皙皮肤，一头大胆的金色飞机头向后梳起两侧剃暗，那种需要超出大多数人所拥有的自信才能驾驭的发型。她带着沉稳了然的目光，嘴角微微上扬。红橙色花纹上衣配黑色裤子。她重心稳稳落定、下巴微昂地站着，一个已经决定了事情会怎么走的人。"
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.MARIE
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.MARIE"
+msgid "Pale skin and a heap of golden-yellow curls piled on top of her head like a fancy dessert. She has a faint, suspicious glow about her and a wobbly little grimace that suggests she knows exactly why she's glowing and has decided not to address it. Orange-gold top and black pants. She stands with a stiff uncertainty, like someone posing for a photo they didn't agree to."
+msgstr "白皙皮肤，一堆金黄色卷发堆在头顶像一份精致的甜点。她周身泛着一种淡淡的、可疑的光芒，嘴角带着一个不太稳定的苦笑，暗示她完全清楚自己为什么在发光但决定不去谈论这件事。橙金色上衣配黑色裤子。她站得僵硬而不确定，像是在为一张自己没答应拍的照片摆姿势。"
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.MAX
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.MAX"
+msgid "Tan skin and a tuft of curly brown hair that sits on their head like a concerned shrub. Their brow is creased and their eyes are wide, staring slightly off to one side at something only they can see and clearly wish they couldn't. Blue top with orange accents, black pants, arms hanging limply at their sides."
+msgstr "小麦色皮肤，一簇棕色卷发蹲在头顶像一丛忧心忡忡的灌木。眉头紧皱，眼睛睁得大大的，目光微微偏向一侧盯着只有自己能看见、而且显然希望看不见的什么东西。蓝色上衣配橙色装饰，黑色裤子，双臂无力地垂在身侧。"
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.MAYA
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.MAYA"
+msgid "Tan skin and brown hair pulled back in a loose braid, streaked through with a bold band of grey that she clearly did not earn from relaxation. She has big dark eyes and a warm smile, one hand raised in an easy wave. Teal top with gold accents and black pants. She has the relaxed, unfazed look of someone who has seen some things and waved hello to all of them."
+msgstr "小麦色皮肤，棕色头发松松地编成辫子，其中夹着一道醒目的灰色发带，显然不是靠休闲度假挣来的。大大的黑色眼睛配上温暖的微笑，一只手举起随意地挥动。青色上衣配金色装饰和黑色裤子。她有一种见过世面并且跟每件事都打过招呼的从容淡定。"
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.MEEP
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.MEEP"
+msgid "Light skin and a flat brown haircut with a little tuft on top, like someone started styling it and gave up. A thick, unbroken unibrow sits above wide, eager eyes, and enormous buck teeth jut out proudly from a permanent grin. Gold top, black pants, caught mid-bounce on one foot with his arms out, looking like a wind-up toy that someone forgot to aim in a useful direction."
+msgstr "白皙皮肤，平平的棕色发型顶上翘着一小撮，像有人开始打理到一半就放弃了。一条粗壮完整的一字眉横亘在又大又渴望的眼睛上方，巨大的龅牙从永久性的咧嘴笑中骄傲地突出。金色上衣，黑色裤子，被定格在单脚蹦跳的瞬间双臂张开，看起来像一个被人忘了对准有用方向的发条玩具。"
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.MI_MA
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.MI_MA"
+msgid "Pale skin and a big puff of grey curly hair, the kind that has seen decades and is not impressed by any of them. Her eyes are narrowed into a permanent squint and her mouth is a thin, flat line of judgment. Blue top with gold accents, black pants. She has the posture and expression of a grandmother who has already decided you're not dressed warmly enough."
+msgstr "白皙皮肤，一大蓬灰色卷发——那种见证了几十年风雨并且对每一年都不以为然的头发。眼睛永久性地眯成一条缝，嘴巴是一条细细的、扁扁的审判线。蓝色上衣配金色装饰，黑色裤子。她的姿态和表情就是一个已经判定你穿得不够暖和的奶奶。"
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.NAILS
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.NAILS"
+msgid "Tan skin and sandy hair held back by a purple headband. Their eyes are closed and they're wearing a soft, contented smile, standing in a relaxed slouch with one arm tucked behind their back. Teal top with yellow accents and black pants. They look like they just had a really good stretch and are still enjoying it."
+msgstr "小麦色皮肤，沙色头发被一条紫色头带束住。眼睛闭着，带着柔和满足的微笑，以一种放松的慵懒姿势站着，一只手背在身后。青色上衣配黄色装饰和黑色裤子。他们看起来像是刚做了一个特别舒服的伸展运动还沉浸在回味中。"
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.NIKOLA
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.NIKOLA"
+msgid "Pale skin and a wild explosion of spiky blonde hair that shoots upward and outward, as though he recently stuck a fork in something electrical and has no regrets about it. His expression is flat and unreadable, mouth set in a straight line, eyes staring forward with the quiet intensity of a man doing calculations you didn't ask for. Gold-yellow top, black pants."
+msgstr "白皙皮肤，一头金色刺发狂野地向上向外爆炸，仿佛他最近把叉子插进了什么通电的东西里而且毫无悔意。表情平淡不可读，嘴巴抿成直线，眼睛直视前方，带着一种在默默进行你没要求的计算的安静强度。金黄色上衣，黑色裤子。"
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.NISBET
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.NISBET"
+msgid "Pale skin and a shaggy mane of reddish-brown hair that sweeps across her face. She has big green eyes and a small, tight-lipped expression, hands clasped in front of her in a way that could be read as shy if you didn't know better. Dark top with a bold orange pattern and black pants. She's compact and unassuming, with the tightly coiled posture of someone who takes up less space than she needs to."
+msgstr "白皙皮肤，一头蓬松的红棕色长发扫过脸庞。大大的绿色眼睛配上一个紧抿嘴唇的小表情，双手在身前交握，如果你不了解她的话可能会觉得是害羞。深色上衣配醒目的橙色图案和黑色裤子。她小巧而不起眼，紧绷的姿态像是一个刻意占据比实际需要更小空间的人。"
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.OTTO
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.OTTO"
+msgid "Tan skin and a head of tight blonde curls. Their eyes are wide and their mouth is doing a nervous little squiggle, a face permanently braced for impact. Teal top with orange accents and black pants, standing with a stiff, uncertain posture like someone who just heard a loud noise and hasn't located the source."
+msgstr "小麦色皮肤，一头紧密的金色小卷。眼睛睁得大大的，嘴巴扭成一个紧张的小波浪，一张永久性处于准备挨撞状态的脸。青色上衣配橙色装饰和黑色裤子，站姿僵硬而不确定，像是刚听到一声巨响但还没找到声源的人。"
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.PEI
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.PEI"
+msgid "Pale skin and light blue hair swept up into a high bun with wispy bangs framing her face. She has big dark eyes and a perky little smile, fists raised in a peppy, can-do pose that suggests boundless enthusiasm and not necessarily a plan. Green top with darker accents and black pants."
+msgstr "白皙皮肤，浅蓝色头发高高挽成一个发髻，碎刘海轻柔地垂在脸旁。大大的黑色眼睛配上活泼的小微笑，双拳举起摆出一个精力充沛、什么都能干的姿势——暗示着无穷的热情但不一定有计划。绿色上衣配深色装饰和黑色裤子。"
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.QUINN
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.QUINN"
+msgid "Light skin and a bright orange bowl cut with straight-across bangs, the kind of haircut that commits fully and asks no questions. They have big dark eyes and a cheerful little smile, standing with their arms out in a relaxed, open posture. Red top with yellow accents and black pants. They look like the friendliest person at a party you didn't know you were attending."
+msgstr "白皙皮肤，亮橙色锅盖头配齐刘海，那种完全投入绝不犹豫的发型。大大的黑色眼睛配上愉快的小微笑，双臂张开以放松开放的姿势站着。红色上衣配黄色装饰和黑色裤子。他们看起来像你不知道自己在参加的派对上最友善的人。"
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.REN
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.REN"
+msgid "Pale skin and dark hair that juts upward in stiff, uneven spikes. His brow is slightly furrowed and his mouth is a small, flat line, eyes fixed on a point well past the camera. Maroon top with gold accents, black pants. He has the thousand-yard stare of a very small, very spiky statue."
+msgstr "白皙皮肤，深色头发僵硬而参差不齐地向上支棱。眉头微蹙，嘴巴抿成一条小直线，目光定在远远越过镜头之外的某个点。栗色上衣配金色装饰，黑色裤子。他有着一座很小、很扎人的雕像才有的那种千码凝视。"
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.ROWAN
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.ROWAN"
+msgid "Light skin and a mop of curly auburn hair. His eyes are squeezed shut and his mouth is stretched into a colossal grin showing every available tooth, arms flung wide, balanced on one foot like he's about to launch into either a hug or a musical number. Teal top with yellow accents and black pants. Every part of him is at maximum extension."
+msgstr "白皙皮肤，一头卷曲的红棕色乱发。眼睛笑得挤成了缝，嘴巴咧成一个展示所有牙齿的巨型笑容，双臂大张，单脚平衡，像是即将发起一个拥抱或者开唱一首歌舞剧曲目。青色上衣配黄色装饰和黑色裤子。他身体的每个部位都处于最大伸展状态。"
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.RUBY
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.RUBY"
+msgid "Dark brown skin and a close-cropped brown buzz cut. Their eyes are slightly narrowed and their mouth curls into a subtle smirk, the look of someone who already knows the answer to the question they just asked you. Dark top with a bold orange pattern and black pants, hands tucked behind their back in a pose that's equal parts casual and vaguely threatening."
+msgstr "深棕色皮肤，棕色寸头剪得很短。眼睛微微眯起，嘴角勾起一抹若有若无的冷笑，一副已经知道了他们刚问你的问题的答案的表情。深色上衣配醒目的橙色图案和黑色裤子，双手背在身后，姿势一半是随意一半是隐约的威胁。"
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.SENA
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.SENA"
+msgid "Dark brown skin and dark hair swept up into an elegant updo, pinned with a gold flower that matches the gold earring dangling from one ear. She has big dark eyes and a composed, satisfied smile. She wears a lavender top with bold gold stripes and matching gold cuffs, looking significantly more put-together than anyone on an asteroid has any right to be. Black pants, standing with her arms at her sides, radiating the energy of a woman who accessorized on purpose."
+msgstr "深棕色皮肤，深色头发挽成一个优雅的盘发，用金色花朵发簪固定，与一只耳朵上垂挂的金色耳环相配。大大的黑色眼睛配上从容满意的微笑。她穿着薰衣草色上衣配醒目的金色条纹和配套的金色袖口，精致程度远超任何在小行星上的人有权达到的水平。黑色裤子，双臂垂在身侧，散发着一个有意搭配饰品的女人的气场。"
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.SONYAR
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.SONYAR"
+msgid "Dark brown skin with silver metal plating covering the left side of her face. A spray of rainbow-colored streaks, pink, blue, green, and yellow, erupts from the top of her head like a neon mohawk that refused to pick just one color. She has one organic eye and a confident little smirk. Purple top with glowing cyan trim, mechanical arms with teal joints, black pants. She stands with her fists at her sides, looking like the kind of upgrade that voids the warranty."
+msgstr "深棕色皮肤，银色金属板覆盖了左半边脸。一丛彩虹色的发丝——粉、蓝、绿、黄——从头顶喷涌而出，像一个拒绝只选一种颜色的霓虹莫霍克。一只有机眼配上自信的小笑。紫色上衣配发光青色镶边，机械手臂带青色关节，黑色裤子。她双拳垂在身侧站着，看起来像那种会让保修失效的升级。"
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.STEELA
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.STEELA"
+msgid "Pale skin and an enormous puff of metallic silver curls that look like they were wound from actual steel wool. A dark visor band runs across her eyes, behind which two round white lenses glow like headlights. She wears a small, composed smile beneath the visor, the expression of someone who has processed the situation and found it mildly amusing. Purple top with cyan trim, mechanical fists, black pants."
+msgstr "白皙皮肤，一大蓬金属银色卷发，看起来像是用真正的钢丝绒绕出来的。一条深色护目带横亘在眼部，背后两个圆形白色镜片像车灯一样发光。护目带下方是一个小巧从容的微笑，一副已经处理了当前状况并觉得有点好笑的表情。紫色上衣配青色镶边，机械拳头，黑色裤子。"
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.STEVE
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.STEVE"
+msgid "Dark brown skin and a neat dark flat-top haircut with sharply defined edges. He has a knowing smile and stands with his fists on his hips in a classic superhero pose, radiating a confidence that may or may not be backed up by anything. Blue top with an orange belt and black pants. He looks like a man who is absolutely certain about things."
+msgstr "深棕色皮肤，整齐的深色平头发型线条分明。他带着一个胸有成竹的微笑，双拳叉腰摆出经典的超级英雄姿势，散发着一种不知道有没有实力支撑的自信。蓝色上衣配橙色腰带和黑色裤子。他看起来像一个对所有事都绝对确定的人。"
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.STINKY
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.STINKY"
+msgid "Pale skin and shaggy brown hair that sticks out in clumps, looking like it hasn't been introduced to a comb in its entire existence. A white headband stretches across his forehead, and below it he wears a big, oblivious grin. A ragged animal pelt is draped over his shoulders on top of a yellow shirt, black pants. Faint green wavy lines emanate from his general vicinity. He is completely unbothered by this."
+msgstr "白皙皮肤，蓬乱的棕色头发一簇簇支棱着，看起来这辈子都没跟梳子打过照面。一条白色头带横在额头上，下面是一个浑然不觉的大咧嘴笑。一张破旧的兽皮搭在黄色衬衫外面的肩膀上，黑色裤子。淡淡的绿色波浪线从他身体附近飘出。他对此完全不在意。"
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.TRAVALDO
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.TRAVALDO"
+msgid "Dark brown skin and short dark hair with a sharp part on one side. His face is completely, aggressively neutral, mouth a straight horizontal line, eyes level and unblinking. Yellow top with black trim and black pants. He stands with his arms slightly out, palms open, projecting all the emotional range of a filing cabinet."
+msgstr "深棕色皮肤，短短的深色头发一侧有一道利落的分线。他的脸完完全全、带有攻击性地面无表情，嘴巴是一条水平直线，眼睛平视不眨。黄色上衣配黑色镶边和黑色裤子。他双臂微张、手掌打开地站着，展现出跟一个文件柜一样丰富的情感层次。"
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.TURNER
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.TURNER"
+msgid "Pale skin and light brown hair swept to one side. They're wearing a wide, toothy grin that's trying very hard to look natural and not quite getting there, eyes bright and slightly too open. Blue top with gold accents and black pants, caught mid-step with their arms out, the body language of someone who is acutely aware that they are being perceived and cannot decide what to do about it."
+msgstr "白皙皮肤，浅棕色头发扫向一侧。他们咧着一个很努力想看起来自然但没完全成功的露齿大笑，眼睛明亮且睁得稍微有点过大。蓝色上衣配金色装饰和黑色裤子，被定格在迈步中间双臂张开，肢体语言分明是一个敏锐地意识到自己正在被注视却拿不定主意该怎么办的人。"
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.ULTI
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.ULTI"
+msgid "Tan skin with the right side of their head encased in silver plating, housing a large circular teal lens where an eye used to be. A swept-back fin of lavender-pink hair crowns the top of their head. Their remaining organic eye is small and cheerful, paired with a pleased little smile. Purple top with glowing cyan trim, black pants with teal-accented joints, one hand raised in a casual wave. They look like someone who is fifty percent machine and one hundred percent fine with it."
+msgstr "小麦色皮肤，右半边头部包裹在银色金属板中，原来眼睛的位置装着一个大圆形青色镜头。一片向后掠去的薰衣草粉色鳍状发冠立在头顶。剩余的有机眼小而愉快，配上一个满足的小微笑。紫色上衣配发光青色镶边，黑色裤子带青色关节装饰，一只手举起随意挥动。他们看起来像一个百分之五十是机器、百分之百觉得没问题的人。"
 #. STRINGS.ONIACCESS.DUPES.FOLLOW.FOLLOWING
 msgctxt "STRINGS.ONIACCESS.DUPES.FOLLOW.FOLLOWING"
 msgid "following {0}"
@@ -2540,6 +2790,12 @@ msgstr "殖民地拥有: {0}"
 msgctxt "STRINGS.ONIACCESS.INFO.DIFFICULTY"
 msgid "Difficulty"
 msgstr "难度"
+
+
+#. STRINGS.ONIACCESS.INFO.DUPE_DESCRIPTION
+msgctxt "STRINGS.ONIACCESS.INFO.DUPE_DESCRIPTION"
+msgid "description: {0}"
+msgstr "描述: {0}"
 
 #. STRINGS.ONIACCESS.INFO.INTEREST
 msgctxt "STRINGS.ONIACCESS.INFO.INTEREST"

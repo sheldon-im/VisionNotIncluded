@@ -1627,6 +1627,256 @@ msgctxt "STRINGS.ONIACCESS.DLC.OWNED_NOT_ACTIVE"
 msgid "Owned, not active"
 msgstr "Possédé, non actif"
 
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.ABE
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.ABE"
+msgid "Brown skin with a shock of spiky white hair swept dramatically backward, like he styled it in a wind tunnel and committed to the results. Big round eyes and a small, contented smile. He wears a blue jumpsuit with gold trim and a matching belt, giving him the look of a tiny, well-dressed dandelion."
+msgstr "Peau brune avec une touffe de cheveux blancs hérissés, balayés vers l'arrière comme s'il s'était coiffé dans une soufflerie et avait décidé d'assumer. Grands yeux ronds et petit sourire satisfait. Il porte une combinaison bleue à liserés dorés et une ceinture assortie, ce qui lui donne l'allure d'un petit pissenlit bien habillé."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.ADA
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.ADA"
+msgid "Dark brown skin framed by a magnificent cloud of curly brown hair that doubles the apparent size of her head. Her brow is furrowed and her mouth is set in a flat line that says she has already judged you and found you lacking. She wears a red-and-black jumpsuit with a yellow belt, arms hanging at her sides like she can't be bothered to do anything with them."
+msgstr "Peau brun foncé encadrée par un magnifique nuage de cheveux bruns bouclés qui double le volume apparent de sa tête. Sourcils froncés et bouche en ligne droite qui dit clairement qu'elle vous a déjà jugé et trouvé insuffisant. Elle porte une combinaison rouge et noire avec une ceinture jaune, les bras le long du corps comme si elle ne daignait rien en faire."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.AMARI
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.AMARI"
+msgid "Dark brown skin and short dark locs that stick out in every direction like a crown of small antennae. He's got a warm, easygoing smile and stands with his hands on his hips in a pose that radiates \"I've got this.\" Yellow-green top, black pants, and a belt that's doing its best to hold the whole outfit together."
+msgstr "Peau brun foncé et courtes locs sombres pointant dans toutes les directions comme une couronne de petites antennes. Il affiche un sourire chaleureux et décontracté, les mains sur les hanches dans une pose qui irradie \"je gère\". Haut jaune-vert, pantalon noir, et une ceinture qui fait de son mieux pour maintenir le tout ensemble."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.ARI
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.ARI"
+msgid "Pale skin and a dark mohawk that stands at attention like it has somewhere important to be. Their eyes are permanently narrowed into a skeptical squint, paired with thick eyebrows and a mouth that can't quite decide between a smirk and a scowl. They wear a yellow-and-orange striped top with black pants, looking like a very small, very suspicious bumblebee."
+msgstr "Peau pâle et une crête sombre qui se dresse au garde-à-vous comme si elle avait un rendez-vous important. Yeux perpétuellement plissés en un regard sceptique, assortis de sourcils épais et d'une bouche hésitant entre le ricanement et la moue. Haut rayé jaune et orange avec pantalon noir, ce qui donne l'air d'un tout petit bourdon très méfiant."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.ASHKAN
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.ASHKAN"
+msgid "Light-medium skin with dark hair slicked neatly to one side. His eyes are squeezed shut in a beaming smile so wide it takes up most of his face, like someone just told a joke only he heard. He wears a teal top with yellow shoulder accents and black pants, looking pleasantly overdressed for asteroid life."
+msgstr "Peau claire-moyenne avec des cheveux noirs soigneusement plaqués sur le côté. Ses yeux sont fermés dans un sourire radieux si large qu'il occupe la majeure partie de son visage, comme si quelqu'un venait de raconter une blague que lui seul a entendue. Il porte un haut sarcelle avec des accents jaunes aux épaules et un pantalon noir, agréablement trop habillé pour la vie sur un astéroïde."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.BANHI
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.BANHI"
+msgid "Dark brown skin and dark hair pulled into two neat buns perched on top of her head. Her eyes are half-lidded and her mouth is set in a slight frown, the universal expression of someone who is too cool to be here. She wears a dark top splashed with a bold orange pattern and black pants, arms hanging at her sides like she can't be bothered to do anything with them either."
+msgstr "Peau brun foncé et cheveux sombres tirés en deux chignons perchés au sommet de sa tête. Paupières mi-closes et bouche légèrement pincée, l'expression universelle de quelqu'un qui est trop cool pour être là. Elle porte un haut sombre éclaboussé d'un motif orange vif et un pantalon noir, les bras le long du corps comme si elle ne daignait rien en faire non plus."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.BUBBLES
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.BUBBLES"
+msgid "Light skin and lavender hair twisted into two buns that sit atop her head like a pair of angry little cinnamon rolls. Her brow is furrowed and her mouth is clenched in a grimace that suggests she is about three seconds from headbutting someone. She wears a blue top with yellow accents and black pants, fists balled at her sides. Everything about her posture says the name \"Bubbles\" was not her choice."
+msgstr "Peau claire et cheveux lavande torsadés en deux chignons trônant sur sa tête comme deux petits roulés à la cannelle furieux. Sourcils froncés et mâchoires serrées en une grimace qui suggère qu'elle est à trois secondes de donner un coup de tête à quelqu'un. Haut bleu avec accents jaunes et pantalon noir, poings serrés le long du corps. Toute sa posture indique que le nom \"Bubbles\" n'était pas son choix."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.BURT
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.BURT"
+msgid "Dark brown skin with dark hair gathered into a tidy bun on top of his head. He sports a wide, toothy grin that takes up roughly a third of his face and suggests he just remembered something wonderful. He wears a red top with a gold collar and black pants, arms slightly outstretched like he's about to offer you a hug whether you want one or not."
+msgstr "Peau brun foncé avec des cheveux sombres rassemblés en un chignon net au sommet de sa tête. Il arbore un large sourire qui occupe à peu près un tiers de son visage et suggère qu'il vient de se souvenir de quelque chose de merveilleux. Haut rouge à col doré et pantalon noir, bras légèrement tendus comme s'il s'apprêtait à vous offrir un câlin que vous le vouliez ou non."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.CAMILLE
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.CAMILLE"
+msgid "Medium-dark skin and a swooping bob of auburn hair that falls across one side of her face. Her expression sits in the narrow zone between wistful and mildly unimpressed, brow slightly furrowed like she's remembering something from a long time ago and isn't sure she likes it. Blue top with yellow accents and black pants."
+msgstr "Peau moyennement foncée et un carré auburn qui tombe en cascade sur un côté de son visage. Son expression se situe dans la zone étroite entre la mélancolie et la légère indifférence, sourcil légèrement froncé comme si elle se souvenait de quelque chose de lointain sans être sûre que ça lui plaise. Haut bleu avec accents jaunes et pantalon noir."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.CATALINA
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.CATALINA"
+msgid "Light skin and a blonde bob that bounces with the force of her enthusiasm. Her eyes are squeezed shut and her grin is enormous, showing every tooth she owns, like someone who has decided that smiling hard enough counts as a personality. She's caught mid-stride in a maroon top with gold accents and black pants, one arm flung out, running full tilt toward something the rest of us can't see."
+msgstr "Peau claire et un carré blond qui rebondit à la force de son enthousiasme. Yeux fermés et sourire énorme montrant toutes ses dents, comme quelqu'un qui a décidé que sourire assez fort valait une personnalité. Saisie en pleine foulée dans un haut bordeaux à accents dorés et pantalon noir, un bras lancé en avant, courant à fond vers quelque chose que le reste d'entre nous ne peut pas voir."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.CHIP
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.CHIP"
+msgid "Dark brown skin with the left half of their face replaced by a silver metal plate, one organic eye and one dark cybernetic lens. A row of golden, kernel-shaped LED bumps runs across the top of their head in place of hair. They wear a purple top with glowing cyan trim and black pants, with mechanical arms that end in chunky teal-jointed fists. Despite being roughly forty percent replacement parts, they're wearing a cheerful little smile."
+msgstr "Peau brun foncé avec la moitié gauche du visage remplacée par une plaque métallique argentée, un oeil organique et une lentille cybernétique sombre. Une rangée de bosses LED dorées en forme de grains court sur le haut de leur crâne en guise de cheveux. Haut violet avec bordures cyan luminescentes et pantalon noir, avec des bras mécaniques terminés par de gros poings aux articulations sarcelle. Malgré environ quarante pour cent de pièces de rechange, un petit sourire joyeux est de mise."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.DEVON
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.DEVON"
+msgid "Pale skin and a mop of wavy brown hair that flops to one side like it gave up halfway through styling itself. Wide eyes and a tiny mouth frozen in a look of mild surprise, as though they just walked into a room and forgot why. They wear an orange patterned top and black pants, standing with their hands clasped together in a posture that suggests they would very much like to be somewhere else but are too polite to leave."
+msgstr "Peau pâle et une tignasse de cheveux bruns ondulés qui retombe d'un côté, comme si elle avait abandonné en pleine mise en forme. Yeux écarquillés et petite bouche figée dans une expression de surprise modérée, comme si iel venait d'entrer dans une pièce et avait oublié pourquoi. Haut à motif orange et pantalon noir, debout les mains jointes dans une posture qui suggère qu'iel aimerait beaucoup être ailleurs mais est trop poli pour partir."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.EDWIREDO
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.EDWIREDO"
+msgid "Pale skin with an enormous dark cybernetic lens covering most of the right side of his face, filled with a teal grid pattern. His remaining eye is a small dot above a content little smile, giving the impression that losing half his face to machinery hasn't dampened his mood. A teal fin crests the top of his head and mechanical ports stud the side of his skull. Purple top with glowing cyan trim, black pants, one hand raised in a friendly wave."
+msgstr "Peau pâle avec une énorme lentille cybernétique sombre couvrant la majeure partie du côté droit de son visage, remplie d'un motif en grille sarcelle. Son oeil restant est un petit point au-dessus d'un sourire content, donnant l'impression que perdre la moitié de son visage au profit de la machinerie n'a en rien entamé sa bonne humeur. Une nageoire sarcelle crête le sommet de sa tête et des ports mécaniques parsèment le côté de son crâne. Haut violet avec bordures cyan luminescentes, pantalon noir, une main levée en un salut amical."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.ELLIE
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.ELLIE"
+msgid "Olive skin and a cascade of wavy blonde hair that frames her face like a set of curtains she refuses to tie back. She has a big toothy smile and bright, eager eyes that are practically vibrating with excitement about something she hasn't told you yet. She wears a blue-and-orange striped top with black pants."
+msgstr "Peau olive et une cascade de cheveux blonds ondulés encadrant son visage comme des rideaux qu'elle refuse de nouer. Grand sourire denté et yeux vifs qui vibrent pratiquement d'excitation pour quelque chose qu'elle ne vous a pas encore dit. Haut rayé bleu et orange avec pantalon noir."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.FRANKIE
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.FRANKIE"
+msgid "Tan skin topped by a sweep of dark hair and, more importantly, two of the most commanding eyebrows ever printed by a Printing Pod. They sit above a flat, no-nonsense expression like a pair of caterpillars that have achieved self-actualization. The rest of Frankie is there too, wearing a blue-and-gold top with black pants, but honestly the eyebrows are doing all the heavy lifting."
+msgstr "Peau halée surmontée d'une mèche de cheveux sombres et, surtout, de deux des sourcils les plus imposants jamais imprimés par un Printing Pod. Ils trônent au-dessus d'une expression neutre et sans fioritures, tels une paire de chenilles ayant atteint l'éveil. Le reste de Frankie est là aussi, dans un haut bleu et or avec pantalon noir, mais honnêtement ce sont les sourcils qui font tout le travail."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.FREYJA
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.FREYJA"
+msgid "Pale skin and a flowing mane of silver-white hair that sweeps around her face and past her shoulders, shimmering with a faint icy blue tint. She has big dark eyes and a small, self-satisfied smirk, the face of someone who knows something you don't and is enjoying it. Blue top with gold accents and black pants, fists at her sides. She looks like winter personified and slightly up to no good."
+msgstr "Peau pâle et une crinière de cheveux blanc argenté qui ondule autour de son visage et au-delà de ses épaules, miroitant d'un subtil reflet bleu glacé. Grands yeux sombres et petit sourire satisfait, le visage de quelqu'un qui sait quelque chose que vous ignorez et qui en profite. Haut bleu avec accents dorés et pantalon noir, poings le long du corps. Elle a l'air de l'hiver personnifié, et légèrement louche."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.GIZMO
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.GIZMO"
+msgid "Tan skin with a mechanical monocle bolted over his left eye, its lens glinting with magnification rings. His head is ringed by a halo of circuit boards and metal components arranged like a tech-scrap crown, where hair would normally be. He has one small organic eye and a pleased little smile beneath the monocle, looking like the happiest thing in the room and also the most heavily accessorized. Purple top with cyan accents, black pants, one hand up in a wave."
+msgstr "Peau halée avec un monocle mécanique boulonné sur l'oeil gauche, sa lentille scintillant d'anneaux de grossissement. Sa tête est ceinte d'un halo de circuits imprimés et de composants métalliques disposés comme une couronne de ferraille, là où les cheveux devraient être. Un petit oeil organique et un sourire satisfait sous le monocle, l'air de la chose la plus heureuse de la pièce et aussi la plus accessoirisée. Haut violet avec accents cyan, pantalon noir, une main levée pour saluer."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.GOSSMANN
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.GOSSMANN"
+msgid "Pale skin and blonde hair pulled back into a little flip at the side. Her eyes are scrunched shut and she's wearing a lopsided grin, leaning slightly to one side like she just told a joke and is already laughing at it before anyone else can react. Gold top with dark accents and black pants. Her whole posture radiates the energy of someone who is absolutely about to do something silly."
+msgstr "Peau pâle et cheveux blonds tirés en arrière avec une petite mèche retournée sur le côté. Yeux plissés fermés et sourire en coin, penchée légèrement d'un côté comme si elle venait de raconter une blague et rigolait déjà avant que quiconque puisse réagir. Haut doré avec accents sombres et pantalon noir. Toute sa posture irradie l'énergie de quelqu'un qui est absolument sur le point de faire une bêtise."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.HAROLD
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.HAROLD"
+msgid "Medium-brown skin and a generous halo of dark curly hair that adds considerable volume to an otherwise unremarkable silhouette. His eyes droop slightly and his mouth is set in a flat line, the face of a man who is present and accounted for and not much else. Teal-and-yellow striped top, black pants. Harold is here."
+msgstr "Peau brun moyen et un généreux halo de cheveux bouclés foncés qui ajoute un volume considérable à une silhouette autrement quelconque. Ses yeux tombent légèrement et sa bouche forme une ligne droite, le visage d'un homme qui est présent, comptabilisé, et pas grand-chose de plus. Haut rayé sarcelle et jaune, pantalon noir. Harold est là."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.HASSAN
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.HASSAN"
+msgid "Tan skin and brown hair swept loosely to one side. His eyes are cast downward and slightly to the left, as though he's trying very hard not to make eye contact with whoever is looking at him right now. Arms crossed over an orange top with teal accents and black pants. His whole posture is a polite request to not be perceived."
+msgstr "Peau halée et cheveux bruns vaguement balayés sur le côté. Ses yeux sont baissés et légèrement tournés vers la gauche, comme s'il essayait très fort de ne pas croiser le regard de quiconque le regarde en ce moment. Bras croisés sur un haut orange avec accents sarcelle et pantalon noir. Toute sa posture est une demande polie de ne pas être remarqué."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.HIGBY
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.HIGBY"
+msgid "Pale skin and dark hair slicked back, with what appears to be a bone or feather tucked behind one ear as an accessory. He has big dark eyes and a wide, toothy grin, fists up in an enthusiastic stride like a man who is going somewhere and is thrilled about it. Gold-yellow top with a darker belt and black pants. He looks like the most upbeat caveman you've ever met."
+msgstr "Peau pâle et cheveux sombres plaqués en arrière, avec ce qui semble être un os ou une plume glissé derrière une oreille en guise d'accessoire. Grands yeux sombres et large sourire denté, poings levés dans une foulée enthousiaste comme un homme qui va quelque part et qui en est ravi. Haut jaune doré avec une ceinture plus foncée et pantalon noir. Il a l'air de l'homme des cavernes le plus enjoué que vous ayez jamais rencontré."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.JEAN
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.JEAN"
+msgid "Pale skin and dark hair pulled into a small topknot, giving their head the silhouette of an apple with a stem. Their eyes are wide and slightly unfocused, paired with a faint smile that suggests the lights are on but the occupant has stepped out briefly. Teal top with gold accents and black pants, arms out at their sides as though they forgot they had them."
+msgstr "Peau pâle et cheveux sombres tirés en un petit chignon haut, donnant à sa tête la silhouette d'une pomme avec sa tige. Yeux grands ouverts et légèrement dans le vague, accompagnés d'un faible sourire qui suggère que les lumières sont allumées mais que l'occupant est sorti un moment. Haut sarcelle avec accents dorés et pantalon noir, bras écartés comme si iel avait oublié qu'iel les avait."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.JORGE
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.JORGE"
+msgid "Dark brown skin almost entirely hidden beneath layers of ragged wraps and bandages. A massive tangle of dark olive-green hair spills over his face and down past his shoulders, obscuring everything but a pair of eyes peeking out from the undergrowth. A thick scarf covers his lower face. He wears rough, hand-wound cloth instead of the standard jumpsuit, looking like a man who has been alone on an asteroid for a very long time and has dressed accordingly."
+msgstr "Peau brun foncé presque entièrement cachée sous des couches de bandages et de haillons. Une masse emmêlée de cheveux vert olive sombre déborde sur son visage et tombe au-delà de ses épaules, ne laissant voir qu'une paire d'yeux qui émerge de la broussaille. Une écharpe épaisse couvre le bas de son visage. Il porte des étoffes grossières enroulées à la main au lieu de la combinaison standard, avec l'allure d'un homme resté seul sur un astéroïde très longtemps et habillé en conséquence."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.JOSHUA
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.JOSHUA"
+msgid "Dark brown skin and short dark hair. His eyes are closed and he wears a soft, blissful smile, balanced on one foot with his arms stretched wide like a child pretending to be an airplane. Blue top with orange accents and black pants. He has the round, gentle face and carefree posture of a duplicant who has never once been startled by anything."
+msgstr "Peau brun foncé et cheveux courts foncés. Yeux fermés et doux sourire béat, en équilibre sur un pied, les bras grands ouverts comme un enfant qui fait l'avion. Haut bleu avec accents orange et pantalon noir. Il a le visage rond et doux et la posture insouciante d'un duplicant que rien n'a jamais fait sursauter."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.LEIRA
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.LEIRA"
+msgid "Medium-brown skin and a big, buoyant puff of curly brown hair that looks like it could cushion a fall from any height. She has bright eyes and a wide, toothy smile, hands clasped together in front of her in the universal gesture of someone who is genuinely delighted to see you. Yellow top with black trim and black pants."
+msgstr "Peau brun moyen et une grande bouffée de cheveux bruns bouclés qui semble capable d'amortir une chute de n'importe quelle hauteur. Yeux pétillants et large sourire, mains jointes devant elle dans le geste universel de quelqu'un qui est sincèrement ravi de vous voir. Haut jaune avec bordures noires et pantalon noir."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.LIAM
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.LIAM"
+msgid "Pale skin topped with a fluffy mop of bright blue curls that look like someone glued a cloud to his head and dyed it. His eyes are wide and his mouth is stretched into a huge grin, arms thrown wide open as though he's about to embrace the entire asteroid. Teal top with gold accents and black pants. He radiates the unhinged enthusiasm of someone who has not yet realized what he's gotten himself into."
+msgstr "Peau pâle surmontée d'une tignasse de boucles bleu vif qui donne l'impression qu'on a collé un nuage sur sa tête avant de le teindre. Yeux écarquillés et bouche étirée en un sourire immense, bras grands ouverts comme s'il s'apprêtait à étreindre l'astéroïde entier. Haut sarcelle avec accents dorés et pantalon noir. Il irradie l'enthousiasme débridé de quelqu'un qui n'a pas encore réalisé dans quoi il s'est embarqué."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.LINDSAY
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.LINDSAY"
+msgid "Medium-brown skin and a neat brown bob that swoops across her forehead. Her eyes are closed in a composed, pleasant smile, the kind that says everything is fine and will remain fine as long as nobody does anything stupid. Yellow top with lighter accents and black pants. She stands with an easy, relaxed posture that somehow still communicates she could ruin your day if provoked."
+msgstr "Peau brun moyen et un carré brun net qui balaie son front. Yeux fermés dans un sourire posé et agréable, du genre qui dit que tout va bien et continuera d'aller bien tant que personne ne fait de bêtise. Haut jaune avec accents plus clairs et pantalon noir. Elle se tient dans une posture détendue qui communique néanmoins qu'elle pourrait vous gâcher la journée si on la provoque."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.MAE
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.MAE"
+msgid "Light skin and a bold blonde pompadour swept back with dark sides, the kind of hairstyle that requires more confidence than most people have. She wears a steady, knowing look with a slight upturn at the corners of her mouth. Red-orange patterned top and black pants. She stands with her weight settled and her chin up, a person who has already decided how this is going to go."
+msgstr "Peau claire et une audacieuse banane blonde balayée vers l'arrière avec des côtés sombres, le genre de coiffure qui exige plus d'assurance que la plupart des gens n'en possèdent. Elle affiche un regard posé et entendu avec un léger retroussement aux coins de la bouche. Haut à motif rouge-orange et pantalon noir. Elle se tient le poids bien ancré et le menton levé, quelqu'un qui a déjà décidé comment les choses vont se passer."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.MARIE
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.MARIE"
+msgid "Pale skin and a heap of golden-yellow curls piled on top of her head like a fancy dessert. She has a faint, suspicious glow about her and a wobbly little grimace that suggests she knows exactly why she's glowing and has decided not to address it. Orange-gold top and black pants. She stands with a stiff uncertainty, like someone posing for a photo they didn't agree to."
+msgstr "Peau pâle et un amas de boucles jaune doré empilées sur sa tête comme un dessert raffiné. Elle émet une lueur faible et suspecte et arbore une petite grimace vacillante qui suggère qu'elle sait exactement pourquoi elle brille et a décidé de ne pas en parler. Haut orange-doré et pantalon noir. Elle se tient avec une raideur incertaine, comme quelqu'un qui pose pour une photo à laquelle il n'a pas consenti."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.MAX
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.MAX"
+msgid "Tan skin and a tuft of curly brown hair that sits on their head like a concerned shrub. Their brow is creased and their eyes are wide, staring slightly off to one side at something only they can see and clearly wish they couldn't. Blue top with orange accents, black pants, arms hanging limply at their sides."
+msgstr "Peau halée et une touffe de cheveux bruns bouclés posée sur sa tête comme un arbuste inquiet. Front plissé et yeux écarquillés, le regard légèrement de côté vers quelque chose qu'iel seul peut voir et souhaiterait clairement ne pas voir. Haut bleu avec accents orange, pantalon noir, bras pendants le long du corps."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.MAYA
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.MAYA"
+msgid "Tan skin and brown hair pulled back in a loose braid, streaked through with a bold band of grey that she clearly did not earn from relaxation. She has big dark eyes and a warm smile, one hand raised in an easy wave. Teal top with gold accents and black pants. She has the relaxed, unfazed look of someone who has seen some things and waved hello to all of them."
+msgstr "Peau halée et cheveux bruns tirés en une tresse lâche, traversés d'une bande de gris prononcée qu'elle n'a clairement pas gagnée en se relaxant. Grands yeux sombres et sourire chaleureux, une main levée en un salut décontracté. Haut sarcelle avec accents dorés et pantalon noir. Elle a l'air détendu et imperturbable de quelqu'un qui en a vu des choses et leur a fait coucou à toutes."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.MEEP
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.MEEP"
+msgid "Light skin and a flat brown haircut with a little tuft on top, like someone started styling it and gave up. A thick, unbroken unibrow sits above wide, eager eyes, and enormous buck teeth jut out proudly from a permanent grin. Gold top, black pants, caught mid-bounce on one foot with his arms out, looking like a wind-up toy that someone forgot to aim in a useful direction."
+msgstr "Peau claire et une coupe de cheveux brune plate avec une petite touffe sur le dessus, comme si quelqu'un avait commencé la coiffure et abandonné. Un épais monosourcil continu surmonte des yeux larges et avides, et d'énormes dents de lapin jaillissent fièrement d'un sourire permanent. Haut doré, pantalon noir, saisi en plein rebond sur un pied les bras écartés, avec l'allure d'un jouet à ressort que quelqu'un a oublié de pointer dans une direction utile."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.MI_MA
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.MI_MA"
+msgid "Pale skin and a big puff of grey curly hair, the kind that has seen decades and is not impressed by any of them. Her eyes are narrowed into a permanent squint and her mouth is a thin, flat line of judgment. Blue top with gold accents, black pants. She has the posture and expression of a grandmother who has already decided you're not dressed warmly enough."
+msgstr "Peau pâle et un gros nuage de cheveux gris bouclés, du genre qui a traversé les décennies sans être impressionné par aucune d'entre elles. Yeux rétrécis en un plissement permanent et bouche en ligne fine et plate de jugement. Haut bleu avec accents dorés, pantalon noir. Elle a la posture et l'expression d'une grand-mère qui a déjà décidé que vous n'êtes pas assez couvert."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.NAILS
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.NAILS"
+msgid "Tan skin and sandy hair held back by a purple headband. Their eyes are closed and they're wearing a soft, contented smile, standing in a relaxed slouch with one arm tucked behind their back. Teal top with yellow accents and black pants. They look like they just had a really good stretch and are still enjoying it."
+msgstr "Peau halée et cheveux sable retenus par un bandeau violet. Yeux fermés et doux sourire satisfait, debout dans une posture relâchée avec un bras derrière le dos. Haut sarcelle avec accents jaunes et pantalon noir. On dirait qu'iel vient de faire un très bon étirement et en profite encore."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.NIKOLA
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.NIKOLA"
+msgid "Pale skin and a wild explosion of spiky blonde hair that shoots upward and outward, as though he recently stuck a fork in something electrical and has no regrets about it. His expression is flat and unreadable, mouth set in a straight line, eyes staring forward with the quiet intensity of a man doing calculations you didn't ask for. Gold-yellow top, black pants."
+msgstr "Peau pâle et une explosion sauvage de cheveux blonds hérissés qui jaillissent vers le haut et l'extérieur, comme s'il avait récemment planté une fourchette dans quelque chose d'électrique et ne le regrettait absolument pas. Expression neutre et indéchiffrable, bouche en ligne droite, yeux fixant droit devant avec l'intensité tranquille d'un homme en train de faire des calculs qu'on ne lui a pas demandés. Haut jaune doré, pantalon noir."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.NISBET
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.NISBET"
+msgid "Pale skin and a shaggy mane of reddish-brown hair that sweeps across her face. She has big green eyes and a small, tight-lipped expression, hands clasped in front of her in a way that could be read as shy if you didn't know better. Dark top with a bold orange pattern and black pants. She's compact and unassuming, with the tightly coiled posture of someone who takes up less space than she needs to."
+msgstr "Peau pâle et une crinière hirsute de cheveux brun-roux qui balaie son visage. Grands yeux verts et petite expression aux lèvres pincées, mains jointes devant elle d'une manière qui pourrait passer pour de la timidité si vous ne saviez pas mieux. Haut sombre avec un motif orange vif et pantalon noir. Compacte et discrète, avec la posture contractée de quelqu'un qui prend moins de place que nécessaire."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.OTTO
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.OTTO"
+msgid "Tan skin and a head of tight blonde curls. Their eyes are wide and their mouth is doing a nervous little squiggle, a face permanently braced for impact. Teal top with orange accents and black pants, standing with a stiff, uncertain posture like someone who just heard a loud noise and hasn't located the source."
+msgstr "Peau halée et une tête de boucles blondes serrées. Yeux écarquillés et bouche en petit zigzag nerveux, un visage perpétuellement prêt pour l'impact. Haut sarcelle avec accents orange et pantalon noir, debout dans une posture raide et incertaine, comme quelqu'un qui vient d'entendre un bruit fort et n'en a pas trouvé la source."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.PEI
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.PEI"
+msgid "Pale skin and light blue hair swept up into a high bun with wispy bangs framing her face. She has big dark eyes and a perky little smile, fists raised in a peppy, can-do pose that suggests boundless enthusiasm and not necessarily a plan. Green top with darker accents and black pants."
+msgstr "Peau pâle et cheveux bleu clair relevés en un chignon haut avec une frange vaporeuse encadrant son visage. Grands yeux sombres et petit sourire pétillant, poings levés dans une pose pleine d'entrain qui suggère un enthousiasme sans bornes et pas forcément un plan. Haut vert avec accents plus sombres et pantalon noir."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.QUINN
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.QUINN"
+msgid "Light skin and a bright orange bowl cut with straight-across bangs, the kind of haircut that commits fully and asks no questions. They have big dark eyes and a cheerful little smile, standing with their arms out in a relaxed, open posture. Red top with yellow accents and black pants. They look like the friendliest person at a party you didn't know you were attending."
+msgstr "Peau claire et une coupe au bol orange vif avec une frange bien droite, le genre de coiffure qui s'engage à fond sans poser de questions. Grands yeux sombres et petit sourire joyeux, debout les bras écartés dans une posture détendue et ouverte. Haut rouge avec accents jaunes et pantalon noir. On dirait la personne la plus sympathique à une fête à laquelle vous ne saviez pas que vous assistiez."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.REN
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.REN"
+msgid "Pale skin and dark hair that juts upward in stiff, uneven spikes. His brow is slightly furrowed and his mouth is a small, flat line, eyes fixed on a point well past the camera. Maroon top with gold accents, black pants. He has the thousand-yard stare of a very small, very spiky statue."
+msgstr "Peau pâle et cheveux sombres dressés en pointes raides et irrégulières. Sourcil légèrement froncé et bouche en petite ligne plate, yeux fixés sur un point bien au-delà de la caméra. Haut bordeaux avec accents dorés, pantalon noir. Il a le regard perdu dans le vide d'une très petite statue très hérissée."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.ROWAN
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.ROWAN"
+msgid "Light skin and a mop of curly auburn hair. His eyes are squeezed shut and his mouth is stretched into a colossal grin showing every available tooth, arms flung wide, balanced on one foot like he's about to launch into either a hug or a musical number. Teal top with yellow accents and black pants. Every part of him is at maximum extension."
+msgstr "Peau claire et une tignasse de cheveux auburn bouclés. Yeux fermés et bouche étirée en un sourire colossal montrant toutes les dents disponibles, bras lancés en grand écart, en équilibre sur un pied comme s'il s'apprêtait à se lancer dans un câlin ou un numéro musical. Haut sarcelle avec accents jaunes et pantalon noir. Chaque partie de lui est en extension maximale."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.RUBY
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.RUBY"
+msgid "Dark brown skin and a close-cropped brown buzz cut. Their eyes are slightly narrowed and their mouth curls into a subtle smirk, the look of someone who already knows the answer to the question they just asked you. Dark top with a bold orange pattern and black pants, hands tucked behind their back in a pose that's equal parts casual and vaguely threatening."
+msgstr "Peau brun foncé et une coupe rase brune très courte. Yeux légèrement plissés et bouche recourbée en un sourire subtil, le regard de quelqu'un qui connaît déjà la réponse à la question qu'iel vient de vous poser. Haut sombre avec un motif orange vif et pantalon noir, mains derrière le dos dans une pose à parts égales décontractée et vaguement menaçante."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.SENA
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.SENA"
+msgid "Dark brown skin and dark hair swept up into an elegant updo, pinned with a gold flower that matches the gold earring dangling from one ear. She has big dark eyes and a composed, satisfied smile. She wears a lavender top with bold gold stripes and matching gold cuffs, looking significantly more put-together than anyone on an asteroid has any right to be. Black pants, standing with her arms at her sides, radiating the energy of a woman who accessorized on purpose."
+msgstr "Peau brun foncé et cheveux sombres relevés en un chignon élégant, épinglé d'une fleur dorée assortie à la boucle d'oreille dorée qui pend d'une oreille. Grands yeux sombres et sourire posé et satisfait. Elle porte un haut lavande avec de larges rayures dorées et des manchettes dorées assorties, nettement plus apprêtée que quiconque sur un astéroïde n'a le droit de l'être. Pantalon noir, debout les bras le long du corps, irradiant l'énergie d'une femme qui s'est accessoirisée exprès."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.SONYAR
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.SONYAR"
+msgid "Dark brown skin with silver metal plating covering the left side of her face. A spray of rainbow-colored streaks, pink, blue, green, and yellow, erupts from the top of her head like a neon mohawk that refused to pick just one color. She has one organic eye and a confident little smirk. Purple top with glowing cyan trim, mechanical arms with teal joints, black pants. She stands with her fists at her sides, looking like the kind of upgrade that voids the warranty."
+msgstr "Peau brun foncé avec un placage métallique argenté couvrant le côté gauche de son visage. Un jet de mèches multicolores, rose, bleu, vert et jaune, jaillit du sommet de sa tête comme une crête néon qui a refusé de choisir une seule couleur. Un oeil organique et un petit sourire confiant. Haut violet avec bordures cyan luminescentes, bras mécaniques aux articulations sarcelle, pantalon noir. Elle se tient poings le long du corps, avec l'allure du genre d'amélioration qui annule la garantie."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.STEELA
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.STEELA"
+msgid "Pale skin and an enormous puff of metallic silver curls that look like they were wound from actual steel wool. A dark visor band runs across her eyes, behind which two round white lenses glow like headlights. She wears a small, composed smile beneath the visor, the expression of someone who has processed the situation and found it mildly amusing. Purple top with cyan trim, mechanical fists, black pants."
+msgstr "Peau pâle et un énorme nuage de boucles argentées métalliques qui semblent avoir été torsadées à partir de vraie laine d'acier. Un bandeau visière sombre barre ses yeux, derrière lequel deux lentilles blanches rondes luisent comme des phares. Petit sourire posé sous la visière, l'expression de quelqu'un qui a analysé la situation et l'a trouvée vaguement amusante. Haut violet avec bordures cyan, poings mécaniques, pantalon noir."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.STEVE
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.STEVE"
+msgid "Dark brown skin and a neat dark flat-top haircut with sharply defined edges. He has a knowing smile and stands with his fists on his hips in a classic superhero pose, radiating a confidence that may or may not be backed up by anything. Blue top with an orange belt and black pants. He looks like a man who is absolutely certain about things."
+msgstr "Peau brun foncé et une coupe flat-top sombre et nette aux bords tranchants. Sourire entendu, debout les poings sur les hanches dans une pose de superhéros classique, irradiant une confiance qui peut ou peut ne pas être fondée sur quoi que ce soit. Haut bleu avec une ceinture orange et pantalon noir. Il a l'air d'un homme absolument certain de tout."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.STINKY
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.STINKY"
+msgid "Pale skin and shaggy brown hair that sticks out in clumps, looking like it hasn't been introduced to a comb in its entire existence. A white headband stretches across his forehead, and below it he wears a big, oblivious grin. A ragged animal pelt is draped over his shoulders on top of a yellow shirt, black pants. Faint green wavy lines emanate from his general vicinity. He is completely unbothered by this."
+msgstr "Peau pâle et cheveux bruns hirsutes qui dépassent en touffes, comme s'ils n'avaient jamais croisé un peigne de toute leur existence. Un bandeau blanc s'étire sur son front, et en dessous il arbore un large sourire béat. Une peau d'animal en lambeaux est drapée sur ses épaules par-dessus une chemise jaune, pantalon noir. De faibles lignes ondulées vertes émanent de ses environs. Il n'en est absolument pas dérangé."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.TRAVALDO
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.TRAVALDO"
+msgid "Dark brown skin and short dark hair with a sharp part on one side. His face is completely, aggressively neutral, mouth a straight horizontal line, eyes level and unblinking. Yellow top with black trim and black pants. He stands with his arms slightly out, palms open, projecting all the emotional range of a filing cabinet."
+msgstr "Peau brun foncé et cheveux courts foncés avec une raie nette sur le côté. Son visage est complètement, agressivement neutre, bouche en ligne horizontale, yeux fixes sans ciller. Haut jaune avec bordures noires et pantalon noir. Il se tient les bras légèrement écartés, paumes ouvertes, projetant toute la gamme émotionnelle d'un classeur à tiroirs."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.TURNER
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.TURNER"
+msgid "Pale skin and light brown hair swept to one side. They're wearing a wide, toothy grin that's trying very hard to look natural and not quite getting there, eyes bright and slightly too open. Blue top with gold accents and black pants, caught mid-step with their arms out, the body language of someone who is acutely aware that they are being perceived and cannot decide what to do about it."
+msgstr "Peau pâle et cheveux châtain clair balayés sur le côté. Large sourire denté qui essaie très fort d'avoir l'air naturel sans tout à fait y parvenir, yeux brillants et un peu trop ouverts. Haut bleu avec accents dorés et pantalon noir, saisi en plein pas les bras écartés, le langage corporel de quelqu'un qui est parfaitement conscient d'être observé et ne sait pas quoi faire de cette information."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.ULTI
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.ULTI"
+msgid "Tan skin with the right side of their head encased in silver plating, housing a large circular teal lens where an eye used to be. A swept-back fin of lavender-pink hair crowns the top of their head. Their remaining organic eye is small and cheerful, paired with a pleased little smile. Purple top with glowing cyan trim, black pants with teal-accented joints, one hand raised in a casual wave. They look like someone who is fifty percent machine and one hundred percent fine with it."
+msgstr "Peau halée avec le côté droit de la tête gainé d'un placage argenté abritant une grande lentille circulaire sarcelle là où se trouvait un oeil. Une nageoire de cheveux rose lavande balayée vers l'arrière couronne le sommet de sa tête. L'oeil organique restant est petit et joyeux, accompagné d'un petit sourire satisfait. Haut violet avec bordures cyan luminescentes, pantalon noir aux articulations sarcelle, une main levée en un salut décontracté. On dirait quelqu'un qui est cinquante pour cent machine et cent pour cent satisfait de la situation."
+
 #. STRINGS.ONIACCESS.DUPES.FOLLOW.FOLLOWING
 msgctxt "STRINGS.ONIACCESS.DUPES.FOLLOW.FOLLOWING"
 msgid "following {0}"
@@ -2540,6 +2790,11 @@ msgstr "La colonie possède : {0}"
 msgctxt "STRINGS.ONIACCESS.INFO.DIFFICULTY"
 msgid "Difficulty"
 msgstr "Difficulté"
+
+#. STRINGS.ONIACCESS.INFO.DUPE_DESCRIPTION
+msgctxt "STRINGS.ONIACCESS.INFO.DUPE_DESCRIPTION"
+msgid "description: {0}"
+msgstr "description : {0}"
 
 #. STRINGS.ONIACCESS.INFO.INTEREST
 msgctxt "STRINGS.ONIACCESS.INFO.INTEREST"

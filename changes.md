@@ -2,6 +2,7 @@
 
 ## Unreleased changes since 1.2.2
 
+* Storage tile item selection side screen is now accessible -- browse and select which item to store
 * Plant and seed names no longer say "(Original)" once mutations are unlocked
 * Duplicant physical appearance descriptions now appear in colony start, printing pod, supply closet duplicant list, and the Bio tab -- these describe what each dupe looks like (skin, hair, clothing, expression, posture)
 * Tools now preserve overlay context -- activating dig, sweep, or other tools on a temperature or conduit overlay keeps that overlay's information in speech

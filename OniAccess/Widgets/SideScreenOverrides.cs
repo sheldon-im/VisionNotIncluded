@@ -40,6 +40,7 @@ namespace OniAccess.Widgets {
 			SideScreenWalker.RegisterOverride<GeoTunerSideScreen>(WalkGeoTuner);
 			SideScreenWalker.RegisterOverride<BaseGameImpactorImperativeSideScreen>(WalkBaseGameImpactorImperative);
 			SideScreenWalker.RegisterOverride<FilterSideScreen>(WalkFilterSideScreen);
+			SideScreenWalker.RegisterOverride<SingleItemSelectionSideScreen>(WalkSingleItemSelection);
 			SideScreenWalker.RegisterOverride<AssignPilotAndCrewSideScreen>(WalkAssignPilotAndCrew);
 			SideScreenWalker.RegisterOverride<RocketRestrictionSideScreen>(WalkRocketRestriction);
 			SideScreenWalker.RegisterOverride<PlanterSideScreen>(WalkPlanter);
@@ -2438,6 +2439,124 @@ namespace OniAccess.Widgets {
 					SpeechFunc = () => capturedRow.IsSelected
 						? $"{(string)STRINGS.ONIACCESS.STATES.SELECTED}, {capturedTag.ProperName()}"
 						: capturedTag.ProperName()
+				});
+			}
+		}
+
+		static void WalkSingleItemSelection(
+				SingleItemSelectionSideScreen screen, List<Widget> items) {
+			Traverse tv;
+			try { tv = Traverse.Create(screen); } catch (System.Exception ex) {
+				Util.Log.Warn($"WalkSingleItemSelection: Traverse create failed: {ex.Message}");
+				return;
+			}
+
+			SingleItemSelectionSideScreen_SelectedItemSection selectedSection;
+			SingleItemSelectionRow noneRow;
+			SortedDictionary<Tag, SingleItemSelectionSideScreenBase.Category> cats;
+			try {
+				selectedSection = tv.Field<SingleItemSelectionSideScreen_SelectedItemSection>(
+					"selectedItemLabel").Value;
+				noneRow = tv.Field<SingleItemSelectionRow>("noneOptionRow").Value;
+				cats = tv.Field<SortedDictionary<Tag, SingleItemSelectionSideScreenBase.Category>>(
+					"categories").Value;
+			} catch (System.Exception ex) {
+				Util.Log.Warn($"WalkSingleItemSelection: field read failed: {ex.Message}");
+				return;
+			}
+
+			// Current selection
+			if (selectedSection != null) {
+				var capturedSection = selectedSection;
+				LocText contentText;
+				try {
+					contentText = Traverse.Create(capturedSection)
+						.Field<LocText>("contentText").Value;
+				} catch (System.Exception ex) {
+					Util.Log.Warn($"WalkSingleItemSelection: contentText read failed: {ex.Message}");
+					contentText = null;
+				}
+				if (contentText != null) {
+					var capturedText = contentText;
+					items.Add(new LabelWidget {
+						Label = capturedText.GetParsedText(),
+						GameObject = capturedSection.gameObject,
+						SpeechFunc = () => capturedText.GetParsedText()
+					});
+				}
+			}
+
+			// None row
+			if (noneRow != null) {
+				var capturedNoneRow = noneRow;
+				string noneLabel = (string)STRINGS.UI.UISIDESCREENS.SINGLEITEMSELECTIONSIDESCREEN.NO_SELECTION;
+				items.Add(new ButtonWidget {
+					Label = noneLabel,
+					Component = capturedNoneRow.button,
+					GameObject = capturedNoneRow.gameObject,
+					SuppressTooltip = true,
+					SpeechFunc = () => capturedNoneRow.IsSelected
+						? $"{(string)STRINGS.ONIACCESS.STATES.SELECTED}, {noneLabel}"
+						: noneLabel
+				});
+			}
+
+			// Unfold every category so items are activeInHierarchy
+			if (cats == null) return;
+			foreach (var kv in cats) {
+				if (kv.Key == GameTags.Void) continue;
+				if (!kv.Value.IsVisible) continue;
+				kv.Value.SetUnfoldedState(
+					SingleItemSelectionSideScreenBase.Category.UnfoldedStates.Unfolded);
+			}
+
+			foreach (var kv in cats) {
+				if (kv.Key == GameTags.Void) continue;
+				var cat = kv.Value;
+				if (!cat.IsVisible) continue;
+				List<SingleItemSelectionRow> catItems;
+				try {
+					catItems = Traverse.Create(cat)
+						.Field<List<SingleItemSelectionRow>>("items").Value;
+				} catch (System.Exception ex) {
+					Util.Log.Warn($"WalkSingleItemSelection: category items read failed: {ex.Message}");
+					continue;
+				}
+				if (catItems == null) continue;
+
+				var children = new List<Widget>();
+				foreach (var row in catItems) {
+					if (!row.gameObject.activeInHierarchy) continue;
+					var capturedRow = row;
+					var capturedTag = row.tag;
+					string rowLabel = capturedTag.ProperName();
+					children.Add(new ButtonWidget {
+						Label = rowLabel,
+						Component = capturedRow.button,
+						GameObject = capturedRow.gameObject,
+						SuppressTooltip = true,
+						SpeechFunc = () => capturedRow.IsSelected
+							? $"{(string)STRINGS.ONIACCESS.STATES.SELECTED}, {capturedTag.ProperName()}"
+							: capturedTag.ProperName()
+					});
+				}
+				if (children.Count == 0) continue;
+
+				var capturedCat = cat;
+				var capturedCatTag = kv.Key;
+				var capturedHref = Traverse.Create(cat)
+					.Field<HierarchyReferences>("hierarchyReferences").Value;
+				items.Add(new LabelWidget {
+					Label = capturedCatTag.ProperName(),
+					GameObject = capturedHref != null ? capturedHref.gameObject : null,
+					SuppressTooltip = true,
+					Children = children,
+					SpeechFunc = () => {
+						string name = capturedCatTag.ProperName();
+						string countText = string.Format(
+							(string)STRINGS.ONIACCESS.RECEPTACLE.ITEM_COUNT, children.Count);
+						return $"{name}, {countText}";
+					}
 				});
 			}
 		}

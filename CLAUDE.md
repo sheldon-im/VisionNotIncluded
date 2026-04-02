@@ -85,13 +85,7 @@ This mod runs on Harmony patches and reflection. Both fail in ways that produce 
 
 ## Release
 
-1. Bump version in `OniAccess/OniAccess.csproj` (`<Version>`) and `OniAccess/mod_info.yaml` — build.ps1 syncs the csproj version into mod_info.yaml automatically, but update both to be safe
-2. Update `changes.md`: rename "Unreleased changes since X" to the new version number, add a new empty "Unreleased changes since Y" section above it
-3. Commit as "Release X.Y.Z" and tag as `vX.Y.Z`
-4. Push with `git push --tags && git push`
-5. Run `powershell -ExecutionPolicy Bypass -File release.ps1` — populates `release/` with all mod files except the config file
-6. Zip the `release/` folder and upload it to GitHub: `gh release create vX.Y.Z release.zip --title "X.Y.Z" --notes "notes"` — the release notes should always direct players to use the Steam Workshop install and link to the getting-started guide, with the manual zip offered only as a fallback for regions where the Workshop is unavailable. Delete the local zip after uploading
-7. Point the Steam Workshop uploader at the `release/` folder
+Use `/release X.Y.Z` to run the full release workflow.
 
 ## Game Log
 

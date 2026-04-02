@@ -77,8 +77,7 @@ Camera pan (WASD) and build category keys (Plan1-14) are globally blocked by `Mo
 | Key | Action | Game Binding | Suppression |
 |-----|--------|-------------|-------------|
 | I | Read tooltip | Disinfect tool activation | ConsumedKey |
-| K | Read coordinates | Clear (Sweep) tool activation | ConsumedKey |
-| Shift+K | Cycle coordinate mode | Sandbox Sample (sandbox only) | ConsumedKey |
+| Shift+K | Read coordinates | Sandbox Sample (sandbox only) | ConsumedKey |
 | Q | Read cycle status | BuildMenuKeyQ (build submenu only) | ConsumedKey |
 | Shift+Q | Read time played | None | ConsumedKey |
 | S | Colony status summary | PanDown (camera) | Globally blocked |
@@ -267,7 +266,7 @@ Keys where the mod suppresses the original game function. Only listed if the gam
 | W, A, S, D | Camera pan | S = colony status, W = world selector, D = diagnostics. A is globally blocked but unused by mod. | Camera panning not useful to blind players; tile cursor replaces it |
 | H | CameraHome (jump to Printing Pod) | Jump to home bookmark | Printing Pod reachable via scanner |
 | Tab | CycleSpeed | Action menu (tile cursor), tab navigation (menus) | Speed cycling moved to backtick |
-| K | Clear (Sweep) tool activation | Read coordinates | Tools activated via mod action menu |
+| K | Clear (Sweep) tool activation | (no longer consumed — passes through to game) | N/A |
 | I | Disinfect tool activation | Read tooltip / info | Tools activated via mod action menu |
 | Shift+D | Disconnect tool activation | Open diagnostic browser | Tools activated via mod action menu |
 | 1-0, -, =, Shift+-, Shift+= | Plan 1-14 (build category hotkeys) | Bookmarks (with Ctrl/Shift/Alt), build priority (in tool context) | Build menu navigated through mod's menu handler |

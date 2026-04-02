@@ -49,7 +49,6 @@ namespace OniAccess.Handlers.Tiles {
 			// D overwrites PanRight (camera pan — mod cursor replaces camera navigation)
 			new ConsumedKey(KKeyCode.D),
 			new ConsumedKey(KKeyCode.D, Modifier.Shift),
-			new ConsumedKey(KKeyCode.K),
 			new ConsumedKey(KKeyCode.K, Modifier.Shift),
 			new ConsumedKey(KKeyCode.UpArrow),
 			new ConsumedKey(KKeyCode.DownArrow),
@@ -157,8 +156,7 @@ namespace OniAccess.Handlers.Tiles {
 			new HelpEntry("Enter", (string)STRINGS.ONIACCESS.HELP.SELECT_ENTITY),
 			new HelpEntry("A", (string)STRINGS.ONIACCESS.HELP.READ_TILE_DETAILS),
 			new HelpEntry("I", (string)STRINGS.ONIACCESS.HELP.READ_TOOLTIP_SUMMARY),
-			new HelpEntry("K", (string)STRINGS.ONIACCESS.HELP.READ_COORDS),
-			new HelpEntry("Shift+K", (string)STRINGS.ONIACCESS.HELP.CYCLE_COORD_MODE),
+			new HelpEntry("Shift+K", (string)STRINGS.ONIACCESS.HELP.READ_COORDS),
 			new HelpEntry("End", (string)STRINGS.ONIACCESS.SCANNER.HELP.REFRESH),
 			new HelpEntry("Home", (string)STRINGS.ONIACCESS.SCANNER.HELP.TELEPORT),
 			new HelpEntry("Backspace", (string)STRINGS.ONIACCESS.SCANNER.HELP.TELEPORT_BACK),
@@ -453,11 +451,9 @@ namespace OniAccess.Handlers.Tiles {
 				SpeakMove(Direction.Right);
 				return true;
 			}
-			if (UnityEngine.Input.GetKeyDown(UnityEngine.KeyCode.K)) {
-				if (InputUtil.ShiftHeld())
-					SpeechPipeline.SpeakInterrupt(TileCursor.Instance.CycleMode());
-				else
-					SpeechPipeline.SpeakInterrupt(TileCursor.Instance.ReadCoordinates());
+			if (UnityEngine.Input.GetKeyDown(UnityEngine.KeyCode.K)
+				&& InputUtil.ShiftHeld()) {
+				SpeechPipeline.SpeakInterrupt(TileCursor.Instance.ReadCoordinates());
 				return true;
 			}
 			if (UnityEngine.Input.GetKeyDown(UnityEngine.KeyCode.A)

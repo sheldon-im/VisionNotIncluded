@@ -1512,6 +1512,11 @@ msgctxt "STRINGS.ONIACCESS.DETAILS.RANGE"
 msgid "Range: {0} to {1}"
 msgstr "범위: {0}에서 {1}"
 
+#. STRINGS.ONIACCESS.DETAILS.REACH
+msgctxt "STRINGS.ONIACCESS.DETAILS.REACH"
+msgid "Work reach: A duplicant can work on targets up to 2 tiles above their head, 3 tiles below their feet, and 2 tiles to either side. Storage tasks are an exception, reaching 3 tiles to either side instead of 2. When a target is at a diagonal, digging and tile construction can reach through that corner even if both tiles are solid. Other tasks require at least one of those corner tiles to be open. Otherwise, solid tiles always block work reach. The game recalculates valid work positions whenever terrain changes, for example from digging or construction."
+msgstr "작업 범위: 듀플리컨트는 머리 위 최대 2타일, 발 아래 최대 3타일, 양옆 각 최대 2타일에 있는 대상에 작업할 수 있습니다. 저장 작업은 예외로, 양옆 2타일 대신 3타일까지 도달할 수 있습니다. 대상이 대각선에 있을 때, 굴착과 타일 건설은 양쪽 타일이 모두 단단하더라도 해당 모서리를 통해 도달할 수 있습니다. 다른 작업은 해당 모서리 타일 중 적어도 하나가 비어 있어야 합니다. 그 외에는 단단한 타일이 항상 작업 범위를 차단합니다. 지형이 변경될 때마다(예: 굴착이나 건설) 게임이 유효한 작업 위치를 다시 계산합니다."
+
 #. STRINGS.ONIACCESS.DETAILS.SCHEDULE
 msgctxt "STRINGS.ONIACCESS.DETAILS.SCHEDULE"
 msgid "Schedule"

@@ -1512,6 +1512,11 @@ msgctxt "STRINGS.ONIACCESS.DETAILS.RANGE"
 msgid "Range: {0} to {1}"
 msgstr "范围: {0}到{1}"
 
+#. STRINGS.ONIACCESS.DETAILS.REACH
+msgctxt "STRINGS.ONIACCESS.DETAILS.REACH"
+msgid "Work reach: A duplicant can work on targets up to 2 tiles above their head, 3 tiles below their feet, and 2 tiles to either side. Storage tasks are an exception, reaching 3 tiles to either side instead of 2. When a target is at a diagonal, digging and tile construction can reach through that corner even if both tiles are solid. Other tasks require at least one of those corner tiles to be open. Otherwise, solid tiles always block work reach. The game recalculates valid work positions whenever terrain changes, for example from digging or construction."
+msgstr "工作范围: 复制人可以对头顶上方最多2格、脚下最多3格、以及两侧各最多2格的目标进行操作。存储任务是例外，两侧可达3格而非2格。当目标在对角线方向时，挖掘和建造方块可以穿过该角落，即使两格方块都是实心的。其他任务则要求该角落的至少一格方块是空的。除此之外，实心方块总是阻挡工作范围。当地形发生变化（例如挖掘或建造）时，游戏会重新计算有效的工作位置。"
+
 #. STRINGS.ONIACCESS.DETAILS.SCHEDULE
 msgctxt "STRINGS.ONIACCESS.DETAILS.SCHEDULE"
 msgid "Schedule"

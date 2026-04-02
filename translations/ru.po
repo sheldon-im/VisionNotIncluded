@@ -1512,6 +1512,11 @@ msgctxt "STRINGS.ONIACCESS.DETAILS.RANGE"
 msgid "Range: {0} to {1}"
 msgstr "Диапазон: от {0} до {1}"
 
+#. STRINGS.ONIACCESS.DETAILS.REACH
+msgctxt "STRINGS.ONIACCESS.DETAILS.REACH"
+msgid "Work reach: A duplicant can work on targets up to 2 tiles above their head, 3 tiles below their feet, and 2 tiles to either side. Storage tasks are an exception, reaching 3 tiles to either side instead of 2. When a target is at a diagonal, digging and tile construction can reach through that corner even if both tiles are solid. Other tasks require at least one of those corner tiles to be open. Otherwise, solid tiles always block work reach. The game recalculates valid work positions whenever terrain changes, for example from digging or construction."
+msgstr "Рабочий радиус: Дупликант может работать с целями на расстоянии до 2 клеток над головой, 3 клеток под ногами и 2 клеток в каждую сторону. Задачи хранения являются исключением — они достигают 3 клеток в сторону вместо 2. Когда цель находится по диагонали, копание и строительство клеток могут достичь через этот угол, даже если обе клетки сплошные. Другие задачи требуют, чтобы хотя бы одна из этих угловых клеток была свободна. В остальных случаях сплошные клетки всегда блокируют рабочий радиус. Игра пересчитывает допустимые рабочие позиции при каждом изменении местности, например при копании или строительстве."
+
 #. STRINGS.ONIACCESS.DETAILS.SCHEDULE
 msgctxt "STRINGS.ONIACCESS.DETAILS.SCHEDULE"
 msgid "Schedule"

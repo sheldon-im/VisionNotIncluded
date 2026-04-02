@@ -1512,6 +1512,11 @@ msgctxt "STRINGS.ONIACCESS.DETAILS.RANGE"
 msgid "Range: {0} to {1}"
 msgstr "Portée : {0} à {1}"
 
+#. STRINGS.ONIACCESS.DETAILS.REACH
+msgctxt "STRINGS.ONIACCESS.DETAILS.REACH"
+msgid "Work reach: A duplicant can work on targets up to 2 tiles above their head, 3 tiles below their feet, and 2 tiles to either side. Storage tasks are an exception, reaching 3 tiles to either side instead of 2. When a target is at a diagonal, digging and tile construction can reach through that corner even if both tiles are solid. Other tasks require at least one of those corner tiles to be open. Otherwise, solid tiles always block work reach. The game recalculates valid work positions whenever terrain changes, for example from digging or construction."
+msgstr "Portée de travail : Un duplicant peut travailler sur des cibles jusqu'à 2 cases au-dessus de sa tête, 3 cases sous ses pieds et 2 cases de chaque côté. Les tâches de stockage font exception, atteignant 3 cases de chaque côté au lieu de 2. Quand une cible est en diagonale, le creusement et la construction de cases peuvent atteindre à travers ce coin même si les deux cases sont solides. Les autres tâches nécessitent qu'au moins une de ces cases d'angle soit libre. Sinon, les cases solides bloquent toujours la portée de travail. Le jeu recalcule les positions de travail valides à chaque modification du terrain, par exemple après un creusement ou une construction."
+
 #. STRINGS.ONIACCESS.DETAILS.SCHEDULE
 msgctxt "STRINGS.ONIACCESS.DETAILS.SCHEDULE"
 msgid "Schedule"

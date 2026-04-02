@@ -4346,6 +4346,11 @@ msgctxt "STRINGS.ONIACCESS.SIDESCREENS.COPILOT_ROBO"
 msgid "Copilot: Robo-Pilot"
 msgstr "부조종사: 로보 파일럿"
 
+#. STRINGS.ONIACCESS.SIDESCREENS.STORING
+msgctxt "STRINGS.ONIACCESS.SIDESCREENS.STORING"
+msgid "Storing: {0}"
+msgstr "저장 중: {0}"
+
 #. STRINGS.ONIACCESS.SKILLS.ASSIGNED
 msgctxt "STRINGS.ONIACCESS.SKILLS.ASSIGNED"
 msgid "{0} assigned"

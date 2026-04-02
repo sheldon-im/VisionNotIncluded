@@ -4346,6 +4346,11 @@ msgctxt "STRINGS.ONIACCESS.SIDESCREENS.COPILOT_ROBO"
 msgid "Copilot: Robo-Pilot"
 msgstr "Второй пилот: робопилот"
 
+#. STRINGS.ONIACCESS.SIDESCREENS.STORING
+msgctxt "STRINGS.ONIACCESS.SIDESCREENS.STORING"
+msgid "Storing: {0}"
+msgstr "Хранение: {0}"
+
 #. STRINGS.ONIACCESS.SKILLS.ASSIGNED
 msgctxt "STRINGS.ONIACCESS.SKILLS.ASSIGNED"
 msgid "{0} assigned"

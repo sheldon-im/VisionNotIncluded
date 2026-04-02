@@ -1322,6 +1322,261 @@ msgctxt "STRINGS.ONIACCESS.CREW_SCREEN.TOTAL_FORMAT"
 msgid "{0} total"
 msgstr "共 {0}"
 
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.ALGAESTEGO
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.ALGAESTEGO"
+msgid "An all-green version of the Lumb with a rounder, more bloated body. Instead of distinct leaf-plates, it has a large sail-like green fin running along its back. Its entire body is a uniform yellow-green, including its legs and head, and it has a sleepier, more docile expression than the base Lumb."
+msgstr "Lumb的全绿色变种，身体更圆更臃肿。没有明显的叶片甲，背部有一条大型帆状绿色鳍。全身包括腿和头部都是均匀的黄绿色，表情比基础Lumb更嗜睡、更温顺。"
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.BEE
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.BEE"
+msgid "A stout bee-like critter with a round brown-orange body, small translucent wings, and two green antennae. It has a large green eye or visor on the front of its face and a pointed stinger-like snout. Its body has darker brown stripes and it stands on short legs, looking like a compact, armored bumblebee."
+msgstr "矮壮的蜜蜂状生物，圆形棕橙色身体，半透明小翅膀和两根绿色触角。面部前方有一只大型绿色眼睛或面罩，尖锐的口鼻像蜂刺。身体有深棕色条纹，站在短腿上，像一只紧凑的装甲大黄蜂。"
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.BUTTERFLY
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.BUTTERFLY"
+msgid "A butterfly-like critter with large teal-green wings that spread wide and have pointed tips like leaves. Its small yellow-green body hangs between the wings with tiny legs dangling below. The wings have darker green vein-like patterns running through them, making the whole creature look like a pair of floating leaves."
+msgstr "蝴蝶状生物，宽大的青绿色翅膀展开后尖端如叶片。黄绿色小身体悬挂在翅膀之间，细小的腿垂在下方。翅膀上有深绿色脉络状纹路，整体看起来像一对漂浮的叶子。"
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.CHAMELEON
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.CHAMELEON"
+msgid "A squat, triceratops-like critter with a teal-green body covered in dark bumps and warts. It has a pointed horn on its nose, a bony frill at the back of its head, and a wide, flat face with a grumpy expression. Its four thick legs and low-slung body give it a stubborn, tank-like stance."
+msgstr "矮壮的三角龙状生物，青绿色身体布满深色凸起和疣。鼻子上有尖角，头部后方有骨质褶边，宽扁的脸带着不悦的表情。四条粗腿和低矮的身体使它看起来固执而坚实，像一辆小坦克。"
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.CRAB
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.CRAB"
+msgid "A stout, crab-like critter with a large cracked pink shell covering its back. Two tall eyestalks with round black eyes extend upward from the top of its head. Its face is pink and flat, and it stands on short dark legs. The shell has visible fracture lines and angular plates, giving it a rough, weathered look."
+msgstr "矮壮的螃蟹状生物，背上覆盖着一个裂纹粉色大壳。两根高高的眼柄从头顶伸出，顶端是圆形黑眼睛。粉色扁平的脸，站在深色短腿上。壳上有明显的裂纹和棱角状甲片，外观粗糙而饱经风霜。"
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.CRABFRESHWATER
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.CRABFRESHWATER"
+msgid "A bright blue Pokeshell variant with a smooth, clean-looking shell. Its eyestalks are topped with golden-yellow bulbs, and it has a small blue crest or fin on the back of its shell. Its face and legs are a cheerful blue, and the overall appearance is shinier and tidier than the base Pokeshell."
+msgstr "Pokeshell的亮蓝色变种，壳光滑整洁。眼柄顶端是金黄色球状物，壳背面有一个蓝色小冠或鳍。脸和腿都是明快的蓝色，整体比基础Pokeshell更光亮整齐。"
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.CRABWOOD
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.CRABWOOD"
+msgid "A dark green-grey Pokeshell variant whose shell resembles rough tree bark or petrified wood. Its eyestalks are the same dark grey-green, and its face and legs are a muted teal. The shell has vertical ridges and a woody, organic texture instead of the base Pokeshell's cracked plates."
+msgstr "Pokeshell的深绿灰色变种，壳像粗糙的树皮或石化木。眼柄同为深灰绿色，脸和腿是暗青色。壳上有纵向纹理和木质有机质感，取代了基础Pokeshell的裂纹甲片。"
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.DIESELMOO
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.DIESELMOO"
+msgid "A shaggier, darker version of the Gassy Moo covered in thick grey-brown fur with darker spots. It has a prominent pink-grey snout and small dark eyes peering out from under a spiky dark mane. Its fur hangs down in heavy clumps, making it look like a woolly mammoth crossed with a floating cow."
+msgstr "Gassy Moo的更蓬松更深色变种，覆盖着厚实的灰棕色毛发和深色斑点。粉灰色大口鼻突出，小而深色的眼睛从刺状深色鬃毛下窥出。毛发成簇下垂，看起来像猛犸象和漂浮牛的混合体。"
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.DIVERGENTBEETLE
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.DIVERGENTBEETLE"
+msgid "A round beetle-like critter with a large dark blue domed shell that covers most of its body like a helmet. Underneath, a small grumpy face peeks out with squinting yellow-green eyes. Its legs are tucked under the shell, and the overall shape is a smooth, compact dome sitting close to the ground."
+msgstr "圆形甲虫状生物，深蓝色大型圆顶壳像头盔一样覆盖大部分身体。壳下露出一张不悦的小脸，黄绿色眼睛眯着。腿藏在壳下，整体外形是一个贴近地面的光滑紧凑圆顶。"
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.DIVERGENTWORM
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.DIVERGENTWORM"
+msgid "A large green grub with a thick, segmented body and several curved green horn-like protrusions rising from its back. It has a wide head with visible pale teeth in a broad grin. Its body is a muted olive-green with darker green accents, and it looks like a chunky caterpillar crossed with a cactus."
+msgstr "大型绿色幼虫，粗壮的分节身体，背部升起数个弯曲的绿色角状突起。宽大的头部露出淡色牙齿，咧嘴而笑。身体为暗橄榄绿色配深绿色点缀，看起来像粗壮毛毛虫和仙人掌的混合体。"
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.DRECKO
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.DRECKO"
+msgid "A low, lizard-like critter with a flat brown head and half-closed sleepy eyes. Its body is almost entirely hidden under a massive mound of puffy, cloud-like grey-white wool that billows out above and behind it. Short stubby legs are barely visible beneath the wool."
+msgstr "低矮的蜥蜴状生物，扁平的棕色头部和半闭的困倦眼睛。身体几乎完全隐藏在一大团蓬松如云的灰白色羊毛下。短粗的腿在羊毛下几乎看不到。"
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.DRECKOPLASTIC
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.DRECKOPLASTIC"
+msgid "A Drecko variant covered in rows of large, overlapping blue-grey scales instead of wool, running from its head to its tail like shingles. Its face is steel blue with a visible underbite showing two front teeth. The scales have a polished, metallic sheen compared to the base Drecko's fluffy coat."
+msgstr "Drecko变种，羊毛被替换为一排排重叠的蓝灰色大鳞片，从头到尾如瓦片般排列。钢蓝色的脸露出地包天的两颗前牙。鳞片有抛光的金属光泽，与基础Drecko的蓬松毛发形成对比。"
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.GLASSDEER
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.GLASSDEER"
+msgid "A deep purple version of the Flox with icy blue crystal formations replacing the antler-like branches on its head. Its fur is dark violet with lighter purple accents, and its curling tail has a frostbitten look. The ice-crystal antlers glow pale blue, giving it a frozen, wintry appearance."
+msgstr "Flox的深紫色版本，头上的鹿角状枝条被冰蓝色晶体取代。深紫罗兰色毛发配浅紫色点缀，卷曲的尾巴带有冻伤感。冰晶鹿角发出淡蓝色光，整体呈冰冻冬季外观。"
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.GLOM
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.GLOM"
+msgid "A small, dark teal blob-creature with a single enormous yellow eye that dominates its face. It has a hooded, cloak-like shape with a rounded top and three stubby tentacle-legs at the bottom. Dark spots dot its body, and the overall look is somewhere between a germ and a tiny hooded figure."
+msgstr "小型深青色团状生物，一只巨大的黄色眼睛占据了整个面部。外形如戴兜帽的斗篷，顶部圆润，底部有三条短粗触手腿。身上点缀着深色斑点，整体介于细菌和小型兜帽人偶之间。"
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.GOLDBELLY
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.GOLDBELLY"
+msgid "A majestic variant of the Bammoth with deep purple-violet wool instead of white. It wears a golden crown-like crest on its head and has larger, more prominent curved tusks. Its face is pink-purple with a thick white beard, and the layered purple fur gives it a royal, regal bearing."
+msgstr "Bammoth的威严变种，深紫罗兰色羊毛取代白色。头戴金色王冠状冠饰，弯曲獠牙更大更醒目。粉紫色的脸配浓密白胡须，层叠的紫色毛发赋予其皇家气质。"
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.HATCH
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.HATCH"
+msgid "A round, low-slung critter with a large domed shell in muted purple, marked with darker purple spots. Most of its front is taken up by a wide, gaping mouth lined with uneven yellow teeth. It has four short grey legs and small dark eyes set near the top of its shell."
+msgstr "圆形低矮的生物，暗紫色大型圆顶壳上有更深的紫色斑点。正面大部分被张开的大嘴占据，排列着参差不齐的黄色牙齿。四条灰色短腿，小而深色的眼睛位于壳顶附近。"
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.HATCHHARD
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.HATCHHARD"
+msgid "A Hatch variant built like a rough boulder with legs. Its entire body is angular grey rock, with a flat, slab-like head that juts forward over a broad jaw with a visible underbite. Darker cracks and faceted edges run across its surface, and its legs are thick and dark grey."
+msgstr "Hatch变种，像一块长了腿的粗糙巨石。全身是棱角分明的灰色岩石，扁平板状头部前伸，宽阔的下颚有明显的地包天。表面布满深色裂缝和切面棱角，腿粗壮呈深灰色。"
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.HATCHMETAL
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.HATCHMETAL"
+msgid "A sleek Hatch variant in deep cobalt blue with a smooth, helmet-shaped shell that curves down over its face like a visor. Instead of the stubby legs of other Hatches, it has long, curved dark claws that extend forward. Its teeth are visible in a thin line beneath the shell's edge, and the overall shape is more streamlined and compact."
+msgstr "Hatch的流线型变种，深钴蓝色，光滑的头盔状壳向下弯曲遮住面部如面罩。不同于其他Hatch的短粗腿，它有向前伸展的长弯曲深色爪子。壳缘下方可见一排薄薄的牙齿，整体更流线更紧凑。"
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.HATCHVEGGIE
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.HATCHVEGGIE"
+msgid "A Hatch variant covered in long, shaggy dark-green fronds that sweep back from its head and drape over its body like unkempt foliage. Its mouth is wide open, showing pale teeth against a yellow interior. A curled, fern-like tail extends from its back end. The overall silhouette is wilder and shaggier than the base Hatch."
+msgstr "Hatch变种，覆盖着从头部向后延伸的深绿色长条蓬乱叶状物，如杂乱的植物般垂覆全身。嘴巴大张，黄色口腔内露出浅色牙齿。尾部延伸出卷曲的蕨类状尾巴。整体轮廓比基础Hatch更狂野蓬乱。"
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.ICEBELLY
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.ICEBELLY"
+msgid "A large, woolly mammoth-like critter covered in thick, layered white fur arranged in overlapping scallops. It has a pink face partially hidden under the fur, two tall pink ears, a bushy white mustache, and a pair of small curved tusks. Its body is wide and round beneath all that fluffy white wool."
+msgstr "大型猛犸象状生物，覆盖着层层叠叠的白色厚毛，呈扇贝状排列。粉色面孔半隐于毛发之下，两只高耸的粉色耳朵，浓密的白色胡须，一对小型弯曲獠牙。蓬松白毛下身体宽大圆润。"
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.LIGHTBUG
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.LIGHTBUG"
+msgid "A small, teardrop-shaped bug with a pale yellow glowing body that tapers to a point at the bottom. It has two large round black eyes near the top and a pair of tiny translucent wings that spin like a helicopter rotor above its head. No visible legs — it hovers in the air."
+msgstr "小型水滴形虫子，淡黄色发光身体向底部收窄成尖。顶部附近有两只圆形大黑眼睛，头顶有一对微小半透明翅膀像直升机旋翼一样旋转。没有可见的腿，悬浮在空中。"
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.LIGHTBUGBLACK
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.LIGHTBUGBLACK"
+msgid "A dark, almost black Shine Bug with a deep indigo body that barely glows. Its silhouette is the same teardrop shape, but the dark coloring makes it look like a shadow with two pale eyes. The rotor wings above are dark grey."
+msgstr "深色近乎黑色的Shine Bug，深靛蓝色身体几乎不发光。轮廓仍是水滴形，但深色使它看起来像一个有两只淡色眼睛的影子。上方的旋翼翅膀为深灰色。"
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.LIGHTBUGBLUE
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.LIGHTBUGBLUE"
+msgid "A sky-blue Shine Bug with a bright cyan glow. Its translucent body has a slight aqua sheen, and its spinning rotor wings are tinted light blue. Same teardrop shape and two round black eyes as the rest of the family."
+msgstr "天蓝色Shine Bug，发出明亮的青色光芒。半透明身体带有淡水绿色光泽，旋转的旋翼翅膀呈浅蓝色。与同族相同的水滴形和两只圆形黑眼睛。"
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.LIGHTBUGCRYSTAL
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.LIGHTBUGCRYSTAL"
+msgid "A white Shine Bug with a brilliant cyan-white glow that radiates outward from its body. Its teardrop shape is almost washed out by the intense light. Faint turquoise highlights outline its eyes and the edges of its rotor wings."
+msgstr "白色Shine Bug，发出灿烂的青白色光芒向外辐射。水滴形身体几乎被强光冲淡。淡青绿色高光勾勒出眼睛和旋翼翅膀的边缘。"
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.LIGHTBUGORANGE
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.LIGHTBUGORANGE"
+msgid "A Shine Bug with the same teardrop shape and spinning rotor wings, but with a warm peach-orange glow instead of yellow. Its two large black eyes sit near the top of its body, and its underside tapers to a soft point."
+msgstr "Shine Bug，同样的水滴形和旋转旋翼翅膀，但发出温暖的桃橙色光而非黄色。两只大黑眼睛位于身体顶部附近，底部逐渐收窄为柔和的尖端。"
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.LIGHTBUGPINK
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.LIGHTBUGPINK"
+msgid "A pink Shine Bug with a soft magenta glow and faint horizontal stripes across its teardrop body. Same hovering posture and spinning rotor wings as the other Shine Bugs, with two round black eyes near the top."
+msgstr "粉色Shine Bug，发出柔和的品红色光芒，水滴形身体上有淡淡的横条纹。与其他Shine Bug相同的悬浮姿态和旋转旋翼翅膀，顶部附近有两只圆形黑眼睛。"
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.LIGHTBUGPURPLE
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.LIGHTBUGPURPLE"
+msgid "A rich purple version of the Shine Bug with the same teardrop body and helicopter-rotor wings. Its body glows violet, and it has the same two round black eyes. The wings above its head have a slight purple tint as well."
+msgstr "Shine Bug的浓紫色版本，同样的水滴形身体和直升机旋翼翅膀。身体发出紫罗兰色光，同样的两只圆形黑眼睛。头顶翅膀也带有淡淡的紫色调。"
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.MOLE
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.MOLE"
+msgid "A chunky, mole-like critter with a segmented purple-mauve body covered in round darker spots. It has a flat, pointed snout with a large yellow eye and a grey band around its neck. Its body is divided into visible segments like an armadillo, and it has four small grey legs. Short and barrel-shaped overall."
+msgstr "粗壮的鼹鼠状生物，紫褐色分节身体上布满深色圆斑。扁平尖口鼻，一只大黄色眼睛，颈部有灰色环带。身体像犰狳一样分成可见的节段，四条灰色小腿。整体短粗呈桶形。"
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.MOLEDELICACY
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.MOLEDELICACY"
+msgid "A Shove Vole variant with the same barrel-shaped body, but in warm tan and pink tones. Its segments are lined with rows of golden-yellow spiky studs that jut out along its back and sides. It has a rosy pink face with a large teal eye and a small snout. The gold spikes give it a more armored, decorative look."
+msgstr "Shove Vole变种，同样的桶形身体，但为暖棕和粉色调。节段上排列着金黄色尖刺状铆钉，沿背部和两侧突出。粉红色的脸配一只大青色眼睛和小口鼻。金色尖刺使其更具装甲感和装饰感。"
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.MOO
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.MOO"
+msgid "A large, floating cow-like critter with a round teal-green body and a flat, droopy face. It has a wide grey-green muzzle, small dark eyes, and a shaggy tuft of pale hair on top of its head. Its underside is slightly darker and ragged-looking. It hovers in the air despite its bulky, lumbering appearance."
+msgstr "大型漂浮牛状生物，圆形青绿色身体和扁平下垂的脸。灰绿色宽口鼻，深色小眼睛，头顶有一簇蓬乱的浅色毛发。腹部颜色略深且参差不齐。尽管体态笨重，仍悬浮在空中。"
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.MOSQUITO
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.MOSQUITO"
+msgid "A dark blue-black mosquito-like insect with two huge round reflective eyes that take up most of its head. It has a long, sharp proboscis pointing forward, thin antennae, and translucent wings. Its body is small and segmented behind the oversized head, with spindly legs. It looks like an oversized gnat with an attitude."
+msgstr "深蓝黑色蚊状昆虫，两只巨大的圆形反光眼睛占据了头部大部分。长而锋利的喙向前伸出，细触角和半透明翅膀。超大头部后方是小而分节的身体，腿细长。看起来像一只态度嚣张的大号蚊蚋。"
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.OILFLOATER
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.OILFLOATER"
+msgid "A flat, ray-like critter with a wide, dark purple body that spreads out like a pancake. It has two small pointed horns on top of its head and a simple face with small dot eyes and a faint smile. Its body tapers to a thin tail at the back, and it glides through the air like a manta ray."
+msgstr "扁平的鳐鱼状生物，宽阔的深紫色身体像薄饼一样展开。头顶有两个尖角，简单的面孔配小圆点眼睛和淡淡的微笑。身体向后收窄为细尾，在空中像蝠鲼一样滑翔。"
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.OILFLOATERDECOR
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.OILFLOATERDECOR"
+msgid "A Slickster with the same flat, ray-like body shape, but in a lighter blue-purple tone. It has tufts of shaggy blue-green hair or fur growing from the top of its head, flopping forward over its face. The same small horns poke up through the hair, and its expression is the same simple smile."
+msgstr "Slickster，同样扁平的鳐鱼状身体，但为较浅的蓝紫色调。头顶长出蓬乱的蓝绿色毛发，向前垂覆在脸上。同样的小角从毛发中探出，表情是同样简单的微笑。"
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.OILFLOATERHIGHTEMP
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.OILFLOATERHIGHTEMP"
+msgid "A dark crimson-red Slickster with the same flat, ray-like shape. Its body looks like it's made of cooling lava, with a deep maroon surface and slightly glowing red edges. Its horns and features are the same as the base Slickster, but the overall color suggests intense heat."
+msgstr "深绯红色Slickster，同样扁平的鳐鱼状外形。身体看起来像冷却中的熔岩，深栗色表面和微微发光的红色边缘。角和特征与基础Slickster相同，但整体颜色暗示着强烈的热量。"
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PACU
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PACU"
+msgid "A small angular fish with a pale green body and a single large yellow eye with a slit pupil. It has sharp, blade-like fins that sweep back from its head and tail, giving it a sleek, aggressive profile. Its mouth is a thin line at the front of its pointed face."
+msgstr "小型棱角分明的鱼，淡绿色身体和一只带竖瞳的大黄色眼睛。锋利的刀刃状鱼鳍从头部和尾部向后延伸，呈现流线型攻击性轮廓。嘴巴是尖脸前端的一条细线。"
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PACUCLEANER
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PACUCLEANER"
+msgid "A round, plump cyan-blue fish with a coiled, snail-like body shape. Its single large eye has a darker ring around it. Unlike the angular base Pacu, the Gulp Fish is rounder and more compact, with small curved fins. Its body curls slightly inward, giving it a swollen, well-fed look."
+msgstr "圆润丰满的青蓝色鱼，身体呈螺旋蜗牛状。一只大眼睛周围有深色圆环。不同于棱角分明的基础Pacu，它更圆更紧凑，鱼鳍小而弯曲。身体微微向内卷曲，看起来膨胀而吃得饱饱的。"
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PACUTROPICAL
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PACUTROPICAL"
+msgid "A colorful Pacu variant with a bright pink-orange body rimmed with frilly, leaf-shaped green fins. It has the same single large eye, but in a warmer orange tone. The fins are wider and more ornamental than the base Pacu's, giving it a tropical reef-fish appearance."
+msgstr "Pacu的多彩变种，亮粉橙色身体边缘是褶边叶状绿色鱼鳍。同样的一只大眼睛，但为更温暖的橙色调。鱼鳍比基础Pacu更宽更具装饰性，呈现热带珊瑚鱼外观。"
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PREHISTORICPACU
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PREHISTORICPACU"
+msgid "A large, deep blue predatory fish with a massive hinged jaw lined with jagged yellow teeth. Its body is dark navy with scattered orange and blue spots, and it has a curved blue fin sweeping back from the top of its head. Small fins and a thick tail propel it through the water, and its overall silhouette is dominated by that enormous underbite."
+msgstr "大型深蓝色掠食鱼，巨大的铰接下颚排列着锯齿状黄色牙齿。深海军蓝身体上散布橙色和蓝色斑点，头顶有一片弯曲的蓝色鳍向后延伸。小鳍和粗尾在水中推进，整体轮廓以那巨大的地包天下颚为主。"
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PUFT
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PUFT"
+msgid "A round, bloated flying critter with a golden-yellow body marked by darker horizontal stripes. It has two large bulging eyes that point in different directions and a huge wide-open mouth taking up most of its front. A small dark tail trails behind it. It floats in the air like an overstuffed balloon."
+msgstr "圆形膨胀的飞行生物，金黄色身体上有深色横条纹。两只大凸眼朝向不同方向，正面大部分被巨大张开的嘴巴占据。后面拖着一条深色小尾巴。像一个塞得过满的气球漂浮在空中。"
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PUFTALPHA
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PUFTALPHA"
+msgid "A sickly yellow-green Puft with a droopy, grumpy expression. It has half-lidded eyes and the same gaping mouth, but its body has small spiky protrusions along the top and darker green shading. Short stubby legs dangle below, and its overall look is more irritable than the base Puft."
+msgstr "病态黄绿色Puft，表情下垂不悦。半闭的眼睛和同样张开的大嘴，但身体顶部有小型尖刺突起和更深的绿色阴影。短粗的腿垂在下方，整体比基础Puft更暴躁。"
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PUFTBLEACHSTONE
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PUFTBLEACHSTONE"
+msgid "A bright green Puft with a fuzzy, mossy texture. Its body is rounder and puffier than other Pufts, with tufts of green fluff around its face. It has wide yellow-green eyes and the same open mouth, but the overall look is softer and more plush compared to its relatives."
+msgstr "亮绿色Puft，毛茸茸的苔藓质感。身体比其他Puft更圆更蓬松，脸部周围有绿色绒毛簇。黄绿色大眼睛和同样张开的嘴，但整体比同族更柔软更像毛绒玩具。"
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PUFTOXYLITE
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PUFTOXYLITE"
+msgid "A teal-blue Puft covered in chunky, rock-like bumps across its surface, making it look heavier and more solid than other Pufts. It has the same wide mouth and bulging eyes, but its body is studded with irregular dark teal nodules. Short dark legs dangle beneath its lumpy frame."
+msgstr "青蓝色Puft，表面覆盖着粗大的岩石状凸起，使其看起来比其他Puft更沉重更结实。同样的大嘴和凸眼，但身体上镶嵌着不规则的深青色结节。短而深色的腿垂在凹凸不平的身躯下方。"
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.RAPTOR
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.RAPTOR"
+msgid "A small bird-dinosaur hybrid with a bright yellow head and a large crest of blue-teal feathers fanning up and back from its head like a mohawk. Its body is covered in layered blue feathers that fade to green at the tail. It stands upright on two legs with a short beak and an alert, energetic posture."
+msgstr "小型鸟龙混合体，亮黄色头部，蓝青色大羽冠从头部向上向后扇开如莫西干发型。身体覆盖着层叠的蓝色羽毛，到尾部渐变为绿色。两腿直立，短喙，姿态警觉而充满活力。"
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.SEAL
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.SEAL"
+msgid "A round, blob-shaped seal with a smooth teal body and a single large purple eye. A pointed horn or spigot juts forward from its nose like a narwhal tusk. It has a few small spots on its body, tiny flippers, and a content expression. Its shape is simple and blobby, like a water balloon with a horn."
+msgstr "圆形团状海豹，光滑的青色身体和一只大紫色眼睛。鼻子上有一个尖角或管嘴向前突出，像独角鲸的牙。身上有几个小斑点，小鳍状肢，满足的表情。外形简单如团状，像一个带角的水气球。"
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.SQUIRREL
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.SQUIRREL"
+msgid "A small, round critter covered in spiky olive-green quills that fan out in all directions like a tiny hedgehog-cactus. It has a pale yellow face with two large dark eyes, a small nose, and a wide toothy grin. Its short brown feet poke out from underneath the quills."
+msgstr "小型圆形生物，覆盖着向四面八方散开的橄榄绿色尖刺，像一个小型刺猬仙人掌。淡黄色的脸上有两只深色大眼睛、小鼻子和咧嘴露齿的笑容。棕色短脚从刺下探出。"
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.SQUIRRELHUG
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.SQUIRRELHUG"
+msgid "A fluffy, round critter covered in soft pink-lavender fur instead of quills. It has two large upright ears tipped in purple and a pair of stubby purple arm-wings spread to the sides. Its face is pale pink with big dark eyes and a small toothy smile, giving it a cuddly stuffed-animal look."
+msgstr "蓬松圆形生物，覆盖着柔软的粉紫色毛发而非尖刺。两只紫色尖端的大竖耳，一对短粗的紫色臂翼向两侧展开。淡粉色的脸上有大黑眼睛和小露齿微笑，看起来像可爱的毛绒玩具。"
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.STATERPILLAR
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.STATERPILLAR"
+msgid "A fat, leaf-shaped slug with a dark teal body covered in overlapping rounded segments like a caterpillar. It has two thin antennae poking up from its head and a small pale face at the front. Tiny nub-like feet run along its underside. Its body tapers to a point at the tail end."
+msgstr "肥胖的叶形蛞蝓，深青色身体覆盖着重叠的圆形节段，像毛毛虫。头部伸出两根细触角，前端是淡色小脸。腹部有一排微小的足突。身体向尾端收窄成尖。"
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.STATERPILLARGAS
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.STATERPILLARGAS"
+msgid "A muddy yellow-brown Plug Slug variant with a lumpy, warty texture. Its antennae are thicker and stubbier, and its body has a heavier, more bloated look. The color is a dull mustard-olive, and its face has a grumpy, squinting expression. It looks dirtier and more sluggish than the other Plug Slug variants."
+msgstr "Plug Slug的泥黄棕色变种，质感粗糙多疣。触角更粗更短，身体更沉重更臃肿。颜色为暗芥末橄榄色，脸上是不悦的眯眼表情。比其他Plug Slug变种看起来更脏更迟钝。"
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.STATERPILLARLIQUID
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.STATERPILLARLIQUID"
+msgid "A paler, mint-green version of the Plug Slug with the same leaf-shaped body and antennae. Its segments are lighter and more washed out, with a grey-green stripe pattern across its back. Its face is small and pale, and its overall color is softer and more muted than the base Plug Slug."
+msgstr "Plug Slug的浅薄荷绿版本，同样的叶形身体和触角。节段更浅更褪色，背部有灰绿色条纹图案。小而苍白的脸，整体颜色比基础Plug Slug更柔和更低调。"
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.STEGO
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.STEGO"
+msgid "A stout, dinosaur-like critter with a round red-orange body and a row of broad green leaf-shaped plates running along its back like a stegosaurus. It has a small pointed head with a stubby snout, four short red legs, and a thick tail. The green leaf-plates give it a plant-dinosaur hybrid look."
+msgstr "矮壮的恐龙状生物，圆形红橙色身体，背部排列着一排宽大的绿色叶形甲板，像剑龙。小而尖的头部配短口鼻，四条红色短腿和粗尾巴。绿色叶形甲板赋予其植物恐龙混合体的外观。"
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.WOODDEER
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.WOODDEER"
+msgid "A fox-like critter with a fluffy teal-green body and a long curling tail. It has a narrow white face with a wide open mouth showing teeth, and tall dark antler-like branches growing from the back of its head. Its body is covered in soft fur and it stands on four short legs, giving it a woodland creature look."
+msgstr "狐狸状生物，蓬松的青绿色身体和长卷尾巴。狭窄的白色面孔张大嘴露出牙齿，头部后方长出高大的深色鹿角状枝条。身体覆盖柔软毛发，四条短腿站立，呈现林地生物的外观。"
+
 #. STRINGS.ONIACCESS.DEMOLIOR.DESTROYED
 msgctxt "STRINGS.ONIACCESS.DEMOLIOR.DESTROYED"
 msgid "Demolior destroyed"
@@ -2790,6 +3045,11 @@ msgstr "仿生升级"
 msgctxt "STRINGS.ONIACCESS.INFO.COLONY_HAS"
 msgid "Colony has: {0}"
 msgstr "殖民地拥有: {0}"
+
+#. STRINGS.ONIACCESS.INFO.CRITTER_DESCRIPTION
+msgctxt "STRINGS.ONIACCESS.INFO.CRITTER_DESCRIPTION"
+msgid "description: {0}"
+msgstr "描述：{0}"
 
 #. STRINGS.ONIACCESS.INFO.DIFFICULTY
 msgctxt "STRINGS.ONIACCESS.INFO.DIFFICULTY"

@@ -1322,6 +1322,261 @@ msgctxt "STRINGS.ONIACCESS.CREW_SCREEN.TOTAL_FORMAT"
 msgid "{0} total"
 msgstr "{0} total"
 
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.ALGAESTEGO
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.ALGAESTEGO"
+msgid "An all-green version of the Lumb with a rounder, more bloated body. Instead of distinct leaf-plates, it has a large sail-like green fin running along its back. Its entire body is a uniform yellow-green, including its legs and head, and it has a sleepier, more docile expression than the base Lumb."
+msgstr "Uma versão toda verde do Lumb com corpo mais arredondado e inchado. Em vez de placas-folha distintas, tem uma grande barbatana verde em forma de vela ao longo das costas. Todo o corpo é verde-amarelado uniforme, incluindo pernas e cabeça, e tem uma expressão mais sonolenta e dócil que o Lumb base."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.BEE
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.BEE"
+msgid "A stout bee-like critter with a round brown-orange body, small translucent wings, and two green antennae. It has a large green eye or visor on the front of its face and a pointed stinger-like snout. Its body has darker brown stripes and it stands on short legs, looking like a compact, armored bumblebee."
+msgstr "Uma criatura atarracada semelhante a uma abelha com corpo redondo marrom-alaranjado, pequenas asas translúcidas e duas antenas verdes. Tem um grande olho ou visor verde na frente do rosto e um focinho pontudo como ferrão. O corpo tem listras marrons mais escuras e fica sobre pernas curtas, parecendo um abelhão compacto e blindado."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.BUTTERFLY
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.BUTTERFLY"
+msgid "A butterfly-like critter with large teal-green wings that spread wide and have pointed tips like leaves. Its small yellow-green body hangs between the wings with tiny legs dangling below. The wings have darker green vein-like patterns running through them, making the whole creature look like a pair of floating leaves."
+msgstr "Uma criatura semelhante a uma borboleta com grandes asas verde-azuladas que se abrem amplas com pontas afiladas como folhas. Seu pequeno corpo verde-amarelado pende entre as asas com perninhas balançando abaixo. As asas têm padrões de nervuras verdes mais escuras, fazendo a criatura parecer um par de folhas flutuantes."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.CHAMELEON
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.CHAMELEON"
+msgid "A squat, triceratops-like critter with a teal-green body covered in dark bumps and warts. It has a pointed horn on its nose, a bony frill at the back of its head, and a wide, flat face with a grumpy expression. Its four thick legs and low-slung body give it a stubborn, tank-like stance."
+msgstr "Uma criatura atarracada semelhante a um triceratops com corpo verde-azulado coberto de saliências e verrugas escuras. Tem um chifre pontudo no nariz, uma gola óssea na parte de trás da cabeça e um rosto largo e achatado com expressão rabugenta. Suas quatro pernas grossas e corpo baixo lhe dão uma postura teimosa de tanque."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.CRAB
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.CRAB"
+msgid "A stout, crab-like critter with a large cracked pink shell covering its back. Two tall eyestalks with round black eyes extend upward from the top of its head. Its face is pink and flat, and it stands on short dark legs. The shell has visible fracture lines and angular plates, giving it a rough, weathered look."
+msgstr "Uma criatura atarracada semelhante a um caranguejo com uma grande carapaça rosa rachada cobrindo as costas. Dois pedúnculos oculares altos com olhos redondos e pretos se estendem do topo da cabeça. O rosto é rosa e achatado, e fica sobre pernas curtas e escuras. A carapaça tem linhas de fratura visíveis e placas angulares, dando uma aparência rústica e desgastada."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.CRABFRESHWATER
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.CRABFRESHWATER"
+msgid "A bright blue Pokeshell variant with a smooth, clean-looking shell. Its eyestalks are topped with golden-yellow bulbs, and it has a small blue crest or fin on the back of its shell. Its face and legs are a cheerful blue, and the overall appearance is shinier and tidier than the base Pokeshell."
+msgstr "Uma variante azul brilhante do Pokeshell com carapaça lisa e limpa. Seus pedúnculos oculares são coroados com bulbos dourado-amarelados, e tem uma pequena crista ou barbatana azul na parte de trás da carapaça. Rosto e pernas são de um azul alegre, e a aparência geral é mais brilhante e arrumada que o Pokeshell base."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.CRABWOOD
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.CRABWOOD"
+msgid "A dark green-grey Pokeshell variant whose shell resembles rough tree bark or petrified wood. Its eyestalks are the same dark grey-green, and its face and legs are a muted teal. The shell has vertical ridges and a woody, organic texture instead of the base Pokeshell's cracked plates."
+msgstr "Uma variante verde-acinzentada escura do Pokeshell cuja carapaça lembra casca de árvore ou madeira petrificada. Seus pedúnculos oculares são do mesmo verde-acinzentado escuro, e rosto e pernas são de um verde-azulado suave. A carapaça tem sulcos verticais e textura orgânica lenhosa em vez das placas rachadas do Pokeshell base."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.DIESELMOO
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.DIESELMOO"
+msgid "A shaggier, darker version of the Gassy Moo covered in thick grey-brown fur with darker spots. It has a prominent pink-grey snout and small dark eyes peering out from under a spiky dark mane. Its fur hangs down in heavy clumps, making it look like a woolly mammoth crossed with a floating cow."
+msgstr "Uma versão mais peluda e escura do Gassy Moo coberta com pelo grosso cinza-marrom com manchas mais escuras. Tem um focinho proeminente rosa-acinzentado e pequenos olhos escuros espiando sob uma juba escura e espetada. O pelo pende em tufos pesados, fazendo parecer um mamute lanudo cruzado com uma vaca flutuante."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.DIVERGENTBEETLE
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.DIVERGENTBEETLE"
+msgid "A round beetle-like critter with a large dark blue domed shell that covers most of its body like a helmet. Underneath, a small grumpy face peeks out with squinting yellow-green eyes. Its legs are tucked under the shell, and the overall shape is a smooth, compact dome sitting close to the ground."
+msgstr "Uma criatura redonda semelhante a um besouro com uma grande carapaça abobadada azul-escura que cobre a maior parte do corpo como um capacete. Por baixo, um pequeno rosto rabugento espia com olhos verde-amarelados semicerrados. As pernas ficam sob a carapaça, e a forma geral é uma cúpula lisa e compacta rente ao chão."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.DIVERGENTWORM
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.DIVERGENTWORM"
+msgid "A large green grub with a thick, segmented body and several curved green horn-like protrusions rising from its back. It has a wide head with visible pale teeth in a broad grin. Its body is a muted olive-green with darker green accents, and it looks like a chunky caterpillar crossed with a cactus."
+msgstr "Uma grande larva verde com corpo grosso e segmentado e várias protuberâncias curvas como chifres verdes erguendo-se das costas. Tem uma cabeça larga com dentes pálidos visíveis num sorriso largo. O corpo é verde-oliva suave com detalhes verde-escuros, parecendo uma lagarta robusta cruzada com um cacto."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.DRECKO
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.DRECKO"
+msgid "A low, lizard-like critter with a flat brown head and half-closed sleepy eyes. Its body is almost entirely hidden under a massive mound of puffy, cloud-like grey-white wool that billows out above and behind it. Short stubby legs are barely visible beneath the wool."
+msgstr "Uma criatura baixa semelhante a um lagarto com cabeça marrom achatada e olhos semicerrados sonolentos. Seu corpo está quase totalmente escondido sob um monte enorme de lã cinza-esbranquiçada fofa como nuvem que se espalha acima e atrás. Pernas curtas e atarracadas mal são visíveis sob a lã."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.DRECKOPLASTIC
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.DRECKOPLASTIC"
+msgid "A Drecko variant covered in rows of large, overlapping blue-grey scales instead of wool, running from its head to its tail like shingles. Its face is steel blue with a visible underbite showing two front teeth. The scales have a polished, metallic sheen compared to the base Drecko's fluffy coat."
+msgstr "Uma variante do Drecko coberta com fileiras de grandes escamas azul-acinzentadas sobrepostas em vez de lã, indo da cabeça à cauda como telhas. O rosto é azul-metálico com prognatismo visível mostrando dois dentes frontais. As escamas têm um brilho polido e metálico comparado ao pelo fofo do Drecko base."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.GLASSDEER
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.GLASSDEER"
+msgid "A deep purple version of the Flox with icy blue crystal formations replacing the antler-like branches on its head. Its fur is dark violet with lighter purple accents, and its curling tail has a frostbitten look. The ice-crystal antlers glow pale blue, giving it a frozen, wintry appearance."
+msgstr "Uma versão roxo-profundo do Flox com formações de cristal azul-gelado substituindo os galhos como chifres na cabeça. O pelo é violeta escuro com detalhes roxos mais claros, e a cauda enrolada tem aparência congelada. Os chifres de cristal de gelo brilham em azul pálido, dando uma aparência invernal e gélida."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.GLOM
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.GLOM"
+msgid "A small, dark teal blob-creature with a single enormous yellow eye that dominates its face. It has a hooded, cloak-like shape with a rounded top and three stubby tentacle-legs at the bottom. Dark spots dot its body, and the overall look is somewhere between a germ and a tiny hooded figure."
+msgstr "Uma pequena criatura-bolha verde-azulada escura com um único olho amarelo enorme que domina o rosto. Tem uma forma encapuzada como um manto com topo arredondado e três pernas-tentáculos atarracadas na parte inferior. Manchas escuras pontilham o corpo, e a aparência geral fica entre um germe e uma pequena figura encapuzada."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.GOLDBELLY
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.GOLDBELLY"
+msgid "A majestic variant of the Bammoth with deep purple-violet wool instead of white. It wears a golden crown-like crest on its head and has larger, more prominent curved tusks. Its face is pink-purple with a thick white beard, and the layered purple fur gives it a royal, regal bearing."
+msgstr "Uma variante majestosa do Bammoth com lã roxo-violeta profunda em vez de branca. Usa uma crista dourada como coroa na cabeça e tem presas curvas maiores e mais proeminentes. O rosto é rosa-púrpura com uma barba branca espessa, e o pelo roxo em camadas lhe dá um porte real e majestoso."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.HATCH
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.HATCH"
+msgid "A round, low-slung critter with a large domed shell in muted purple, marked with darker purple spots. Most of its front is taken up by a wide, gaping mouth lined with uneven yellow teeth. It has four short grey legs and small dark eyes set near the top of its shell."
+msgstr "Uma criatura redonda e baixa com uma grande carapaça abobadada em roxo suave, marcada com manchas roxas mais escuras. A maior parte da frente é ocupada por uma boca larga e escancarada com dentes amarelos irregulares. Tem quatro pernas curtas e cinzas e pequenos olhos escuros no topo da carapaça."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.HATCHHARD
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.HATCHHARD"
+msgid "A Hatch variant built like a rough boulder with legs. Its entire body is angular grey rock, with a flat, slab-like head that juts forward over a broad jaw with a visible underbite. Darker cracks and faceted edges run across its surface, and its legs are thick and dark grey."
+msgstr "Uma variante do Hatch construída como um pedregulho áspero com pernas. Todo o corpo é rocha cinza angular, com cabeça achatada como uma laje projetando-se sobre uma mandíbula larga com prognatismo visível. Rachaduras escuras e bordas facetadas percorrem sua superfície, e as pernas são grossas e cinza-escuro."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.HATCHMETAL
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.HATCHMETAL"
+msgid "A sleek Hatch variant in deep cobalt blue with a smooth, helmet-shaped shell that curves down over its face like a visor. Instead of the stubby legs of other Hatches, it has long, curved dark claws that extend forward. Its teeth are visible in a thin line beneath the shell's edge, and the overall shape is more streamlined and compact."
+msgstr "Uma variante elegante do Hatch em azul-cobalto profundo com carapaça lisa em forma de capacete que curva sobre o rosto como um visor. Em vez das pernas atarracadas de outros Hatches, tem garras longas e curvas escuras que se estendem para frente. Os dentes são visíveis numa linha fina sob a borda da carapaça, e a forma geral é mais aerodinâmica e compacta."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.HATCHVEGGIE
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.HATCHVEGGIE"
+msgid "A Hatch variant covered in long, shaggy dark-green fronds that sweep back from its head and drape over its body like unkempt foliage. Its mouth is wide open, showing pale teeth against a yellow interior. A curled, fern-like tail extends from its back end. The overall silhouette is wilder and shaggier than the base Hatch."
+msgstr "Uma variante do Hatch coberta com longas frondes verde-escuras desgrenhadas que se estendem da cabeça e cobrem o corpo como folhagem despenteada. A boca está bem aberta, mostrando dentes pálidos contra um interior amarelo. Uma cauda enrolada como samambaia se estende da parte traseira. A silhueta geral é mais selvagem e desgrenhada que o Hatch base."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.ICEBELLY
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.ICEBELLY"
+msgid "A large, woolly mammoth-like critter covered in thick, layered white fur arranged in overlapping scallops. It has a pink face partially hidden under the fur, two tall pink ears, a bushy white mustache, and a pair of small curved tusks. Its body is wide and round beneath all that fluffy white wool."
+msgstr "Uma grande criatura semelhante a um mamute lanudo coberta com pelo branco grosso e em camadas dispostas em escamas sobrepostas. Tem um rosto rosa parcialmente escondido sob o pelo, duas orelhas rosa altas, um bigode branco espesso e um par de pequenas presas curvas. O corpo é largo e redondo sob toda aquela lã branca fofa."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.LIGHTBUG
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.LIGHTBUG"
+msgid "A small, teardrop-shaped bug with a pale yellow glowing body that tapers to a point at the bottom. It has two large round black eyes near the top and a pair of tiny translucent wings that spin like a helicopter rotor above its head. No visible legs — it hovers in the air."
+msgstr "Um inseto pequeno em forma de gota com corpo amarelo pálido brilhante que se afina até uma ponta na parte inferior. Tem dois grandes olhos redondos e pretos perto do topo e um par de asas minúsculas translúcidas que giram como hélice de helicóptero acima da cabeça. Sem pernas visíveis — flutua no ar."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.LIGHTBUGBLACK
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.LIGHTBUGBLACK"
+msgid "A dark, almost black Shine Bug with a deep indigo body that barely glows. Its silhouette is the same teardrop shape, but the dark coloring makes it look like a shadow with two pale eyes. The rotor wings above are dark grey."
+msgstr "Um Shine Bug escuro, quase preto, com corpo índigo profundo que mal brilha. A silhueta é a mesma forma de gota, mas a coloração escura faz parecer uma sombra com dois olhos pálidos. As asas rotativas acima são cinza-escuro."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.LIGHTBUGBLUE
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.LIGHTBUGBLUE"
+msgid "A sky-blue Shine Bug with a bright cyan glow. Its translucent body has a slight aqua sheen, and its spinning rotor wings are tinted light blue. Same teardrop shape and two round black eyes as the rest of the family."
+msgstr "Um Shine Bug azul-celeste com brilho ciano intenso. O corpo translúcido tem um leve tom aquamarina, e as asas rotativas têm tonalidade azul-claro. Mesma forma de gota e dois olhos redondos pretos como o resto da família."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.LIGHTBUGCRYSTAL
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.LIGHTBUGCRYSTAL"
+msgid "A white Shine Bug with a brilliant cyan-white glow that radiates outward from its body. Its teardrop shape is almost washed out by the intense light. Faint turquoise highlights outline its eyes and the edges of its rotor wings."
+msgstr "Um Shine Bug branco com brilho ciano-esbranquiçado brilhante que irradia do corpo. Sua forma de gota quase desaparece pela luz intensa. Tênues realces turquesa delineiam os olhos e as bordas das asas rotativas."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.LIGHTBUGORANGE
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.LIGHTBUGORANGE"
+msgid "A Shine Bug with the same teardrop shape and spinning rotor wings, but with a warm peach-orange glow instead of yellow. Its two large black eyes sit near the top of its body, and its underside tapers to a soft point."
+msgstr "Um Shine Bug com a mesma forma de gota e asas rotativas, mas com brilho pêssego-alaranjado quente em vez de amarelo. Seus dois grandes olhos pretos ficam perto do topo do corpo, e a parte inferior se afina em ponta suave."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.LIGHTBUGPINK
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.LIGHTBUGPINK"
+msgid "A pink Shine Bug with a soft magenta glow and faint horizontal stripes across its teardrop body. Same hovering posture and spinning rotor wings as the other Shine Bugs, with two round black eyes near the top."
+msgstr "Um Shine Bug rosa com brilho magenta suave e listras horizontais tênues pelo corpo em forma de gota. Mesma postura flutuante e asas rotativas dos outros Shine Bugs, com dois olhos redondos pretos perto do topo."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.LIGHTBUGPURPLE
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.LIGHTBUGPURPLE"
+msgid "A rich purple version of the Shine Bug with the same teardrop body and helicopter-rotor wings. Its body glows violet, and it has the same two round black eyes. The wings above its head have a slight purple tint as well."
+msgstr "Uma versão roxo-rica do Shine Bug com o mesmo corpo em gota e asas de rotor de helicóptero. O corpo brilha violeta, e tem os mesmos dois olhos redondos pretos. As asas acima da cabeça também têm um leve tom roxo."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.MOLE
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.MOLE"
+msgid "A chunky, mole-like critter with a segmented purple-mauve body covered in round darker spots. It has a flat, pointed snout with a large yellow eye and a grey band around its neck. Its body is divided into visible segments like an armadillo, and it has four small grey legs. Short and barrel-shaped overall."
+msgstr "Uma criatura robusta semelhante a uma toupeira com corpo segmentado roxo-malva coberto de manchas redondas mais escuras. Tem um focinho achatado e pontudo com um grande olho amarelo e uma faixa cinza ao redor do pescoço. O corpo é dividido em segmentos visíveis como um tatu, e tem quatro pernas cinzas pequenas. Curto e em forma de barril no geral."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.MOLEDELICACY
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.MOLEDELICACY"
+msgid "A Shove Vole variant with the same barrel-shaped body, but in warm tan and pink tones. Its segments are lined with rows of golden-yellow spiky studs that jut out along its back and sides. It has a rosy pink face with a large teal eye and a small snout. The gold spikes give it a more armored, decorative look."
+msgstr "Uma variante do Shove Vole com o mesmo corpo em forma de barril, mas em tons quentes de bege e rosa. Seus segmentos são forrados com fileiras de espinhos dourado-amarelados que se projetam ao longo das costas e laterais. Tem um rosto rosado com um grande olho verde-azulado e focinho pequeno. Os espinhos dourados dão uma aparência mais blindada e decorativa."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.MOO
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.MOO"
+msgid "A large, floating cow-like critter with a round teal-green body and a flat, droopy face. It has a wide grey-green muzzle, small dark eyes, and a shaggy tuft of pale hair on top of its head. Its underside is slightly darker and ragged-looking. It hovers in the air despite its bulky, lumbering appearance."
+msgstr "Uma grande criatura flutuante semelhante a uma vaca com corpo redondo verde-azulado e rosto achatado e caído. Tem um focinho largo cinza-esverdeado, olhos pequenos e escuros e um tufo desgrenhado de pelo claro no topo da cabeça. A parte inferior é ligeiramente mais escura e esfarrapada. Flutua no ar apesar da aparência volumosa e desajeitada."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.MOSQUITO
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.MOSQUITO"
+msgid "A dark blue-black mosquito-like insect with two huge round reflective eyes that take up most of its head. It has a long, sharp proboscis pointing forward, thin antennae, and translucent wings. Its body is small and segmented behind the oversized head, with spindly legs. It looks like an oversized gnat with an attitude."
+msgstr "Um inseto semelhante a um mosquito azul-escuro quase preto com dois enormes olhos redondos reflexivos que ocupam a maior parte da cabeça. Tem uma probóscide longa e afiada apontando para frente, antenas finas e asas translúcidas. O corpo é pequeno e segmentado atrás da cabeça enorme, com pernas finas. Parece um mosquito gigante com atitude."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.OILFLOATER
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.OILFLOATER"
+msgid "A flat, ray-like critter with a wide, dark purple body that spreads out like a pancake. It has two small pointed horns on top of its head and a simple face with small dot eyes and a faint smile. Its body tapers to a thin tail at the back, and it glides through the air like a manta ray."
+msgstr "Uma criatura achatada semelhante a uma raia com corpo largo roxo-escuro que se espalha como uma panqueca. Tem dois pequenos chifres pontudos no topo da cabeça e um rosto simples com olhinhos e um sorriso tênue. O corpo se afina em uma cauda fina na parte traseira, e desliza pelo ar como uma raia manta."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.OILFLOATERDECOR
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.OILFLOATERDECOR"
+msgid "A Slickster with the same flat, ray-like body shape, but in a lighter blue-purple tone. It has tufts of shaggy blue-green hair or fur growing from the top of its head, flopping forward over its face. The same small horns poke up through the hair, and its expression is the same simple smile."
+msgstr "Um Slickster com a mesma forma achatada de raia, mas em tom azul-arroxeado mais claro. Tem tufos de pelo desgrenhado azul-esverdeado crescendo do topo da cabeça, caindo sobre o rosto. Os mesmos chifrinhos se projetam através do pelo, e a expressão é o mesmo sorriso simples."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.OILFLOATERHIGHTEMP
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.OILFLOATERHIGHTEMP"
+msgid "A dark crimson-red Slickster with the same flat, ray-like shape. Its body looks like it's made of cooling lava, with a deep maroon surface and slightly glowing red edges. Its horns and features are the same as the base Slickster, but the overall color suggests intense heat."
+msgstr "Um Slickster vermelho-carmesim escuro com a mesma forma achatada de raia. O corpo parece feito de lava esfriando, com superfície castanho-escura e bordas levemente incandescentes. Chifres e feições são os mesmos do Slickster base, mas a cor geral sugere calor intenso."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PACU
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PACU"
+msgid "A small angular fish with a pale green body and a single large yellow eye with a slit pupil. It has sharp, blade-like fins that sweep back from its head and tail, giving it a sleek, aggressive profile. Its mouth is a thin line at the front of its pointed face."
+msgstr "Um peixe pequeno e angular com corpo verde-pálido e um único olho amarelo grande com pupila em fenda. Tem barbatanas afiadas como lâminas que se estendem da cabeça e cauda, dando um perfil elegante e agressivo. A boca é uma linha fina na frente do rosto pontudo."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PACUCLEANER
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PACUCLEANER"
+msgid "A round, plump cyan-blue fish with a coiled, snail-like body shape. Its single large eye has a darker ring around it. Unlike the angular base Pacu, the Gulp Fish is rounder and more compact, with small curved fins. Its body curls slightly inward, giving it a swollen, well-fed look."
+msgstr "Um peixe ciano-azulado redondo e rechonchudo com formato de corpo enrolado como caracol. Seu único olho grande tem um anel mais escuro ao redor. Diferente do Pacu base angular, o Gulp Fish é mais arredondado e compacto, com pequenas barbatanas curvas. O corpo se curva levemente para dentro, dando uma aparência inchada e bem alimentada."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PACUTROPICAL
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PACUTROPICAL"
+msgid "A colorful Pacu variant with a bright pink-orange body rimmed with frilly, leaf-shaped green fins. It has the same single large eye, but in a warmer orange tone. The fins are wider and more ornamental than the base Pacu's, giving it a tropical reef-fish appearance."
+msgstr "Uma variante colorida do Pacu com corpo rosa-alaranjado brilhante cercado por barbatanas verdes franjadas em forma de folha. Tem o mesmo olho grande único, mas em tom alaranjado mais quente. As barbatanas são mais largas e ornamentais que as do Pacu base, dando aparência de peixe de recife tropical."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PREHISTORICPACU
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PREHISTORICPACU"
+msgid "A large, deep blue predatory fish with a massive hinged jaw lined with jagged yellow teeth. Its body is dark navy with scattered orange and blue spots, and it has a curved blue fin sweeping back from the top of its head. Small fins and a thick tail propel it through the water, and its overall silhouette is dominated by that enormous underbite."
+msgstr "Um grande peixe predatório azul-profundo com uma enorme mandíbula articulada forrada de dentes amarelos irregulares. O corpo é azul-marinho escuro com manchas alaranjadas e azuis espalhadas, e tem uma barbatana azul curva se estendendo do topo da cabeça. Barbatanas pequenas e uma cauda grossa o impulsionam pela água, e a silhueta geral é dominada por aquele enorme prognatismo."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PUFT
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PUFT"
+msgid "A round, bloated flying critter with a golden-yellow body marked by darker horizontal stripes. It has two large bulging eyes that point in different directions and a huge wide-open mouth taking up most of its front. A small dark tail trails behind it. It floats in the air like an overstuffed balloon."
+msgstr "Uma criatura voadora redonda e inchada com corpo dourado-amarelado marcado por listras horizontais mais escuras. Tem dois grandes olhos esbugalhados apontando em direções diferentes e uma enorme boca escancarada ocupando a maior parte da frente. Uma pequena cauda escura se arrasta atrás. Flutua no ar como um balão cheio demais."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PUFTALPHA
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PUFTALPHA"
+msgid "A sickly yellow-green Puft with a droopy, grumpy expression. It has half-lidded eyes and the same gaping mouth, but its body has small spiky protrusions along the top and darker green shading. Short stubby legs dangle below, and its overall look is more irritable than the base Puft."
+msgstr "Um Puft verde-amarelado doentio com expressão caída e rabugenta. Tem olhos semicerrados e a mesma boca escancarada, mas o corpo tem pequenas protuberâncias espinhosas ao longo do topo e sombreamento verde mais escuro. Pernas curtas e atarracadas pendem abaixo, e a aparência geral é mais irritadiça que o Puft base."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PUFTBLEACHSTONE
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PUFTBLEACHSTONE"
+msgid "A bright green Puft with a fuzzy, mossy texture. Its body is rounder and puffier than other Pufts, with tufts of green fluff around its face. It has wide yellow-green eyes and the same open mouth, but the overall look is softer and more plush compared to its relatives."
+msgstr "Um Puft verde-brilhante com textura aveludada e musgosa. O corpo é mais arredondado e fofo que outros Pufts, com tufos de penugem verde ao redor do rosto. Tem olhos verde-amarelados arregalados e a mesma boca aberta, mas a aparência geral é mais suave e felpuda comparada aos seus parentes."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PUFTOXYLITE
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PUFTOXYLITE"
+msgid "A teal-blue Puft covered in chunky, rock-like bumps across its surface, making it look heavier and more solid than other Pufts. It has the same wide mouth and bulging eyes, but its body is studded with irregular dark teal nodules. Short dark legs dangle beneath its lumpy frame."
+msgstr "Um Puft azul-esverdeado coberto com saliências grossas como pedras por toda a superfície, parecendo mais pesado e sólido que outros Pufts. Tem a mesma boca larga e olhos esbugalhados, mas o corpo é cravejado de nódulos irregulares verde-azulados escuros. Pernas curtas e escuras pendem sob a estrutura irregular."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.RAPTOR
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.RAPTOR"
+msgid "A small bird-dinosaur hybrid with a bright yellow head and a large crest of blue-teal feathers fanning up and back from its head like a mohawk. Its body is covered in layered blue feathers that fade to green at the tail. It stands upright on two legs with a short beak and an alert, energetic posture."
+msgstr "Um híbrido pequeno de pássaro-dinossauro com cabeça amarela brilhante e uma grande crista de penas azul-esverdeadas abrindo-se como moicano da cabeça para trás. O corpo é coberto por penas azuis em camadas que desvanecem para verde na cauda. Fica em pé sobre duas pernas com bico curto e postura alerta e energética."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.SEAL
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.SEAL"
+msgid "A round, blob-shaped seal with a smooth teal body and a single large purple eye. A pointed horn or spigot juts forward from its nose like a narwhal tusk. It has a few small spots on its body, tiny flippers, and a content expression. Its shape is simple and blobby, like a water balloon with a horn."
+msgstr "Uma foca redonda em forma de bolha com corpo liso verde-azulado e um único olho roxo grande. Um chifre pontudo ou bico se projeta do nariz como uma presa de narval. Tem algumas pequenas manchas no corpo, nadadeiras minúsculas e expressão contente. A forma é simples e arredondada, como um balão d'água com chifre."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.SQUIRREL
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.SQUIRREL"
+msgid "A small, round critter covered in spiky olive-green quills that fan out in all directions like a tiny hedgehog-cactus. It has a pale yellow face with two large dark eyes, a small nose, and a wide toothy grin. Its short brown feet poke out from underneath the quills."
+msgstr "Uma criatura pequena e redonda coberta de espinhos verde-oliva que se abrem em todas as direções como um mini ouriço-cacto. Tem um rosto amarelo-pálido com dois grandes olhos escuros, nariz pequeno e um sorriso largo e dentudo. Pés curtos e marrons aparecem debaixo dos espinhos."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.SQUIRRELHUG
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.SQUIRRELHUG"
+msgid "A fluffy, round critter covered in soft pink-lavender fur instead of quills. It has two large upright ears tipped in purple and a pair of stubby purple arm-wings spread to the sides. Its face is pale pink with big dark eyes and a small toothy smile, giving it a cuddly stuffed-animal look."
+msgstr "Uma criatura redonda e fofa coberta de pelo rosa-lavanda suave em vez de espinhos. Tem duas orelhas grandes eretas com pontas roxas e um par de braços-asas atarracados roxos abertos para os lados. O rosto é rosa-pálido com olhos grandes e escuros e um pequeno sorriso dentudo, dando aparência de bicho de pelúcia fofo."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.STATERPILLAR
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.STATERPILLAR"
+msgid "A fat, leaf-shaped slug with a dark teal body covered in overlapping rounded segments like a caterpillar. It has two thin antennae poking up from its head and a small pale face at the front. Tiny nub-like feet run along its underside. Its body tapers to a point at the tail end."
+msgstr "Uma lesma gorda em forma de folha com corpo verde-azulado escuro coberto de segmentos arredondados sobrepostos como uma lagarta. Tem duas antenas finas saindo da cabeça e um pequeno rosto pálido na frente. Pezinhos como botões correm ao longo da parte inferior. O corpo se afina em ponta na extremidade da cauda."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.STATERPILLARGAS
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.STATERPILLARGAS"
+msgid "A muddy yellow-brown Plug Slug variant with a lumpy, warty texture. Its antennae are thicker and stubbier, and its body has a heavier, more bloated look. The color is a dull mustard-olive, and its face has a grumpy, squinting expression. It looks dirtier and more sluggish than the other Plug Slug variants."
+msgstr "Uma variante do Plug Slug amarelo-acastanhada lamacenta com textura irregular e verrugosa. Suas antenas são mais grossas e atarracadas, e o corpo tem aparência mais pesada e inchada. A cor é um mostarda-oliva opaco, e o rosto tem expressão rabugenta e semicerrada. Parece mais sujo e letárgico que as outras variantes do Plug Slug."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.STATERPILLARLIQUID
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.STATERPILLARLIQUID"
+msgid "A paler, mint-green version of the Plug Slug with the same leaf-shaped body and antennae. Its segments are lighter and more washed out, with a grey-green stripe pattern across its back. Its face is small and pale, and its overall color is softer and more muted than the base Plug Slug."
+msgstr "Uma versão mais pálida, verde-menta do Plug Slug com o mesmo corpo em forma de folha e antenas. Seus segmentos são mais claros e desbotados, com padrão de listras cinza-esverdeadas nas costas. O rosto é pequeno e pálido, e a cor geral é mais suave e discreta que o Plug Slug base."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.STEGO
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.STEGO"
+msgid "A stout, dinosaur-like critter with a round red-orange body and a row of broad green leaf-shaped plates running along its back like a stegosaurus. It has a small pointed head with a stubby snout, four short red legs, and a thick tail. The green leaf-plates give it a plant-dinosaur hybrid look."
+msgstr "Uma criatura atarracada semelhante a um dinossauro com corpo redondo vermelho-alaranjado e uma fileira de placas largas verdes em forma de folha ao longo das costas como um estegossauro. Tem uma cabeça pequena e pontuda com focinho curto, quatro pernas vermelhas curtas e uma cauda grossa. As placas-folha verdes dão aparência híbrida de planta-dinossauro."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.WOODDEER
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.WOODDEER"
+msgid "A fox-like critter with a fluffy teal-green body and a long curling tail. It has a narrow white face with a wide open mouth showing teeth, and tall dark antler-like branches growing from the back of its head. Its body is covered in soft fur and it stands on four short legs, giving it a woodland creature look."
+msgstr "Uma criatura semelhante a uma raposa com corpo fofo verde-azulado e uma longa cauda enrolada. Tem um rosto estreito e branco com boca bem aberta mostrando dentes, e galhos altos e escuros como chifres crescendo da parte de trás da cabeça. O corpo é coberto de pelo macio e fica sobre quatro pernas curtas, dando aparência de criatura da floresta."
+
 #. STRINGS.ONIACCESS.DEMOLIOR.DESTROYED
 msgctxt "STRINGS.ONIACCESS.DEMOLIOR.DESTROYED"
 msgid "Demolior destroyed"
@@ -2788,6 +3043,11 @@ msgstr "Melhoria biônica"
 msgctxt "STRINGS.ONIACCESS.INFO.COLONY_HAS"
 msgid "Colony has: {0}"
 msgstr "Colônia possui: {0}"
+
+#. STRINGS.ONIACCESS.INFO.CRITTER_DESCRIPTION
+msgctxt "STRINGS.ONIACCESS.INFO.CRITTER_DESCRIPTION"
+msgid "description: {0}"
+msgstr "descrição: {0}"
 
 #. STRINGS.ONIACCESS.INFO.DIFFICULTY
 msgctxt "STRINGS.ONIACCESS.INFO.DIFFICULTY"

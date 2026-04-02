@@ -1322,6 +1322,261 @@ msgctxt "STRINGS.ONIACCESS.CREW_SCREEN.TOTAL_FORMAT"
 msgid "{0} total"
 msgstr "총 {0}"
 
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.ALGAESTEGO
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.ALGAESTEGO"
+msgid "An all-green version of the Lumb with a rounder, more bloated body. Instead of distinct leaf-plates, it has a large sail-like green fin running along its back. Its entire body is a uniform yellow-green, including its legs and head, and it has a sleepier, more docile expression than the base Lumb."
+msgstr "Lumb의 전체가 녹색인 변종으로, 더 둥글고 부풀어 오른 몸을 가지고 있습니다. 뚜렷한 잎 모양 판 대신 등을 따라 큰 돛 모양의 녹색 지느러미가 있습니다. 다리와 머리를 포함한 전신이 균일한 황록색이며, 기본 Lumb보다 더 졸리고 온순한 표정을 짓고 있습니다."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.BEE
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.BEE"
+msgid "A stout bee-like critter with a round brown-orange body, small translucent wings, and two green antennae. It has a large green eye or visor on the front of its face and a pointed stinger-like snout. Its body has darker brown stripes and it stands on short legs, looking like a compact, armored bumblebee."
+msgstr "둥글고 갈색-주황색 몸, 작은 반투명 날개, 두 개의 녹색 더듬이를 가진 땅딸막한 벌 모양 생물입니다. 얼굴 전면에 큰 녹색 눈 또는 바이저가 있고 뾰족한 침 모양의 주둥이가 있습니다. 몸에는 더 어두운 갈색 줄무늬가 있으며, 짧은 다리로 서서 소형 장갑 땅벌처럼 보입니다."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.BUTTERFLY
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.BUTTERFLY"
+msgid "A butterfly-like critter with large teal-green wings that spread wide and have pointed tips like leaves. Its small yellow-green body hangs between the wings with tiny legs dangling below. The wings have darker green vein-like patterns running through them, making the whole creature look like a pair of floating leaves."
+msgstr "넓게 펼쳐지고 잎처럼 뾰족한 끝을 가진 큰 청록색 날개를 가진 나비 모양 생물입니다. 작은 황록색 몸이 날개 사이에 매달려 있고 작은 다리가 아래로 늘어져 있습니다. 날개에는 더 어두운 녹색 잎맥 무늬가 있어 전체 생물이 떠다니는 나뭇잎 한 쌍처럼 보입니다."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.CHAMELEON
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.CHAMELEON"
+msgid "A squat, triceratops-like critter with a teal-green body covered in dark bumps and warts. It has a pointed horn on its nose, a bony frill at the back of its head, and a wide, flat face with a grumpy expression. Its four thick legs and low-slung body give it a stubborn, tank-like stance."
+msgstr "어두운 돌기와 사마귀로 덮인 청록색 몸을 가진 땅딸막한 트리케라톱스 모양 생물입니다. 코에 뾰족한 뿔, 머리 뒤에 뼈로 된 프릴, 성난 표정의 넓고 평평한 얼굴을 가지고 있습니다. 네 개의 두꺼운 다리와 낮은 몸통이 고집스럽고 탱크 같은 자세를 만듭니다."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.CRAB
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.CRAB"
+msgid "A stout, crab-like critter with a large cracked pink shell covering its back. Two tall eyestalks with round black eyes extend upward from the top of its head. Its face is pink and flat, and it stands on short dark legs. The shell has visible fracture lines and angular plates, giving it a rough, weathered look."
+msgstr "등을 덮는 큰 금이 간 분홍색 껍데기를 가진 땅딸막한 게 모양 생물입니다. 머리 위에서 둥근 검은 눈이 달린 두 개의 긴 눈자루가 위로 뻗어 있습니다. 얼굴은 분홍색이고 평평하며, 짧고 어두운 다리로 서 있습니다. 껍데기에는 균열선과 각진 판이 보여 거칠고 풍화된 느낌을 줍니다."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.CRABFRESHWATER
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.CRABFRESHWATER"
+msgid "A bright blue Pokeshell variant with a smooth, clean-looking shell. Its eyestalks are topped with golden-yellow bulbs, and it has a small blue crest or fin on the back of its shell. Its face and legs are a cheerful blue, and the overall appearance is shinier and tidier than the base Pokeshell."
+msgstr "매끄럽고 깔끔한 껍데기를 가진 밝은 파란색 Pokeshell 변종입니다. 눈자루 끝에 금황색 구근이 있고, 껍데기 뒤쪽에 작은 파란색 볏 또는 지느러미가 있습니다. 얼굴과 다리는 밝은 파란색이며, 전체적으로 기본 Pokeshell보다 더 반짝이고 깔끔합니다."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.CRABWOOD
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.CRABWOOD"
+msgid "A dark green-grey Pokeshell variant whose shell resembles rough tree bark or petrified wood. Its eyestalks are the same dark grey-green, and its face and legs are a muted teal. The shell has vertical ridges and a woody, organic texture instead of the base Pokeshell's cracked plates."
+msgstr "껍데기가 거친 나무 껍질이나 화석화된 나무를 닮은 어두운 녹회색 Pokeshell 변종입니다. 눈자루도 같은 어두운 회녹색이며, 얼굴과 다리는 차분한 청록색입니다. 껍데기에는 기본 Pokeshell의 갈라진 판 대신 수직 능선과 나무 같은 유기적 질감이 있습니다."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.DIESELMOO
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.DIESELMOO"
+msgid "A shaggier, darker version of the Gassy Moo covered in thick grey-brown fur with darker spots. It has a prominent pink-grey snout and small dark eyes peering out from under a spiky dark mane. Its fur hangs down in heavy clumps, making it look like a woolly mammoth crossed with a floating cow."
+msgstr "더 어두운 반점이 있는 두꺼운 회갈색 털로 덮인, 더 덥수룩하고 어두운 Gassy Moo 변종입니다. 두드러진 분홍-회색 주둥이와 뾰족한 어두운 갈기 아래에서 내다보는 작고 어두운 눈을 가지고 있습니다. 털이 무겁게 늘어져 떠다니는 소와 털매머드를 합친 것처럼 보입니다."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.DIVERGENTBEETLE
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.DIVERGENTBEETLE"
+msgid "A round beetle-like critter with a large dark blue domed shell that covers most of its body like a helmet. Underneath, a small grumpy face peeks out with squinting yellow-green eyes. Its legs are tucked under the shell, and the overall shape is a smooth, compact dome sitting close to the ground."
+msgstr "헬멧처럼 몸 대부분을 덮는 큰 짙은 파란색 돔 모양 껍데기를 가진 둥근 딱정벌레 모양 생물입니다. 아래에서 가늘게 뜬 황록색 눈을 가진 작고 성난 얼굴이 내다봅니다. 다리는 껍데기 아래에 접혀 있으며, 전체 형태는 지면에 가까이 앉은 매끈하고 컴팩트한 돔입니다."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.DIVERGENTWORM
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.DIVERGENTWORM"
+msgid "A large green grub with a thick, segmented body and several curved green horn-like protrusions rising from its back. It has a wide head with visible pale teeth in a broad grin. Its body is a muted olive-green with darker green accents, and it looks like a chunky caterpillar crossed with a cactus."
+msgstr "두꺼운 마디가 있는 몸과 등에서 솟아오른 여러 개의 구부러진 녹색 뿔 모양 돌기를 가진 큰 녹색 유충입니다. 넓은 미소 속에 옅은 이빨이 보이는 넓은 머리를 가지고 있습니다. 몸은 차분한 올리브 녹색에 더 어두운 녹색 악센트가 있으며, 통통한 애벌레와 선인장을 합친 것처럼 보입니다."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.DRECKO
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.DRECKO"
+msgid "A low, lizard-like critter with a flat brown head and half-closed sleepy eyes. Its body is almost entirely hidden under a massive mound of puffy, cloud-like grey-white wool that billows out above and behind it. Short stubby legs are barely visible beneath the wool."
+msgstr "평평한 갈색 머리와 반쯤 감긴 졸린 눈을 가진 낮은 도마뱀 모양 생물입니다. 몸은 위와 뒤로 부풀어 오른 거대한 구름 같은 회백색 양모 더미 아래에 거의 완전히 숨겨져 있습니다. 짧고 뭉툭한 다리가 양모 아래로 겨우 보입니다."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.DRECKOPLASTIC
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.DRECKOPLASTIC"
+msgid "A Drecko variant covered in rows of large, overlapping blue-grey scales instead of wool, running from its head to its tail like shingles. Its face is steel blue with a visible underbite showing two front teeth. The scales have a polished, metallic sheen compared to the base Drecko's fluffy coat."
+msgstr "양모 대신 머리부터 꼬리까지 지붕널처럼 겹겹이 겹친 큰 청회색 비늘로 덮인 Drecko 변종입니다. 얼굴은 강철색 파란색이며 앞니 두 개가 보이는 주걱턱을 가지고 있습니다. 비늘은 기본 Drecko의 푹신한 털과 비교해 광택 나는 금속성 윤기가 있습니다."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.GLASSDEER
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.GLASSDEER"
+msgid "A deep purple version of the Flox with icy blue crystal formations replacing the antler-like branches on its head. Its fur is dark violet with lighter purple accents, and its curling tail has a frostbitten look. The ice-crystal antlers glow pale blue, giving it a frozen, wintry appearance."
+msgstr "머리의 뿔 모양 가지가 차가운 파란색 결정체로 대체된 짙은 보라색 Flox 변종입니다. 털은 짙은 보라색에 밝은 보라색 악센트가 있고, 말린 꼬리는 동상에 걸린 듯한 모습입니다. 얼음 결정 뿔이 옅은 파란색으로 빛나 얼어붙은 겨울 같은 외관을 줍니다."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.GLOM
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.GLOM"
+msgid "A small, dark teal blob-creature with a single enormous yellow eye that dominates its face. It has a hooded, cloak-like shape with a rounded top and three stubby tentacle-legs at the bottom. Dark spots dot its body, and the overall look is somewhere between a germ and a tiny hooded figure."
+msgstr "얼굴 대부분을 차지하는 하나의 거대한 노란 눈을 가진 작고 어두운 청록색 점액 생물입니다. 둥근 꼭대기와 바닥에 세 개의 짧은 촉수 다리가 있는 두건 모양의 외형을 가지고 있습니다. 몸에 어두운 반점이 점점이 있으며, 전체적으로 세균과 작은 두건 쓴 인물 사이의 모습입니다."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.GOLDBELLY
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.GOLDBELLY"
+msgid "A majestic variant of the Bammoth with deep purple-violet wool instead of white. It wears a golden crown-like crest on its head and has larger, more prominent curved tusks. Its face is pink-purple with a thick white beard, and the layered purple fur gives it a royal, regal bearing."
+msgstr "흰색 대신 짙은 보라-바이올렛 양모를 가진 위엄 있는 Bammoth 변종입니다. 머리에 금빛 왕관 모양의 볏을 쓰고 있으며, 더 크고 두드러진 구부러진 엄니를 가지고 있습니다. 얼굴은 분홍-보라색에 두꺼운 흰 수염이 있고, 겹겹이 쌓인 보라색 털이 왕족다운 위엄을 줍니다."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.HATCH
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.HATCH"
+msgid "A round, low-slung critter with a large domed shell in muted purple, marked with darker purple spots. Most of its front is taken up by a wide, gaping mouth lined with uneven yellow teeth. It has four short grey legs and small dark eyes set near the top of its shell."
+msgstr "더 어두운 보라색 반점이 있는 차분한 보라색의 큰 돔형 껍데기를 가진 둥글고 낮은 생물입니다. 앞면 대부분이 고르지 않은 노란 이빨이 줄지어 있는 넓고 벌어진 입으로 차 있습니다. 네 개의 짧은 회색 다리와 껍데기 꼭대기 근처에 작고 어두운 눈이 있습니다."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.HATCHHARD
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.HATCHHARD"
+msgid "A Hatch variant built like a rough boulder with legs. Its entire body is angular grey rock, with a flat, slab-like head that juts forward over a broad jaw with a visible underbite. Darker cracks and faceted edges run across its surface, and its legs are thick and dark grey."
+msgstr "다리 달린 거친 바위처럼 생긴 Hatch 변종입니다. 전체 몸이 각진 회색 암석으로 되어 있으며, 주걱턱이 보이는 넓은 턱 위로 앞으로 돌출된 평평한 석판 같은 머리를 가지고 있습니다. 표면에 더 어두운 균열과 면이 깎인 모서리가 있으며, 다리는 두껍고 짙은 회색입니다."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.HATCHMETAL
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.HATCHMETAL"
+msgid "A sleek Hatch variant in deep cobalt blue with a smooth, helmet-shaped shell that curves down over its face like a visor. Instead of the stubby legs of other Hatches, it has long, curved dark claws that extend forward. Its teeth are visible in a thin line beneath the shell's edge, and the overall shape is more streamlined and compact."
+msgstr "바이저처럼 얼굴 위로 굽어 내려오는 매끄럽고 헬멧 모양의 껍데기를 가진 짙은 코발트 블루색의 날렵한 Hatch 변종입니다. 다른 Hatch들의 뭉툭한 다리 대신 앞으로 뻗은 길고 구부러진 어두운 발톱을 가지고 있습니다. 껍데기 가장자리 아래로 이빨이 얇은 줄로 보이며, 전체 형태가 더 유선형이고 컴팩트합니다."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.HATCHVEGGIE
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.HATCHVEGGIE"
+msgid "A Hatch variant covered in long, shaggy dark-green fronds that sweep back from its head and drape over its body like unkempt foliage. Its mouth is wide open, showing pale teeth against a yellow interior. A curled, fern-like tail extends from its back end. The overall silhouette is wilder and shaggier than the base Hatch."
+msgstr "머리에서 뒤로 쓸린 길고 덥수룩한 짙은 녹색 잎이 손질되지 않은 식물처럼 몸을 덮고 있는 Hatch 변종입니다. 입이 크게 벌어져 노란 내부에 대비되는 옅은 이빨이 보입니다. 뒤쪽에서 구부러진 양치식물 같은 꼬리가 뻗어 있습니다. 전체 실루엣이 기본 Hatch보다 더 야생적이고 덥수룩합니다."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.ICEBELLY
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.ICEBELLY"
+msgid "A large, woolly mammoth-like critter covered in thick, layered white fur arranged in overlapping scallops. It has a pink face partially hidden under the fur, two tall pink ears, a bushy white mustache, and a pair of small curved tusks. Its body is wide and round beneath all that fluffy white wool."
+msgstr "겹겹이 겹친 가리비 모양으로 배열된 두껍고 층이 진 흰 털로 덮인 크고 털매머드 같은 생물입니다. 털 아래 부분적으로 숨겨진 분홍색 얼굴, 두 개의 긴 분홍 귀, 덥수룩한 흰 콧수염, 한 쌍의 작은 구부러진 엄니를 가지고 있습니다. 모든 푹신한 흰 양모 아래 몸은 넓고 둥급니다."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.LIGHTBUG
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.LIGHTBUG"
+msgid "A small, teardrop-shaped bug with a pale yellow glowing body that tapers to a point at the bottom. It has two large round black eyes near the top and a pair of tiny translucent wings that spin like a helicopter rotor above its head. No visible legs — it hovers in the air."
+msgstr "아래쪽으로 갈수록 가늘어지는 옅은 노란색 빛나는 몸을 가진 작은 물방울 모양 벌레입니다. 꼭대기 근처에 두 개의 큰 둥근 검은 눈이 있고, 머리 위에서 헬리콥터 회전날개처럼 도는 한 쌍의 작은 반투명 날개가 있습니다. 다리는 보이지 않으며 공중에 떠 있습니다."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.LIGHTBUGBLACK
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.LIGHTBUGBLACK"
+msgid "A dark, almost black Shine Bug with a deep indigo body that barely glows. Its silhouette is the same teardrop shape, but the dark coloring makes it look like a shadow with two pale eyes. The rotor wings above are dark grey."
+msgstr "거의 빛나지 않는 짙은 남색 몸을 가진 어둡고 거의 검은 Shine Bug입니다. 실루엣은 같은 물방울 모양이지만, 어두운 색상이 두 개의 옅은 눈을 가진 그림자처럼 보이게 합니다. 위의 회전 날개는 짙은 회색입니다."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.LIGHTBUGBLUE
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.LIGHTBUGBLUE"
+msgid "A sky-blue Shine Bug with a bright cyan glow. Its translucent body has a slight aqua sheen, and its spinning rotor wings are tinted light blue. Same teardrop shape and two round black eyes as the rest of the family."
+msgstr "밝은 청록색 빛을 내는 하늘색 Shine Bug입니다. 반투명 몸에 약간의 아쿠아색 광택이 있고, 회전하는 날개는 옅은 파란색입니다. 나머지 계열과 같은 물방울 모양에 두 개의 둥근 검은 눈을 가지고 있습니다."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.LIGHTBUGCRYSTAL
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.LIGHTBUGCRYSTAL"
+msgid "A white Shine Bug with a brilliant cyan-white glow that radiates outward from its body. Its teardrop shape is almost washed out by the intense light. Faint turquoise highlights outline its eyes and the edges of its rotor wings."
+msgstr "몸에서 바깥으로 발산하는 눈부신 청백색 빛을 가진 흰색 Shine Bug입니다. 강렬한 빛에 물방울 모양이 거의 씻겨 나갑니다. 희미한 터키색 하이라이트가 눈과 회전 날개의 가장자리를 윤곽 짓습니다."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.LIGHTBUGORANGE
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.LIGHTBUGORANGE"
+msgid "A Shine Bug with the same teardrop shape and spinning rotor wings, but with a warm peach-orange glow instead of yellow. Its two large black eyes sit near the top of its body, and its underside tapers to a soft point."
+msgstr "같은 물방울 모양과 회전 날개를 가진 Shine Bug이지만, 노란색 대신 따뜻한 복숭아-주황색 빛을 냅니다. 두 개의 큰 검은 눈이 몸 꼭대기 근처에 있고, 아랫부분은 부드러운 끝으로 가늘어집니다."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.LIGHTBUGPINK
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.LIGHTBUGPINK"
+msgid "A pink Shine Bug with a soft magenta glow and faint horizontal stripes across its teardrop body. Same hovering posture and spinning rotor wings as the other Shine Bugs, with two round black eyes near the top."
+msgstr "부드러운 마젠타색 빛과 물방울 몸통을 가로지르는 희미한 가로 줄무늬가 있는 분홍색 Shine Bug입니다. 다른 Shine Bug들과 같은 부유 자세와 회전 날개를 가지며, 꼭대기 근처에 두 개의 둥근 검은 눈이 있습니다."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.LIGHTBUGPURPLE
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.LIGHTBUGPURPLE"
+msgid "A rich purple version of the Shine Bug with the same teardrop body and helicopter-rotor wings. Its body glows violet, and it has the same two round black eyes. The wings above its head have a slight purple tint as well."
+msgstr "같은 물방울 몸통과 헬리콥터 회전 날개를 가진 짙은 보라색 Shine Bug 변종입니다. 몸이 보라색으로 빛나며, 같은 두 개의 둥근 검은 눈을 가지고 있습니다. 머리 위의 날개도 약간 보라색 색조를 띱니다."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.MOLE
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.MOLE"
+msgid "A chunky, mole-like critter with a segmented purple-mauve body covered in round darker spots. It has a flat, pointed snout with a large yellow eye and a grey band around its neck. Its body is divided into visible segments like an armadillo, and it has four small grey legs. Short and barrel-shaped overall."
+msgstr "둥근 더 어두운 반점으로 덮인 마디가 있는 보라-연보라색 몸을 가진 통통한 두더지 모양 생물입니다. 큰 노란 눈과 목 주위의 회색 띠가 있는 평평하고 뾰족한 주둥이를 가지고 있습니다. 몸은 아르마딜로처럼 보이는 마디로 나뉘어 있으며, 네 개의 작은 회색 다리가 있습니다. 전체적으로 짧고 통 모양입니다."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.MOLEDELICACY
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.MOLEDELICACY"
+msgid "A Shove Vole variant with the same barrel-shaped body, but in warm tan and pink tones. Its segments are lined with rows of golden-yellow spiky studs that jut out along its back and sides. It has a rosy pink face with a large teal eye and a small snout. The gold spikes give it a more armored, decorative look."
+msgstr "같은 통 모양 몸이지만 따뜻한 황갈색과 분홍 톤을 가진 Shove Vole 변종입니다. 마디에는 등과 옆면을 따라 돌출된 금황색 뾰족한 스터드 줄이 있습니다. 큰 청록색 눈과 작은 주둥이가 있는 장밋빛 분홍 얼굴을 가지고 있습니다. 금색 가시가 더 장갑 같고 장식적인 느낌을 줍니다."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.MOO
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.MOO"
+msgid "A large, floating cow-like critter with a round teal-green body and a flat, droopy face. It has a wide grey-green muzzle, small dark eyes, and a shaggy tuft of pale hair on top of its head. Its underside is slightly darker and ragged-looking. It hovers in the air despite its bulky, lumbering appearance."
+msgstr "둥근 청록색 몸과 평평하고 축 처진 얼굴을 가진 크고 떠다니는 소 모양 생물입니다. 넓은 회녹색 주둥이, 작고 어두운 눈, 머리 꼭대기에 옅은 털 뭉치가 있습니다. 아랫면은 약간 더 어둡고 너덜너덜해 보입니다. 크고 느릿한 외모에도 불구하고 공중에 떠 있습니다."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.MOSQUITO
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.MOSQUITO"
+msgid "A dark blue-black mosquito-like insect with two huge round reflective eyes that take up most of its head. It has a long, sharp proboscis pointing forward, thin antennae, and translucent wings. Its body is small and segmented behind the oversized head, with spindly legs. It looks like an oversized gnat with an attitude."
+msgstr "머리 대부분을 차지하는 두 개의 거대한 둥근 반사 눈을 가진 짙은 청흑색 모기 모양 곤충입니다. 앞을 향한 길고 날카로운 주둥이, 가는 더듬이, 반투명 날개를 가지고 있습니다. 지나치게 큰 머리 뒤로 몸은 작고 마디가 있으며, 가느다란 다리가 있습니다. 태도 있는 대형 각다귀처럼 보입니다."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.OILFLOATER
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.OILFLOATER"
+msgid "A flat, ray-like critter with a wide, dark purple body that spreads out like a pancake. It has two small pointed horns on top of its head and a simple face with small dot eyes and a faint smile. Its body tapers to a thin tail at the back, and it glides through the air like a manta ray."
+msgstr "팬케이크처럼 넓게 펼쳐진 짙은 보라색 몸을 가진 납작한 가오리 모양 생물입니다. 머리 위에 두 개의 작고 뾰족한 뿔이 있고, 작은 점 눈과 희미한 미소가 있는 단순한 얼굴을 가지고 있습니다. 몸은 뒤쪽으로 가는 꼬리로 가늘어지며, 만타 가오리처럼 공중을 활공합니다."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.OILFLOATERDECOR
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.OILFLOATERDECOR"
+msgid "A Slickster with the same flat, ray-like body shape, but in a lighter blue-purple tone. It has tufts of shaggy blue-green hair or fur growing from the top of its head, flopping forward over its face. The same small horns poke up through the hair, and its expression is the same simple smile."
+msgstr "같은 납작한 가오리 모양 몸이지만 더 밝은 청보라색 톤의 Slickster입니다. 머리 꼭대기에서 덥수룩한 청록색 머리카락 또는 털이 자라나 얼굴 위로 늘어져 있습니다. 같은 작은 뿔이 머리카락 사이로 삐져나오며, 표정은 같은 단순한 미소입니다."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.OILFLOATERHIGHTEMP
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.OILFLOATERHIGHTEMP"
+msgid "A dark crimson-red Slickster with the same flat, ray-like shape. Its body looks like it's made of cooling lava, with a deep maroon surface and slightly glowing red edges. Its horns and features are the same as the base Slickster, but the overall color suggests intense heat."
+msgstr "같은 납작한 가오리 모양을 가진 짙은 진홍색 Slickster입니다. 몸이 식어가는 용암으로 만들어진 것처럼 보이며, 깊은 적갈색 표면과 약간 빛나는 붉은 가장자리가 있습니다. 뿔과 특징은 기본 Slickster와 같지만, 전체 색상이 강렬한 열기를 암시합니다."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PACU
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PACU"
+msgid "A small angular fish with a pale green body and a single large yellow eye with a slit pupil. It has sharp, blade-like fins that sweep back from its head and tail, giving it a sleek, aggressive profile. Its mouth is a thin line at the front of its pointed face."
+msgstr "옅은 녹색 몸과 세로 동공이 있는 하나의 큰 노란 눈을 가진 작고 각진 물고기입니다. 머리와 꼬리에서 뒤로 쓸린 날카로운 칼날 같은 지느러미가 날렵하고 공격적인 윤곽을 줍니다. 입은 뾰족한 얼굴 앞부분에 가는 선으로 되어 있습니다."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PACUCLEANER
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PACUCLEANER"
+msgid "A round, plump cyan-blue fish with a coiled, snail-like body shape. Its single large eye has a darker ring around it. Unlike the angular base Pacu, the Gulp Fish is rounder and more compact, with small curved fins. Its body curls slightly inward, giving it a swollen, well-fed look."
+msgstr "코일 모양의 달팽이 같은 체형을 가진 둥글고 통통한 청록색 물고기입니다. 하나의 큰 눈 주위에 더 어두운 고리가 있습니다. 각진 기본 Pacu와 달리 Gulp Fish는 더 둥글고 컴팩트하며, 작은 구부러진 지느러미를 가지고 있습니다. 몸이 약간 안쪽으로 말려 부풀어 오르고 잘 먹은 듯한 느낌을 줍니다."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PACUTROPICAL
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PACUTROPICAL"
+msgid "A colorful Pacu variant with a bright pink-orange body rimmed with frilly, leaf-shaped green fins. It has the same single large eye, but in a warmer orange tone. The fins are wider and more ornamental than the base Pacu's, giving it a tropical reef-fish appearance."
+msgstr "프릴 장식의 잎 모양 녹색 지느러미로 테두리가 된 밝은 분홍-주황색 몸을 가진 화려한 Pacu 변종입니다. 같은 하나의 큰 눈이지만 더 따뜻한 주황 톤입니다. 지느러미가 기본 Pacu보다 더 넓고 장식적이어서 열대 산호초 물고기 같은 외관을 줍니다."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PREHISTORICPACU
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PREHISTORICPACU"
+msgid "A large, deep blue predatory fish with a massive hinged jaw lined with jagged yellow teeth. Its body is dark navy with scattered orange and blue spots, and it has a curved blue fin sweeping back from the top of its head. Small fins and a thick tail propel it through the water, and its overall silhouette is dominated by that enormous underbite."
+msgstr "들쭉날쭉한 노란 이빨이 줄지어 있는 거대한 경첩 턱을 가진 크고 짙은 파란색 포식 물고기입니다. 몸은 짙은 남색에 주황색과 파란색 반점이 흩어져 있으며, 머리 꼭대기에서 뒤로 휘어진 파란 지느러미가 있습니다. 작은 지느러미와 두꺼운 꼬리가 물속을 추진하며, 전체 실루엣은 그 거대한 주걱턱이 지배합니다."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PUFT
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PUFT"
+msgid "A round, bloated flying critter with a golden-yellow body marked by darker horizontal stripes. It has two large bulging eyes that point in different directions and a huge wide-open mouth taking up most of its front. A small dark tail trails behind it. It floats in the air like an overstuffed balloon."
+msgstr "더 어두운 가로 줄무늬가 있는 금황색 몸을 가진 둥글고 부풀어 오른 비행 생물입니다. 서로 다른 방향을 가리키는 두 개의 큰 튀어나온 눈과 앞면 대부분을 차지하는 거대한 벌어진 입을 가지고 있습니다. 뒤에 작고 어두운 꼬리가 끌립니다. 과하게 채워진 풍선처럼 공중에 떠 있습니다."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PUFTALPHA
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PUFTALPHA"
+msgid "A sickly yellow-green Puft with a droopy, grumpy expression. It has half-lidded eyes and the same gaping mouth, but its body has small spiky protrusions along the top and darker green shading. Short stubby legs dangle below, and its overall look is more irritable than the base Puft."
+msgstr "축 처지고 성난 표정을 가진 병적인 황록색 Puft입니다. 반쯤 감긴 눈과 같은 벌어진 입을 가지고 있지만, 몸 위쪽에 작은 뾰족한 돌기와 더 어두운 녹색 음영이 있습니다. 짧고 뭉툭한 다리가 아래로 늘어져 있으며, 전체적으로 기본 Puft보다 더 짜증스러운 모습입니다."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PUFTBLEACHSTONE
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PUFTBLEACHSTONE"
+msgid "A bright green Puft with a fuzzy, mossy texture. Its body is rounder and puffier than other Pufts, with tufts of green fluff around its face. It has wide yellow-green eyes and the same open mouth, but the overall look is softer and more plush compared to its relatives."
+msgstr "보송보송하고 이끼 같은 질감을 가진 밝은 녹색 Puft입니다. 몸이 다른 Puft들보다 더 둥글고 푹신하며, 얼굴 주위에 녹색 솜뭉치가 있습니다. 넓은 황록색 눈과 같은 벌어진 입을 가지고 있지만, 전체적으로 친척들보다 더 부드럽고 봉제인형 같습니다."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PUFTOXYLITE
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PUFTOXYLITE"
+msgid "A teal-blue Puft covered in chunky, rock-like bumps across its surface, making it look heavier and more solid than other Pufts. It has the same wide mouth and bulging eyes, but its body is studded with irregular dark teal nodules. Short dark legs dangle beneath its lumpy frame."
+msgstr "표면에 투박하고 돌 같은 돌기로 덮여 다른 Puft들보다 더 무겁고 단단해 보이는 청록색 Puft입니다. 같은 넓은 입과 튀어나온 눈을 가지고 있지만, 몸에 불규칙한 짙은 청록색 혹이 박혀 있습니다. 짧고 어두운 다리가 울퉁불퉁한 몸 아래로 늘어져 있습니다."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.RAPTOR
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.RAPTOR"
+msgid "A small bird-dinosaur hybrid with a bright yellow head and a large crest of blue-teal feathers fanning up and back from its head like a mohawk. Its body is covered in layered blue feathers that fade to green at the tail. It stands upright on two legs with a short beak and an alert, energetic posture."
+msgstr "밝은 노란 머리와 모히칸처럼 머리에서 위아래로 펼쳐진 큰 청록색 깃털 볏을 가진 작은 새-공룡 혼종입니다. 몸은 꼬리 쪽으로 녹색으로 변하는 겹겹이 쌓인 파란 깃털로 덮여 있습니다. 짧은 부리와 기민하고 활기찬 자세로 두 다리로 서 있습니다."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.SEAL
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.SEAL"
+msgid "A round, blob-shaped seal with a smooth teal body and a single large purple eye. A pointed horn or spigot juts forward from its nose like a narwhal tusk. It has a few small spots on its body, tiny flippers, and a content expression. Its shape is simple and blobby, like a water balloon with a horn."
+msgstr "매끈한 청록색 몸과 하나의 큰 보라색 눈을 가진 둥글고 점액 모양의 물개입니다. 뾰족한 뿔 또는 꼭지가 일각고래 엄니처럼 코에서 앞으로 돌출되어 있습니다. 몸에 작은 반점 몇 개, 작은 지느러미발, 만족스러운 표정이 있습니다. 형태는 뿔 달린 물풍선처럼 단순하고 뭉글뭉글합니다."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.SQUIRREL
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.SQUIRREL"
+msgid "A small, round critter covered in spiky olive-green quills that fan out in all directions like a tiny hedgehog-cactus. It has a pale yellow face with two large dark eyes, a small nose, and a wide toothy grin. Its short brown feet poke out from underneath the quills."
+msgstr "작은 고슴도치-선인장처럼 사방으로 펼쳐지는 뾰족한 올리브 녹색 가시로 덮인 작고 둥근 생물입니다. 두 개의 큰 어두운 눈, 작은 코, 넓은 이빨 미소가 있는 옅은 노란 얼굴을 가지고 있습니다. 짧은 갈색 발이 가시 아래에서 삐져나옵니다."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.SQUIRRELHUG
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.SQUIRRELHUG"
+msgid "A fluffy, round critter covered in soft pink-lavender fur instead of quills. It has two large upright ears tipped in purple and a pair of stubby purple arm-wings spread to the sides. Its face is pale pink with big dark eyes and a small toothy smile, giving it a cuddly stuffed-animal look."
+msgstr "가시 대신 부드러운 분홍-라벤더색 털로 덮인 푹신하고 둥근 생물입니다. 끝이 보라색인 두 개의 큰 쫑긋한 귀와 옆으로 펼쳐진 한 쌍의 뭉툭한 보라색 팔-날개가 있습니다. 얼굴은 옅은 분홍색에 큰 어두운 눈과 작은 이빨 미소가 있어 껴안고 싶은 봉제인형 같은 느낌을 줍니다."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.STATERPILLAR
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.STATERPILLAR"
+msgid "A fat, leaf-shaped slug with a dark teal body covered in overlapping rounded segments like a caterpillar. It has two thin antennae poking up from its head and a small pale face at the front. Tiny nub-like feet run along its underside. Its body tapers to a point at the tail end."
+msgstr "애벌레처럼 겹겹이 겹친 둥근 마디로 덮인 짙은 청록색 몸을 가진 뚱뚱한 잎 모양 민달팽이입니다. 머리에서 위로 솟은 두 개의 가는 더듬이와 앞쪽에 작고 옅은 얼굴이 있습니다. 작은 혹 같은 발이 아랫면을 따라 있습니다. 몸은 꼬리 끝으로 갈수록 뾰족해집니다."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.STATERPILLARGAS
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.STATERPILLARGAS"
+msgid "A muddy yellow-brown Plug Slug variant with a lumpy, warty texture. Its antennae are thicker and stubbier, and its body has a heavier, more bloated look. The color is a dull mustard-olive, and its face has a grumpy, squinting expression. It looks dirtier and more sluggish than the other Plug Slug variants."
+msgstr "울퉁불퉁하고 사마귀 같은 질감을 가진 탁한 황갈색 Plug Slug 변종입니다. 더듬이가 더 두껍고 뭉툭하며, 몸이 더 무겁고 부풀어 오른 느낌입니다. 색상은 탁한 겨자-올리브색이고, 얼굴은 성나고 찡그린 표정입니다. 다른 Plug Slug 변종들보다 더 더럽고 느려 보입니다."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.STATERPILLARLIQUID
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.STATERPILLARLIQUID"
+msgid "A paler, mint-green version of the Plug Slug with the same leaf-shaped body and antennae. Its segments are lighter and more washed out, with a grey-green stripe pattern across its back. Its face is small and pale, and its overall color is softer and more muted than the base Plug Slug."
+msgstr "같은 잎 모양 몸과 더듬이를 가진 더 옅은 민트 녹색 Plug Slug 변종입니다. 마디가 더 밝고 바랜 느낌이며, 등에 회녹색 줄무늬 패턴이 있습니다. 얼굴은 작고 옅으며, 전체 색상이 기본 Plug Slug보다 더 부드럽고 차분합니다."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.STEGO
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.STEGO"
+msgid "A stout, dinosaur-like critter with a round red-orange body and a row of broad green leaf-shaped plates running along its back like a stegosaurus. It has a small pointed head with a stubby snout, four short red legs, and a thick tail. The green leaf-plates give it a plant-dinosaur hybrid look."
+msgstr "둥근 빨간-주황색 몸과 스테고사우루스처럼 등을 따라 늘어선 넓은 녹색 잎 모양 판을 가진 땅딸막한 공룡 모양 생물입니다. 뭉툭한 주둥이가 있는 작고 뾰족한 머리, 네 개의 짧은 빨간 다리, 두꺼운 꼬리를 가지고 있습니다. 녹색 잎 판이 식물-공룡 혼종 같은 느낌을 줍니다."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.WOODDEER
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.WOODDEER"
+msgid "A fox-like critter with a fluffy teal-green body and a long curling tail. It has a narrow white face with a wide open mouth showing teeth, and tall dark antler-like branches growing from the back of its head. Its body is covered in soft fur and it stands on four short legs, giving it a woodland creature look."
+msgstr "푹신한 청록색 몸과 길고 말린 꼬리를 가진 여우 같은 생물입니다. 이빨이 보이는 크게 벌린 입이 있는 좁고 흰 얼굴과, 머리 뒤에서 자라는 높은 어두운 뿔 모양 가지를 가지고 있습니다. 몸은 부드러운 털로 덮여 있고 네 개의 짧은 다리로 서서 숲속 생물 같은 느낌을 줍니다."
+
 #. STRINGS.ONIACCESS.DEMOLIOR.DESTROYED
 msgctxt "STRINGS.ONIACCESS.DEMOLIOR.DESTROYED"
 msgid "Demolior destroyed"
@@ -2790,6 +3045,11 @@ msgstr "바이오닉 업그레이드"
 msgctxt "STRINGS.ONIACCESS.INFO.COLONY_HAS"
 msgid "Colony has: {0}"
 msgstr "콜로니 보유: {0}"
+
+#. STRINGS.ONIACCESS.INFO.CRITTER_DESCRIPTION
+msgctxt "STRINGS.ONIACCESS.INFO.CRITTER_DESCRIPTION"
+msgid "description: {0}"
+msgstr "설명: {0}"
 
 #. STRINGS.ONIACCESS.INFO.DIFFICULTY
 msgctxt "STRINGS.ONIACCESS.INFO.DIFFICULTY"

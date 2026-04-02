@@ -1322,6 +1322,261 @@ msgctxt "STRINGS.ONIACCESS.CREW_SCREEN.TOTAL_FORMAT"
 msgid "{0} total"
 msgstr "{0} всего"
 
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.ALGAESTEGO
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.ALGAESTEGO"
+msgid "An all-green version of the Lumb with a rounder, more bloated body. Instead of distinct leaf-plates, it has a large sail-like green fin running along its back. Its entire body is a uniform yellow-green, including its legs and head, and it has a sleepier, more docile expression than the base Lumb."
+msgstr "Полностью зелёная версия Lumb с более округлым, раздутым телом. Вместо отдельных листовых пластин у него большой парусообразный зелёный плавник вдоль спины. Всё тело равномерного жёлто-зелёного цвета, включая ноги и голову, а выражение морды более сонное и кроткое, чем у обычного Lumb."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.BEE
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.BEE"
+msgid "A stout bee-like critter with a round brown-orange body, small translucent wings, and two green antennae. It has a large green eye or visor on the front of its face and a pointed stinger-like snout. Its body has darker brown stripes and it stands on short legs, looking like a compact, armored bumblebee."
+msgstr "Коренастое пчелоподобное существо с круглым коричнево-оранжевым телом, маленькими полупрозрачными крыльями и двумя зелёными усиками. На передней части головы большой зелёный глаз или визор и заострённый хоботок. Тело покрыто тёмно-коричневыми полосами, стоит на коротких ножках и выглядит как компактный бронированный шмель."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.BUTTERFLY
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.BUTTERFLY"
+msgid "A butterfly-like critter with large teal-green wings that spread wide and have pointed tips like leaves. Its small yellow-green body hangs between the wings with tiny legs dangling below. The wings have darker green vein-like patterns running through them, making the whole creature look like a pair of floating leaves."
+msgstr "Бабочкоподобное существо с большими сине-зелёными крыльями, широко расправленными и с заострёнными кончиками, напоминающими листья. Маленькое жёлто-зелёное тело висит между крыльями, крошечные ножки свисают вниз. На крыльях тёмно-зелёные прожилки, отчего всё существо напоминает пару парящих листьев."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.CHAMELEON
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.CHAMELEON"
+msgid "A squat, triceratops-like critter with a teal-green body covered in dark bumps and warts. It has a pointed horn on its nose, a bony frill at the back of its head, and a wide, flat face with a grumpy expression. Its four thick legs and low-slung body give it a stubborn, tank-like stance."
+msgstr "Приземистое существо, напоминающее трицератопса, с сине-зелёным телом, покрытым тёмными бугорками и бородавками. На носу заострённый рог, на затылке костяной воротник, а широкая плоская морда имеет недовольное выражение. Четыре толстых ноги и приземлённое тело придают ему упрямую, танкоподобную стойку."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.CRAB
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.CRAB"
+msgid "A stout, crab-like critter with a large cracked pink shell covering its back. Two tall eyestalks with round black eyes extend upward from the top of its head. Its face is pink and flat, and it stands on short dark legs. The shell has visible fracture lines and angular plates, giving it a rough, weathered look."
+msgstr "Коренастое крабоподобное существо с большим потрескавшимся розовым панцирем на спине. Два высоких глазных стебелька с круглыми чёрными глазами торчат вверх. Морда розовая и плоская, стоит на коротких тёмных ножках. На панцире видны трещины и угловатые пластины, придающие ему грубый, обветренный вид."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.CRABFRESHWATER
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.CRABFRESHWATER"
+msgid "A bright blue Pokeshell variant with a smooth, clean-looking shell. Its eyestalks are topped with golden-yellow bulbs, and it has a small blue crest or fin on the back of its shell. Its face and legs are a cheerful blue, and the overall appearance is shinier and tidier than the base Pokeshell."
+msgstr "Ярко-голубой вариант Pokeshell с гладким, чистым панцирем. Глазные стебельки увенчаны золотисто-жёлтыми шариками, а на задней части панциря небольшой голубой гребень или плавник. Морда и ноги жизнерадостного голубого цвета, общий вид более блестящий и аккуратный, чем у обычного Pokeshell."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.CRABWOOD
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.CRABWOOD"
+msgid "A dark green-grey Pokeshell variant whose shell resembles rough tree bark or petrified wood. Its eyestalks are the same dark grey-green, and its face and legs are a muted teal. The shell has vertical ridges and a woody, organic texture instead of the base Pokeshell's cracked plates."
+msgstr "Тёмно-серо-зелёный вариант Pokeshell, чей панцирь напоминает грубую древесную кору или окаменевшее дерево. Глазные стебельки того же тёмного серо-зелёного цвета, морда и ноги приглушённо-бирюзовые. На панцире вертикальные борозды и древесная текстура вместо потрескавшихся пластин обычного Pokeshell."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.DIESELMOO
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.DIESELMOO"
+msgid "A shaggier, darker version of the Gassy Moo covered in thick grey-brown fur with darker spots. It has a prominent pink-grey snout and small dark eyes peering out from under a spiky dark mane. Its fur hangs down in heavy clumps, making it look like a woolly mammoth crossed with a floating cow."
+msgstr "Более лохматая и тёмная версия Gassy Moo, покрытая густой серо-коричневой шерстью с тёмными пятнами. У неё выдающаяся розовато-серая морда и маленькие тёмные глазки, выглядывающие из-под колючей тёмной гривы. Шерсть свисает тяжёлыми клоками, придавая ей вид помеси шерстистого мамонта и парящей коровы."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.DIVERGENTBEETLE
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.DIVERGENTBEETLE"
+msgid "A round beetle-like critter with a large dark blue domed shell that covers most of its body like a helmet. Underneath, a small grumpy face peeks out with squinting yellow-green eyes. Its legs are tucked under the shell, and the overall shape is a smooth, compact dome sitting close to the ground."
+msgstr "Круглое жукоподобное существо с большим тёмно-синим куполообразным панцирем, закрывающим почти всё тело, как шлем. Снизу выглядывает маленькая недовольная мордочка с прищуренными жёлто-зелёными глазами. Ноги спрятаны под панцирем, общая форма — гладкий компактный купол, прижатый к земле."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.DIVERGENTWORM
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.DIVERGENTWORM"
+msgid "A large green grub with a thick, segmented body and several curved green horn-like protrusions rising from its back. It has a wide head with visible pale teeth in a broad grin. Its body is a muted olive-green with darker green accents, and it looks like a chunky caterpillar crossed with a cactus."
+msgstr "Крупная зелёная личинка с толстым сегментированным телом и несколькими изогнутыми зелёными рогоподобными выростами на спине. Широкая голова с видимыми светлыми зубами в широкой ухмылке. Тело приглушённого оливково-зелёного цвета с тёмно-зелёными акцентами, напоминает толстую гусеницу, скрещённую с кактусом."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.DRECKO
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.DRECKO"
+msgid "A low, lizard-like critter with a flat brown head and half-closed sleepy eyes. Its body is almost entirely hidden under a massive mound of puffy, cloud-like grey-white wool that billows out above and behind it. Short stubby legs are barely visible beneath the wool."
+msgstr "Низкое ящероподобное существо с плоской коричневой головой и полузакрытыми сонными глазами. Тело почти полностью скрыто под массивной горой пушистой, облакоподобной серо-белой шерсти, которая вздымается сверху и сзади. Короткие толстые ножки едва видны под шерстью."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.DRECKOPLASTIC
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.DRECKOPLASTIC"
+msgid "A Drecko variant covered in rows of large, overlapping blue-grey scales instead of wool, running from its head to its tail like shingles. Its face is steel blue with a visible underbite showing two front teeth. The scales have a polished, metallic sheen compared to the base Drecko's fluffy coat."
+msgstr "Вариант Drecko, покрытый рядами крупных перекрывающихся серо-голубых чешуй вместо шерсти, идущих от головы до хвоста, как черепица. Морда стального голубого цвета с выступающей нижней челюстью и двумя передними зубами. Чешуя имеет полированный металлический блеск по сравнению с пушистой шубой обычного Drecko."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.GLASSDEER
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.GLASSDEER"
+msgid "A deep purple version of the Flox with icy blue crystal formations replacing the antler-like branches on its head. Its fur is dark violet with lighter purple accents, and its curling tail has a frostbitten look. The ice-crystal antlers glow pale blue, giving it a frozen, wintry appearance."
+msgstr "Тёмно-фиолетовая версия Flox с ледяными голубыми кристаллическими образованиями вместо рогоподобных ветвей на голове. Мех тёмно-фиолетовый со светло-пурпурными акцентами, а закрученный хвост выглядит обмороженным. Ледяные кристаллические рога светятся бледно-голубым, придавая морозный, зимний вид."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.GLOM
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.GLOM"
+msgid "A small, dark teal blob-creature with a single enormous yellow eye that dominates its face. It has a hooded, cloak-like shape with a rounded top and three stubby tentacle-legs at the bottom. Dark spots dot its body, and the overall look is somewhere between a germ and a tiny hooded figure."
+msgstr "Маленькое тёмно-бирюзовое существо-капля с одним огромным жёлтым глазом, занимающим почти всю морду. Имеет форму накидки с закруглённым верхом и тремя короткими щупальцами-ножками внизу. Тело покрыто тёмными пятнышками, общий вид — нечто среднее между микробом и крошечной фигуркой в капюшоне."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.GOLDBELLY
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.GOLDBELLY"
+msgid "A majestic variant of the Bammoth with deep purple-violet wool instead of white. It wears a golden crown-like crest on its head and has larger, more prominent curved tusks. Its face is pink-purple with a thick white beard, and the layered purple fur gives it a royal, regal bearing."
+msgstr "Величественный вариант Bammoth с глубокой пурпурно-фиолетовой шерстью вместо белой. На голове золотой коронообразный гребень, а бивни крупнее и заметнее. Морда розовато-фиолетовая с густой белой бородой, а многослойный фиолетовый мех придаёт ему царственный, королевский вид."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.HATCH
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.HATCH"
+msgid "A round, low-slung critter with a large domed shell in muted purple, marked with darker purple spots. Most of its front is taken up by a wide, gaping mouth lined with uneven yellow teeth. It has four short grey legs and small dark eyes set near the top of its shell."
+msgstr "Круглое приземистое существо с большим куполообразным панцирем приглушённого фиолетового цвета с тёмно-фиолетовыми пятнами. Большую часть передней стороны занимает широко разинутая пасть с неровными жёлтыми зубами. Четыре короткие серые ноги и маленькие тёмные глаза ближе к вершине панциря."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.HATCHHARD
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.HATCHHARD"
+msgid "A Hatch variant built like a rough boulder with legs. Its entire body is angular grey rock, with a flat, slab-like head that juts forward over a broad jaw with a visible underbite. Darker cracks and faceted edges run across its surface, and its legs are thick and dark grey."
+msgstr "Вариант Hatch, похожий на грубый валун с ногами. Всё тело — угловатая серая порода с плоской плитообразной головой, выступающей вперёд над широкой челюстью с выраженным прикусом. По поверхности проходят тёмные трещины и гранёные ребра, ноги толстые и тёмно-серые."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.HATCHMETAL
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.HATCHMETAL"
+msgid "A sleek Hatch variant in deep cobalt blue with a smooth, helmet-shaped shell that curves down over its face like a visor. Instead of the stubby legs of other Hatches, it has long, curved dark claws that extend forward. Its teeth are visible in a thin line beneath the shell's edge, and the overall shape is more streamlined and compact."
+msgstr "Обтекаемый вариант Hatch глубокого кобальтово-синего цвета с гладким шлемообразным панцирем, изгибающимся вниз над мордой, как визор. Вместо коротких ног других Hatch у него длинные изогнутые тёмные когти, направленные вперёд. Зубы видны тонкой полоской под краем панциря, общая форма более обтекаемая и компактная."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.HATCHVEGGIE
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.HATCHVEGGIE"
+msgid "A Hatch variant covered in long, shaggy dark-green fronds that sweep back from its head and drape over its body like unkempt foliage. Its mouth is wide open, showing pale teeth against a yellow interior. A curled, fern-like tail extends from its back end. The overall silhouette is wilder and shaggier than the base Hatch."
+msgstr "Вариант Hatch, покрытый длинными лохматыми тёмно-зелёными листьями, зачёсанными назад с головы и свисающими по телу, как неухоженная листва. Пасть широко раскрыта, светлые зубы видны на фоне жёлтой внутренности. Сзади торчит закрученный папоротникообразный хвост. Общий силуэт более дикий и лохматый, чем у обычного Hatch."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.ICEBELLY
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.ICEBELLY"
+msgid "A large, woolly mammoth-like critter covered in thick, layered white fur arranged in overlapping scallops. It has a pink face partially hidden under the fur, two tall pink ears, a bushy white mustache, and a pair of small curved tusks. Its body is wide and round beneath all that fluffy white wool."
+msgstr "Крупное существо, похожее на шерстистого мамонта, покрытое густым многослойным белым мехом, уложенным перекрывающимися волнами. Розовая морда частично скрыта под мехом, два высоких розовых уха, густые белые усы и пара маленьких изогнутых бивней. Тело широкое и круглое под всей этой пушистой белой шерстью."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.LIGHTBUG
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.LIGHTBUG"
+msgid "A small, teardrop-shaped bug with a pale yellow glowing body that tapers to a point at the bottom. It has two large round black eyes near the top and a pair of tiny translucent wings that spin like a helicopter rotor above its head. No visible legs — it hovers in the air."
+msgstr "Маленький жучок каплевидной формы с бледно-жёлтым светящимся телом, сужающимся книзу. Два больших круглых чёрных глаза ближе к верху и пара крошечных полупрозрачных крылышек, вращающихся как вертолётный винт над головой. Ног не видно — он парит в воздухе."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.LIGHTBUGBLACK
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.LIGHTBUGBLACK"
+msgid "A dark, almost black Shine Bug with a deep indigo body that barely glows. Its silhouette is the same teardrop shape, but the dark coloring makes it look like a shadow with two pale eyes. The rotor wings above are dark grey."
+msgstr "Тёмный, почти чёрный Shine Bug с глубоким индиговым телом, едва светящимся. Силуэт той же каплевидной формы, но тёмная окраска делает его похожим на тень с двумя бледными глазами. Крылья-винт сверху тёмно-серые."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.LIGHTBUGBLUE
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.LIGHTBUGBLUE"
+msgid "A sky-blue Shine Bug with a bright cyan glow. Its translucent body has a slight aqua sheen, and its spinning rotor wings are tinted light blue. Same teardrop shape and two round black eyes as the rest of the family."
+msgstr "Небесно-голубой Shine Bug с ярким голубым свечением. Полупрозрачное тело с лёгким аквамариновым отливом, вращающиеся крылья-винт с голубым оттенком. Та же каплевидная форма и два круглых чёрных глаза, как у остальных."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.LIGHTBUGCRYSTAL
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.LIGHTBUGCRYSTAL"
+msgid "A white Shine Bug with a brilliant cyan-white glow that radiates outward from its body. Its teardrop shape is almost washed out by the intense light. Faint turquoise highlights outline its eyes and the edges of its rotor wings."
+msgstr "Белый Shine Bug с ярким бело-голубым свечением, излучающимся от тела. Каплевидная форма почти теряется в интенсивном свете. Слабые бирюзовые блики обрисовывают глаза и края крыльев-винтов."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.LIGHTBUGORANGE
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.LIGHTBUGORANGE"
+msgid "A Shine Bug with the same teardrop shape and spinning rotor wings, but with a warm peach-orange glow instead of yellow. Its two large black eyes sit near the top of its body, and its underside tapers to a soft point."
+msgstr "Shine Bug с той же каплевидной формой и вращающимися крыльями-винтами, но с тёплым персиково-оранжевым свечением вместо жёлтого. Два больших чёрных глаза ближе к верху тела, нижняя часть сужается к мягкому кончику."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.LIGHTBUGPINK
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.LIGHTBUGPINK"
+msgid "A pink Shine Bug with a soft magenta glow and faint horizontal stripes across its teardrop body. Same hovering posture and spinning rotor wings as the other Shine Bugs, with two round black eyes near the top."
+msgstr "Розовый Shine Bug с мягким пурпурным свечением и слабыми горизонтальными полосками на каплевидном теле. Та же парящая поза и вращающиеся крылья-винты, как у других Shine Bug, с двумя круглыми чёрными глазами ближе к верху."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.LIGHTBUGPURPLE
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.LIGHTBUGPURPLE"
+msgid "A rich purple version of the Shine Bug with the same teardrop body and helicopter-rotor wings. Its body glows violet, and it has the same two round black eyes. The wings above its head have a slight purple tint as well."
+msgstr "Насыщенно-фиолетовая версия Shine Bug с тем же каплевидным телом и крыльями-винтами. Тело светится фиолетовым, те же два круглых чёрных глаза. Крылья над головой тоже слегка отливают фиолетовым."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.MOLE
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.MOLE"
+msgid "A chunky, mole-like critter with a segmented purple-mauve body covered in round darker spots. It has a flat, pointed snout with a large yellow eye and a grey band around its neck. Its body is divided into visible segments like an armadillo, and it has four small grey legs. Short and barrel-shaped overall."
+msgstr "Коренастое кротоподобное существо с сегментированным пурпурно-лиловым телом, покрытым круглыми тёмными пятнами. Плоская заострённая морда с большим жёлтым глазом и серой полосой вокруг шеи. Тело разделено на видимые сегменты, как у броненосца, четыре маленькие серые ноги. В целом короткое и бочкообразное."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.MOLEDELICACY
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.MOLEDELICACY"
+msgid "A Shove Vole variant with the same barrel-shaped body, but in warm tan and pink tones. Its segments are lined with rows of golden-yellow spiky studs that jut out along its back and sides. It has a rosy pink face with a large teal eye and a small snout. The gold spikes give it a more armored, decorative look."
+msgstr "Вариант Shove Vole с тем же бочкообразным телом, но в тёплых бежево-розовых тонах. Сегменты окаймлены рядами золотисто-жёлтых шипастых заклёпок, торчащих по спине и бокам. Розовая морда с большим бирюзовым глазом и маленьким носом. Золотые шипы придают ему более бронированный, декоративный вид."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.MOO
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.MOO"
+msgid "A large, floating cow-like critter with a round teal-green body and a flat, droopy face. It has a wide grey-green muzzle, small dark eyes, and a shaggy tuft of pale hair on top of its head. Its underside is slightly darker and ragged-looking. It hovers in the air despite its bulky, lumbering appearance."
+msgstr "Крупное парящее коровоподобное существо с круглым бирюзово-зелёным телом и плоской, поникшей мордой. Широкая серо-зелёная морда, маленькие тёмные глазки и лохматый пучок светлых волос на макушке. Нижняя сторона чуть темнее и неопрятнее. Парит в воздухе, несмотря на громоздкий, неуклюжий вид."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.MOSQUITO
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.MOSQUITO"
+msgid "A dark blue-black mosquito-like insect with two huge round reflective eyes that take up most of its head. It has a long, sharp proboscis pointing forward, thin antennae, and translucent wings. Its body is small and segmented behind the oversized head, with spindly legs. It looks like an oversized gnat with an attitude."
+msgstr "Тёмно-сине-чёрное комароподобное насекомое с двумя огромными круглыми блестящими глазами, занимающими почти всю голову. Длинный острый хоботок направлен вперёд, тонкие усики и полупрозрачные крылья. Тело маленькое и сегментированное за массивной головой, с тонкими ножками. Выглядит как переросший комар с характером."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.OILFLOATER
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.OILFLOATER"
+msgid "A flat, ray-like critter with a wide, dark purple body that spreads out like a pancake. It has two small pointed horns on top of its head and a simple face with small dot eyes and a faint smile. Its body tapers to a thin tail at the back, and it glides through the air like a manta ray."
+msgstr "Плоское скатоподобное существо с широким тёмно-фиолетовым телом, расплющенным как блин. На макушке два маленьких заострённых рожка, простая мордочка с глазами-точками и слабой улыбкой. Тело сужается в тонкий хвост сзади, и оно скользит по воздуху, как манта."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.OILFLOATERDECOR
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.OILFLOATERDECOR"
+msgid "A Slickster with the same flat, ray-like body shape, but in a lighter blue-purple tone. It has tufts of shaggy blue-green hair or fur growing from the top of its head, flopping forward over its face. The same small horns poke up through the hair, and its expression is the same simple smile."
+msgstr "Slickster с тем же плоским скатоподобным телом, но в более светлом сине-фиолетовом тоне. На макушке пучки лохматых сине-зелёных волос или шерсти, свисающих вперёд на морду. Те же маленькие рожки торчат сквозь шерсть, а выражение морды — та же простая улыбка."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.OILFLOATERHIGHTEMP
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.OILFLOATERHIGHTEMP"
+msgid "A dark crimson-red Slickster with the same flat, ray-like shape. Its body looks like it's made of cooling lava, with a deep maroon surface and slightly glowing red edges. Its horns and features are the same as the base Slickster, but the overall color suggests intense heat."
+msgstr "Тёмно-багряный Slickster с той же плоской скатоподобной формой. Тело выглядит как остывающая лава: глубокая бордовая поверхность с чуть светящимися красными краями. Рожки и черты те же, что у обычного Slickster, но общий цвет говорит о сильном жаре."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PACU
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PACU"
+msgid "A small angular fish with a pale green body and a single large yellow eye with a slit pupil. It has sharp, blade-like fins that sweep back from its head and tail, giving it a sleek, aggressive profile. Its mouth is a thin line at the front of its pointed face."
+msgstr "Маленькая угловатая рыба с бледно-зелёным телом и одним большим жёлтым глазом с вертикальным зрачком. Острые лезвиеобразные плавники отходят назад от головы и хвоста, придавая обтекаемый, агрессивный профиль. Рот — тонкая линия на передней части заострённой морды."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PACUCLEANER
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PACUCLEANER"
+msgid "A round, plump cyan-blue fish with a coiled, snail-like body shape. Its single large eye has a darker ring around it. Unlike the angular base Pacu, the Gulp Fish is rounder and more compact, with small curved fins. Its body curls slightly inward, giving it a swollen, well-fed look."
+msgstr "Круглая пухлая рыба голубого цвета с завитым улиткообразным телом. Единственный большой глаз окружён тёмным кольцом. В отличие от угловатого обычного Pacu, Gulp Fish более округлый и компактный, с маленькими изогнутыми плавниками. Тело слегка заворачивается внутрь, придавая раздутый, сытый вид."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PACUTROPICAL
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PACUTROPICAL"
+msgid "A colorful Pacu variant with a bright pink-orange body rimmed with frilly, leaf-shaped green fins. It has the same single large eye, but in a warmer orange tone. The fins are wider and more ornamental than the base Pacu's, giving it a tropical reef-fish appearance."
+msgstr "Красочный вариант Pacu с ярким розовато-оранжевым телом, окаймлённым волнистыми листообразными зелёными плавниками. Тот же один большой глаз, но в более тёплом оранжевом тоне. Плавники шире и декоративнее, чем у обычного Pacu, придавая вид тропической рифовой рыбы."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PREHISTORICPACU
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PREHISTORICPACU"
+msgid "A large, deep blue predatory fish with a massive hinged jaw lined with jagged yellow teeth. Its body is dark navy with scattered orange and blue spots, and it has a curved blue fin sweeping back from the top of its head. Small fins and a thick tail propel it through the water, and its overall silhouette is dominated by that enormous underbite."
+msgstr "Крупная тёмно-синяя хищная рыба с массивной шарнирной челюстью, усаженной зазубренными жёлтыми зубами. Тело тёмно-синее с разбросанными оранжевыми и голубыми пятнами, изогнутый синий плавник отходит назад от макушки. Маленькие плавники и толстый хвост движут её сквозь воду, а весь силуэт определяется огромным выступающим прикусом."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PUFT
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PUFT"
+msgid "A round, bloated flying critter with a golden-yellow body marked by darker horizontal stripes. It has two large bulging eyes that point in different directions and a huge wide-open mouth taking up most of its front. A small dark tail trails behind it. It floats in the air like an overstuffed balloon."
+msgstr "Круглое раздутое летающее существо с золотисто-жёлтым телом, покрытым тёмными горизонтальными полосами. Два больших выпученных глаза смотрят в разные стороны, а огромная разинутая пасть занимает большую часть передней стороны. Маленький тёмный хвостик тянется позади. Парит в воздухе, как перекачанный воздушный шар."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PUFTALPHA
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PUFTALPHA"
+msgid "A sickly yellow-green Puft with a droopy, grumpy expression. It has half-lidded eyes and the same gaping mouth, but its body has small spiky protrusions along the top and darker green shading. Short stubby legs dangle below, and its overall look is more irritable than the base Puft."
+msgstr "Болезненно жёлто-зелёный Puft с поникшим, недовольным выражением. Полуприкрытые глаза и та же разинутая пасть, но на теле маленькие шипастые выросты вдоль верха и более тёмная зелёная тень. Короткие толстые ножки свисают внизу, общий вид более раздражительный, чем у обычного Puft."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PUFTBLEACHSTONE
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PUFTBLEACHSTONE"
+msgid "A bright green Puft with a fuzzy, mossy texture. Its body is rounder and puffier than other Pufts, with tufts of green fluff around its face. It has wide yellow-green eyes and the same open mouth, but the overall look is softer and more plush compared to its relatives."
+msgstr "Ярко-зелёный Puft с пушистой, мшистой текстурой. Тело более круглое и пухлое, чем у других Puft, с пучками зелёного пуха вокруг морды. Широкие жёлто-зелёные глаза и та же раскрытая пасть, но общий вид мягче и плюшевее по сравнению с сородичами."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PUFTOXYLITE
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PUFTOXYLITE"
+msgid "A teal-blue Puft covered in chunky, rock-like bumps across its surface, making it look heavier and more solid than other Pufts. It has the same wide mouth and bulging eyes, but its body is studded with irregular dark teal nodules. Short dark legs dangle beneath its lumpy frame."
+msgstr "Бирюзово-синий Puft, покрытый крупными каменистыми буграми, из-за чего выглядит тяжелее и плотнее других Puft. Та же широкая пасть и выпученные глаза, но тело усеяно неровными тёмно-бирюзовыми наростами. Короткие тёмные ножки свисают под бугристым телом."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.RAPTOR
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.RAPTOR"
+msgid "A small bird-dinosaur hybrid with a bright yellow head and a large crest of blue-teal feathers fanning up and back from its head like a mohawk. Its body is covered in layered blue feathers that fade to green at the tail. It stands upright on two legs with a short beak and an alert, energetic posture."
+msgstr "Маленький гибрид птицы и динозавра с ярко-жёлтой головой и большим гребнем из сине-бирюзовых перьев, веером расходящихся назад и вверх, как ирокез. Тело покрыто многослойными синими перьями, переходящими в зелёный к хвосту. Стоит прямо на двух ногах с коротким клювом и настороженной, энергичной позой."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.SEAL
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.SEAL"
+msgid "A round, blob-shaped seal with a smooth teal body and a single large purple eye. A pointed horn or spigot juts forward from its nose like a narwhal tusk. It has a few small spots on its body, tiny flippers, and a content expression. Its shape is simple and blobby, like a water balloon with a horn."
+msgstr "Круглый каплеобразный тюлень с гладким бирюзовым телом и одним большим фиолетовым глазом. Заострённый рог или носик торчит вперёд из носа, как бивень нарвала. На теле несколько маленьких пятнышек, крошечные ласты и довольное выражение. Форма простая и каплеобразная, как воздушный шарик с водой и рогом."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.SQUIRREL
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.SQUIRREL"
+msgid "A small, round critter covered in spiky olive-green quills that fan out in all directions like a tiny hedgehog-cactus. It has a pale yellow face with two large dark eyes, a small nose, and a wide toothy grin. Its short brown feet poke out from underneath the quills."
+msgstr "Маленькое круглое существо, покрытое колючими оливково-зелёными иглами, торчащими во все стороны, как крошечный ёж-кактус. Бледно-жёлтая мордочка с двумя большими тёмными глазами, маленьким носом и широкой зубастой улыбкой. Короткие коричневые лапки выглядывают из-под игл."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.SQUIRRELHUG
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.SQUIRRELHUG"
+msgid "A fluffy, round critter covered in soft pink-lavender fur instead of quills. It has two large upright ears tipped in purple and a pair of stubby purple arm-wings spread to the sides. Its face is pale pink with big dark eyes and a small toothy smile, giving it a cuddly stuffed-animal look."
+msgstr "Пушистое круглое существо, покрытое мягким розовато-лавандовым мехом вместо игл. Два больших вертикальных уха с фиолетовыми кончиками и пара коротких фиолетовых крылышек-ручек, раскинутых в стороны. Мордочка бледно-розовая с большими тёмными глазами и маленькой зубастой улыбкой, придающей ему вид плюшевой игрушки."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.STATERPILLAR
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.STATERPILLAR"
+msgid "A fat, leaf-shaped slug with a dark teal body covered in overlapping rounded segments like a caterpillar. It has two thin antennae poking up from its head and a small pale face at the front. Tiny nub-like feet run along its underside. Its body tapers to a point at the tail end."
+msgstr "Толстый листообразный слизень с тёмно-бирюзовым телом, покрытым перекрывающимися округлыми сегментами, как у гусеницы. Два тонких усика торчат из головы, маленькая бледная мордочка впереди. Крошечные бугорки-ножки идут по нижней стороне. Тело сужается к кончику на хвосте."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.STATERPILLARGAS
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.STATERPILLARGAS"
+msgid "A muddy yellow-brown Plug Slug variant with a lumpy, warty texture. Its antennae are thicker and stubbier, and its body has a heavier, more bloated look. The color is a dull mustard-olive, and its face has a grumpy, squinting expression. It looks dirtier and more sluggish than the other Plug Slug variants."
+msgstr "Мутно-жёлто-коричневый вариант Plug Slug с бугристой, бородавчатой текстурой. Усики толще и короче, а тело выглядит тяжелее и более раздутым. Цвет тусклый горчично-оливковый, на морде недовольное, прищуренное выражение. Выглядит грязнее и ленивее других вариантов Plug Slug."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.STATERPILLARLIQUID
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.STATERPILLARLIQUID"
+msgid "A paler, mint-green version of the Plug Slug with the same leaf-shaped body and antennae. Its segments are lighter and more washed out, with a grey-green stripe pattern across its back. Its face is small and pale, and its overall color is softer and more muted than the base Plug Slug."
+msgstr "Бледная мятно-зелёная версия Plug Slug с тем же листообразным телом и усиками. Сегменты светлее и более блёклые, с серо-зелёным полосатым узором на спине. Мордочка маленькая и бледная, общий цвет мягче и приглушённее, чем у обычного Plug Slug."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.STEGO
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.STEGO"
+msgid "A stout, dinosaur-like critter with a round red-orange body and a row of broad green leaf-shaped plates running along its back like a stegosaurus. It has a small pointed head with a stubby snout, four short red legs, and a thick tail. The green leaf-plates give it a plant-dinosaur hybrid look."
+msgstr "Коренастое динозавроподобное существо с круглым красно-оранжевым телом и рядом широких зелёных листообразных пластин вдоль спины, как у стегозавра. Маленькая заострённая голова с короткой мордой, четыре короткие красные ноги и толстый хвост. Зелёные листовые пластины придают ему вид гибрида растения и динозавра."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.WOODDEER
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.WOODDEER"
+msgid "A fox-like critter with a fluffy teal-green body and a long curling tail. It has a narrow white face with a wide open mouth showing teeth, and tall dark antler-like branches growing from the back of its head. Its body is covered in soft fur and it stands on four short legs, giving it a woodland creature look."
+msgstr "Лисоподобное существо с пушистым бирюзово-зелёным телом и длинным закрученным хвостом. Узкая белая морда с широко раскрытой пастью, показывающей зубы, и высокие тёмные рогоподобные ветви, растущие из затылка. Тело покрыто мягким мехом, стоит на четырёх коротких ногах, придающих ему вид лесного существа."
+
 #. STRINGS.ONIACCESS.DEMOLIOR.DESTROYED
 msgctxt "STRINGS.ONIACCESS.DEMOLIOR.DESTROYED"
 msgid "Demolior destroyed"
@@ -2790,6 +3045,11 @@ msgstr "Бионическое улучшение"
 msgctxt "STRINGS.ONIACCESS.INFO.COLONY_HAS"
 msgid "Colony has: {0}"
 msgstr "В колонии есть: {0}"
+
+#. STRINGS.ONIACCESS.INFO.CRITTER_DESCRIPTION
+msgctxt "STRINGS.ONIACCESS.INFO.CRITTER_DESCRIPTION"
+msgid "description: {0}"
+msgstr "описание: {0}"
 
 #. STRINGS.ONIACCESS.INFO.DIFFICULTY
 msgctxt "STRINGS.ONIACCESS.INFO.DIFFICULTY"

@@ -14,12 +14,13 @@ namespace OniAccess.Handlers.Screens {
 	public class ConfirmDialogHandler: BaseWidgetHandler {
 		private string _dialogTitle;
 		private string _displayNameOverride;
-		private bool _firstDiscovery = true;
 
 		public override string DisplayName => _displayNameOverride ?? _dialogTitle
 			?? (string)STRINGS.UI.FRONTEND.SAVESCREEN.CONFIRMNAME;
 
 		public override IReadOnlyList<HelpEntry> HelpEntries { get; }
+
+		protected override bool DeferFirstDiscovery => true;
 
 		public ConfirmDialogHandler(KScreen screen, string displayNameOverride = null) : base(screen) {
 			_displayNameOverride = displayNameOverride;
@@ -27,22 +28,12 @@ namespace OniAccess.Handlers.Screens {
 		}
 
 		public override void OnActivate() {
-			_firstDiscovery = true;
 			TryExtractTitle(_screen);
 			base.OnActivate();
 		}
 
 		public override bool DiscoverWidgets(KScreen screen) {
 			_widgets.Clear();
-
-			// PopupConfirmDialog sets popupMessage.text after StartScreen returns,
-			// which is after our Activate postfix fires. On the first call the
-			// LocText still holds stale prefab text. Defer to let the caller set
-			// the real message before we read it.
-			if (_firstDiscovery) {
-				_firstDiscovery = false;
-				return false;
-			}
 
 			// Find the dialog message text via popupMessage field or child LocText
 			string messageText = null;

@@ -26,6 +26,12 @@ namespace OniAccess.Handlers.Screens {
 	/// - TextInput: Enter to begin editing, Enter to confirm, Escape to cancel
 	///   (via TextEdit helper; subclasses using accessor-based Begin() override
 	///   ActivateCurrentItem for that widget)
+	///
+	/// Discovery timing:
+	/// - MaxDiscoveryRetries: how many frames to retry when DiscoverWidgets returns false
+	/// - DeferFirstDiscovery: skip the initial DiscoverWidgets call in OnActivate entirely,
+	///   letting the retry infrastructure pick it up next frame. Use this for screens that
+	///   populate content after StartScreen returns (e.g., via property setters or SetEventData).
 	/// </summary>
 	public abstract class BaseWidgetHandler: BaseMenuHandler {
 		protected readonly List<Widget> _widgets = new List<Widget>();
@@ -49,6 +55,13 @@ namespace OniAccess.Handlers.Screens {
 		/// Override in subclasses that need more time (e.g., coroutine-driven screens).
 		/// </summary>
 		protected virtual int MaxDiscoveryRetries => 1;
+
+		/// <summary>
+		/// When true, OnActivate skips the initial DiscoverWidgets call and sets
+		/// _pendingRediscovery so Tick() picks it up next frame. Use for screens
+		/// that populate content after StartScreen returns.
+		/// </summary>
+		protected virtual bool DeferFirstDiscovery => false;
 
 		protected BaseWidgetHandler(KScreen screen) : base(screen) { }
 
@@ -93,6 +106,12 @@ namespace OniAccess.Handlers.Screens {
 		public override void OnActivate() {
 			base.OnActivate();
 			_retryCount = 0;
+
+			if (DeferFirstDiscovery) {
+				_pendingRediscovery = true;
+				return;
+			}
+
 			bool ready = DiscoverWidgets(_screen);
 
 			if (ready && _widgets.Count > 0) {

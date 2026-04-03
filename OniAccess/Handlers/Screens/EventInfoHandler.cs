@@ -10,10 +10,9 @@ namespace OniAccess.Handlers.Screens {
 	/// description, optional location/time, and option buttons.
 	///
 	/// SetEventData runs after StartScreen returns, so content is empty on the first
-	/// DiscoverWidgets call. Uses the _firstDiscovery deferral pattern.
+	/// DiscoverWidgets call. DeferFirstDiscovery skips it so retry picks up the real data.
 	/// </summary>
 	public class EventInfoHandler: BaseWidgetHandler {
-		private bool _firstDiscovery = true;
 		private string _title;
 
 		public override string DisplayName => _title
@@ -22,24 +21,19 @@ namespace OniAccess.Handlers.Screens {
 		public override IReadOnlyList<HelpEntry> HelpEntries { get; }
 
 		protected override int MaxDiscoveryRetries => 3;
+		protected override bool DeferFirstDiscovery => true;
 
 		public EventInfoHandler(KScreen screen) : base(screen) {
 			HelpEntries = BuildHelpEntries();
 		}
 
 		public override void OnActivate() {
-			_firstDiscovery = true;
 			_title = null;
 			base.OnActivate();
 		}
 
 		public override bool DiscoverWidgets(KScreen screen) {
 			_widgets.Clear();
-
-			if (_firstDiscovery) {
-				_firstDiscovery = false;
-				return false;
-			}
 
 			var traverse = Traverse.Create(screen);
 

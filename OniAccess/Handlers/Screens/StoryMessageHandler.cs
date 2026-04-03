@@ -10,35 +10,23 @@ namespace OniAccess.Handlers.Screens {
 	/// the achievement title + body as a Label and the dismiss button.
 	///
 	/// Title and body are set via property setters after StartScreen + Show,
-	/// so DiscoverWidgets defers one frame via the _firstDiscovery pattern
-	/// (same as ConfirmDialogHandler) and allows up to 3 retries.
+	/// so DeferFirstDiscovery skips the initial call and allows up to 3 retries.
 	/// </summary>
 	public class StoryMessageHandler: BaseWidgetHandler {
-		private bool _firstDiscovery = true;
-
 		public override string DisplayName =>
 			(string)STRINGS.ONIACCESS.HANDLERS.STORY_MESSAGE;
 
 		public override IReadOnlyList<HelpEntry> HelpEntries { get; }
 
 		protected override int MaxDiscoveryRetries => 3;
+		protected override bool DeferFirstDiscovery => true;
 
 		public StoryMessageHandler(KScreen screen) : base(screen) {
 			HelpEntries = BuildHelpEntries();
 		}
 
-		public override void OnActivate() {
-			_firstDiscovery = true;
-			base.OnActivate();
-		}
-
 		public override bool DiscoverWidgets(KScreen screen) {
 			_widgets.Clear();
-
-			if (_firstDiscovery) {
-				_firstDiscovery = false;
-				return false;
-			}
 
 			var traverse = Traverse.Create(screen);
 

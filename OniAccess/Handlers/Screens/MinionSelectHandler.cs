@@ -291,29 +291,12 @@ namespace OniAccess.Handlers.Screens {
 		/// to searching for LocText children with a name-like pattern.
 		/// </summary>
 		private void DiscoverNameWidget(CharacterContainer container, Traverse traverse) {
+			CharacterWidgetBuilder.AddNameWidgets(_widgets, traverse, "MinionSelectHandler");
+
 			try {
 				var titleBar = traverse.Field("characterNameTitle").GetValue<object>();
 				if (titleBar == null) return;
 				var titleBarTraverse = Traverse.Create(titleBar);
-
-				// Name label
-				var locText = titleBarTraverse.Field("titleText").GetValue<LocText>();
-				if (locText != null && !string.IsNullOrEmpty(locText.text)) {
-					_widgets.Add(new LabelWidget {
-						Label = locText.text,
-						GameObject = locText.gameObject
-					});
-
-					// Bionic model type label (standard dupes get no label — it's the default)
-					var nameStats = traverse.Field("stats").GetValue<MinionStartingStats>();
-					if (nameStats != null && nameStats.personality.model == GameTags.Minions.Models.Bionic) {
-						_widgets.Add(new LabelWidget {
-							Label = (string)STRINGS.DUPLICANTS.MODEL.BIONIC.NAME,
-							GameObject = locText.gameObject,
-							Tag = "model_type"
-						});
-					}
-				}
 
 				// Rename button (editNameButton)
 				var editBtn = titleBarTraverse.Field("editNameButton").GetValue<KButton>();
@@ -346,34 +329,7 @@ namespace OniAccess.Handlers.Screens {
 		/// one label: "Interests: Research, Cooking".
 		/// </summary>
 		private void DiscoverInterestsWidget(CharacterContainer container, Traverse traverse) {
-			try {
-				var aptitudeEntries = traverse.Field("aptitudeEntries")
-					.GetValue<List<UnityEngine.GameObject>>();
-				if (aptitudeEntries == null) return;
-				foreach (var entryGo in aptitudeEntries) {
-					if (entryGo == null || !entryGo.activeInHierarchy) continue;
-					var locTexts = entryGo.GetComponentsInChildren<LocText>(false);
-					if (locTexts == null || locTexts.Length == 0) continue;
-
-					// Combine active LocTexts: interest name + attribute bonus
-					var parts = new List<string>();
-					foreach (var lt in locTexts) {
-						if (lt == null || string.IsNullOrEmpty(lt.text)
-							|| !lt.gameObject.activeInHierarchy) continue;
-						parts.Add(lt.text.Trim());
-					}
-
-					if (parts.Count > 0) {
-						_widgets.Add(new LabelWidget {
-							Label = $"{STRINGS.ONIACCESS.INFO.INTEREST}: {string.Join(", ", parts)}",
-							GameObject = entryGo,
-							Tag = "interest"
-						});
-					}
-				}
-			} catch (System.Exception ex) {
-				Util.Log.Error($"MinionSelectHandler.DiscoverInterestsWidget: {ex.Message}");
-			}
+			CharacterWidgetBuilder.AddInterestWidgets(_widgets, traverse, "MinionSelectHandler");
 		}
 
 		/// <summary>
@@ -383,143 +339,23 @@ namespace OniAccess.Handlers.Screens {
 		/// Distinguishes positive/negative traits, and bionic upgrade/bug for bionic dupes.
 		/// </summary>
 		private void DiscoverTraitWidgets(CharacterContainer container, Traverse traverse) {
-			try {
-				var stats = traverse.Field("stats").GetValue<MinionStartingStats>();
-				if (stats == null) return;
-				var traits = stats.Traits;
-				if (traits == null) return;
-
-				bool isBionic = stats.personality.model == GameTags.Minions.Models.Bionic;
-
-				// Skip index 0 (same as game's SetInfoText does)
-				for (int i = 1; i < traits.Count; i++) {
-					var trait = traits[i];
-					string name = trait.GetName();
-					if (string.IsNullOrEmpty(name)) continue;
-
-					string prefix;
-					if (isBionic) {
-						prefix = trait.PositiveTrait
-							? (string)STRINGS.ONIACCESS.INFO.BIONIC_UPGRADE
-							: (string)STRINGS.ONIACCESS.INFO.BIONIC_BUG;
-					} else {
-						prefix = trait.PositiveTrait
-							? (string)STRINGS.ONIACCESS.INFO.POSITIVE_TRAIT
-							: (string)STRINGS.ONIACCESS.INFO.NEGATIVE_TRAIT;
-					}
-
-					string tooltip = trait.GetTooltip();
-					string label;
-					if (string.IsNullOrEmpty(tooltip)) {
-						label = $"{prefix}: {name}";
-					} else {
-						string flat = tooltip.Replace("\n• ", ", ").Replace("\n", ", ");
-						label = $"{prefix}: {name}, {flat}";
-					}
-
-					_widgets.Add(new LabelWidget {
-						Label = label,
-						GameObject = container.gameObject
-					});
-				}
-			} catch (System.Exception ex) {
-				Util.Log.Error($"MinionSelectHandler.DiscoverTraitWidgets: {ex.Message}");
-			}
+			var stats = traverse.Field("stats").GetValue<MinionStartingStats>();
+			if (stats == null) return;
+			CharacterWidgetBuilder.AddTraitWidgets(_widgets, stats, container.gameObject, "MinionSelectHandler");
 		}
 
 		private void DiscoverExpectationWidgets(CharacterContainer container, Traverse traverse) {
-			try {
-				var labels = traverse.Field("expectationLabels")
-					.GetValue<List<LocText>>();
-				if (labels == null) return;
-				foreach (var lt in labels) {
-					if (lt == null || string.IsNullOrEmpty(lt.text)
-						|| !lt.gameObject.activeInHierarchy) continue;
-
-					string label = lt.text.Trim();
-					var tooltip = lt.GetComponent<ToolTip>();
-					if (tooltip != null) {
-						try {
-							string ttText = ReadAllTooltipText(tooltip);
-							if (!string.IsNullOrEmpty(ttText)) {
-								label = $"{label}, {ttText}";
-							}
-						} catch (System.Exception ex) {
-							Util.Log.Error($"MinionSelectHandler.DiscoverExpectationWidgets(tooltip): {ex.Message}");
-						}
-					}
-
-					_widgets.Add(new LabelWidget {
-						Label = label,
-						GameObject = lt.gameObject
-					});
-				}
-			} catch (System.Exception ex) {
-				Util.Log.Error($"MinionSelectHandler.DiscoverExpectationWidgets: {ex.Message}");
-			}
+			CharacterWidgetBuilder.AddExpectationWidgets(_widgets, traverse, "MinionSelectHandler");
 		}
 
 		private void DiscoverDescriptionWidget(CharacterContainer container, Traverse traverse) {
-			try {
-				var stats = traverse.Field("stats").GetValue<MinionStartingStats>();
-				if (stats != null) {
-					string key = "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS."
-						+ stats.personality.Name.Replace("-", "_").ToUpper();
-					if (Strings.TryGet(key, out var entry)) {
-						_widgets.Add(new LabelWidget {
-							Label = string.Format((string)STRINGS.ONIACCESS.INFO.DUPE_DESCRIPTION, entry.String),
-							GameObject = container.gameObject
-						});
-					}
-				}
-
-				var descLocText = traverse.Field("description")
-					.GetValue<LocText>();
-				if (descLocText != null && !string.IsNullOrEmpty(descLocText.text)) {
-					_widgets.Add(new LabelWidget {
-						Label = descLocText.text.Trim(),
-						GameObject = descLocText.gameObject
-					});
-				}
-			} catch (System.Exception ex) {
-				Util.Log.Error($"MinionSelectHandler.DiscoverDescriptionWidget: {ex.Message}");
-			}
+			var stats = traverse.Field("stats").GetValue<MinionStartingStats>();
+			if (stats == null) return;
+			CharacterWidgetBuilder.AddDescriptionWidgets(_widgets, traverse, stats, container.gameObject, "MinionSelectHandler");
 		}
 
 		private void DiscoverAttributeWidgets(CharacterContainer container, Traverse traverse) {
-			try {
-				var iconGroups = traverse.Field("iconGroups")
-					.GetValue<List<UnityEngine.GameObject>>();
-				if (iconGroups == null) return;
-				foreach (var go in iconGroups) {
-					if (go == null || !go.activeInHierarchy) continue;
-					var locText = go.GetComponentInChildren<LocText>();
-					if (locText == null || string.IsNullOrEmpty(locText.text)) continue;
-
-					string label = locText.text.Trim();
-
-					// Tooltip is on the iconGroup GameObject itself (SetSimpleTooltip)
-					var tooltip = go.GetComponent<ToolTip>();
-					if (tooltip != null) {
-						try {
-							string ttText = ReadAllTooltipText(tooltip);
-							if (!string.IsNullOrEmpty(ttText)) {
-								string flat = ttText.Replace("\n", ", ").Replace("\r", "");
-								label = $"{label}, {flat}";
-							}
-						} catch (System.Exception ex) {
-							Util.Log.Error($"MinionSelectHandler.DiscoverAttributeWidgets(tooltip): {ex.Message}");
-						}
-					}
-
-					_widgets.Add(new LabelWidget {
-						Label = label,
-						GameObject = go
-					});
-				}
-			} catch (System.Exception ex) {
-				Util.Log.Error($"MinionSelectHandler.DiscoverAttributeWidgets: {ex.Message}");
-			}
+			CharacterWidgetBuilder.AddAttributeWidgets(_widgets, traverse, "MinionSelectHandler");
 		}
 
 		private void DiscoverFilterDropdown(CharacterContainer container, Traverse traverse) {

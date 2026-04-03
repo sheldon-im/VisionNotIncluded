@@ -29,10 +29,10 @@ namespace OniAccess.Handlers.Tiles.AreaScan {
 
 		internal static string FormatMass(float kg) {
 			if (kg < 1f)
-				return $"{kg * 1000f:0} g";
+				return $"{kg * 1000f:0}{STRINGS.UI.UNITSUFFIXES.MASS.GRAM}";
 			if (kg < 1000f)
-				return $"{kg:0} kg";
-			return $"{kg / 1000f:0.#} t";
+				return $"{kg:0}{STRINGS.UI.UNITSUFFIXES.MASS.KILOGRAM}";
+			return $"{kg / 1000f:0.#}{STRINGS.UI.UNITSUFFIXES.MASS.TONNE}";
 		}
 	}
 }

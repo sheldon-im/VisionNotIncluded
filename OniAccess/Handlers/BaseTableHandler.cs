@@ -184,13 +184,6 @@ namespace OniAccess.Handlers {
 			if (_worldFilter != -1)
 				ApplyWorldFilter();
 
-			// Count data rows
-			int count = 0;
-			foreach (var row in _rows) {
-				if (row.Kind == TableRowKind.Minion || row.Kind == TableRowKind.StoredMinion)
-					count++;
-			}
-
 			string name = _worldFilter == -1
 				? STRINGS.ONIACCESS.TABLE.ALL_WORLDS
 				: GetWorldName(_worldFilter);
@@ -200,7 +193,7 @@ namespace OniAccess.Handlers {
 			_lastSpokenCol = -1;
 
 			SpeechPipeline.SpeakInterrupt(
-				string.Format(STRINGS.ONIACCESS.TABLE.WORLD_FILTER_FMT, name, count));
+				name + ", " + BuildCellParts(forceFullContext: true));
 		}
 
 		private int FindFirstDataRow() {
@@ -286,12 +279,10 @@ namespace OniAccess.Handlers {
 			if (newRow < 0 || newRow >= _rows.Count) return;
 
 			if (IsRowSkipped(_rows[newRow].Kind)) {
-				string worldName = GetWorldName(_rows[newRow].WorldId);
 				int beyondDivider = newRow + direction;
 				if (beyondDivider < 0 || beyondDivider >= _rows.Count) return;
 				while (beyondDivider >= 0 && beyondDivider < _rows.Count
 					&& IsRowSkipped(_rows[beyondDivider].Kind)) {
-					worldName = GetWorldName(_rows[beyondDivider].WorldId);
 					beyondDivider += direction;
 				}
 				if (beyondDivider < 0 || beyondDivider >= _rows.Count) return;
@@ -300,8 +291,14 @@ namespace OniAccess.Handlers {
 				PlaySound("HUD_Mouseover");
 				_lastSpokenRow = -1;
 				_lastSpokenCol = -1;
-				SpeechPipeline.SpeakInterrupt(
-					worldName + ", " + BuildCellParts(forceFullContext: true));
+				var landedKind = _rows[beyondDivider].Kind;
+				if (landedKind == TableRowKind.Minion || landedKind == TableRowKind.StoredMinion) {
+					string worldName = GetWorldName(_rows[beyondDivider].WorldId);
+					SpeechPipeline.SpeakInterrupt(
+						worldName + ", " + BuildCellParts(forceFullContext: true));
+				} else {
+					SpeechPipeline.SpeakInterrupt(BuildCellParts(forceFullContext: true));
+				}
 				return;
 			}
 

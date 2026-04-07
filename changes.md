@@ -2,6 +2,8 @@
 
 ## Unreleased changes since 1.3.0
 
+* Updated Prism speech library from v0.9.0 to v0.11.1
+
 ## 1.3.0
 
 * Read coordinates moved from K to Shift+K; bare K now activates the game's sweep tool

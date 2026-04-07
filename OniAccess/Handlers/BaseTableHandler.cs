@@ -40,6 +40,10 @@ namespace OniAccess.Handlers {
 		protected int _sortColumn = -1;
 		protected bool _sortAscending;
 
+		// World filter
+		private int _worldFilter = -1;
+		private List<int> _filteredWorldIds = new List<int>();
+
 		// Type-ahead search (columns)
 		protected readonly TypeAheadSearch _search = new TypeAheadSearch();
 		private int _searchSuppressFrame = -1;
@@ -125,6 +129,92 @@ namespace OniAccess.Handlers {
 		}
 
 		// ========================================
+		// WORLD FILTER
+		// ========================================
+
+		protected void RebuildRows() {
+			BuildRowList();
+			RebuildFilteredWorldIds();
+			if (_worldFilter != -1)
+				ApplyWorldFilter();
+		}
+
+		private void RebuildFilteredWorldIds() {
+			_filteredWorldIds.Clear();
+			foreach (var row in _rows) {
+				if (row.Kind != TableRowKind.Minion
+					&& row.Kind != TableRowKind.StoredMinion
+					&& row.Kind != TableRowKind.WorldDivider)
+					continue;
+				if (!_filteredWorldIds.Contains(row.WorldId))
+					_filteredWorldIds.Add(row.WorldId);
+			}
+		}
+
+		private void ApplyWorldFilter() {
+			_rows.RemoveAll(row => {
+				if (row.Kind == TableRowKind.Toolbar
+					|| row.Kind == TableRowKind.ColumnHeader
+					|| row.Kind == TableRowKind.Default)
+					return false;
+				return row.WorldId != _worldFilter;
+			});
+		}
+
+		private void CycleWorldFilter(int direction) {
+			int savedFilter = _worldFilter;
+			_worldFilter = -1;
+			RebuildRows();
+
+			if (_filteredWorldIds.Count <= 1) {
+				_worldFilter = savedFilter;
+				return;
+			}
+
+			// Build cycle: [world ids...] + [-1 for All]
+			var cycle = new List<int>(_filteredWorldIds);
+			cycle.Add(-1);
+
+			int currentIndex = cycle.IndexOf(savedFilter);
+			if (currentIndex < 0) currentIndex = cycle.Count - 1;
+
+			int newIndex = (currentIndex + direction + cycle.Count) % cycle.Count;
+			_worldFilter = cycle[newIndex];
+
+			if (_worldFilter != -1)
+				ApplyWorldFilter();
+
+			// Count data rows
+			int count = 0;
+			foreach (var row in _rows) {
+				if (row.Kind == TableRowKind.Minion || row.Kind == TableRowKind.StoredMinion)
+					count++;
+			}
+
+			string name = _worldFilter == -1
+				? STRINGS.ONIACCESS.TABLE.ALL_WORLDS
+				: GetWorldName(_worldFilter);
+
+			_row = FindFirstDataRow();
+			_lastSpokenRow = -1;
+			_lastSpokenCol = -1;
+
+			SpeechPipeline.SpeakInterrupt(
+				string.Format(STRINGS.ONIACCESS.TABLE.WORLD_FILTER_FMT, name, count));
+		}
+
+		private int FindFirstDataRow() {
+			for (int i = 0; i < _rows.Count; i++) {
+				var kind = _rows[i].Kind;
+				if (kind != TableRowKind.Toolbar
+					&& kind != TableRowKind.ColumnHeader
+					&& !IsRowSkipped(kind))
+					return i;
+			}
+			return 0;
+		}
+
+		// ========================================
 		// LIFECYCLE
 		// ========================================
 
@@ -132,7 +222,11 @@ namespace OniAccess.Handlers {
 			OnTableActivate();
 			_sortColumn = -1;
 			_sortAscending = false;
-			BuildRowList();
+			_worldFilter = -1;
+			RebuildRows();
+			if (_filteredWorldIds.Count > 1)
+				_worldFilter = ClusterManager.Instance.activeWorldId;
+			RebuildRows();
 			_row = FindInitialRow();
 			_col = 0;
 			_lastSpokenRow = -1;
@@ -186,7 +280,7 @@ namespace OniAccess.Handlers {
 		// ========================================
 
 		protected void NavigateRow(int direction) {
-			BuildRowList();
+			RebuildRows();
 			int newRow = _row + direction;
 
 			if (newRow < 0 || newRow >= _rows.Count) return;
@@ -244,7 +338,7 @@ namespace OniAccess.Handlers {
 		}
 
 		protected void NavigateHome() {
-			BuildRowList();
+			RebuildRows();
 			for (int i = 0; i < _rows.Count; i++) {
 				var kind = _rows[i].Kind;
 				if (kind != TableRowKind.Toolbar
@@ -259,7 +353,7 @@ namespace OniAccess.Handlers {
 		}
 
 		protected void NavigateEnd() {
-			BuildRowList();
+			RebuildRows();
 			for (int i = _rows.Count - 1; i >= 0; i--) {
 				if (!IsRowSkipped(_rows[i].Kind)) {
 					_row = i;
@@ -302,7 +396,7 @@ namespace OniAccess.Handlers {
 					string.Format(STRINGS.ONIACCESS.TABLE.SORT_CLEARED_FMT, colName));
 			}
 
-			BuildRowList();
+			RebuildRows();
 		}
 
 		// ========================================
@@ -361,6 +455,7 @@ namespace OniAccess.Handlers {
 		protected static readonly List<HelpEntry> TableNavHelpEntries = new List<HelpEntry> {
 			new HelpEntry("Arrows", STRINGS.ONIACCESS.TABLE.NAVIGATE_TABLE),
 			new HelpEntry("Home/End", STRINGS.ONIACCESS.TABLE.JUMP_FIRST_LAST),
+			new HelpEntry("Tab/Shift+Tab", STRINGS.ONIACCESS.TABLE.SWITCH_WORLD),
 			new HelpEntry("A-Z", STRINGS.ONIACCESS.HELP.TYPE_SEARCH),
 		};
 
@@ -376,6 +471,12 @@ namespace OniAccess.Handlers {
 
 			bool ctrlHeld = InputUtil.CtrlHeld();
 			bool altHeld = InputUtil.AltHeld();
+
+			if (UnityEngine.Input.GetKeyDown(UnityEngine.KeyCode.Tab)) {
+				bool shiftHeld = InputUtil.ShiftHeld();
+				CycleWorldFilter(shiftHeld ? -1 : 1);
+				return true;
+			}
 
 			if (TryRouteToSearch(ctrlHeld, altHeld))
 				return true;

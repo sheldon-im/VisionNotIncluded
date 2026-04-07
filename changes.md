@@ -2,6 +2,7 @@
 
 ## Unreleased changes since 1.3.0
 
+* Tab/Shift+Tab in table screens (priorities, consumables, vitals) cycles through worlds to filter duplicants by colony
 * Cursor skip now jumps to the map edge instead of stopping in place when no change is found
 * Colony status (S) now starts with the world name
 * Cycle status (Q) now says block before cycle

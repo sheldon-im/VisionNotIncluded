@@ -1421,6 +1421,11 @@ namespace STRINGS {
 			public static LocString SORT_COLUMN = "Sort by column on header row";
 			// Resource storage column header
 			public static LocString STORED = "Stored";
+			// World filter
+			public static LocString ALL_WORLDS = "All";
+			// {0} = world name, {1} = duplicant count
+			public static LocString WORLD_FILTER_FMT = "{0}, {1} duplicants";
+			public static LocString SWITCH_WORLD = "Switch between worlds";
 		}
 
 		// Priorities table screen

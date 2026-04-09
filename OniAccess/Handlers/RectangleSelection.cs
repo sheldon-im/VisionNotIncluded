@@ -160,7 +160,8 @@ namespace OniAccess.Handlers {
 			return width + height - 1;
 		}
 
-		public static string BuildRectSummary(int cell1, int cell2, Func<int, int> countTargets) {
+		public static string BuildRectSummary(int cell1, int cell2, Func<int, int> countTargets,
+			bool allowUnexplored = false) {
 			int minX = Math.Min(Grid.CellColumn(cell1), Grid.CellColumn(cell2));
 			int maxX = Math.Max(Grid.CellColumn(cell1), Grid.CellColumn(cell2));
 			int minY = Math.Min(Grid.CellRow(cell1), Grid.CellRow(cell2));
@@ -173,7 +174,7 @@ namespace OniAccess.Handlers {
 			for (int y = minY; y <= maxY; y++) {
 				for (int x = minX; x <= maxX; x++) {
 					int cell = Grid.XYToCell(x, y);
-					if (!Grid.IsValidCell(cell) || !Grid.IsVisible(cell)) {
+					if (!Grid.IsValidCell(cell) || (!allowUnexplored && !Grid.IsVisible(cell))) {
 						invalid++;
 						continue;
 					}

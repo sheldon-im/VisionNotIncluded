@@ -54,6 +54,8 @@ namespace OniAccess.Handlers.Sandbox {
 			return tool != null && AllSandboxToolTypes.Contains(tool.GetType());
 		}
 
+		private static bool AllowsUnexplored(InterfaceTool tool) => tool is SandboxFOWTool;
+
 		private static readonly ConsumedKey[] _consumedKeys = {
 			new ConsumedKey(KKeyCode.Space),
 			new ConsumedKey(KKeyCode.Space, Modifier.Shift),
@@ -182,9 +184,11 @@ namespace OniAccess.Handlers.Sandbox {
 		// ========================================
 
 		private void SetCorner() {
+			var activeTool = PlayerController.Instance?.ActiveTool;
+			bool allowUnexplored = AllowsUnexplored(activeTool);
 			int cell = TileCursor.Instance.Cell;
 
-			if (!Grid.IsVisible(cell)) {
+			if (!allowUnexplored && !Grid.IsVisible(cell)) {
 				PlaySound("Negative");
 				SpeechPipeline.SpeakInterrupt((string)STRINGS.ONIACCESS.TILE_CURSOR.UNEXPLORED);
 				return;
@@ -197,7 +201,7 @@ namespace OniAccess.Handlers.Sandbox {
 				int area = RectangleSelection.ComputeArea(c1, c2);
 				RectangleSelection.PlayDragSound("Tile_Drag", area);
 				SpeechPipeline.SpeakInterrupt(
-					RectangleSelection.BuildRectSummary(c1, c2, null));
+					RectangleSelection.BuildRectSummary(c1, c2, null, allowUnexplored));
 				return;
 			}
 
@@ -209,7 +213,7 @@ namespace OniAccess.Handlers.Sandbox {
 				int area = RectangleSelection.ComputeArea(rect.Cell1, rect.Cell2);
 				RectangleSelection.PlayDragSound("Tile_Drag", area);
 				SpeechPipeline.SpeakInterrupt(
-					RectangleSelection.BuildRectSummary(rect.Cell1, rect.Cell2, null));
+					RectangleSelection.BuildRectSummary(rect.Cell1, rect.Cell2, null, allowUnexplored));
 			}
 		}
 
@@ -229,7 +233,7 @@ namespace OniAccess.Handlers.Sandbox {
 			if (activeTool == null) return;
 
 			int cell = TileCursor.Instance.Cell;
-			if (!Grid.IsVisible(cell)) {
+			if (!AllowsUnexplored(activeTool) && !Grid.IsVisible(cell)) {
 				PlaySound("Negative");
 				SpeechPipeline.SpeakInterrupt((string)STRINGS.ONIACCESS.TILE_CURSOR.UNEXPLORED);
 				return;
@@ -253,6 +257,8 @@ namespace OniAccess.Handlers.Sandbox {
 				}
 			}
 
+			bool allowUnexplored = AllowsUnexplored(activeTool);
+
 			// Collect all cells from rectangles
 			var cells = new HashSet<int>();
 			foreach (var r in Selection.GetRectangles()) {
@@ -260,7 +266,7 @@ namespace OniAccess.Handlers.Sandbox {
 				for (int y = minY; y <= maxY; y++)
 					for (int x = minX; x <= maxX; x++) {
 						int cell = Grid.XYToCell(x, y);
-						if (Grid.IsValidCell(cell) && Grid.IsVisible(cell))
+						if (Grid.IsValidCell(cell) && (allowUnexplored || Grid.IsVisible(cell)))
 							cells.Add(cell);
 					}
 			}

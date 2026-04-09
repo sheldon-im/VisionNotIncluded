@@ -2,6 +2,8 @@
 
 ## Unreleased changes since 1.3.1
 
+* Sandbox Reveal tool now works on unexplored tiles -- set corners and confirm over fog to clear it
+
 ## 1.3.1
 
 * Tab/Shift+Tab in table screens (priorities, consumables, vitals) cycles through worlds to filter duplicants by colony

@@ -26,6 +26,26 @@ namespace OniAccess.Handlers.Tiles.Scanner.Backends {
 				if (uncoverable != null && !uncoverable.IsUncovered) continue;
 				yield return MakeEntry(go, cell, ScannerTaxonomy.Subcategories.Geothermal);
 			}
+
+			// Oil reservoirs are IEntityConfig, not IBuildingConfig, so they
+			// aren't in Components.Geysers or Components.BuildingCompletes.
+			// They do register a BuildingAttachPoint with GameTags.OilWell,
+			// which is how we find them.
+			foreach (var attachPoint in Components.BuildingAttachPoints.GetWorldItems(worldId)) {
+				if (!HasOilWellHardpoint(attachPoint)) continue;
+				var go = attachPoint.gameObject;
+				int cell = Grid.PosToCell(go.transform.GetPosition());
+				if (!Grid.IsVisible(cell)) continue;
+				yield return MakeEntry(go, cell, ScannerTaxonomy.Subcategories.Liquid);
+			}
+		}
+
+		private static bool HasOilWellHardpoint(BuildingAttachPoint attachPoint) {
+			var points = attachPoint.points;
+			for (int i = 0; i < points.Length; i++)
+				if (points[i].attachableType == GameTags.OilWell)
+					return true;
+			return false;
 		}
 
 		public bool ValidateEntry(ScanEntry entry, int cursorCell) {

@@ -4638,6 +4638,11 @@ msgctxt "STRINGS.ONIACCESS.SIDESCREENS.COPILOT_ROBO"
 msgid "Copilot: Robo-Pilot"
 msgstr "Copiloto: Robo-Piloto"
 
+#. STRINGS.ONIACCESS.SIDESCREENS.SELECT_SPICE
+msgctxt "STRINGS.ONIACCESS.SIDESCREENS.SELECT_SPICE"
+msgid "Select spice"
+msgstr "Seleccionar especia"
+
 #. STRINGS.ONIACCESS.SIDESCREENS.STORING
 msgctxt "STRINGS.ONIACCESS.SIDESCREENS.STORING"
 msgid "Storing: {0}"

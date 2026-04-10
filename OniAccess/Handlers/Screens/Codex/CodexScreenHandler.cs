@@ -79,12 +79,14 @@ namespace OniAccess.Handlers.Screens.Codex {
 		}
 
 		public override bool HandleKeyDown(KButtonEvent e) {
+			if (base.HandleKeyDown(e))
+				return true;
 			// Escape from content tab returns to categories instead of closing
 			if (ActiveTabIndex == (int)TabId.Content && e.TryConsume(Action.Escape)) {
 				JumpToCategoriesOnArticle();
 				return true;
 			}
-			return base.HandleKeyDown(e);
+			return false;
 		}
 
 		// ========================================

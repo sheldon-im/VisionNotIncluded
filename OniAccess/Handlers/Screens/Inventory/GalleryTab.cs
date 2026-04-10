@@ -80,11 +80,13 @@ namespace OniAccess.Handlers.Screens.Inventory {
 		}
 
 		public new bool HandleKeyDown(KButtonEvent e) {
+			if (base.HandleKeyDown(e))
+				return true;
 			if (_filterMode && e.TryConsume(Action.Escape)) {
 				ExitFilterMode();
 				return true;
 			}
-			return base.HandleKeyDown(e);
+			return false;
 		}
 
 		/// <summary>

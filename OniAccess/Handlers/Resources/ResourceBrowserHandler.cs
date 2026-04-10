@@ -312,11 +312,13 @@ namespace OniAccess.Handlers.Resources {
 		// ========================================
 
 		public override bool HandleKeyDown(KButtonEvent e) {
+			if (base.HandleKeyDown(e))
+				return true;
 			if (e.TryConsume(Action.Escape)) {
 				CloseScreen();
 				return true;
 			}
-			return base.HandleKeyDown(e);
+			return false;
 		}
 
 		internal void CloseScreen() {

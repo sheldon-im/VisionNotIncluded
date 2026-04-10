@@ -109,11 +109,13 @@ namespace OniAccess.Handlers.Notifications {
 		}
 
 		public override bool HandleKeyDown(KButtonEvent e) {
+			if (base.HandleKeyDown(e))
+				return true;
 			if (e.TryConsume(Action.Escape)) {
 				HandlerStack.Pop();
 				return true;
 			}
-			return base.HandleKeyDown(e);
+			return false;
 		}
 	}
 }

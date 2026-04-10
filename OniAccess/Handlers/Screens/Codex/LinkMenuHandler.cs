@@ -55,12 +55,14 @@ namespace OniAccess.Handlers.Screens.Codex {
 		}
 
 		public override bool HandleKeyDown(KButtonEvent e) {
+			if (base.HandleKeyDown(e))
+				return true;
 			if (e.TryConsume(Action.Escape)) {
 				HandlerStack.Pop();
 				SpeechPipeline.SpeakInterrupt(STRINGS.ONIACCESS.TOOLTIP.CLOSED);
 				return true;
 			}
-			return base.HandleKeyDown(e);
+			return false;
 		}
 	}
 }

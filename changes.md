@@ -2,6 +2,8 @@
 
 ## Unreleased changes since 1.3.3
 
+- Pressing Escape while type-ahead search is active now clears the search first instead of closing the screen
+
 ## 1.3.3
 
 * Properties tab now shows sky visibility for telescopes, space scanners, and mission control stations -- lists which columns are blocked so you can find and dig out obstructions

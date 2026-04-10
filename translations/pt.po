@@ -1777,6 +1777,26 @@ msgctxt "STRINGS.ONIACCESS.DETAILS.SCHEDULE"
 msgid "Schedule"
 msgstr "Agenda"
 
+#. STRINGS.ONIACCESS.DETAILS.SKY_BLOCKED
+msgctxt "STRINGS.ONIACCESS.DETAILS.SKY_BLOCKED"
+msgid "Blocked: {0}"
+msgstr "Bloqueado: {0}"
+
+#. STRINGS.ONIACCESS.DETAILS.SKY_BLOCKED_AT_HEIGHT
+msgctxt "STRINGS.ONIACCESS.DETAILS.SKY_BLOCKED_AT_HEIGHT"
+msgid "Blocked columns at height {0}: {1}"
+msgstr "Colunas bloqueadas na altura {0}: {1}"
+
+#. STRINGS.ONIACCESS.DETAILS.SKY_CLEAR
+msgctxt "STRINGS.ONIACCESS.DETAILS.SKY_CLEAR"
+msgid "Sky clear"
+msgstr "Céu livre"
+
+#. STRINGS.ONIACCESS.DETAILS.SKY_CLEAR_AT_HEIGHT
+msgctxt "STRINGS.ONIACCESS.DETAILS.SKY_CLEAR_AT_HEIGHT"
+msgid "Sky clear at height {0}"
+msgstr "Céu livre na altura {0}"
+
 #. STRINGS.ONIACCESS.DIAGNOSTICS.HELP_OPEN_BROWSER
 msgctxt "STRINGS.ONIACCESS.DIAGNOSTICS.HELP_OPEN_BROWSER"
 msgid "Open diagnostics browser"

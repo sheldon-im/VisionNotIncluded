@@ -2820,20 +2820,13 @@ namespace OniAccess.Widgets {
 
 			var capturedSlider = slider;
 			var capturedUnitsLt = unitsLt;
-			items.Add(new LabelWidget {
-				Label = "current flow",
-				GameObject = screen.gameObject,
-				SpeechFunc = () => GameUtil.GetFormattedMass(capturedSlider.value, GameUtil.TimeSlice.PerSecond, GameUtil.MetricMassFormat.Gram)
-			});
-
 			items.Add(new SliderWidget {
 				Label = SideScreenWalker.ReadLocText(unitsLt, "flow"),
 				Component = slider,
 				GameObject = slider.gameObject,
 				SpeechFunc = () => {
-					string units = SideScreenWalker.ReadLocText(capturedUnitsLt, "flow");
 					string val = GameUtil.GetFormattedMass(capturedSlider.value, GameUtil.TimeSlice.PerSecond, GameUtil.MetricMassFormat.Gram);
-					return $"{units}, {val}, {(string)STRINGS.ONIACCESS.STATES.SLIDER}";
+					return $"{val}, {(string)STRINGS.ONIACCESS.STATES.SLIDER}";
 				}
 			});
 
@@ -2846,7 +2839,7 @@ namespace OniAccess.Widgets {
 					SpeechFunc = () => {
 						string units = SideScreenWalker.ReadLocText(capturedUnitsLt, "value");
 						string val = capturedInput.field != null ? capturedInput.field.text : "";
-						return $"{units}, {val}, {(string)STRINGS.ONIACCESS.STATES.INPUT_FIELD}";
+						return $"{val} {units}, {(string)STRINGS.ONIACCESS.STATES.INPUT_FIELD}";
 					}
 				});
 			}

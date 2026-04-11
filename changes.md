@@ -3,7 +3,6 @@
 ## Unreleased changes since 1.3.5
 
 - Fix valve side screen reading flow rate as a percentage instead of grams per second
-- Current flow rate now reads as its own widget with proper units
 
 ## 1.3.5
 

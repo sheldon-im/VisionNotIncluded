@@ -37,11 +37,21 @@ namespace OniAccess.Handlers.Screens {
 		// ========================================
 
 		public void OnTabActivated(bool announce) {
+			OnTabActivatedOnTag(announce, tag: default);
+		}
+
+		/// <summary>
+		/// Activate and optionally position the cursor on a specific printable tag.
+		/// Used when returning from the details tab so the user lands on the same
+		/// leaf they were inspecting instead of resetting to the first category.
+		/// </summary>
+		internal void OnTabActivatedOnTag(bool announce, Tag tag) {
 			if (!_built) {
 				BuildCatalog();
 				_built = true;
 			}
-			ResetState();
+			if (!tag.IsValid || !NavigateToTag(tag))
+				ResetState();
 			if (announce)
 				SpeechPipeline.SpeakInterrupt(TabName);
 			if (ItemCount > 0) {
@@ -49,6 +59,38 @@ namespace OniAccess.Handlers.Screens {
 				if (!string.IsNullOrEmpty(label))
 					SpeechPipeline.SpeakQueued(label);
 			}
+		}
+
+		/// <summary>
+		/// Returns the printable tag for the entry under the cursor, or
+		/// default(Tag) if the cursor is on a category (level 0) or out of range.
+		/// </summary>
+		internal Tag CurrentLeafTag() {
+			if (Level < MaxLevel) return default;
+			int c = GetIndex(0);
+			int i = GetIndex(1);
+			if (c < 0 || c >= _byCategory.Length) return default;
+			var entries = _byCategory[c];
+			if (entries == null || i < 0 || i >= entries.Count) return default;
+			return entries[i].printableTag;
+		}
+
+		private bool NavigateToTag(Tag tag) {
+			for (int c = 0; c < _byCategory.Length; c++) {
+				var entries = _byCategory[c];
+				if (entries == null) continue;
+				for (int i = 0; i < entries.Count; i++) {
+					if (entries[i].printableTag == tag) {
+						SetIndex(0, c);
+						SetIndex(1, i);
+						Level = 1;
+						_search.Clear();
+						SuppressSearchThisFrame();
+						return true;
+					}
+				}
+			}
+			return false;
 		}
 
 		public void OnTabDeactivated() {

@@ -58,6 +58,24 @@ namespace OniAccess.Handlers.Screens {
 			return false;
 		}
 
+		protected override bool HandleTabKey() {
+			// From Details, Tab/Shift+Tab also lands the user back on the selected
+			// leaf in the Catalog tab rather than cycling blind.
+			if (ActiveTabIndex == (int)TabId.Details) {
+				JumpToCatalogTab();
+				return true;
+			}
+			// From Catalog, Tab opens Details for the entry under the cursor,
+			// matching the codex screen's "tab selects where you are" feel.
+			Tag cursorTag = _catalogTab.CurrentLeafTag();
+			if (cursorTag.IsValid) {
+				_selectedTag = cursorTag;
+				SwitchToDetailsTab(announce: true);
+				return true;
+			}
+			return base.HandleTabKey();
+		}
+
 		// ========================================
 		// TAB MANAGEMENT
 		// ========================================
@@ -78,7 +96,7 @@ namespace OniAccess.Handlers.Screens {
 			DeactivateCurrentTab();
 			ActiveTabIndex = (int)TabId.Catalog;
 			PlaySound("HUD_Mouseover");
-			_catalogTab.OnTabActivated(announce: true);
+			_catalogTab.OnTabActivatedOnTag(announce: true, tag: _selectedTag);
 		}
 	}
 }

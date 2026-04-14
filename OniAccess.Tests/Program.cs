@@ -91,7 +91,9 @@ namespace OniAccess.Tests {
 			results.Add(SearchMultiTokenAbbreviation());
 			results.Add(MatchTierMultiTokenAbbreviation());
 			results.Add(MatchTierMultiTokenOrderRequired());
-			results.Add(MatchTierMultiTokenStaysInSegment());
+			results.Add(MatchTierMultiTokenCrossSegment());
+			results.Add(SearchNameMatchBeatsDescriptionMatch());
+			results.Add(SearchMultiTokenNameBeatsDescription());
 			results.Add(SearchSortsByNameLengthNotFullLabel());
 			results.Add(MatchTierAccentInsensitive());
 			results.Add(MatchTierAccentedQuery());
@@ -1110,14 +1112,59 @@ namespace OniAccess.Tests {
 				$"ResultCount={search.ResultCount}, SelectedOriginalIndex={search.SelectedOriginalIndex}");
 		}
 
-		private static (string, bool, string) MatchTierMultiTokenStaysInSegment() {
-			// The build menu labels buildings as "Name, size, cost, effect..." — a multi-token
-			// abbreviation must match only within the first segment (the name). Otherwise
-			// "ga pi" matches "Gas Vent" because the effect description happens to contain
-			// both a "gas" word and a "pipes" word.
-			int tier = TypeAheadSearch.MatchTier("gas vent, 1x1, vents gas from pipes into a room", "ga pi", out int pos);
-			bool ok = tier == -1;
-			return Assert("MatchTierMultiTokenStaysInSegment", ok, $"tier={tier} pos={pos}");
+		private static (string, bool, string) MatchTierMultiTokenCrossSegment() {
+			// Tier 5 must match within a single comma-delimited segment so the returned
+			// position reliably locates the match. Here "ga pi" matches only in the effect
+			// description segment, so tier is 5 and pos is past the first comma.
+			string label = "gas vent, 1x1, vents gas from pipes into a room";
+			int firstComma = label.IndexOf(',');
+			int tier = TypeAheadSearch.MatchTier(label, "ga pi", out int pos);
+			bool ok = tier == 5 && pos > firstComma;
+			return Assert("MatchTierMultiTokenCrossSegment", ok, $"tier={tier} pos={pos} firstComma={firstComma}");
+		}
+
+		private static (string, bool, string) SearchNameMatchBeatsDescriptionMatch() {
+			// "pipe" matches "Liquid Pipe" as a whole word in the name segment, and matches
+			// "Gas Bridge" as a whole word in the description segment. The name-segment match
+			// must rank first even though "gas bridge" is a shorter name than "liquid pipe".
+			var items = new[] {
+				"Gas Bridge, 1x1, runs one gas pipe section over another",
+				"Liquid Pipe, 1x1, transports liquid",
+			};
+			string nameByIndex(int i) => i >= 0 && i < items.Length ? items[i] : null;
+
+			var search = new TypeAheadSearch();
+			search.AddChar('p');
+			search.AddChar('i');
+			search.AddChar('p');
+			search.AddChar('e');
+			search.Search(items.Length, nameByIndex);
+
+			bool ok = search.ResultCount == 2 && search.SelectedOriginalIndex == 1;
+			return Assert("SearchNameMatchBeatsDescriptionMatch", ok,
+				$"ResultCount={search.ResultCount}, SelectedOriginalIndex={search.SelectedOriginalIndex}");
+		}
+
+		private static (string, bool, string) SearchMultiTokenNameBeatsDescription() {
+			// "ga pi" abbreviation-matches "Gas Pipe" in the name and also matches "Gas Vent"
+			// inside its effect description ("vents gas from pipes"). Name match must rank first.
+			var items = new[] {
+				"Gas Vent, 1x1, vents gas from pipes into a room",
+				"Gas Pipe, 1x1, transports gas",
+			};
+			string nameByIndex(int i) => i >= 0 && i < items.Length ? items[i] : null;
+
+			var search = new TypeAheadSearch();
+			search.AddChar('g');
+			search.AddChar('a');
+			search.AddChar(' ');
+			search.AddChar('p');
+			search.AddChar('i');
+			search.Search(items.Length, nameByIndex);
+
+			bool ok = search.ResultCount == 2 && search.SelectedOriginalIndex == 1;
+			return Assert("SearchMultiTokenNameBeatsDescription", ok,
+				$"ResultCount={search.ResultCount}, SelectedOriginalIndex={search.SelectedOriginalIndex}");
 		}
 
 		private static (string, bool, string) SearchLengthBeatsPosition() {

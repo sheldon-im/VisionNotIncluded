@@ -30,6 +30,7 @@ namespace OniAccess.Handlers {
 		private List<string>[] _tierNames;
 		private List<int>[] _tierPositions;
 		private List<int>[] _tierSortLengths;
+		private List<int>[] _tierInSegment;
 		private List<int> _workIndices = new List<int>();
 		private List<string> _workNames = new List<string>();
 
@@ -57,11 +58,13 @@ namespace OniAccess.Handlers {
 			_tierNames = new List<string>[TierCount];
 			_tierPositions = new List<int>[TierCount];
 			_tierSortLengths = new List<int>[TierCount];
+			_tierInSegment = new List<int>[TierCount];
 			for (int t = 0; t < TierCount; t++) {
 				_tierIndices[t] = new List<int>();
 				_tierNames[t] = new List<string>();
 				_tierPositions[t] = new List<int>();
 				_tierSortLengths[t] = new List<int>();
+				_tierInSegment[t] = new List<int>();
 			}
 		}
 
@@ -250,6 +253,7 @@ namespace OniAccess.Handlers {
 				_tierNames[t].Clear();
 				_tierPositions[t].Clear();
 				_tierSortLengths[t].Clear();
+				_tierInSegment[t].Clear();
 			}
 			string trimmed = bufferStr.TrimEnd();
 			if (trimmed.Length == 0) {
@@ -270,27 +274,35 @@ namespace OniAccess.Handlers {
 					_tierIndices[tier].Add(i);
 					_tierNames[tier].Add(name);
 					_tierPositions[tier].Add(pos);
-					// Sort by length of the name only (up to the first comma), so descriptions
-					// and appended metadata don't muddy the ordering
+					// Matches inside the name (before the first comma) rank ahead of matches
+					// inside the appended metadata/description. Sort length is likewise the
+					// name-only length so descriptions don't muddy within-segment ordering.
 					int comma = name.IndexOf(',');
-					_tierSortLengths[tier].Add(comma >= 0 ? comma : name.Length);
+					int nameLen = comma >= 0 ? comma : name.Length;
+					_tierSortLengths[tier].Add(nameLen);
+					_tierInSegment[tier].Add(pos < nameLen ? 0 : 1);
 				}
 			}
 
 			// Sort each tier by name length, position as tiebreaker
 			for (int t = 0; t < TierCount; t++) {
 				if (_tierIndices[t].Count > 1)
-					SortByLength(_tierIndices[t], _tierNames[t], _tierPositions[t], _tierSortLengths[t]);
+					SortByLength(_tierIndices[t], _tierNames[t], _tierPositions[t], _tierSortLengths[t], _tierInSegment[t]);
 			}
 
-			// Merge tiers: if GroupOf is set, output group 0 first, then group 1, etc.
+			// Merge: pre-comma (inSegment=0) matches across all tiers come before post-comma
+			// (inSegment=1) matches. If GroupOf is set, each GroupOf partition is still the
+			// outermost ordering.
 			_workIndices.Clear();
 			_workNames.Clear();
 			if (GroupOf == null) {
-				for (int t = 0; t < TierCount; t++) {
-					_workIndices.AddRange(_tierIndices[t]);
-					_workNames.AddRange(_tierNames[t]);
-				}
+				for (int inSeg = 0; inSeg <= 1; inSeg++)
+					for (int t = 0; t < TierCount; t++)
+						for (int i = 0; i < _tierIndices[t].Count; i++)
+							if (_tierInSegment[t][i] == inSeg) {
+								_workIndices.Add(_tierIndices[t][i]);
+								_workNames.Add(_tierNames[t][i]);
+							}
 			} else {
 				int maxGroup = 0;
 				for (int t = 0; t < TierCount; t++)
@@ -299,12 +311,13 @@ namespace OniAccess.Handlers {
 						if (g > maxGroup) maxGroup = g;
 					}
 				for (int g = 0; g <= maxGroup; g++)
-					for (int t = 0; t < TierCount; t++)
-						for (int i = 0; i < _tierIndices[t].Count; i++)
-							if (GroupOf(_tierIndices[t][i]) == g) {
-								_workIndices.Add(_tierIndices[t][i]);
-								_workNames.Add(_tierNames[t][i]);
-							}
+					for (int inSeg = 0; inSeg <= 1; inSeg++)
+						for (int t = 0; t < TierCount; t++)
+							for (int i = 0; i < _tierIndices[t].Count; i++)
+								if (GroupOf(_tierIndices[t][i]) == g && _tierInSegment[t][i] == inSeg) {
+									_workIndices.Add(_tierIndices[t][i]);
+									_workNames.Add(_tierNames[t][i]);
+								}
 			}
 
 			if (_workIndices.Count == 0) {
@@ -401,24 +414,27 @@ namespace OniAccess.Handlers {
 		/// <summary>
 		/// Insertion-sort parallel lists by the provided sort length ascending, with position as tiebreaker (stable, in-place).
 		/// </summary>
-		private static void SortByLength(List<int> indices, List<string> names, List<int> positions, List<int> sortLengths) {
+		private static void SortByLength(List<int> indices, List<string> names, List<int> positions, List<int> sortLengths, List<int> inSegment) {
 			for (int i = 1; i < positions.Count; i++) {
 				int pos = positions[i];
 				int idx = indices[i];
 				string name = names[i];
 				int len = sortLengths[i];
+				int seg = inSegment[i];
 				int j = i - 1;
 				while (j >= 0 && (sortLengths[j] > len || (sortLengths[j] == len && positions[j] > pos))) {
 					positions[j + 1] = positions[j];
 					indices[j + 1] = indices[j];
 					names[j + 1] = names[j];
 					sortLengths[j + 1] = sortLengths[j];
+					inSegment[j + 1] = inSegment[j];
 					j--;
 				}
 				positions[j + 1] = pos;
 				indices[j + 1] = idx;
 				names[j + 1] = name;
 				sortLengths[j + 1] = len;
+				inSegment[j + 1] = seg;
 			}
 		}
 
@@ -486,9 +502,10 @@ namespace OniAccess.Handlers {
 		/// <summary>
 		/// Returns the position of the first matched word if every space-delimited token in
 		/// <paramref name="lowerPrefix"/> is a prefix of a distinct word in <paramref name="lowerName"/>,
-		/// consumed in order and all within the first comma-delimited segment. Returns -1 otherwise.
-		/// Scoping to the first segment keeps the match on the name proper and excludes appended
-		/// metadata like sizes, costs, or effect descriptions.
+		/// consumed in order and all within a single comma-delimited segment. Returns -1 otherwise.
+		/// All tokens must fall within the same segment so the returned position meaningfully
+		/// identifies where the match is (pre-comma or post-comma); that position feeds the
+		/// caller's name-vs-description ranking.
 		/// </summary>
 		private static int MatchWordPrefixTokens(string lowerName, string lowerPrefix) {
 			// Collect non-empty tokens
@@ -503,7 +520,13 @@ namespace OniAccess.Handlers {
 			int i = 0;
 			while (i < lowerName.Length) {
 				char c = lowerName[i];
-				if (c == ',') return -1; // Stop at the first comma — name is before it
+				if (c == ',') {
+					// End of segment: if not all tokens matched, restart in the next segment
+					tokenIdx = 0;
+					firstPos = -1;
+					i++;
+					continue;
+				}
 				if (c == ' ') { i++; continue; }
 
 				if (tokenIdx < tokenCount) {

@@ -476,37 +476,49 @@ namespace OniAccess.Handlers {
 		/// <summary>
 		/// Returns the position of the first matched word if every space-delimited token in
 		/// <paramref name="lowerPrefix"/> is a prefix of a distinct word in <paramref name="lowerName"/>,
-		/// consumed in order. Returns -1 otherwise. Words are delimited by space or comma.
+		/// consumed in order and all within a single comma-delimited segment. Returns -1 otherwise.
+		/// Scoping to one segment keeps the match focused on the name proper, not appended metadata
+		/// like sizes, costs, or effect descriptions.
 		/// </summary>
 		private static int MatchWordPrefixTokens(string lowerName, string lowerPrefix) {
-			string[] tokens = lowerPrefix.Split(' ');
+			// Collect non-empty tokens
+			string[] rawTokens = lowerPrefix.Split(' ');
+			int tokenCount = 0;
+			for (int t = 0; t < rawTokens.Length; t++)
+				if (rawTokens[t].Length > 0) rawTokens[tokenCount++] = rawTokens[t];
+			if (tokenCount == 0) return -1;
+
 			int tokenIdx = 0;
 			int firstPos = -1;
 			int i = 0;
-			while (tokenIdx < tokens.Length && i < lowerName.Length) {
-				// Skip past the empty tokens that arise from consecutive spaces in the query
-				if (tokens[tokenIdx].Length == 0) { tokenIdx++; continue; }
-
-				// Advance i to the next word start
-				while (i < lowerName.Length && (lowerName[i] == ' ' || lowerName[i] == ',')) i++;
-				if (i >= lowerName.Length) break;
-
-				string token = tokens[tokenIdx];
-				bool fits = i + token.Length <= lowerName.Length
-					&& string.Compare(lowerName, i, token, 0, token.Length, System.StringComparison.Ordinal) == 0;
-				if (fits) {
-					if (tokenIdx == 0) firstPos = i;
-					tokenIdx++;
-					i += token.Length;
+			while (i < lowerName.Length) {
+				char c = lowerName[i];
+				if (c == ',') {
+					// End of segment: if tokens remain unmatched, restart in the next segment.
+					tokenIdx = 0;
+					firstPos = -1;
+					i++;
+					continue;
 				}
-				// Advance past the current word (to its terminating space/comma) so the next
-				// token matches a DISTINCT word even if the current one didn't consume the whole word.
+				if (c == ' ') { i++; continue; }
+
+				// At a word start within the current segment
+				if (tokenIdx < tokenCount) {
+					string token = rawTokens[tokenIdx];
+					bool fits = i + token.Length <= lowerName.Length
+						&& string.Compare(lowerName, i, token, 0, token.Length, System.StringComparison.Ordinal) == 0;
+					if (fits) {
+						if (tokenIdx == 0) firstPos = i;
+						tokenIdx++;
+						if (tokenIdx == tokenCount) return firstPos;
+						i += token.Length;
+					}
+				}
+				// Advance past the current word to its terminating space or comma
 				while (i < lowerName.Length && lowerName[i] != ' ' && lowerName[i] != ',') i++;
 			}
 
-			// Any remaining tokens must all be empty for the match to succeed
-			while (tokenIdx < tokens.Length && tokens[tokenIdx].Length == 0) tokenIdx++;
-			return tokenIdx == tokens.Length ? firstPos : -1;
+			return -1;
 		}
 	}
 }

@@ -884,6 +884,17 @@ namespace OniAccess.Handlers.Build {
 				return;
 			}
 
+			if (_rectSelection.PendingFirstCorner != Grid.InvalidCell) {
+				int cell = TileCursor.Instance.Cell;
+				if (!Grid.IsVisible(cell)) {
+					PlaySound("Negative");
+					SpeechPipeline.SpeakInterrupt(
+						(string)STRINGS.ONIACCESS.TILE_CURSOR.UNEXPLORED);
+					return;
+				}
+				_rectSelection.SetCorner(cell, out _);
+			}
+
 			SubmitBuildRectangles();
 		}
 

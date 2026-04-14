@@ -88,6 +88,9 @@ namespace OniAccess.Tests {
 			results.Add(SearchTrailingSpaceIgnored());
 			results.Add(SearchNameLengthTiebreaker());
 			results.Add(SearchLengthBeatsPosition());
+			results.Add(SearchMultiTokenAbbreviation());
+			results.Add(MatchTierMultiTokenAbbreviation());
+			results.Add(MatchTierMultiTokenOrderRequired());
 			results.Add(MatchTierAccentInsensitive());
 			results.Add(MatchTierAccentedQuery());
 			results.Add(MatchTierLigatureOe());
@@ -1046,6 +1049,39 @@ namespace OniAccess.Tests {
 			}
 			return Assert("SearchNameLengthTiebreaker", ok,
 				$"ResultCount={search.ResultCount}, First={search.SelectedOriginalIndex}");
+		}
+
+		private static (string, bool, string) SearchMultiTokenAbbreviation() {
+			// "ga pi" should match "Gas Pipe" as a space-delimited word-prefix
+			// abbreviation. "Liquid Pipe" and "Gas Reservoir" each satisfy only one
+			// token and should be excluded.
+			var items = new[] { "Gas Pipe", "Liquid Pipe", "Gas Reservoir" };
+			string nameByIndex(int i) => i >= 0 && i < items.Length ? items[i] : null;
+
+			var search = new TypeAheadSearch();
+			search.AddChar('g');
+			search.AddChar('a');
+			search.AddChar(' ');
+			search.AddChar('p');
+			search.AddChar('i');
+			search.Search(items.Length, nameByIndex);
+
+			bool ok = search.ResultCount == 1 && search.SelectedOriginalIndex == 0;
+			return Assert("SearchMultiTokenAbbreviation", ok,
+				$"ResultCount={search.ResultCount}, SelectedOriginalIndex={search.SelectedOriginalIndex}");
+		}
+
+		private static (string, bool, string) MatchTierMultiTokenAbbreviation() {
+			int tier = TypeAheadSearch.MatchTier("gas pipe", "ga pi", out int pos);
+			bool ok = tier == 5 && pos == 0;
+			return Assert("MatchTierMultiTokenAbbreviation", ok, $"tier={tier} pos={pos}");
+		}
+
+		private static (string, bool, string) MatchTierMultiTokenOrderRequired() {
+			// Tokens must be consumed in order — "pi ga" should NOT match "gas pipe"
+			int tier = TypeAheadSearch.MatchTier("gas pipe", "pi ga", out int pos);
+			bool ok = tier == -1;
+			return Assert("MatchTierMultiTokenOrderRequired", ok, $"tier={tier} pos={pos}");
 		}
 
 		private static (string, bool, string) SearchLengthBeatsPosition() {

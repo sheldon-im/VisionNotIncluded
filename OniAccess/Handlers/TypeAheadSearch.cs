@@ -25,7 +25,7 @@ namespace OniAccess.Handlers {
 		private int _resultCursor;
 
 		// Working lists for search, one pair per match tier (avoids allocation)
-		private const int TierCount = 5;
+		private const int TierCount = 6;
 		private List<int>[] _tierIndices;
 		private List<string>[] _tierNames;
 		private List<int>[] _tierPositions;
@@ -419,6 +419,7 @@ namespace OniAccess.Handlers {
 		/// 2 = mid-string whole word ("wood" in "pine wood")
 		/// 3 = mid-string word prefix ("wood" in "a wooden thing")
 		/// 4 = substring anywhere ("wood" in "plywood")
+		/// 5 = space-delimited word-prefix abbreviation ("ga pi" in "gas pipe")
 		/// </summary>
 		internal static int MatchTier(string lowerName, string lowerPrefix) {
 			return MatchTier(lowerName, lowerPrefix, out _);
@@ -460,7 +461,52 @@ namespace OniAccess.Handlers {
 				return 4;
 			}
 
+			// Space-delimited word-prefix abbreviation ("ga pi" in "gas pipe")
+			if (lowerPrefix.IndexOf(' ') >= 0) {
+				int abbrevPos = MatchWordPrefixTokens(lowerName, lowerPrefix);
+				if (abbrevPos >= 0) {
+					position = abbrevPos;
+					return 5;
+				}
+			}
+
 			return -1;
+		}
+
+		/// <summary>
+		/// Returns the position of the first matched word if every space-delimited token in
+		/// <paramref name="lowerPrefix"/> is a prefix of a distinct word in <paramref name="lowerName"/>,
+		/// consumed in order. Returns -1 otherwise. Words are delimited by space or comma.
+		/// </summary>
+		private static int MatchWordPrefixTokens(string lowerName, string lowerPrefix) {
+			string[] tokens = lowerPrefix.Split(' ');
+			int tokenIdx = 0;
+			int firstPos = -1;
+			int i = 0;
+			while (tokenIdx < tokens.Length && i < lowerName.Length) {
+				// Skip past the empty tokens that arise from consecutive spaces in the query
+				if (tokens[tokenIdx].Length == 0) { tokenIdx++; continue; }
+
+				// Advance i to the next word start
+				while (i < lowerName.Length && (lowerName[i] == ' ' || lowerName[i] == ',')) i++;
+				if (i >= lowerName.Length) break;
+
+				string token = tokens[tokenIdx];
+				bool fits = i + token.Length <= lowerName.Length
+					&& string.Compare(lowerName, i, token, 0, token.Length, System.StringComparison.Ordinal) == 0;
+				if (fits) {
+					if (tokenIdx == 0) firstPos = i;
+					tokenIdx++;
+					i += token.Length;
+				}
+				// Advance past the current word (to its terminating space/comma) so the next
+				// token matches a DISTINCT word even if the current one didn't consume the whole word.
+				while (i < lowerName.Length && lowerName[i] != ' ' && lowerName[i] != ',') i++;
+			}
+
+			// Any remaining tokens must all be empty for the match to succeed
+			while (tokenIdx < tokens.Length && tokens[tokenIdx].Length == 0) tokenIdx++;
+			return tokenIdx == tokens.Length ? firstPos : -1;
 		}
 	}
 }

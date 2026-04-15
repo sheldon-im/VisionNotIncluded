@@ -22,6 +22,8 @@ namespace OniAccess.Handlers.Tiles {
 		private int _radiusStepIndex;
 		private int _cell;
 		private int _lastWorldId = -1;
+		private int? _pendingWorldId;
+		private int _pendingCell;
 		private bool _wasPanning;
 		private bool _wasTimelapsing;
 		private string _lastRoomName;
@@ -74,13 +76,23 @@ namespace OniAccess.Handlers.Tiles {
 		/// Called every tick from TileCursorHandler. Returns the world name
 		/// speech if a switch occurred, null otherwise.
 		/// </summary>
+		public void SetPendingJump(int worldId, int cell) {
+			_pendingWorldId = worldId;
+			_pendingCell = cell;
+		}
+
 		public string CheckWorldSwitch() {
 			if (IsTimelapsing) return null;
 			int worldId = ClusterManager.Instance.activeWorldId;
 			if (worldId == _lastWorldId) return null;
 			_lastWorldId = worldId;
 			Util.GridCoordinates.ClearOrigin();
-			_cell = Util.GridCoordinates.GetOriginCell();
+			if (_pendingWorldId == worldId) {
+				_cell = _pendingCell;
+				_pendingWorldId = null;
+			} else {
+				_cell = Util.GridCoordinates.GetOriginCell();
+			}
 			_lastRoomName = null;
 			_lastBiomeName = null;
 			_wasPanning = false;

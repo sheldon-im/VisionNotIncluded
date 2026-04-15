@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 using Klei.AI;
 
+using OniAccess.Handlers.Tiles;
 using OniAccess.Speech;
 
 namespace OniAccess.Handlers.Screens {
@@ -239,6 +240,7 @@ namespace OniAccess.Handlers.Screens {
 				mi.transform.GetPosition(),
 				mi.GetComponent<KSelectable>(),
 				new UnityEngine.Vector3(8f, 0f, 0f));
+			TileCursor.Instance?.JumpTo(Grid.PosToCell(mi.transform.GetPosition()));
 			SpeechPipeline.SpeakInterrupt((string)STRINGS.ONIACCESS.VITALS_SCREEN.FOCUSED);
 		}
 

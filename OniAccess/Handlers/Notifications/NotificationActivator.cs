@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 
+using OniAccess.Handlers.Tiles;
+
 namespace OniAccess.Handlers.Notifications {
 	/// <summary>
 	/// Replicates NotificationScreen.OnClick behavior for a single notification.
@@ -49,6 +51,16 @@ namespace OniAccess.Handlers.Notifications {
 					int midSkyCell = Grid.FindMidSkyCellAlignedWithCellInWorld(
 						cell, eventInstance.worldId);
 					GameUtil.FocusCamera(midSkyCell);
+					try {
+						if (TileCursor.Instance != null) {
+							if (eventInstance.worldId != ClusterManager.Instance.activeWorldId)
+								TileCursor.Instance.SetPendingJump(eventInstance.worldId, midSkyCell);
+							else
+								TileCursor.Instance.JumpTo(midSkyCell);
+						}
+					} catch (System.Exception ex) {
+						Util.Log.Warn($"NotificationActivator LargeImpactor cursor jump: {ex.Message}");
+					}
 					return;
 				}
 			} catch (System.Exception ex) {
@@ -62,6 +74,17 @@ namespace OniAccess.Handlers.Notifications {
 			int worldId = transform.gameObject.GetMyWorldId();
 			if (worldId != -1) {
 				GameUtil.FocusCameraOnWorld(worldId, position);
+				try {
+					if (TileCursor.Instance != null) {
+						int targetCell = Grid.PosToCell(position);
+						if (worldId != ClusterManager.Instance.activeWorldId)
+							TileCursor.Instance.SetPendingJump(worldId, targetCell);
+						else
+							TileCursor.Instance.JumpTo(targetCell);
+					}
+				} catch (System.Exception ex) {
+					Util.Log.Warn($"NotificationActivator clickFocus cursor jump: {ex.Message}");
+				}
 			} else if (DlcManager.FeatureClusterSpaceEnabled()) {
 				var clusterEntity = transform.GetComponent<ClusterGridEntity>();
 				if (clusterEntity != null && clusterEntity.IsVisible) {

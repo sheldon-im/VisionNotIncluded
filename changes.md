@@ -2,6 +2,8 @@
 
 ## Unreleased changes since 1.3.8
 
+- The OS mouse pointer now follows the focused widget across menus and side screens, so a sighted observer can see where the blind player is focused. Widgets inside scroll containers are brought into view before the pointer is moved.
+
 ## 1.3.8
 
 - Text edit fields now speak as you navigate: arrow keys announce the character to the right of the caret, Ctrl+arrows announce the next word, Home/End jump and announce, Up/Down re-read the full contents, and Backspace/Delete announce what was removed.

@@ -106,6 +106,7 @@ namespace OniAccess.Handlers.Screens {
 		public override void OnActivate() {
 			base.OnActivate();
 			_retryCount = 0;
+			MousePointerSync.Push();
 
 			if (DeferFirstDiscovery) {
 				_pendingRediscovery = true;
@@ -125,6 +126,7 @@ namespace OniAccess.Handlers.Screens {
 		public override void OnDeactivate() {
 			base.OnDeactivate();
 			_widgets.Clear();
+			MousePointerSync.Pop();
 		}
 
 		// ========================================
@@ -144,8 +146,11 @@ namespace OniAccess.Handlers.Screens {
 				CurrentIndex = System.Math.Min(CurrentIndex, System.Math.Max(0, _widgets.Count - 1));
 				if (_widgets.Count != oldCount)
 					Util.Log.Debug($"{GetType().Name}: deferred refresh changed widget count {oldCount} → {_widgets.Count}");
-				if (_widgets.Count > 0)
-					Speech.SpeechPipeline.SpeakQueued(BuildWidgetText(_widgets[CurrentIndex]));
+				if (_widgets.Count > 0) {
+					var w = _widgets[CurrentIndex];
+					Speech.SpeechPipeline.SpeakQueued(BuildWidgetText(w));
+					MousePointerSync.SyncToWidget(w);
+				}
 			}
 
 			// Deferred rediscovery: screen UI wasn't ready during OnActivate
@@ -155,6 +160,7 @@ namespace OniAccess.Handlers.Screens {
 				CurrentIndex = 0;
 				if (ready && _widgets.Count > 0) {
 					Speech.SpeechPipeline.SpeakQueued(BuildWidgetText(_widgets[0]));
+					MousePointerSync.SyncToWidget(_widgets[0]);
 				} else if (_retryCount < MaxDiscoveryRetries) {
 					_retryCount++;
 					_pendingRediscovery = true;
@@ -293,6 +299,7 @@ namespace OniAccess.Handlers.Screens {
 				var w = _widgets[CurrentIndex];
 				if (!IsWidgetValid(w)) return;
 				Speech.SpeechPipeline.SpeakInterrupt(BuildWidgetText(w));
+				MousePointerSync.SyncToWidget(w);
 			}
 		}
 
@@ -305,6 +312,7 @@ namespace OniAccess.Handlers.Screens {
 				var w = _widgets[CurrentIndex];
 				if (!IsWidgetValid(w)) return;
 				Speech.SpeechPipeline.SpeakQueued(BuildWidgetText(w));
+				MousePointerSync.SyncToWidget(w);
 			}
 		}
 

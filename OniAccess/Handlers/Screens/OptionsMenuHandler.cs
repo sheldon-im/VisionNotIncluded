@@ -223,16 +223,12 @@ namespace OniAccess.Handlers.Screens {
 				if (label == null)
 					label = FindWidgetLabel(slider.gameObject);
 				// Broader search: grandparent's children (label may be in a sibling container)
-				// For sliders, also capture the LocText ref if it contains "Label: Value" pattern
-				// so FormatSliderValue can read the game's formatted value.
-				LocText sliderValueLt = null;
 				if (label == null) {
 					var foundLt = FindGrandparentLocText(slider.gameObject);
 					if (foundLt != null) {
 						string stripped = StripValueSuffix(foundLt.text);
 						if (stripped != null) {
 							label = stripped;
-							sliderValueLt = foundLt;
 						} else {
 							label = CleanLabel(foundLt.text);
 						}

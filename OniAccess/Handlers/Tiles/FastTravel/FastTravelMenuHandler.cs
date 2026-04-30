@@ -42,6 +42,7 @@ namespace OniAccess.Handlers.Tiles.FastTravel {
 		// ========================================
 
 		public override void OnActivate() {
+			PlaySound("HUD_Click_Open");
 			RefreshPoints();
 			if (_pendingFocusId != null) {
 				ApplyPendingFocus();
@@ -53,7 +54,34 @@ namespace OniAccess.Handlers.Tiles.FastTravel {
 			_search.Clear();
 			SuppressSearchThisFrame();
 			SpeechPipeline.SpeakInterrupt(DisplayName);
-			SpeakCurrentItem();
+			SpeakCurrentItemQueued();
+		}
+
+		public override bool HandleKeyDown(KButtonEvent e) {
+			if (base.HandleKeyDown(e)) return true;
+			if (e.TryConsume(Action.Escape)) {
+				Close();
+				return true;
+			}
+			return false;
+		}
+
+		private void Close() {
+			SpeechPipeline.SpeakInterrupt(STRINGS.ONIACCESS.TOOLTIP.CLOSED);
+			PlaySound("HUD_Click_Close");
+			HandlerStack.Pop();
+		}
+
+		// SpeakCurrentItem in NestedMenuHandler always interrupts. On open we
+		// want the title to land first and the focused item to follow, so we
+		// queue the item instead of interrupting.
+		private void SpeakCurrentItemQueued() {
+			var indices = new int[] { GetIndex(0), GetIndex(1) };
+			int count = GetItemCount(Level, indices);
+			if (count == 0) return;
+			string label = GetItemLabel(Level, indices);
+			if (string.IsNullOrWhiteSpace(label)) return;
+			SpeechPipeline.SpeakQueued(label);
 		}
 
 		private void RefreshPoints() {
@@ -148,13 +176,12 @@ namespace OniAccess.Handlers.Tiles.FastTravel {
 		// ========================================
 
 		private void JumpToPoint(FastTravelPoint point) {
-			string speech = TileCursor.Instance != null
-				? TileCursor.Instance.JumpTo(point.Cell)
-				: null;
+			// Skip the "closed" announcement Close() speaks — TeleportCursorTo's
+			// destination-cell speech is the relevant audible feedback here.
+			PlaySound("HUD_Click_Close");
 			HandlerStack.Pop();
-			SpeechPipeline.SpeakInterrupt(string.Format(STRINGS.ONIACCESS.FAST_TRAVEL.JUMPED, point.Name));
-			if (speech != null)
-				SpeechPipeline.SpeakQueued(speech);
+			if (HandlerStack.ActiveHandler is TileCursorHandler cursorHandler)
+				cursorHandler.TeleportCursorTo(point.Cell);
 		}
 
 		private void OpenCreatePrompt() {

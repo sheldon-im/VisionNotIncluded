@@ -1794,8 +1794,6 @@ namespace STRINGS {
 			public static LocString RENAMED = "Renamed to {0}";
 			// Confirmation after delete. {0} = name
 			public static LocString DELETED = "Deleted {0}";
-			// Confirmation after jumping to a point. {0} = name
-			public static LocString JUMPED = "Jumped to {0}";
 			// Help screen entry for Shift+V
 			public static LocString HELP_OPEN = "Open fast travel menu";
 		}

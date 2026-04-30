@@ -730,6 +730,21 @@ namespace OniAccess.Handlers.Tiles {
 			}
 		}
 
+		/// <summary>
+		/// Move the tile cursor to the given cell and run the standard
+		/// post-teleport bookkeeping: reset audio transition state, refresh
+		/// per-cell earcons/sonification, and speak the destination tile.
+		/// Used by handlers that close themselves and hand control back to
+		/// the colony view (e.g., the fast travel menu).
+		/// </summary>
+		public void TeleportCursorTo(int cell) {
+			string speech = TileCursor.Instance.JumpTo(cell);
+			Audio.EarconScheduler.Instance?.ResetTransitionState();
+			UpdateAudioForCell();
+			if (speech != null)
+				SpeechPipeline.SpeakInterrupt(speech);
+		}
+
 		private void UpdateAudioForCell() {
 			int cell = TileCursor.Instance.Cell;
 			if (!Grid.IsVisible(cell)) {

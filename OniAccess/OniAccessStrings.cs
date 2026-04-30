@@ -80,6 +80,7 @@ namespace STRINGS {
 			public static LocString DISINFECT_SETTINGS = "disinfect settings";
 			public static LocString CONFIG = "Settings";
 			public static LocString JOY_RESPONSE_DESIGNER = "Overjoyed response designer";
+			public static LocString FAST_TRAVEL = "Fast travel";
 		}
 
 		// Config screen option labels
@@ -1770,6 +1771,33 @@ namespace STRINGS {
 			public static LocString CLEARED = "ruler cleared";
 			public static LocString HELP_PLACE = "Place ruler at cursor";
 			public static LocString HELP_CLEAR = "Clear ruler";
+		}
+
+		// Named fast-travel bookmarks (Shift+V menu)
+		public class FAST_TRAVEL {
+			// Spoken when the menu opens with no points on the active world
+			public static LocString EMPTY = "no fast travel points";
+			// Bottom-of-list entry that creates a new point at the cursor
+			public static LocString CREATE_NEW = "Create new";
+			// Submenu actions on a bookmark
+			public static LocString RENAME = "Rename";
+			public static LocString DELETE = "Delete";
+			// Format for a level-0 bookmark row. {0} = name, {1} = grid coordinates
+			public static LocString ENTRY = "{0}, {1}";
+			// Prompt title spoken when entering a name for a new point
+			public static LocString CREATE_PROMPT = "Name for new fast travel point";
+			// Prompt title spoken when renaming a point
+			public static LocString RENAME_PROMPT = "Rename fast travel point";
+			// Confirmation after creation. {0} = name
+			public static LocString CREATED = "Created {0}";
+			// Confirmation after rename. {0} = new name
+			public static LocString RENAMED = "Renamed to {0}";
+			// Confirmation after delete. {0} = name
+			public static LocString DELETED = "Deleted {0}";
+			// Confirmation after jumping to a point. {0} = name
+			public static LocString JUMPED = "Jumped to {0}";
+			// Help screen entry for Shift+V
+			public static LocString HELP_OPEN = "Open fast travel menu";
 		}
 
 		// Tile cursor bookmarks for quick navigation

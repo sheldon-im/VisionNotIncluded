@@ -1,6 +1,13 @@
 namespace OniAccess.Input {
 	public class TextEditHelper {
 		public bool IsEditing { get; private set; }
+		/// <summary>
+		/// True if the most recent edit ended via Escape (Cancel), false if via
+		/// Enter (Confirm). Reset to false on each Begin(). Lets callers in
+		/// onEnd distinguish confirm from cancel without having to peek at
+		/// KButtonEvents themselves.
+		/// </summary>
+		public bool WasCancelled { get; private set; }
 		private string _cachedValue;
 		private System.Func<KInputTextField> _fieldAccessor;
 		private System.Action _onEnd;
@@ -15,6 +22,7 @@ namespace OniAccess.Input {
 			_fieldAccessor = () => field;
 			_onEnd = onEnd;
 			IsEditing = true;
+			WasCancelled = false;
 			field.ActivateInputField();
 			Speech.SpeechPipeline.SpeakInterrupt($"{STRINGS.ONIACCESS.TEXT_EDIT.EDITING}, {field.text}");
 			ResetBaseline(field);
@@ -30,6 +38,7 @@ namespace OniAccess.Input {
 			_fieldAccessor = accessor;
 			_onEnd = onEnd;
 			IsEditing = true;
+			WasCancelled = false;
 			field.gameObject.SetActive(true);
 			field.text = _cachedValue;
 			field.Select();
@@ -129,6 +138,7 @@ namespace OniAccess.Input {
 
 		public void Cancel() {
 			IsEditing = false;
+			WasCancelled = true;
 			var field = _fieldAccessor?.Invoke();
 			if (field != null) {
 				field.text = _cachedValue;

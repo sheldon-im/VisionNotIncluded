@@ -143,6 +143,8 @@ namespace OniAccess.Handlers.Tiles {
 			new ConsumedKey(KKeyCode.W),
 			// Shift+G opens disinfect threshold settings (G = game's dig tool; Shift variant is free)
 			new ConsumedKey(KKeyCode.G, Modifier.Shift),
+			// Shift+V opens the fast travel menu (V is unbound in vanilla)
+			new ConsumedKey(KKeyCode.V, Modifier.Shift),
 		};
 		public override IReadOnlyList<ConsumedKey> ConsumedKeys => _consumedKeys;
 
@@ -190,6 +192,7 @@ namespace OniAccess.Handlers.Tiles {
 			new HelpEntry("Shift+\\", (string)STRINGS.ONIACCESS.DUPES.HELP_CHECK_PATH),
 			new HelpEntry("W", (string)STRINGS.ONIACCESS.WORLD_SELECTOR.OPEN),
 			new HelpEntry("Shift+G", (string)STRINGS.ONIACCESS.DISINFECT_SETTINGS.HELP_OPEN),
+			new HelpEntry("Shift+V", (string)STRINGS.ONIACCESS.FAST_TRAVEL.HELP_OPEN),
 			// Base game management screen hotkeys. The mod does not consume these keys;
 			// they are listed here so blind players can discover them via the help screen.
 			new HelpEntry("L", (string)STRINGS.ONIACCESS.TILE_CURSOR.MANAGEMENT_HELP.PRIORITIES),
@@ -594,6 +597,12 @@ namespace OniAccess.Handlers.Tiles {
 				return true;
 			}
 
+			if (UnityEngine.Input.GetKeyDown(UnityEngine.KeyCode.V)
+				&& InputUtil.ShiftHeld() && !InputUtil.CtrlHeld() && !InputUtil.AltHeld()) {
+				OpenFastTravelMenu();
+				return true;
+			}
+
 			// Red alert toggle
 			if (UnityEngine.Input.GetKeyDown(UnityEngine.KeyCode.R)
 				&& InputUtil.CtrlHeld() && !InputUtil.ShiftHeld()) {
@@ -876,6 +885,10 @@ namespace OniAccess.Handlers.Tiles {
 			if (OverlayScreen.Instance == null) return;
 			if (OverlayScreen.Instance.mode != OverlayModes.Disease.ID) return;
 			HandlerStack.Push(new DisinfectSettingsHandler());
+		}
+
+		private void OpenFastTravelMenu() {
+			HandlerStack.Push(new FastTravel.FastTravelMenuHandler());
 		}
 
 		private void OnActiveToolChanged(object data) {

@@ -2,6 +2,8 @@
 
 ## Unreleased changes since 1.3.9
 
+- Add a fast travel menu (Shift+V) for naming and jumping to cursor positions on the active world. Each entry stores a name and grid coordinates; right-arrow into an entry to rename or delete it. Bookmarks are scoped to the colony and the asteroid, and live in a YAML file alongside the save so the .sav itself stays unchanged.
+
 ## 1.3.9
 
 - Fix sandbox parameter sliders (mass, temperature, etc.) so the value you set is actually applied. Adjustments now persist to the sandbox settings, so the brush paints with your chosen values instead of the defaults.

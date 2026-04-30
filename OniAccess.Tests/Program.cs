@@ -4052,10 +4052,10 @@ namespace OniAccess.Tests {
 			int conduits = 1;
 			var buffer = new int[conduits * FlowTracker.BufferSize];
 			var elements = new SimHashes[conduits * FlowTracker.BufferSize];
-			buffer[0] = FlowTracker.DirUp;    elements[0] = SimHashes.Water;
-			buffer[1] = FlowTracker.DirDown;   elements[1] = SimHashes.Oxygen;
-			buffer[2] = FlowTracker.DirUp;    elements[2] = SimHashes.Water;
-			buffer[3] = FlowTracker.DirLeft;   elements[3] = SimHashes.Oxygen;
+			buffer[0] = FlowTracker.DirUp; elements[0] = SimHashes.Water;
+			buffer[1] = FlowTracker.DirDown; elements[1] = SimHashes.Oxygen;
+			buffer[2] = FlowTracker.DirUp; elements[2] = SimHashes.Water;
+			buffer[3] = FlowTracker.DirLeft; elements[3] = SimHashes.Oxygen;
 			var tracker = MakeFlowTracker(conduits, 4, 4, buffer, elements);
 			var counts = new Dictionary<SimHashes, int[]>();
 			int samples = tracker.GetElementDirectionCounts(0, counts);

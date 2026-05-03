@@ -2,6 +2,7 @@
 
 ## Unreleased changes since 1.4.0
 
+- Fix fast travel jump silently failing when the menu was opened from build or tool mode. The cursor now teleports to the selected point regardless of which handler is on top.
 - Add a Relocate action to the fast travel menu (Shift+V), between Rename and Delete, that moves an existing point to the cursor's current location.
 
 ## 1.4.0

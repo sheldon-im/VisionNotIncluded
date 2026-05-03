@@ -185,8 +185,14 @@ namespace OniAccess.Handlers.Tiles.FastTravel {
 			// destination-cell speech is the relevant audible feedback here.
 			PlaySound("HUD_Click_Close");
 			HandlerStack.Pop();
-			if (HandlerStack.ActiveHandler is TileCursorHandler cursorHandler)
-				cursorHandler.TeleportCursorTo(point.Cell);
+			// The cursor handler may be buried under a build/tool handler when
+			// the menu was opened from build mode; walk the stack to find it.
+			for (int i = HandlerStack.Count - 1; i >= 0; i--) {
+				if (HandlerStack.GetAt(i) is TileCursorHandler cursorHandler) {
+					cursorHandler.TeleportCursorTo(point.Cell);
+					return;
+				}
+			}
 		}
 
 		private void OpenCreatePrompt() {

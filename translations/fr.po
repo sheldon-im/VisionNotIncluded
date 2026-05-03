@@ -2297,6 +2297,16 @@ msgctxt "STRINGS.ONIACCESS.FAST_TRAVEL.HELP_OPEN"
 msgid "Open fast travel menu"
 msgstr "Ouvrir le menu de voyage rapide"
 
+#. STRINGS.ONIACCESS.FAST_TRAVEL.RELOCATE
+msgctxt "STRINGS.ONIACCESS.FAST_TRAVEL.RELOCATE"
+msgid "Relocate"
+msgstr "Déplacer"
+
+#. STRINGS.ONIACCESS.FAST_TRAVEL.RELOCATED
+msgctxt "STRINGS.ONIACCESS.FAST_TRAVEL.RELOCATED"
+msgid "Relocated {0}"
+msgstr "{0} déplacé"
+
 #. STRINGS.ONIACCESS.FAST_TRAVEL.RENAME
 msgctxt "STRINGS.ONIACCESS.FAST_TRAVEL.RENAME"
 msgid "Rename"

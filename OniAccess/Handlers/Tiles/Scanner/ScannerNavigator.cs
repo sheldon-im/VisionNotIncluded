@@ -263,8 +263,10 @@ namespace OniAccess.Handlers.Tiles.Scanner {
 			string distance = AnnouncementFormatter.FormatDistance(
 				cursorCell, entry.Cell);
 			if (distance.Length == 0)
-				return (string)STRINGS.ONIACCESS.SCANNER.HERE;
-			return distance;
+				distance = (string)STRINGS.ONIACCESS.SCANNER.HERE;
+			return string.Format(
+				(string)STRINGS.ONIACCESS.SCANNER.ORIENT,
+				distance, entry.ItemName);
 		}
 
 		public void Teleport() {

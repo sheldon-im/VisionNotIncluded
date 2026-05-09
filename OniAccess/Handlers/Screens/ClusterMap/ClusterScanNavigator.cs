@@ -142,7 +142,9 @@ namespace OniAccess.Handlers.Screens.ClusterMap {
 		public string OrientItem(AxialI cursor) {
 			var entry = CurrentEntry();
 			if (entry == null) return (string)STRINGS.ONIACCESS.SCANNER.EMPTY;
-			return HexCoordinates.Format(cursor, entry.Location);
+			return string.Format(
+				(string)STRINGS.ONIACCESS.SCANNER.ORIENT,
+				HexCoordinates.Format(cursor, entry.Location), entry.ItemName);
 		}
 
 		/// <summary>

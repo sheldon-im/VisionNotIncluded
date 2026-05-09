@@ -2,6 +2,8 @@
 
 ## Unreleased changes since 1.4.1
 
+- Shift+Home (scanner orient) now appends the current item's name after the direction, so you can confirm what you're getting the bearing for.
+
 ## 1.4.1
 
 - Fix fast travel jump silently failing when the menu was opened from build or tool mode. The cursor now teleports to the selected point regardless of which handler is on top.

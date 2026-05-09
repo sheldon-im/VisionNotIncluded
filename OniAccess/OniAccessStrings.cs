@@ -1252,6 +1252,10 @@ namespace STRINGS {
 			// Spoken when the target is at the cursor position (scanner, pathability, building ports)
 			public static LocString HERE = "here";
 
+			// Orient announcement for Shift+Home: distance/direction first, then item name.
+			// {0} = distance text or "here", {1} = item name
+			public static LocString ORIENT = "{0}, {1}";
+
 			// Search
 			public class SEARCH {
 				public static LocString PROMPT = "search";

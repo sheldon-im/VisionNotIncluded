@@ -2,6 +2,8 @@
 
 ## Unreleased changes since 1.4.2
 
+- Fix the game crashing when opening the material picker for a multi-ingredient building (e.g. Gas Filter) before each ingredient slot had a default material chosen.
+
 ## 1.4.2
 
 - Shift+Home (scanner orient) now appends the current item's name after the direction, so you can confirm what you're getting the bearing for.

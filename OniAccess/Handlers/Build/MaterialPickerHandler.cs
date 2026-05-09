@@ -140,15 +140,18 @@ namespace OniAccess.Handlers.Build {
 
 		private void PositionOnSelected() {
 			try {
-				var selected = PlanScreen.Instance.ProductInfoScreen.materialSelectionPanel
-					.GetSelectedElementAsList;
-				if (selected != null && _selectorIndex < selected.Count) {
-					var currentTag = selected[_selectorIndex];
-					for (int i = 0; i < _materials.Count; i++) {
-						if (_materials[i].Tag == currentTag) {
-							CurrentIndex = i;
-							break;
-						}
+				// Read from the target selector directly — the panel's
+				// GetSelectedElementAsList getter Debug.Asserts that every active
+				// selector has a CurrentSelectedElement, and ONI treats the
+				// assertion as a crash.
+				var selector = GetSelector();
+				var currentTag = selector?.CurrentSelectedElement;
+				if (currentTag == null)
+					return;
+				for (int i = 0; i < _materials.Count; i++) {
+					if (_materials[i].Tag == currentTag) {
+						CurrentIndex = i;
+						break;
 					}
 				}
 			} catch (System.Exception ex) {

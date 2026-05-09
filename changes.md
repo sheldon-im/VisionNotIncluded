@@ -1,6 +1,8 @@
 # Changelog
 
-## Unreleased changes since 1.4.1
+## Unreleased changes since 1.4.2
+
+## 1.4.2
 
 - Shift+Home (scanner orient) now appends the current item's name after the direction, so you can confirm what you're getting the bearing for.
 

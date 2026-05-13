@@ -28,6 +28,8 @@ namespace OniAccess.Handlers.Screens {
 			.GetField("activeRecipe", BindingFlags.NonPublic | BindingFlags.Instance);
 		private static readonly FieldInfo _activeIngredientField = typeof(MaterialSelector)
 			.GetField("activeIngredient", BindingFlags.NonPublic | BindingFlags.Instance);
+		private static readonly MethodInfo _getErrorTooltipsMethod = typeof(SelectModuleSideScreen)
+			.GetMethod("GetErrorTooltips", BindingFlags.NonPublic | BindingFlags.Instance);
 
 		static SelectModuleHandler() {
 			if (_selectedModuleDefField == null) Util.Log.Warn("SelectModuleHandler: selectedModuleDef field not found");
@@ -38,6 +40,7 @@ namespace OniAccess.Handlers.Screens {
 			if (_activeFacadeTogglesField == null) Util.Log.Warn("SelectModuleHandler: activeFacadeToggles field not found");
 			if (_activeRecipeField == null) Util.Log.Warn("SelectModuleHandler: activeRecipe field not found");
 			if (_activeIngredientField == null) Util.Log.Warn("SelectModuleHandler: activeIngredient field not found");
+			if (_getErrorTooltipsMethod == null) Util.Log.Warn("SelectModuleHandler: GetErrorTooltips method not found");
 		}
 
 		private enum Section { Modules, Materials, Skin, Build }
@@ -80,6 +83,13 @@ namespace OniAccess.Handlers.Screens {
 			var panel = GetMaterialPanel();
 			if (panel == null) return null;
 			return _materialSelectorsField.GetValue(panel) as List<MaterialSelector>;
+		}
+
+		private string GetModuleErrorTooltip(BuildingDef def) {
+			if (_getErrorTooltipsMethod == null || def == null) return "";
+			var raw = _getErrorTooltipsMethod.Invoke(ModuleScreen, new object[] { def }) as string;
+			if (string.IsNullOrEmpty(raw)) return "";
+			return TextFilter.FilterForSpeech(raw);
 		}
 
 		private Dictionary<string, object> GetActiveFacadeToggles() {
@@ -310,8 +320,12 @@ namespace OniAccess.Handlers.Screens {
 			var def = modules[index];
 			string label = def.Name;
 			var buildable = GetBuildableState();
-			if (buildable != null && buildable.TryGetValue(def, out bool isBuildable) && !isBuildable)
+			if (buildable != null && buildable.TryGetValue(def, out bool isBuildable) && !isBuildable) {
 				label += ", " + (string)STRINGS.ONIACCESS.BUILD_MENU.NOT_BUILDABLE;
+				string reasons = GetModuleErrorTooltip(def);
+				if (!string.IsNullOrEmpty(reasons))
+					label += ", " + reasons;
+			}
 			if (def == GetSelectedModuleDef())
 				label += ", " + (string)STRINGS.ONIACCESS.STATES.SELECTED;
 			string desc = def.Desc;
@@ -434,8 +448,11 @@ namespace OniAccess.Handlers.Screens {
 		private void ClickBuild() {
 			if (!ModuleScreen.buildSelectedModuleButton.isInteractable) {
 				PlaySound("Slider_Boundary_Low");
-				SpeechPipeline.SpeakInterrupt(
-					(string)STRINGS.ONIACCESS.STATES.DISABLED);
+				string message = (string)STRINGS.ONIACCESS.STATES.DISABLED;
+				string reasons = GetModuleErrorTooltip(GetSelectedModuleDef());
+				if (!string.IsNullOrEmpty(reasons))
+					message += ", " + reasons;
+				SpeechPipeline.SpeakInterrupt(message);
 				return;
 			}
 			Widgets.WidgetOps.ClickButton(ModuleScreen.buildSelectedModuleButton);

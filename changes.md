@@ -2,6 +2,8 @@
 
 ## Unreleased changes since 1.4.4
 
+- The Select Module side screen (rocket platform module construction) now reads the reasons a module is not buildable, matching the tooltip the game shows sighted players. Reasons are also announced when pressing Build while the button is disabled.
+
 ## 1.4.4
 
 - Type-ahead search now accepts IME-composed input, so players using a Chinese, Japanese, or Korean IME can type CJK characters to filter lists.

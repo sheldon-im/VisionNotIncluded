@@ -2,7 +2,7 @@
 
 ## Unreleased changes since 1.4.5
 
-- Updated Prism speech library to v0.14.4
+- Updated Prism speech library to v0.15.0
 
 ## 1.4.5
 

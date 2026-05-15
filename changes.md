@@ -1,6 +1,8 @@
 # Changelog
 
-## Unreleased changes since 1.4.5
+## Unreleased changes since 1.4.6
+
+## 1.4.6
 
 - Updated Prism speech library to v0.15.0
 

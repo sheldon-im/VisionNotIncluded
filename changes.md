@@ -2,6 +2,8 @@
 
 ## Unreleased changes since 1.4.6
 
+- Updated Prism speech library to v0.16.1
+
 ## 1.4.6
 
 - Updated Prism speech library to v0.15.0

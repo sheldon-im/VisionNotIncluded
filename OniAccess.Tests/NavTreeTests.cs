@@ -396,6 +396,21 @@ namespace OniAccess.Tests {
 				$"count={count}, searched=\"{searched}\"");
 		}
 
+		public static (string, bool, string) SearchFixedDepthIgnoresCursorDepth() {
+			// SearchFixedDepth searches a set level regardless of where the cursor is
+			// (the report screen always searches its stat level).
+			var t = Tree();
+			t.SearchFixedDepth = 2;
+			t.Reset(0); // cursor at depth 0
+			int atRoot = t.SearchCount();
+			t.SetPath(new[] { 1, 0, 1 }); // cursor at depth 2
+			int atDepth2 = t.SearchCount();
+			// Depth-2 nodes: B0, B1, B2, P0 = 4, either way.
+			bool ok = atRoot == 4 && atDepth2 == 4;
+			return Check("SearchFixedDepthIgnoresCursorDepth", ok,
+				$"atRoot={atRoot}, atDepth2={atDepth2}");
+		}
+
 		// ========================================
 		// CROSSING SCOPE (confinement)
 		// ========================================
@@ -505,6 +520,7 @@ namespace OniAccess.Tests {
 			yield return SearchFilterExcludesNodes();
 			yield return SearchActivatableLeavesExcludesEmptyBranch();
 			yield return SearchTextChannelDiffersFromLabel();
+			yield return SearchFixedDepthIgnoresCursorDepth();
 			yield return ConfineNextStaysInBranch();
 			yield return ConfineDepthOneStaysGlobal();
 			yield return ConfineJumpStaysInBranch();

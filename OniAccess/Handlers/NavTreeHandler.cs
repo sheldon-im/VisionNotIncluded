@@ -27,6 +27,7 @@ namespace OniAccess.Handlers {
 			Nav = new NavTree(BuildRoots);
 			Nav.SearchScope = SearchScope;
 			Nav.Crossing = Crossing;
+			Nav.SearchFixedDepth = SearchFixedDepth;
 			if (GroupSearchByRoot)
 				_search.GroupOf = Nav.SearchGroup;
 		}
@@ -51,6 +52,12 @@ namespace OniAccess.Handlers {
 		/// rather than interleaving them by match quality (clothing items by slot).
 		/// </summary>
 		protected virtual bool GroupSearchByRoot => false;
+
+		/// <summary>
+		/// When >= 0, type-ahead always searches the nodes at this exact depth (the
+		/// report screen searches its stat level from anywhere). -1 uses SearchScope.
+		/// </summary>
+		protected virtual int SearchFixedDepth => -1;
 
 		/// <summary>Standard help entries for a drillable list (search, navigate, jump, drill, back).</summary>
 		protected static readonly List<HelpEntry> DrillNavHelpEntries = new List<HelpEntry> {

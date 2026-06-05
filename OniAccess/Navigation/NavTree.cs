@@ -96,6 +96,13 @@ namespace OniAccess.Navigation {
 		public CrossingScope Crossing { get; set; } = CrossingScope.FullTree;
 
 		/// <summary>
+		/// When >= 0, type-ahead searches the nodes at exactly this depth regardless of
+		/// the cursor's depth or the scope (the report screen always searches its stat
+		/// level). -1 means use <see cref="SearchScope"/>.
+		/// </summary>
+		public int SearchFixedDepth { get; set; } = -1;
+
+		/// <summary>
 		/// Optional extra predicate excluding nodes from search (e.g. a synthetic
 		/// "pinned" duplicate). Applied on top of the scope. Null means no extra filter.
 		/// </summary>
@@ -474,7 +481,10 @@ namespace OniAccess.Navigation {
 
 		private List<int[]> BuildSearchFrontier() {
 			List<int[]> list;
-			if (SearchScope == SearchScope.Roots) {
+			if (SearchFixedDepth >= 0) {
+				// Search a fixed depth regardless of cursor depth or scope.
+				list = Frontier(SearchFixedDepth);
+			} else if (SearchScope == SearchScope.Roots) {
 				// Always the top level, independent of cursor depth, so confinement
 				// does not apply.
 				list = Frontier(0);

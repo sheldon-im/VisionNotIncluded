@@ -2,24 +2,26 @@ using System;
 using System.Collections.Generic;
 
 using OniAccess.Input;
+using OniAccess.Navigation;
 using OniAccess.Speech;
+using OniAccess.Widgets;
 
 using STRINGS;
 
 namespace OniAccess.Handlers.Screens {
 	/// <summary>
-	/// Handler for the ReportScreen (daily reports). Standalone NestedMenuHandler.
+	/// Handler for the ReportScreen (daily reports). Standalone tree handler.
 	///
-	/// Level 0: 3 section headers + Colony Summary action
-	/// Level 1: Visible stat categories within each section
-	/// Level 2: Per-entity context entries, or note breakdowns when no context entries exist
+	/// Level 0: section headers + Colony Summary action
+	/// Level 1: visible stat categories within each section
+	/// Level 2: per-entity context entries, or note breakdowns when no context entries exist
 	///
-	/// Tab/Shift+Tab cycles between report days.
-	/// Data is read live from ReportManager on every call.
+	/// Tab/Shift+Tab cycles between report days. Type-ahead always searches the stat
+	/// level. Data is read live from ReportManager on every call.
 	///
 	/// Lifecycle: OnShow-patch on ReportScreen.OnShow(bool).
 	/// </summary>
-	public class ReportScreenHandler: NestedMenuHandler {
+	public class ReportScreenHandler: NavTreeHandler {
 		private int _currentDay;
 
 		// Section structure derived from ReportGroups. This is static metadata
@@ -39,11 +41,12 @@ namespace OniAccess.Handlers.Screens {
 
 		public override bool CapturesAllInput => true;
 
-		protected override int MaxLevel => 2;
-		protected override int SearchLevel => 1;
-		protected override int StartLevel => 1;
+		protected override int StartDepth => 1;
 
-		private static readonly List<HelpEntry> _helpEntries = new List<HelpEntry>(NestedNavHelpEntries) {
+		// Type-ahead always searches the stat categories (level 1).
+		protected override int SearchFixedDepth => 1;
+
+		private static readonly List<HelpEntry> _helpEntries = new List<HelpEntry>(DrillNavHelpEntries) {
 			new HelpEntry("Tab/Shift+Tab", STRINGS.ONIACCESS.REPORT.HELP_CYCLE),
 		};
 
@@ -59,14 +62,7 @@ namespace OniAccess.Handlers.Screens {
 			base.OnActivate();
 			// base.OnActivate interrupts with DisplayName; queue title and first item after it
 			SpeechPipeline.SpeakQueued(TextFilter.FilterForSpeech(GetCycleTitle()));
-			int count = GetItemCount(Level, new int[] {
-				GetIndex(0), GetIndex(1), GetIndex(2) });
-			if (count > 0) {
-				string label = GetItemLabel(Level, new int[] {
-					GetIndex(0), GetIndex(1), GetIndex(2) });
-				if (!string.IsNullOrWhiteSpace(label))
-					SpeechPipeline.SpeakQueued(label);
-			}
+			AnnounceCurrent(interrupt: false);
 		}
 
 		// ========================================
@@ -131,133 +127,57 @@ namespace OniAccess.Handlers.Screens {
 				_notesScratch.Sort((a, b) => a.value.CompareTo(b.value));
 		}
 
-		/// <summary>
-		/// Level 2 item count: context entries when available, otherwise notes.
-		/// </summary>
-		private int GetLevel2Count(ReportManager.ReportEntry entry, ReportManager.ReportGroup group) {
-			if (entry.contextEntries.Count > 0)
-				return entry.contextEntries.Count;
-			CollectNotes(entry, group);
-			return _notesScratch.Count;
-		}
-
 		// ========================================
-		// NestedMenuHandler ABSTRACTS
+		// TREE CONSTRUCTION
 		// ========================================
 
-		protected override int GetItemCount(int level, int[] indices) {
-			if (level == 0)
-				return _sections.Count + 1; // +1 for Colony Summary
-
-			// Colony Summary has no children
-			if (indices[0] == _sections.Count)
-				return 0;
-
-			if (level == 1)
-				return GetVisibleTypes(indices[0]).Count;
-
-			// Level 2: context entries, or notes when no context entries exist
-			var types = GetVisibleTypes(indices[0]);
-			if (indices[1] < 0 || indices[1] >= types.Count)
-				return 0;
-			var reportType = types[indices[1]];
-			var entry = GetReport().GetEntry(reportType);
-			var group = ReportManager.Instance.ReportGroups[reportType];
-			return GetLevel2Count(entry, group);
-		}
-
-		protected override string GetItemLabel(int level, int[] indices) {
-			if (level == 0) {
-				if (indices[0] == _sections.Count)
-					return (string)STRINGS.ONIACCESS.REPORT.COLONY_SUMMARY;
-				if (indices[0] < 0 || indices[0] >= _sections.Count)
-					return null;
-				return _sections[indices[0]].name;
+		protected override IReadOnlyList<NavItem> BuildRoots() {
+			var roots = new List<NavItem>(_sections.Count + 1);
+			for (int s = 0; s < _sections.Count; s++) {
+				int section = s;
+				roots.Add(new MenuNode(
+					() => _sections[section].name,
+					children: () => BuildStats(section)));
 			}
+			roots.Add(new MenuNode(
+				() => (string)STRINGS.ONIACCESS.REPORT.COLONY_SUMMARY,
+				activate: () => { ActivateColonySummary(); return true; }));
+			return roots;
+		}
 
-			if (indices[0] < 0 || indices[0] >= _sections.Count)
-				return null;
+		private IReadOnlyList<NavItem> BuildStats(int sectionIndex) {
+			// Copy out of the shared scratch list before building nodes.
+			var types = new List<ReportManager.ReportType>(GetVisibleTypes(sectionIndex));
+			var list = new List<NavItem>(types.Count);
+			foreach (var t in types) {
+				var type = t;
+				var group = ReportManager.Instance.ReportGroups[type];
+				list.Add(new MenuNode(
+					() => BuildStatLabel(GetReport().GetEntry(type), group),
+					children: () => BuildLevel2(type),
+					searchText: () => group.stringKey,
+					contextLabel: () => group.stringKey));
+			}
+			return list;
+		}
 
-			var types = GetVisibleTypes(indices[0]);
-			if (indices[1] < 0 || indices[1] >= types.Count)
-				return null;
-
-			var reportType = types[indices[1]];
-			var group = ReportManager.Instance.ReportGroups[reportType];
+		private IReadOnlyList<NavItem> BuildLevel2(ReportManager.ReportType reportType) {
 			var entry = GetReport().GetEntry(reportType);
-
-			if (level == 1)
-				return BuildStatLabel(entry, group);
-
-			// Level 2: context entry or note fallback
+			var group = ReportManager.Instance.ReportGroups[reportType];
+			var list = new List<NavItem>();
 			if (entry.contextEntries.Count > 0) {
-				if (indices[2] < 0 || indices[2] >= entry.contextEntries.Count)
-					return null;
-				return BuildContextLabel(entry.contextEntries[indices[2]], group);
-			}
-			CollectNotes(entry, group);
-			if (indices[2] < 0 || indices[2] >= _notesScratch.Count)
-				return null;
-			return BuildNoteLabel(_notesScratch[indices[2]], group);
-		}
-
-		protected override string GetParentLabel(int level, int[] indices) {
-			if (level == 2) {
-				// At level 2, parent is the level 1 stat category
-				var types = GetVisibleTypes(indices[0]);
-				if (indices[1] >= 0 && indices[1] < types.Count) {
-					var group = ReportManager.Instance.ReportGroups[types[indices[1]]];
-					return group.stringKey;
+				for (int i = 0; i < entry.contextEntries.Count; i++) {
+					var ctx = entry.contextEntries[i];
+					list.Add(new MenuNode(() => BuildContextLabel(ctx, group)));
+				}
+			} else {
+				CollectNotes(entry, group);
+				foreach (var n in _notesScratch) {
+					var note = n;
+					list.Add(new MenuNode(() => BuildNoteLabel(note, group)));
 				}
 			}
-			if (level == 1 && indices[0] >= 0 && indices[0] < _sections.Count)
-				return _sections[indices[0]].name;
-			return null;
-		}
-
-		protected override void ActivateLeafItem(int[] indices) {
-			if (Level == 0 && indices[0] == _sections.Count) {
-				ActivateColonySummary();
-				return;
-			}
-		}
-
-		// ========================================
-		// SEARCH
-		// ========================================
-
-		protected override int GetSearchItemCount(int[] indices) {
-			int count = 0;
-			for (int s = 0; s < _sections.Count; s++)
-				count += GetVisibleTypes(s).Count;
-			return count;
-		}
-
-		protected override string GetSearchItemLabel(int flatIndex) {
-			int remaining = flatIndex;
-			for (int s = 0; s < _sections.Count; s++) {
-				var types = GetVisibleTypes(s);
-				if (remaining < types.Count) {
-					var group = ReportManager.Instance.ReportGroups[types[remaining]];
-					return group.stringKey;
-				}
-				remaining -= types.Count;
-			}
-			return null;
-		}
-
-		protected override void MapSearchIndex(int flatIndex, int[] outIndices) {
-			int remaining = flatIndex;
-			for (int s = 0; s < _sections.Count; s++) {
-				var types = GetVisibleTypes(s);
-				if (remaining < types.Count) {
-					outIndices[0] = s;
-					outIndices[1] = remaining;
-					outIndices[2] = 0;
-					return;
-				}
-				remaining -= types.Count;
-			}
+			return list;
 		}
 
 		// ========================================
@@ -284,32 +204,10 @@ namespace OniAccess.Handlers.Screens {
 		}
 
 		private void OnCycleChanged() {
-			ClampIndices();
+			Nav.ClampToTree();
 			PlaySound("HUD_Mouseover");
-			SpeakCycleTitleAndCurrentItem();
-		}
-
-		private void ClampIndices() {
-			if (Level >= 1) {
-				int sectionIdx = GetIndex(0);
-				if (sectionIdx >= _sections.Count)
-					return; // On Colony Summary, stay there
-
-				var types = GetVisibleTypes(sectionIdx);
-				int l1 = GetIndex(1);
-				if (l1 >= types.Count)
-					SetIndex(1, Math.Max(0, types.Count - 1));
-
-				if (Level >= 2 && types.Count > 0) {
-					var reportType = types[GetIndex(1)];
-					var entry = GetReport().GetEntry(reportType);
-					var group = ReportManager.Instance.ReportGroups[reportType];
-					int l2Count = GetLevel2Count(entry, group);
-					int l2 = GetIndex(2);
-					if (l2 >= l2Count)
-						SetIndex(2, Math.Max(0, l2Count - 1));
-				}
-			}
+			SpeechPipeline.SpeakInterrupt(TextFilter.FilterForSpeech(GetCycleTitle()));
+			AnnounceCurrent(interrupt: false);
 		}
 
 		private string GetCycleTitle() {
@@ -319,22 +217,6 @@ namespace OniAccess.Handlers.Screens {
 			if (_currentDay == todayDay - 1)
 				return string.Format(UI.ENDOFDAYREPORT.DAY_TITLE_YESTERDAY, _currentDay);
 			return string.Format(UI.ENDOFDAYREPORT.DAY_TITLE, _currentDay);
-		}
-
-		/// <summary>
-		/// Speak cycle title as interrupt, then queue the current item label
-		/// so the item doesn't cut off the title announcement.
-		/// </summary>
-		private void SpeakCycleTitleAndCurrentItem() {
-			SpeechPipeline.SpeakInterrupt(TextFilter.FilterForSpeech(GetCycleTitle()));
-			int count = GetItemCount(Level, new int[] {
-				GetIndex(0), GetIndex(1), GetIndex(2) });
-			if (count > 0) {
-				string label = GetItemLabel(Level, new int[] {
-					GetIndex(0), GetIndex(1), GetIndex(2) });
-				if (!string.IsNullOrWhiteSpace(label))
-					SpeechPipeline.SpeakQueued(label);
-			}
 		}
 
 		// ========================================

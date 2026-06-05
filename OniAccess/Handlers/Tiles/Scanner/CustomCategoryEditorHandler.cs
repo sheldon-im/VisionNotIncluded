@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 
+using OniAccess.Navigation;
 using OniAccess.Speech;
+using OniAccess.Widgets;
 
 namespace OniAccess.Handlers.Tiles.Scanner {
 	/// <summary>
@@ -18,14 +20,10 @@ namespace OniAccess.Handlers.Tiles.Scanner {
 	/// on the next scan. Rename edits in place and stays here; Delete removes
 	/// the category and pops back to the manager.
 	/// </summary>
-	public class CustomCategoryEditorHandler: NestedMenuHandler {
+	public class CustomCategoryEditorHandler: NavTreeHandler {
 		private readonly string _id;
 		private readonly CustomCategoryManagerHandler _manager;
 		private string _pendingAnnouncement;
-
-		private static int CategoryCount => ScannerTaxonomy.CategoryOrder.Length;
-		private static int RenameIndex => CategoryCount;
-		private static int DeleteIndex => CategoryCount + 1;
 
 		public override string DisplayName {
 			get {
@@ -36,17 +34,65 @@ namespace OniAccess.Handlers.Tiles.Scanner {
 
 		public override IReadOnlyList<HelpEntry> HelpEntries { get; }
 
-		protected override int MaxLevel => 1;
-		protected override int SearchLevel => 0;
+		// Type-ahead always targets the taxonomy categories (level 0), even while
+		// drilled into one's subcategories; the Rename/Delete command rows are excluded.
+		protected override SearchScope SearchScope => SearchScope.Roots;
 
 		public CustomCategoryEditorHandler(string id, CustomCategoryManagerHandler manager) : base(null) {
 			_id = id;
 			_manager = manager;
+			Nav.SearchFilter = n => n.RoleKey != "button";
 			var help = new List<HelpEntry>();
-			help.AddRange(NestedNavHelpEntries);
+			help.AddRange(DrillNavHelpEntries);
 			help.Add(new HelpEntry("Enter", STRINGS.ONIACCESS.CUSTOM_CATEGORY.HELP_TOGGLE));
 			help.Add(new HelpEntry("Escape", STRINGS.ONIACCESS.HELP.CLOSE));
 			HelpEntries = help.AsReadOnly();
+		}
+
+		// ========================================
+		// TREE CONSTRUCTION
+		// ========================================
+
+		protected override IReadOnlyList<NavItem> BuildRoots() {
+			var roots = new List<NavItem>();
+			foreach (var category in ScannerTaxonomy.CategoryOrder) {
+				var cat = category;
+				roots.Add(new MenuNode(
+					() => ScannerNavigator.GetCategoryName(cat),
+					children: () => BuildSubcategories(cat)));
+			}
+			roots.Add(new MenuNode(
+				() => (string)STRINGS.ONIACCESS.CUSTOM_CATEGORY.RENAME,
+				activate: () => { OpenRenamePrompt(); return true; },
+				roleKey: "button"));
+			roots.Add(new MenuNode(
+				() => (string)STRINGS.ONIACCESS.CUSTOM_CATEGORY.DELETE,
+				activate: () => { DeleteCategory(); return true; },
+				roleKey: "button"));
+			return roots;
+		}
+
+		private IReadOnlyList<NavItem> BuildSubcategories(string category) {
+			var subs = ScannerTaxonomy.NamedSubcategories(category);
+			var list = new List<NavItem>(1 + subs.Length);
+			list.Add(new MenuNode(
+				() => WithState((string)STRINGS.ONIACCESS.SCANNER.SUBCATEGORIES.ALL,
+					CustomCategoryStore.IsAll(_id, category)),
+				activate: () => { ToggleAll(category); return true; }));
+			foreach (var sub in subs) {
+				var s = sub;
+				list.Add(new MenuNode(
+					() => WithState(ScannerNavigator.GetSubcategoryName(s),
+						CustomCategoryStore.IsSub(_id, category, s)),
+					activate: () => { ToggleSub(category, s); return true; }));
+			}
+			return list;
+		}
+
+		private static string WithState(string label, bool on) {
+			return label + ", " + (on
+				? (string)STRINGS.ONIACCESS.STATES.ON
+				: (string)STRINGS.ONIACCESS.STATES.OFF);
 		}
 
 		// ========================================
@@ -59,17 +105,14 @@ namespace OniAccess.Handlers.Tiles.Scanner {
 			string opening = _pendingAnnouncement ?? (string)DisplayName;
 			_pendingAnnouncement = null;
 			SpeechPipeline.SpeakInterrupt(opening);
-			var indices = new int[] { GetIndex(0), GetIndex(1) };
-			string label = GetItemLabel(Level, indices);
-			if (!string.IsNullOrWhiteSpace(label))
-				SpeechPipeline.SpeakQueued(label);
+			AnnounceCurrent(interrupt: false);
 		}
 
 		public override bool HandleKeyDown(KButtonEvent e) {
 			if (base.HandleKeyDown(e)) return true;
 			if (e.TryConsume(Action.Escape)) {
-				if (Level > 0) {
-					HandleLeftRight(-1, 0);
+				if (Nav.Depth > 0) {
+					Back();
 					return true;
 				}
 				Close();
@@ -85,77 +128,27 @@ namespace OniAccess.Handlers.Tiles.Scanner {
 		}
 
 		// ========================================
-		// LEVEL DESCRIPTION
+		// TOGGLES
 		// ========================================
 
-		protected override int GetItemCount(int level, int[] indices) {
-			if (level == 0) return CategoryCount + 2;
-			if (level == 1) {
-				if (indices[0] < 0 || indices[0] >= CategoryCount) return 0;
-				string category = ScannerTaxonomy.CategoryOrder[indices[0]];
-				return 1 + ScannerTaxonomy.NamedSubcategories(category).Length;
-			}
-			return 0;
-		}
-
-		protected override string GetItemLabel(int level, int[] indices) {
-			if (level == 0) {
-				int i = indices[0];
-				if (i == RenameIndex) return (string)STRINGS.ONIACCESS.CUSTOM_CATEGORY.RENAME;
-				if (i == DeleteIndex) return (string)STRINGS.ONIACCESS.CUSTOM_CATEGORY.DELETE;
-				return ScannerNavigator.GetCategoryName(ScannerTaxonomy.CategoryOrder[i]);
-			}
-			if (level == 1) {
-				string category = ScannerTaxonomy.CategoryOrder[indices[0]];
-				if (indices[1] == 0)
-					return WithState(
-						(string)STRINGS.ONIACCESS.SCANNER.SUBCATEGORIES.ALL,
-						CustomCategoryStore.IsAll(_id, category));
-				string sub = ScannerTaxonomy.NamedSubcategories(category)[indices[1] - 1];
-				return WithState(
-					ScannerNavigator.GetSubcategoryName(sub),
-					CustomCategoryStore.IsSub(_id, category, sub));
-			}
-			return null;
-		}
-
-		private static string WithState(string label, bool on) {
-			return label + ", " + (on
-				? (string)STRINGS.ONIACCESS.STATES.ON
-				: (string)STRINGS.ONIACCESS.STATES.OFF);
-		}
-
-		protected override string GetParentLabel(int level, int[] indices) {
-			if (level >= 1 && indices[0] >= 0 && indices[0] < CategoryCount)
-				return ScannerNavigator.GetCategoryName(ScannerTaxonomy.CategoryOrder[indices[0]]);
-			return null;
-		}
-
-		// ========================================
-		// LEAF ACTIVATION
-		// ========================================
-
-		protected override void ActivateLeafItem(int[] indices) {
-			if (Level == 0) {
-				// Taxonomy categories drill rather than leaf-activate; only the
-				// Rename and Delete rows reach here at level 0.
-				if (indices[0] == RenameIndex) OpenRenamePrompt();
-				else if (indices[0] == DeleteIndex) DeleteCategory();
-				return;
-			}
-
-			string category = ScannerTaxonomy.CategoryOrder[indices[0]];
-			if (indices[1] == 0) {
-				CustomCategoryStore.SetAll(_id, category, !CustomCategoryStore.IsAll(_id, category));
-			} else {
-				string sub = ScannerTaxonomy.NamedSubcategories(category)[indices[1] - 1];
-				CustomCategoryStore.SetSub(_id, category, sub,
-					!CustomCategoryStore.IsSub(_id, category, sub));
-			}
+		private void ToggleAll(string category) {
+			CustomCategoryStore.SetAll(_id, category, !CustomCategoryStore.IsAll(_id, category));
 			ScannerNavigator.Instance?.InvalidateSnapshot();
 			PlaySound("HUD_Click");
-			SpeakCurrentItem();
+			AnnounceCurrent();
 		}
+
+		private void ToggleSub(string category, string sub) {
+			CustomCategoryStore.SetSub(_id, category, sub,
+				!CustomCategoryStore.IsSub(_id, category, sub));
+			ScannerNavigator.Instance?.InvalidateSnapshot();
+			PlaySound("HUD_Click");
+			AnnounceCurrent();
+		}
+
+		// ========================================
+		// RENAME / DELETE
+		// ========================================
 
 		private void OpenRenamePrompt() {
 			string prompt = (string)STRINGS.ONIACCESS.CUSTOM_CATEGORY.RENAME_PROMPT;
@@ -177,21 +170,6 @@ namespace OniAccess.Handlers.Tiles.Scanner {
 				STRINGS.ONIACCESS.CUSTOM_CATEGORY.DELETED, name));
 			PlaySound("HUD_Click_Close");
 			HandlerStack.Pop();
-		}
-
-		// ========================================
-		// SEARCH (taxonomy categories at level 0)
-		// ========================================
-
-		protected override int GetSearchItemCount(int[] indices) => CategoryCount;
-
-		protected override string GetSearchItemLabel(int flatIndex) {
-			if (flatIndex < 0 || flatIndex >= CategoryCount) return null;
-			return ScannerNavigator.GetCategoryName(ScannerTaxonomy.CategoryOrder[flatIndex]);
-		}
-
-		protected override void MapSearchIndex(int flatIndex, int[] outIndices) {
-			outIndices[0] = flatIndex;
 		}
 	}
 }

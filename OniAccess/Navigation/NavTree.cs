@@ -21,6 +21,14 @@ namespace OniAccess.Navigation {
 		/// the level you are on rather than the leaves (the details screen).
 		/// </summary>
 		CurrentLevel,
+
+		/// <summary>
+		/// Always the root level, regardless of how deep the cursor is. A match moves
+		/// the cursor back out to that root. Used by screens whose type-ahead always
+		/// targets the top-level groups (the custom-category editor searches taxonomy
+		/// categories even while drilled into one's subcategories).
+		/// </summary>
+		Roots,
 	}
 
 	/// <summary>
@@ -191,6 +199,13 @@ namespace OniAccess.Navigation {
 		private int ConfinementLen() {
 			if (Crossing == CrossingScope.FullTree) return 0;
 			return Math.Max(0, Depth - 1);
+		}
+
+		/// <summary>Narrow a frontier to the cursor's crossing scope (no-op under FullTree).</summary>
+		private void ApplyConfinement(List<int[]> frontier) {
+			int len = ConfinementLen();
+			if (len > 0)
+				frontier.RemoveAll(p => p.Length < len || !SamePrefix(p, _path, len));
 		}
 
 		private void CollectFrontier(List<int> prefix, IReadOnlyList<NavItem> items,
@@ -449,15 +464,18 @@ namespace OniAccess.Navigation {
 
 		private List<int[]> BuildSearchFrontier() {
 			List<int[]> list;
-			if (SearchScope == SearchScope.CurrentLevel) {
+			if (SearchScope == SearchScope.Roots) {
+				// Always the top level, independent of cursor depth, so confinement
+				// does not apply.
+				list = Frontier(0);
+			} else if (SearchScope == SearchScope.CurrentLevel) {
 				list = Frontier(Depth);
+				ApplyConfinement(list);
 			} else {
 				list = new List<int[]>();
 				CollectLeaves(new List<int>(), RootItems(), list);
+				ApplyConfinement(list);
 			}
-			int len = ConfinementLen();
-			if (len > 0)
-				list.RemoveAll(p => p.Length < len || !SamePrefix(p, _path, len));
 			if (SearchFilter != null) {
 				list.RemoveAll(p => {
 					var node = ResolveNode(p, p.Length);

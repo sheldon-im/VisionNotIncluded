@@ -4,11 +4,11 @@ using OniAccess.Handlers.Tiles;
 using OniAccess.Handlers.Tiles.Scanner;
 using OniAccess.Input;
 using OniAccess.Speech;
+using OniAccess.Widgets;
 
 namespace OniAccess.Handlers {
-	public class ConfigHandler: NestedMenuHandler {
+	public class ConfigHandler: NavTreeHandler {
 		private readonly ConfigSection[] _sections;
-		private int _flatCount;
 
 		public override string DisplayName => STRINGS.ONIACCESS.HANDLERS.CONFIG;
 
@@ -25,32 +25,44 @@ namespace OniAccess.Handlers {
 
 		public ConfigHandler() {
 			_sections = BuildSections();
-			_flatCount = 0;
-			for (int i = 0; i < _sections.Length; i++)
-				_flatCount += _sections[i].Items.Count;
 		}
 
-		protected override int MaxLevel => 1;
-		protected override int SearchLevel => 1;
+		// ========================================
+		// TREE CONSTRUCTION
+		// ========================================
 
-		protected override int GetItemCount(int level, int[] indices) {
-			if (level == 0) return _sections.Length;
-			return _sections[indices[0]].Items.Count;
+		protected override IReadOnlyList<NavItem> BuildRoots() {
+			var roots = new List<NavItem>(_sections.Length);
+			for (int s = 0; s < _sections.Length; s++) {
+				var section = _sections[s];
+				roots.Add(new MenuNode(
+					() => section.Title,
+					children: () => BuildItems(section)));
+			}
+			return roots;
 		}
 
-		protected override string GetItemLabel(int level, int[] indices) {
-			if (level == 0) return _sections[indices[0]].Title;
-			var item = _sections[indices[0]].Items[indices[1]];
+		private IReadOnlyList<NavItem> BuildItems(ConfigSection section) {
+			var list = new List<NavItem>(section.Items.Count);
+			for (int i = 0; i < section.Items.Count; i++) {
+				var item = section.Items[i];
+				list.Add(new MenuNode(
+					() => ItemLabel(item),
+					activate: () => { ActivateConfigItem(item); return true; }));
+			}
+			return list;
+		}
+
+		private static string ItemLabel(ConfigItem item) {
 			string value = item.GetDisplayValue();
 			return string.IsNullOrEmpty(value) ? item.Label : item.Label + ", " + value;
 		}
 
-		protected override string GetParentLabel(int level, int[] indices) {
-			return _sections[indices[0]].Title;
-		}
+		// ========================================
+		// INTERACTION
+		// ========================================
 
-		protected override void ActivateLeafItem(int[] indices) {
-			var item = _sections[indices[0]].Items[indices[1]];
+		private void ActivateConfigItem(ConfigItem item) {
 			if (item is ActionConfigItem) {
 				// The action opens its own handler, which owns its audio; a
 				// post-activation speak here would clobber the new screen's title.
@@ -59,57 +71,30 @@ namespace OniAccess.Handlers {
 			}
 			item.Cycle(1);
 			PlaySound("HUD_Click");
-			SpeakCurrentItem();
+			AnnounceCurrent();
 		}
 
 		protected override void HandleLeftRight(int direction, int stepLevel) {
-			if (Level < MaxLevel) {
-				base.HandleLeftRight(direction, stepLevel);
-				return;
+			if (Nav.Depth >= 1) {
+				var item = _sections[Nav.Path[0]].Items[Nav.Path[1]];
+				if (item is FloatConfigItem floatItem) {
+					floatItem.Adjust(direction, InputUtil.FractionForLevel(stepLevel));
+					PlaySound("HUD_Click");
+					AnnounceCurrent();
+					return;
+				}
 			}
-			var item = _sections[GetIndex(0)].Items[GetIndex(1)];
-			if (item is FloatConfigItem floatItem) {
-				floatItem.Adjust(direction, InputUtil.FractionForLevel(stepLevel));
-				PlaySound("HUD_Click");
-				SpeakCurrentItem();
-			} else {
-				base.HandleLeftRight(direction, stepLevel);
-			}
+			base.HandleLeftRight(direction, stepLevel);
 		}
+
+		// ========================================
+		// LIFECYCLE
+		// ========================================
 
 		public override void OnActivate() {
 			PlaySound("HUD_Click_Open");
 			base.OnActivate();
-			if (_sections.Length > 0)
-				SpeechPipeline.SpeakQueued(GetItemLabel(0, new[] { 0 }));
-		}
-
-		// Search: flat across all items in all sections
-
-		protected override int GetSearchItemCount(int[] indices) => _flatCount;
-
-		protected override string GetSearchItemLabel(int flatIndex) {
-			int remaining = flatIndex;
-			for (int s = 0; s < _sections.Length; s++) {
-				int count = _sections[s].Items.Count;
-				if (remaining < count)
-					return _sections[s].Items[remaining].Label;
-				remaining -= count;
-			}
-			return null;
-		}
-
-		protected override void MapSearchIndex(int flatIndex, int[] outIndices) {
-			int remaining = flatIndex;
-			for (int s = 0; s < _sections.Length; s++) {
-				int count = _sections[s].Items.Count;
-				if (remaining < count) {
-					outIndices[0] = s;
-					outIndices[1] = remaining;
-					return;
-				}
-				remaining -= count;
-			}
+			AnnounceCurrent(interrupt: false);
 		}
 
 		public override bool Tick() {
@@ -125,8 +110,8 @@ namespace OniAccess.Handlers {
 			if (base.HandleKeyDown(e))
 				return true;
 			if (e.TryConsume(Action.Escape)) {
-				if (Level > 0) {
-					base.HandleLeftRight(-1, 0);
+				if (Nav.Depth > 0) {
+					Back();
 					return true;
 				}
 				Close();

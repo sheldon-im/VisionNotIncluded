@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 
+using OniAccess.Navigation;
 using OniAccess.Speech;
+using OniAccess.Widgets;
 
 namespace OniAccess.Handlers.Tiles.Scanner {
 	/// <summary>
@@ -13,23 +15,24 @@ namespace OniAccess.Handlers.Tiles.Scanner {
 	/// category named "Custom category N" and opens its editor immediately;
 	/// the editor's Rename is how the user gives it a real name.
 	///
-	/// The list is re-read from CustomCategoryStore on every activation, so it
-	/// never holds stale config. The editor performs Rename and Delete itself,
-	/// then hands this handler a message to speak when control returns via
-	/// AnnounceOnReturn.
+	/// The list is read from CustomCategoryStore on every access, so it never holds
+	/// stale config. The editor performs Rename and Delete itself, then hands this
+	/// handler a message to speak when control returns via AnnounceOnReturn.
 	/// </summary>
-	public class CustomCategoryManagerHandler: NestedMenuHandler {
-		private List<CustomScannerCategory> _categories = new List<CustomScannerCategory>();
+	public class CustomCategoryManagerHandler: NavTreeHandler {
+		private string _pendingFocusId;
+		private string _pendingAnnouncement;
 
 		public override string DisplayName => (string)STRINGS.ONIACCESS.CUSTOM_CATEGORY.TITLE;
 		public override IReadOnlyList<HelpEntry> HelpEntries { get; }
 
-		protected override int MaxLevel => 0;
-		protected override int SearchLevel => 0;
+		// Type-ahead targets the categories; the "Create new" command row is excluded.
+		protected override SearchScope SearchScope => SearchScope.Roots;
 
 		public CustomCategoryManagerHandler() : base(null) {
+			Nav.SearchFilter = n => n.RoleKey != "button";
 			var help = new List<HelpEntry>();
-			help.AddRange(NestedNavHelpEntries);
+			help.AddRange(DrillNavHelpEntries);
 			help.Add(new HelpEntry("Enter", STRINGS.ONIACCESS.CUSTOM_CATEGORY.HELP_EDIT));
 			help.Add(new HelpEntry("Escape", STRINGS.ONIACCESS.HELP.CLOSE));
 			HelpEntries = help.AsReadOnly();
@@ -43,18 +46,37 @@ namespace OniAccess.Handlers.Tiles.Scanner {
 		}
 
 		// ========================================
+		// TREE CONSTRUCTION
+		// ========================================
+
+		protected override IReadOnlyList<NavItem> BuildRoots() {
+			var cats = CustomCategoryStore.GetAll();
+			var roots = new List<NavItem>(cats.Count + 1);
+			foreach (var c in cats) {
+				var id = c.Id;
+				roots.Add(new MenuNode(
+					() => CustomCategoryStore.Find(id)?.Name,
+					activate: () => { OpenEditor(id); return true; }));
+			}
+			roots.Add(new MenuNode(
+				() => (string)STRINGS.ONIACCESS.CUSTOM_CATEGORY.CREATE_NEW,
+				activate: () => { CreateAndEdit(); return true; },
+				roleKey: "button"));
+			return roots;
+		}
+
+		// ========================================
 		// LIFECYCLE
 		// ========================================
 
 		public override void OnActivate() {
 			PlaySound("HUD_Click_Open");
-			RefreshList();
 
 			if (_pendingFocusId != null) {
 				ApplyFocus(_pendingFocusId);
 				_pendingFocusId = null;
 			} else {
-				ClampIndices();
+				Nav.ClampToTree();
 			}
 			_search.Clear();
 			SuppressSearchThisFrame();
@@ -62,7 +84,7 @@ namespace OniAccess.Handlers.Tiles.Scanner {
 			string opening = _pendingAnnouncement ?? (string)DisplayName;
 			_pendingAnnouncement = null;
 			SpeechPipeline.SpeakInterrupt(opening);
-			SpeakCurrentItemQueued();
+			AnnounceCurrent(interrupt: false);
 		}
 
 		public override bool HandleKeyDown(KButtonEvent e) {
@@ -78,61 +100,6 @@ namespace OniAccess.Handlers.Tiles.Scanner {
 			SpeechPipeline.SpeakInterrupt(STRINGS.ONIACCESS.TOOLTIP.CLOSED);
 			PlaySound("HUD_Click_Close");
 			HandlerStack.Pop();
-		}
-
-		// SpeakCurrentItem always interrupts; on open we want the title (or the
-		// pending announcement) first and the focused item queued behind it.
-		private void SpeakCurrentItemQueued() {
-			var indices = new int[] { GetIndex(0), GetIndex(1) };
-			int count = GetItemCount(Level, indices);
-			if (count == 0) return;
-			string label = GetItemLabel(Level, indices);
-			if (string.IsNullOrWhiteSpace(label)) return;
-			SpeechPipeline.SpeakQueued(label);
-		}
-
-		private void RefreshList() {
-			_categories = new List<CustomScannerCategory>(CustomCategoryStore.GetAll());
-		}
-
-		private void ClampIndices() {
-			int level0Count = _categories.Count + 1;
-			int idx0 = GetIndex(0);
-			if (idx0 >= level0Count) SetIndex(0, level0Count - 1);
-			if (idx0 < 0) SetIndex(0, 0);
-		}
-
-		// ========================================
-		// LEVEL DESCRIPTION
-		// ========================================
-
-		protected override int GetItemCount(int level, int[] indices) {
-			if (level == 0) return _categories.Count + 1;
-			return 0;
-		}
-
-		protected override string GetItemLabel(int level, int[] indices) {
-			if (level != 0) return null;
-			int i = indices[0];
-			if (i == _categories.Count) return (string)STRINGS.ONIACCESS.CUSTOM_CATEGORY.CREATE_NEW;
-			if (i < 0 || i >= _categories.Count) return null;
-			return _categories[i].Name;
-		}
-
-		protected override string GetParentLabel(int level, int[] indices) => null;
-
-		// ========================================
-		// LEAF ACTIVATION
-		// ========================================
-
-		protected override void ActivateLeafItem(int[] indices) {
-			int i = indices[0];
-			if (i == _categories.Count) {
-				CreateAndEdit();
-				return;
-			}
-			if (i < 0 || i >= _categories.Count) return;
-			OpenEditor(_categories[i].Id);
 		}
 
 		// ========================================
@@ -168,35 +135,18 @@ namespace OniAccess.Handlers.Tiles.Scanner {
 		}
 
 		// ========================================
-		// SEARCH
-		// ========================================
-
-		protected override int GetSearchItemCount(int[] indices) => _categories.Count;
-
-		protected override string GetSearchItemLabel(int flatIndex) {
-			if (flatIndex < 0 || flatIndex >= _categories.Count) return null;
-			return _categories[flatIndex].Name;
-		}
-
-		protected override void MapSearchIndex(int flatIndex, int[] outIndices) {
-			outIndices[0] = flatIndex;
-		}
-
-		// ========================================
 		// FOCUS RETENTION ACROSS THE EDITOR
 		// ========================================
 
-		private string _pendingFocusId;
-		private string _pendingAnnouncement;
-
 		private void ApplyFocus(string id) {
-			for (int i = 0; i < _categories.Count; i++) {
-				if (_categories[i].Id == id) {
-					SetIndex(0, i);
+			var cats = CustomCategoryStore.GetAll();
+			for (int i = 0; i < cats.Count; i++) {
+				if (cats[i].Id == id) {
+					Nav.SetPath(new[] { i });
 					return;
 				}
 			}
-			ClampIndices();
+			Nav.ClampToTree();
 		}
 	}
 }

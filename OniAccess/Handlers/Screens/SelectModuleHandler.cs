@@ -2,10 +2,12 @@ using System.Collections.Generic;
 using System.Reflection;
 
 using OniAccess.Handlers.Build;
+using OniAccess.Navigation;
 using OniAccess.Speech;
+using OniAccess.Widgets;
 
 namespace OniAccess.Handlers.Screens {
-	public class SelectModuleHandler: NestedMenuHandler {
+	public class SelectModuleHandler: NavTreeHandler {
 		private SelectModuleSideScreen ModuleScreen =>
 			(SelectModuleSideScreen)_screen;
 
@@ -49,11 +51,10 @@ namespace OniAccess.Handlers.Screens {
 
 		public override IReadOnlyList<HelpEntry> HelpEntries { get; }
 
-		protected override int MaxLevel => 2;
-		protected override int SearchLevel => 1;
-
 		public SelectModuleHandler(SelectModuleSideScreen screen) : base(screen) {
-			HelpEntries = new List<HelpEntry>(NestedNavHelpEntries).AsReadOnly();
+			HelpEntries = new List<HelpEntry>(DrillNavHelpEntries).AsReadOnly();
+			// Type-ahead searches the modules only.
+			Nav.SearchFilter = n => n.RoleKey == "module";
 		}
 
 		// ========================================
@@ -159,88 +160,100 @@ namespace OniAccess.Handlers.Screens {
 		}
 
 		// ========================================
-		// NESTED MENU ABSTRACTS
+		// TREE CONSTRUCTION
 		// ========================================
 
-		protected override int GetItemCount(int level, int[] indices) {
-			if (level == 0) return GetVisibleSections().Count;
-			if (level == 1) {
-				switch (GetSection(indices[0])) {
-					case Section.Modules: return GetVisibleModules().Count;
-					case Section.Materials: return GetActiveSelectors().Count;
-					case Section.Skin: return GetFacadeKeys().Count;
-					default: return 0;
+		protected override IReadOnlyList<NavItem> BuildRoots() {
+			var sections = GetVisibleSections();
+			var roots = new List<NavItem>(sections.Count);
+			foreach (var s in sections) {
+				var section = s;
+				switch (section) {
+					case Section.Modules:
+						roots.Add(new MenuNode(
+							() => GetSectionLabel(Section.Modules),
+							children: BuildModuleNodes));
+						break;
+					case Section.Materials:
+						roots.Add(new MenuNode(
+							() => GetSectionLabel(Section.Materials),
+							children: BuildMaterialSlotNodes));
+						break;
+					case Section.Skin:
+						roots.Add(new MenuNode(
+							() => GetSectionLabel(Section.Skin),
+							children: BuildFacadeNodes));
+						break;
+					case Section.Build:
+						roots.Add(new MenuNode(
+							() => GetSectionLabel(Section.Build),
+							activate: () => { ClickBuild(); return true; }));
+						break;
 				}
 			}
-			if (level == 2) {
-				if (GetSection(indices[0]) == Section.Materials)
-					return GetMaterialsForSlot(indices[1]).Count;
-				return 0;
-			}
-			return 0;
+			return roots;
 		}
 
-		protected override string GetItemLabel(int level, int[] indices) {
-			if (level == 0) return GetSectionLabel(GetSection(indices[0]));
-			if (level == 1) return GetLevel1Label(GetSection(indices[0]), indices[1]);
-			if (level == 2 && GetSection(indices[0]) == Section.Materials)
-				return GetMaterialItemLabel(indices[1], indices[2]);
-			return null;
-		}
-
-		protected override string GetParentLabel(int level, int[] indices) {
-			if (level == 1) return GetSectionLabel(GetSection(indices[0]));
-			if (level == 2) return GetLevel1Label(GetSection(indices[0]), indices[1]);
-			return null;
-		}
-
-		protected override void ActivateLeafItem(int[] indices) {
-			if (Level == 0) {
-				if (GetSection(indices[0]) == Section.Build)
-					ClickBuild();
-				return;
-			}
-			if (Level == 2) {
-				if (GetSection(indices[0]) == Section.Materials)
-					SelectMaterialAtIndex(indices[1], indices[2]);
-				return;
-			}
-			// Level 1
-			switch (GetSection(indices[0])) {
-				case Section.Modules:
-					SelectModuleAtIndex(indices[1]);
-					break;
-				case Section.Skin:
-					SelectFacadeAtIndex(indices[1]);
-					break;
-			}
-		}
-
-		protected override int GetSearchItemCount(int[] indices) {
-			// Search across modules only (level 1, section 0)
-			return GetVisibleModules().Count;
-		}
-
-		protected override string GetSearchItemLabel(int flatIndex) {
+		private IReadOnlyList<NavItem> BuildModuleNodes() {
 			var modules = GetVisibleModules();
-			if (flatIndex < 0 || flatIndex >= modules.Count) return null;
-			return modules[flatIndex].Name;
-		}
-
-		protected override void MapSearchIndex(int flatIndex, int[] outIndices) {
-			outIndices[0] = 0; // Modules is always the first visible section
-			outIndices[1] = flatIndex;
-		}
-
-		// ========================================
-		// LEFT/RIGHT OVERRIDE
-		// ========================================
-
-		protected override void HandleLeftRight(int direction, int stepLevel) {
-			if (direction > 0 && Level == 0 && GetSection(GetIndex(0)) == Section.Build) {
-				return;
+			var list = new List<NavItem>(modules.Count);
+			for (int i = 0; i < modules.Count; i++) {
+				int idx = i;
+				var def = modules[i];
+				list.Add(new MenuNode(
+					() => GetModuleLabel(idx),
+					activate: () => { SelectModuleAtIndex(idx); return true; },
+					roleKey: "module",
+					searchText: () => def.Name));
 			}
-			base.HandleLeftRight(direction, stepLevel);
+			return list;
+		}
+
+		private IReadOnlyList<NavItem> BuildMaterialSlotNodes() {
+			var selectors = GetActiveSelectors();
+			var list = new List<NavItem>(selectors.Count);
+			for (int i = 0; i < selectors.Count; i++) {
+				int slot = i;
+				list.Add(new MenuNode(
+					() => GetMaterialSlotLabel(slot),
+					children: () => BuildMaterialItems(slot)));
+			}
+			return list;
+		}
+
+		private IReadOnlyList<NavItem> BuildMaterialItems(int slotIndex) {
+			var materials = GetMaterialsForSlot(slotIndex);
+			var list = new List<NavItem>(materials.Count);
+			for (int i = 0; i < materials.Count; i++) {
+				int mat = i;
+				list.Add(new MenuNode(
+					() => GetMaterialItemLabel(slotIndex, mat),
+					activate: () => { SelectMaterialAtIndex(slotIndex, mat); return true; }));
+			}
+			return list;
+		}
+
+		private IReadOnlyList<NavItem> BuildFacadeNodes() {
+			var keys = GetFacadeKeys();
+			var list = new List<NavItem>(keys.Count);
+			for (int i = 0; i < keys.Count; i++) {
+				int idx = i;
+				list.Add(new MenuNode(
+					() => GetFacadeLabel(idx),
+					activate: () => { SelectFacadeAtIndex(idx); return true; }));
+			}
+			return list;
+		}
+
+		/// <summary>
+		/// After a selection, drop back to the section list (level 0) and announce the
+		/// current section, as the old handler did with Level=0 + SpeakCurrentItem.
+		/// </summary>
+		private void AfterSelect() {
+			int section = Nav.Path[0];
+			_search.Clear();
+			Nav.SetPath(new[] { section });
+			AnnounceCurrent();
 		}
 
 		// ========================================
@@ -270,7 +283,7 @@ namespace OniAccess.Handlers.Screens {
 			if (_pendingActivation) {
 				_pendingActivation = false;
 				string title = (string)STRINGS.UI.UISIDESCREENS.SELECTMODULESIDESCREEN.TITLE;
-				string firstSection = GetSectionLabel(GetSection(0));
+				string firstSection = Nav.Current()?.Announce();
 				SpeechPipeline.SpeakInterrupt(title + ", " + firstSection);
 				return false;
 			}
@@ -302,15 +315,6 @@ namespace OniAccess.Handlers.Screens {
 					}
 				default:
 					return null;
-			}
-		}
-
-		private string GetLevel1Label(Section section, int itemIndex) {
-			switch (section) {
-				case Section.Modules: return GetModuleLabel(itemIndex);
-				case Section.Materials: return GetMaterialSlotLabel(itemIndex);
-				case Section.Skin: return GetFacadeLabel(itemIndex);
-				default: return null;
 			}
 		}
 
@@ -416,9 +420,7 @@ namespace OniAccess.Handlers.Screens {
 			var modules = GetVisibleModules();
 			if (index < 0 || index >= modules.Count) return;
 			ModuleScreen.SelectModule(modules[index]);
-			Level = 0;
-			_search.Clear();
-			SpeakCurrentItem();
+			AfterSelect();
 		}
 
 		private void SelectMaterialAtIndex(int slotIndex, int materialIndex) {
@@ -429,9 +431,7 @@ namespace OniAccess.Handlers.Screens {
 			var selector = selectors[slotIndex];
 			var recipe = _activeRecipeField.GetValue(selector) as Recipe;
 			selector.OnSelectMaterial(materials[materialIndex], recipe);
-			Level = 0;
-			_search.Clear();
-			SpeakCurrentItem();
+			AfterSelect();
 		}
 
 		private void SelectFacadeAtIndex(int index) {
@@ -440,9 +440,7 @@ namespace OniAccess.Handlers.Screens {
 			var facadePanel = GetFacadePanel();
 			if (facadePanel == null) return;
 			facadePanel.SelectedFacade = keys[index];
-			Level = 0;
-			_search.Clear();
-			SpeakCurrentItem();
+			AfterSelect();
 		}
 
 		private void ClickBuild() {

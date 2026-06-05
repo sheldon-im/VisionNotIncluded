@@ -1,16 +1,18 @@
 using System.Collections.Generic;
 
+using OniAccess.Navigation;
 using OniAccess.Speech;
+using OniAccess.Widgets;
 
 namespace OniAccess.Handlers.Screens.Starmap {
 	/// <summary>
-	/// Tab 2: Destinations. Two-level NestedMenuHandler.
+	/// Tab 2: Destinations. Two-level tree.
 	/// Level 0 = pre-filtered non-empty distance tiers.
 	/// Level 1 = destinations within the tier.
 	/// Enter selects destination, assigns to active rocket if grounded,
 	/// and auto-switches to Tab 3 (destination details).
 	/// </summary>
-	internal class DestinationsTab: NestedMenuHandler, IScreenTab {
+	internal class DestinationsTab: NavTreeHandler, IScreenTab {
 		private readonly StarmapScreenHandler _parent;
 
 		internal DestinationsTab(StarmapScreenHandler parent) : base(screen: null) {
@@ -32,7 +34,7 @@ namespace OniAccess.Handlers.Screens.Starmap {
 
 		public override string DisplayName => TabName;
 
-		public override IReadOnlyList<HelpEntry> HelpEntries => NestedNavHelpEntries;
+		public override IReadOnlyList<HelpEntry> HelpEntries => DrillNavHelpEntries;
 
 		// ========================================
 		// IScreenTab
@@ -42,13 +44,10 @@ namespace OniAccess.Handlers.Screens.Starmap {
 			ResetState();
 			if (announce)
 				SpeechPipeline.SpeakInterrupt(TabName);
-			if (ItemCount > 0) {
-				string label = GetItemLabel(CurrentIndex);
-				if (!string.IsNullOrEmpty(label))
-					SpeechPipeline.SpeakQueued(label);
-			} else {
+			if (ItemCount > 0)
+				AnnounceCurrent(interrupt: false);
+			else
 				SpeechPipeline.SpeakQueued(STRINGS.ONIACCESS.STARMAP.NO_DESTINATIONS);
-			}
 		}
 
 		public void OnTabDeactivated() {
@@ -64,49 +63,33 @@ namespace OniAccess.Handlers.Screens.Starmap {
 		}
 
 		// ========================================
-		// NestedMenuHandler abstracts
+		// TREE CONSTRUCTION
 		// ========================================
 
-		protected override int MaxLevel => 1;
-		protected override int SearchLevel => 1;
-		protected override int StartLevel => 0;
-
-		protected override int GetItemCount(int level, int[] indices) {
-			if (level == 0)
-				return StarmapHelper.GetPopulatedDistanceTiers().Count;
-			var tiers = StarmapHelper.GetPopulatedDistanceTiers();
-			if (indices[0] < 0 || indices[0] >= tiers.Count) return 0;
-			return StarmapHelper.GetDestinationsAtTier(tiers[indices[0]]).Count;
-		}
-
-		protected override string GetItemLabel(int level, int[] indices) {
-			var tiers = StarmapHelper.GetPopulatedDistanceTiers();
-			if (level == 0) {
-				if (indices[0] < 0 || indices[0] >= tiers.Count) return null;
-				return StarmapHelper.GetTierLabel(tiers[indices[0]]);
+		protected override IReadOnlyList<NavItem> BuildRoots() {
+			var roots = new List<NavItem>();
+			foreach (var tier in StarmapHelper.GetPopulatedDistanceTiers()) {
+				int t = tier;
+				roots.Add(new MenuNode(
+					() => StarmapHelper.GetTierLabel(t),
+					children: () => BuildDestinations(t)));
 			}
-			if (indices[0] < 0 || indices[0] >= tiers.Count) return null;
-			var dests = StarmapHelper.GetDestinationsAtTier(tiers[indices[0]]);
-			if (indices[1] < 0 || indices[1] >= dests.Count) return null;
-			return StarmapHelper.GetDestinationLabel(dests[indices[1]]);
+			return roots;
 		}
 
-		protected override string GetParentLabel(int level, int[] indices) {
-			if (level >= 1) {
-				var tiers = StarmapHelper.GetPopulatedDistanceTiers();
-				if (indices[0] >= 0 && indices[0] < tiers.Count)
-					return StarmapHelper.GetTierLabel(tiers[indices[0]]);
+		private IReadOnlyList<NavItem> BuildDestinations(int tier) {
+			var dests = StarmapHelper.GetDestinationsAtTier(tier);
+			var list = new List<NavItem>(dests.Count);
+			foreach (var dest in dests) {
+				var d = dest;
+				list.Add(new MenuNode(
+					() => StarmapHelper.GetDestinationLabel(d),
+					activate: () => { ActivateDestination(d); return true; }));
 			}
-			return null;
+			return list;
 		}
 
-		protected override void ActivateLeafItem(int[] indices) {
-			var tiers = StarmapHelper.GetPopulatedDistanceTiers();
-			if (indices[0] < 0 || indices[0] >= tiers.Count) return;
-			var dests = StarmapHelper.GetDestinationsAtTier(tiers[indices[0]]);
-			if (indices[1] < 0 || indices[1] >= dests.Count) return;
-
-			var dest = dests[indices[1]];
+		private void ActivateDestination(SpaceDestination dest) {
 			_parent.SelectDestination(dest);
 
 			string destName = StarmapHelper.IsAnalyzed(dest)
@@ -129,41 +112,5 @@ namespace OniAccess.Handlers.Screens.Starmap {
 			// Auto-switch to destination details tab
 			_parent.JumpToDetailsTab();
 		}
-
-		// ========================================
-		// Search across all destinations
-		// ========================================
-
-		protected override int GetSearchItemCount(int[] indices) {
-			return StarmapHelper.GetAllDestinations().Count;
-		}
-
-		protected override string GetSearchItemLabel(int flatIndex) {
-			var all = StarmapHelper.GetAllDestinations();
-			if (flatIndex < 0 || flatIndex >= all.Count) return null;
-			return StarmapHelper.GetDestinationLabel(all[flatIndex]);
-		}
-
-		protected override void MapSearchIndex(int flatIndex, int[] outIndices) {
-			var all = StarmapHelper.GetAllDestinations();
-			if (flatIndex < 0 || flatIndex >= all.Count) return;
-			var dest = all[flatIndex];
-
-			var tiers = StarmapHelper.GetPopulatedDistanceTiers();
-			for (int t = 0; t < tiers.Count; t++) {
-				if (tiers[t] == dest.OneBasedDistance) {
-					var dests = StarmapHelper.GetDestinationsAtTier(tiers[t]);
-					for (int d = 0; d < dests.Count; d++) {
-						if (dests[d].id == dest.id) {
-							outIndices[0] = t;
-							outIndices[1] = d;
-							return;
-						}
-					}
-				}
-			}
-			Util.Log.Warn($"DestinationsTab.MapSearchIndex: destination '{dest.id}' not found in tiers");
-		}
-
 	}
 }

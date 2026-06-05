@@ -96,6 +96,16 @@ namespace OniAccess.Handlers {
 			Nav.Reset(StartDepth);
 		}
 
+		/// <summary>
+		/// Reset the cursor to the start depth and clear search, without the rest of
+		/// activation. For tabs that re-enter via OnTabActivated rather than OnActivate.
+		/// </summary>
+		protected void ResetState() {
+			Nav.Reset(StartDepth);
+			_search.Clear();
+			SuppressSearchThisFrame();
+		}
+
 		// ========================================
 		// NAVIGATION (drive the engine, render the result)
 		// ========================================

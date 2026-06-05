@@ -1,16 +1,19 @@
 using System.Collections.Generic;
 
+using OniAccess.Navigation;
 using OniAccess.Speech;
+using OniAccess.Widgets;
 
 namespace OniAccess.Handlers.Screens.Starmap {
 	/// <summary>
-	/// Tab 3: Destination Details. Two-level NestedMenuHandler.
+	/// Tab 3: Destination Details. Two-level tree.
 	/// Level 0 = sections (identity, analysis, research, mass,
 	///           composition, resources, artifacts) plus analyze action.
 	/// Level 1 = items within section.
-	/// The analyze action is a leaf at level 0 (empty Items).
+	/// The analyze action is a leaf at level 0 (empty Items). Enter on any leaf
+	/// toggles analysis of the selected destination, matching the old handler.
 	/// </summary>
-	internal class DestinationDetailsTab: NestedMenuHandler, IScreenTab {
+	internal class DestinationDetailsTab: NavTreeHandler, IScreenTab {
 		private readonly StarmapScreenHandler _parent;
 
 		internal DestinationDetailsTab(StarmapScreenHandler parent)
@@ -23,7 +26,10 @@ namespace OniAccess.Handlers.Screens.Starmap {
 
 		public override string DisplayName => TabName;
 
-		public override IReadOnlyList<HelpEntry> HelpEntries => NestedNavHelpEntries;
+		// Type-ahead targets the section list (level 0).
+		protected override SearchScope SearchScope => SearchScope.Roots;
+
+		public override IReadOnlyList<HelpEntry> HelpEntries => DrillNavHelpEntries;
 
 		// ========================================
 		// IScreenTab
@@ -33,14 +39,11 @@ namespace OniAccess.Handlers.Screens.Starmap {
 			ResetState();
 			if (announce)
 				SpeechPipeline.SpeakInterrupt(TabName);
-			if (ItemCount > 0) {
-				string label = GetItemLabel(CurrentIndex);
-				if (!string.IsNullOrEmpty(label))
-					SpeechPipeline.SpeakQueued(label);
-			} else {
+			if (ItemCount > 0)
+				AnnounceCurrent(interrupt: false);
+			else
 				SpeechPipeline.SpeakQueued(
 					STRINGS.ONIACCESS.STARMAP.NO_DESTINATION_SELECTED);
-			}
 		}
 
 		public void OnTabDeactivated() {
@@ -60,55 +63,42 @@ namespace OniAccess.Handlers.Screens.Starmap {
 		}
 
 		// ========================================
-		// NestedMenuHandler abstracts
+		// TREE CONSTRUCTION
 		// ========================================
 
-		protected override int MaxLevel => 1;
-		protected override int SearchLevel => 0;
-		protected override int StartLevel => 0;
-
-		protected override int GetItemCount(int level, int[] indices) {
+		protected override IReadOnlyList<NavItem> BuildRoots() {
 			var dest = _parent.SelectedDestination;
-			if (dest == null) return 0;
-			var sections = StarmapHelper.BuildDestinationSections(
-				dest, _parent.ActiveRocket);
-			if (level == 0)
-				return sections.Count;
-			if (indices[0] < 0 || indices[0] >= sections.Count) return 0;
-			return sections[indices[0]].Items.Count;
-		}
+			if (dest == null) return new List<NavItem>();
 
-		protected override string GetItemLabel(int level, int[] indices) {
-			var dest = _parent.SelectedDestination;
-			if (dest == null) return null;
-			var sections = StarmapHelper.BuildDestinationSections(
-				dest, _parent.ActiveRocket);
-			if (level == 0) {
-				if (indices[0] < 0 || indices[0] >= sections.Count) return null;
-				// Re-query the action label live (last item)
-				if (indices[0] == sections.Count - 1)
-					return StarmapHelper.GetAnalyzeActionLabel(dest);
-				return sections[indices[0]].Name;
+			var sections = StarmapHelper.BuildDestinationSections(dest, _parent.ActiveRocket);
+			var roots = new List<NavItem>(sections.Count);
+			for (int s = 0; s < sections.Count; s++) {
+				var sec = sections[s];
+				bool isAnalyze = s == sections.Count - 1;
+				roots.Add(new MenuNode(
+					announce: isAnalyze
+						? (System.Func<string>)(() =>
+							StarmapHelper.GetAnalyzeActionLabel(_parent.SelectedDestination))
+						: (() => sec.Name),
+					children: () => BuildItems(sec),
+					activate: () => { ActivateAnalyze(); return true; }));
 			}
-			if (indices[0] < 0 || indices[0] >= sections.Count) return null;
-			var section = sections[indices[0]];
-			if (indices[1] < 0 || indices[1] >= section.Items.Count) return null;
-			return section.Items[indices[1]];
+			return roots;
 		}
 
-		protected override string GetParentLabel(int level, int[] indices) {
-			if (level >= 1) {
-				var dest = _parent.SelectedDestination;
-				if (dest == null) return null;
-				var sections = StarmapHelper.BuildDestinationSections(
-					dest, _parent.ActiveRocket);
-				if (indices[0] >= 0 && indices[0] < sections.Count)
-					return sections[indices[0]].Name;
+		private IReadOnlyList<NavItem> BuildItems(StarmapHelper.DestinationSection section) {
+			var list = new List<NavItem>(section.Items.Count);
+			foreach (var item in section.Items) {
+				var text = item;
+				// Enter on any leaf toggles analysis, as the old handler did.
+				list.Add(new MenuNode(
+					() => text,
+					activate: () => { ActivateAnalyze(); return true; }));
 			}
-			return null;
+			return list;
 		}
 
-		protected override void ActivateLeafItem(int[] indices) {
+		private void ActivateAnalyze() {
 			var dest = _parent.SelectedDestination;
 			if (dest == null) return;
 
@@ -132,30 +122,6 @@ namespace OniAccess.Handlers.Screens.Starmap {
 				SpeechPipeline.SpeakInterrupt(
 					STRINGS.ONIACCESS.STARMAP.ANALYSIS_STARTED);
 			}
-		}
-
-		// ========================================
-		// Search: section names at level 0
-		// ========================================
-
-		protected override int GetSearchItemCount(int[] indices) {
-			var dest = _parent.SelectedDestination;
-			if (dest == null) return 0;
-			return StarmapHelper.BuildDestinationSections(
-				dest, _parent.ActiveRocket).Count;
-		}
-
-		protected override string GetSearchItemLabel(int flatIndex) {
-			var dest = _parent.SelectedDestination;
-			if (dest == null) return null;
-			var sections = StarmapHelper.BuildDestinationSections(
-				dest, _parent.ActiveRocket);
-			if (flatIndex < 0 || flatIndex >= sections.Count) return null;
-			return sections[flatIndex].Name;
-		}
-
-		protected override void MapSearchIndex(int flatIndex, int[] outIndices) {
-			outIndices[0] = flatIndex;
 		}
 	}
 }

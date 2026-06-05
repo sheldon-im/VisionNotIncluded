@@ -25,6 +25,8 @@ namespace OniAccess.Widgets {
 		public bool IsNavigable() => true;
 		public bool IsActivatable() => false;
 		public string Announce() => _read();
+		public string SearchText => _read();
+		public string ContextLabel => _read();
 		public bool Activate() => false;
 		public bool Adjust(int direction, int stepLevel) => false;
 		public IReadOnlyList<NavItem> GetChildren() => Array.Empty<NavItem>();

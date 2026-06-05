@@ -231,7 +231,7 @@ namespace OniAccess.Handlers {
 			var sb = new StringBuilder();
 			for (int i = 0; i < ancestors.Count; i++) {
 				if (i > 0) sb.Append(", ");
-				sb.Append(ancestors[i].Announce());
+				sb.Append(ancestors[i].ContextLabel);
 			}
 			return sb.ToString();
 		}

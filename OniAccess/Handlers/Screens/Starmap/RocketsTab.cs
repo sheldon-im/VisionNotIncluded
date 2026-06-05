@@ -80,7 +80,8 @@ namespace OniAccess.Handlers.Screens.Starmap {
 				var r = rocket;
 				roots.Add(new MenuNode(
 					() => StarmapHelper.BuildRocketListLabel(r),
-					children: () => BuildCategories(r)));
+					children: () => BuildCategories(r),
+					contextLabel: () => r.GetRocketName()));
 			}
 			return roots;
 		}

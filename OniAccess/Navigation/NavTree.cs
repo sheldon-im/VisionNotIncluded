@@ -449,11 +449,11 @@ namespace OniAccess.Navigation {
 			return _searchFrontier.Count;
 		}
 
-		/// <summary>Raw <see cref="NavItem.Announce"/> text of frontier entry i (the adapter filters it).</summary>
+		/// <summary>Raw <see cref="NavItem.SearchText"/> of frontier entry i (the adapter filters it).</summary>
 		public string SearchLabel(int i) {
 			if (_searchFrontier == null || i < 0 || i >= _searchFrontier.Count) return null;
 			var node = ResolveNode(_searchFrontier[i], _searchFrontier[i].Length);
-			return node?.Announce();
+			return node?.SearchText;
 		}
 
 		/// <summary>Move the cursor onto frontier entry i. The adapter speaks the landed item.</summary>

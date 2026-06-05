@@ -15,6 +15,8 @@ namespace OniAccess.Widgets {
 	/// </summary>
 	public sealed class MenuNode: NavItem {
 		private readonly Func<string> _announce;
+		private readonly Func<string> _searchText;
+		private readonly Func<string> _contextLabel;
 		private readonly Func<IReadOnlyList<NavItem>> _children;
 		private readonly Func<bool> _activate;
 		private readonly bool _navigable;
@@ -24,8 +26,12 @@ namespace OniAccess.Widgets {
 				Func<IReadOnlyList<NavItem>> children = null,
 				Func<bool> activate = null,
 				bool navigable = true,
-				string roleKey = null) {
+				string roleKey = null,
+				Func<string> searchText = null,
+				Func<string> contextLabel = null) {
 			_announce = announce;
+			_searchText = searchText;
+			_contextLabel = contextLabel;
 			_children = children;
 			_activate = activate;
 			_navigable = navigable;
@@ -36,6 +42,12 @@ namespace OniAccess.Widgets {
 		public bool IsNavigable() => _navigable;
 		public bool IsActivatable() => _activate != null;
 		public string Announce() => _announce();
+
+		/// <summary>Search text, when it differs from the spoken label; otherwise the label.</summary>
+		public string SearchText => _searchText != null ? _searchText() : _announce();
+
+		/// <summary>Parent-context label, when it differs from the spoken label; otherwise the label.</summary>
+		public string ContextLabel => _contextLabel != null ? _contextLabel() : _announce();
 		public bool Activate() => _activate != null && _activate();
 		public bool Adjust(int direction, int stepLevel) => false;
 

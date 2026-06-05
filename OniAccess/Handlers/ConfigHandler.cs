@@ -48,7 +48,8 @@ namespace OniAccess.Handlers {
 				var item = section.Items[i];
 				list.Add(new MenuNode(
 					() => ItemLabel(item),
-					activate: () => { ActivateConfigItem(item); return true; }));
+					activate: () => { ActivateConfigItem(item); return true; },
+					searchText: () => item.Label));
 			}
 			return list;
 		}

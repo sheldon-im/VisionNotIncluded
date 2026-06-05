@@ -40,6 +40,8 @@ namespace OniAccess.Tests {
 			public bool IsNavigable() => Nav;
 			public bool IsActivatable() => false;
 			public string Announce() => Name;
+			public string SearchText => Name;
+			public string ContextLabel => Name;
 			public bool Activate() => false;
 			public bool Adjust(int direction, int stepLevel) => false;
 			public IReadOnlyList<NavItem> GetChildren() =>
@@ -376,6 +378,24 @@ namespace OniAccess.Tests {
 				$"filtered={filtered}, all={all}");
 		}
 
+		public static (string, bool, string) SearchTextChannelDiffersFromLabel() {
+			// A node can search against richer (or barer) text than it speaks: a tech
+			// searched by what it unlocks, a config option searched by name only.
+			var leaf = new MenuNode(
+				() => "Spoken Label",
+				activate: () => true,
+				searchText: () => "hidden search words");
+			var root = new MenuNode(() => "Group",
+				children: () => new List<NavItem> { leaf });
+			var t = new NavTree(() => new List<NavItem> { root });
+			t.SearchScope = SearchScope.Leaves;
+			int count = t.SearchCount();
+			string searched = t.SearchLabel(0);
+			bool ok = count == 1 && searched == "hidden search words";
+			return Check("SearchTextChannelDiffersFromLabel", ok,
+				$"count={count}, searched=\"{searched}\"");
+		}
+
 		// ========================================
 		// CROSSING SCOPE (confinement)
 		// ========================================
@@ -484,6 +504,7 @@ namespace OniAccess.Tests {
 			yield return SearchCurrentLevelUsesDepth();
 			yield return SearchFilterExcludesNodes();
 			yield return SearchActivatableLeavesExcludesEmptyBranch();
+			yield return SearchTextChannelDiffersFromLabel();
 			yield return ConfineNextStaysInBranch();
 			yield return ConfineDepthOneStaysGlobal();
 			yield return ConfineJumpStaysInBranch();

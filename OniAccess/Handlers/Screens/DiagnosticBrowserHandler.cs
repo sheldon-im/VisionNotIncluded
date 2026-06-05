@@ -2,7 +2,9 @@ using System.Collections.Generic;
 
 using OniAccess.Handlers.Tiles;
 using OniAccess.Input;
+using OniAccess.Navigation;
 using OniAccess.Speech;
+using OniAccess.Widgets;
 
 namespace OniAccess.Handlers.Screens {
 	/// <summary>
@@ -13,7 +15,7 @@ namespace OniAccess.Handlers.Screens {
 	/// Space at level 1 toggles criterion enabled/disabled.
 	/// Escape closes the screen.
 	/// </summary>
-	internal sealed class DiagnosticBrowserHandler: NestedMenuHandler {
+	internal sealed class DiagnosticBrowserHandler: NavTreeHandler {
 		internal DiagnosticBrowserHandler(KScreen screen) : base(screen) { }
 
 		private static readonly ConsumedKey[] _consumedKeys = {
@@ -23,6 +25,15 @@ namespace OniAccess.Handlers.Screens {
 
 		public override string DisplayName =>
 			(string)STRINGS.ONIACCESS.HANDLERS.DIAGNOSTICS;
+
+		// Type-ahead targets diagnostic names at the root level.
+		protected override SearchScope SearchScope => SearchScope.Roots;
+
+		public override IReadOnlyList<HelpEntry> HelpEntries { get; }
+			= new List<HelpEntry>(DrillNavHelpEntries) {
+				new HelpEntry("Space", STRINGS.ONIACCESS.DIAGNOSTICS.HELP_TOGGLE_PIN),
+				new HelpEntry("Space (criteria)", STRINGS.ONIACCESS.DIAGNOSTICS.HELP_TOGGLE_CRITERION),
+			}.AsReadOnly();
 
 		public override void OnActivate() {
 			PlaySound("HUD_Click_Open");
@@ -37,18 +48,8 @@ namespace OniAccess.Handlers.Screens {
 				Util.Log.Warn($"DiagnosticBrowserHandler: failed to deactivate search field: {ex.Message}");
 			}
 
-			if (GetDiagnosticIds().Count > 0)
-				SpeechPipeline.SpeakQueued(GetItemLabel(0, new int[MaxLevel + 1]));
+			AnnounceCurrent(interrupt: false);
 		}
-
-		public override IReadOnlyList<HelpEntry> HelpEntries { get; }
-			= new List<HelpEntry>(NestedNavHelpEntries) {
-				new HelpEntry("Space", STRINGS.ONIACCESS.DIAGNOSTICS.HELP_TOGGLE_PIN),
-				new HelpEntry("Space (criteria)", STRINGS.ONIACCESS.DIAGNOSTICS.HELP_TOGGLE_CRITERION),
-			}.AsReadOnly();
-
-		protected override int MaxLevel => 1;
-		protected override int SearchLevel => 0;
 
 		// ========================================
 		// DATA ACCESS
@@ -89,39 +90,32 @@ namespace OniAccess.Handlers.Screens {
 		}
 
 		// ========================================
-		// ITEM COUNTS AND LABELS
+		// TREE CONSTRUCTION
 		// ========================================
 
-		protected override int GetItemCount(int level, int[] indices) {
+		protected override IReadOnlyList<NavItem> BuildRoots() {
 			var ids = GetDiagnosticIds();
-			if (level == 0)
-				return ids.Count;
-			var diag = GetDiagnostic(ids, indices[0]);
-			if (diag == null) return 0;
-			return diag.GetCriteria().Length;
+			var roots = new List<NavItem>(ids.Count);
+			foreach (var id in ids) {
+				var diag = ColonyDiagnosticUtility.Instance.GetDiagnostic(id, WorldId);
+				if (diag == null) continue;
+				roots.Add(new MenuNode(
+					() => BuildDiagnosticLabel(diag),
+					children: () => BuildCriteria(diag),
+					searchText: () => diag.name,
+					contextLabel: () => diag.name));
+			}
+			return roots;
 		}
 
-		protected override string GetItemLabel(int level, int[] indices) {
-			var ids = GetDiagnosticIds();
-			if (level == 0) {
-				var diag = GetDiagnostic(ids, indices[0]);
-				if (diag == null) return null;
-				return BuildDiagnosticLabel(diag);
+		private IReadOnlyList<NavItem> BuildCriteria(ColonyDiagnostic diag) {
+			var criteria = diag.GetCriteria();
+			var list = new List<NavItem>(criteria.Length);
+			foreach (var c in criteria) {
+				var criterion = c;
+				list.Add(new MenuNode(() => BuildCriterionLabel(diag, criterion)));
 			}
-			var parentDiag = GetDiagnostic(ids, indices[0]);
-			if (parentDiag == null) return null;
-			var criteria = parentDiag.GetCriteria();
-			if (indices[1] < 0 || indices[1] >= criteria.Length) return null;
-			return BuildCriterionLabel(parentDiag, criteria[indices[1]]);
-		}
-
-		protected override string GetParentLabel(int level, int[] indices) {
-			if (level >= 1) {
-				var ids = GetDiagnosticIds();
-				var diag = GetDiagnostic(ids, indices[0]);
-				if (diag != null) return diag.name;
-			}
-			return null;
+			return list;
 		}
 
 		private string BuildDiagnosticLabel(ColonyDiagnostic diag) {
@@ -173,40 +167,15 @@ namespace OniAccess.Handlers.Screens {
 		}
 
 		// ========================================
-		// LEAF ACTIVATION (Enter at level 1 — no-op)
-		// ========================================
-
-		protected override void ActivateLeafItem(int[] indices) { }
-
-		// ========================================
-		// SEARCH: flat across diagnostic names
-		// ========================================
-
-		protected override int GetSearchItemCount(int[] indices) {
-			return GetDiagnosticIds().Count;
-		}
-
-		protected override string GetSearchItemLabel(int flatIndex) {
-			var ids = GetDiagnosticIds();
-			var diag = GetDiagnostic(ids, flatIndex);
-			return diag?.name;
-		}
-
-		protected override void MapSearchIndex(int flatIndex, int[] outIndices) {
-			outIndices[0] = flatIndex;
-			outIndices[1] = 0;
-		}
-
-		// ========================================
 		// TICK: Space toggles
 		// ========================================
 
 		public override bool Tick() {
 			if (UnityEngine.Input.GetKeyDown(UnityEngine.KeyCode.Space)
 				&& !InputUtil.AnyModifierHeld()) {
-				if (Level == 0)
+				if (Nav.Depth == 0)
 					TogglePin();
-				else if (Level == 1)
+				else if (Nav.Depth == 1)
 					ToggleCriterion();
 				return true;
 			}
@@ -214,7 +183,7 @@ namespace OniAccess.Handlers.Screens {
 		}
 
 		private void TogglePin() {
-			var diag = GetDiagnostic(GetDiagnosticIds(), GetIndex(0));
+			var diag = GetDiagnostic(GetDiagnosticIds(), Nav.Path[0]);
 			if (diag == null) return;
 
 			if (ColonyDiagnosticUtility.Instance.IsDiagnosticTutorialDisabled(diag.id)) {
@@ -240,10 +209,10 @@ namespace OniAccess.Handlers.Screens {
 		}
 
 		private void ToggleCriterion() {
-			var diag = GetDiagnostic(GetDiagnosticIds(), GetIndex(0));
+			var diag = GetDiagnostic(GetDiagnosticIds(), Nav.Path[0]);
 			if (diag == null) return;
 			var criteria = diag.GetCriteria();
-			int critIdx = GetIndex(1);
+			int critIdx = Nav.Path[1];
 			if (critIdx < 0 || critIdx >= criteria.Length) return;
 			var criterion = criteria[critIdx];
 

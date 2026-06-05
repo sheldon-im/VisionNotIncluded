@@ -25,6 +25,21 @@ namespace OniAccess.Widgets {
 		/// </summary>
 		string Announce();
 
+		/// <summary>
+		/// The text type-ahead matches against. Usually the announced label, but some
+		/// items search a richer string than they speak (a research tech by the items
+		/// it unlocks) or a barer one (a config option by name, not its current value).
+		/// </summary>
+		string SearchText { get; }
+
+		/// <summary>
+		/// The concise label spoken as a parent-context prefix when the cursor crosses
+		/// into this item's subtree. Usually the announced label, but some items read a
+		/// full status line when focused yet should contribute only their name as
+		/// context (a diagnostic, a rocket).
+		/// </summary>
+		string ContextLabel { get; }
+
 		/// <summary>Activate (click, toggle, begin editing). Returns true if handled.</summary>
 		bool Activate();
 

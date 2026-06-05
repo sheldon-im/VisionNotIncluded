@@ -53,6 +53,12 @@ namespace OniAccess.Widgets {
 		/// <summary>Own label and value, cleaned and live-read. Tooltip is appended by the composer.</summary>
 		public string Announce() => WidgetOps.GetSpeechText(this);
 
+		/// <summary>Type-ahead matches against the same text a widget speaks.</summary>
+		public string SearchText => WidgetOps.GetSpeechText(this);
+
+		/// <summary>A widget contributes its spoken text as parent context.</summary>
+		public string ContextLabel => WidgetOps.GetSpeechText(this);
+
 		public IReadOnlyList<NavItem> GetChildren() {
 			if (Children == null) return System.Array.Empty<NavItem>();
 			return Children;

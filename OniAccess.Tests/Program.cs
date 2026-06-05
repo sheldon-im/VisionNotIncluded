@@ -377,6 +377,10 @@ namespace OniAccess.Tests {
 			results.Add(FlowTrackerGetElementCountsWrapped());
 			results.Add(FlowTrackerClearResetsState());
 
+			// --- NavTree (lazy-children navigation engine) ---
+			foreach (var r in NavTreeTests.All())
+				results.Add(r);
+
 			int passed = 0, failed = 0;
 			foreach (var (name, ok, detail) in results) {
 				if (ok) {

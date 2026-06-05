@@ -2,6 +2,7 @@ using System.Collections.Generic;
 
 using OniAccess.Input;
 using OniAccess.Speech;
+using OniAccess.Widgets;
 
 namespace OniAccess.Handlers {
 	/// <summary>
@@ -265,7 +266,8 @@ namespace OniAccess.Handlers {
 			_lastSpokenRow = _row;
 			_lastSpokenCol = _col;
 
-			return string.Join(", ", parts);
+			return WidgetSpeech.Compose(
+				new LabelItem(string.Join(", ", parts)), NavContext.None, null);
 		}
 
 		// ========================================

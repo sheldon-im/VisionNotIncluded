@@ -430,8 +430,7 @@ namespace OniAccess.Handlers.Screens {
 			var w = GetCurrentWidget();
 			if (w == null) return;
 
-			string text = WidgetOps.GetSpeechText(w);
-			text = WidgetOps.AppendTooltip(text, WidgetOps.GetTooltipText(w));
+			string text = WidgetSpeech.Compose(w, NavContext.None, WidgetOps.GetTooltipText(w));
 			if (!string.IsNullOrEmpty(parentContext))
 				text = string.Format(STRINGS.ONIACCESS.DETAILS.PARENT_ITEM, parentContext, text);
 			if (!string.IsNullOrEmpty(text))

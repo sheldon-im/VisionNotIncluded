@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 
 using OniAccess.Speech;
+using OniAccess.Widgets;
 
 namespace OniAccess.Handlers {
 	/// <summary>
@@ -111,7 +112,8 @@ namespace OniAccess.Handlers {
 			if (string.IsNullOrWhiteSpace(label)) return;
 			if (!string.IsNullOrEmpty(parentContext))
 				label = parentContext + ", " + label;
-			SpeechPipeline.SpeakInterrupt(label);
+			SpeechPipeline.SpeakInterrupt(
+				WidgetSpeech.Compose(new LabelItem(label), NavContext.None, null));
 		}
 
 		// ========================================

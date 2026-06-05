@@ -171,14 +171,29 @@ namespace OniAccess.Handlers {
 		// SEARCH (explicit ISearchable, routed to the engine)
 		// ========================================
 
-		int ISearchable.SearchItemCount => Nav.SearchCount();
+		int ISearchable.SearchItemCount => SearchCount();
 
 		string ISearchable.GetSearchLabel(int index) {
-			string label = Nav.SearchLabel(index);
+			string label = SearchEntryText(index);
 			return label == null ? null : TextFilter.FilterForSpeech(label);
 		}
 
 		void ISearchable.SearchMoveTo(int index) {
+			MoveSearchCursor(index);
+		}
+
+		// Search is driven by the engine frontier by default. A handler whose search
+		// spans multiple levels (the codex categories tab) overrides these three to
+		// supply its own projection while still using the engine for navigation.
+
+		/// <summary>Number of search results. Defaults to the engine's frontier size.</summary>
+		protected virtual int SearchCount() => Nav.SearchCount();
+
+		/// <summary>Raw (unfiltered) search text for result i. Defaults to the engine's frontier.</summary>
+		protected virtual string SearchEntryText(int index) => Nav.SearchLabel(index);
+
+		/// <summary>Move the cursor onto search result i and announce it.</summary>
+		protected virtual void MoveSearchCursor(int index) {
 			Announce(Nav.SearchMoveTo(index), sound: false);
 		}
 

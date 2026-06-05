@@ -1,7 +1,9 @@
 using System.Collections.Generic;
 
+using OniAccess.Navigation;
 using OniAccess.Speech;
 using OniAccess.Util;
+using OniAccess.Widgets;
 
 namespace OniAccess.Handlers.Tiles.FastTravel {
 	/// <summary>
@@ -17,26 +19,63 @@ namespace OniAccess.Handlers.Tiles.FastTravel {
 	/// CRUD writes immediately; the snapshot held here is rebuilt on every
 	/// activation and after each modification.
 	/// </summary>
-	public class FastTravelMenuHandler: NestedMenuHandler {
-		private const int LeafRename = 0;
-		private const int LeafRelocate = 1;
-		private const int LeafDelete = 2;
-
+	public class FastTravelMenuHandler: NavTreeHandler {
 		private List<FastTravelPoint> _points = new List<FastTravelPoint>();
 
 		public override string DisplayName => (string)STRINGS.ONIACCESS.HANDLERS.FAST_TRAVEL;
 		public override IReadOnlyList<HelpEntry> HelpEntries { get; }
 
-		protected override int MaxLevel => 1;
-		protected override int SearchLevel => 0;
+		// Type-ahead searches the bookmarks; the "Create new" command row is excluded.
+		protected override SearchScope SearchScope => SearchScope.Roots;
 
 		public FastTravelMenuHandler() : base(null) {
+			Nav.SearchFilter = n => n.RoleKey != "button";
 			var help = new List<HelpEntry>();
-			help.AddRange(NestedNavHelpEntries);
+			help.AddRange(DrillNavHelpEntries);
 			help.Add(new HelpEntry("Enter", STRINGS.ONIACCESS.HELP.SELECT_ITEM));
 			help.Add(new HelpEntry("Escape", STRINGS.ONIACCESS.HELP.CLOSE));
 			HelpEntries = help.AsReadOnly();
 		}
+
+		// ========================================
+		// TREE CONSTRUCTION
+		// ========================================
+
+		protected override IReadOnlyList<NavItem> BuildRoots() {
+			var roots = new List<NavItem>(_points.Count + 1);
+			foreach (var pt in _points) {
+				var point = pt;
+				roots.Add(new MenuNode(
+					() => string.Format(STRINGS.ONIACCESS.FAST_TRAVEL.ENTRY,
+						point.Name, GridCoordinates.Format(point.Cell)),
+					children: () => BuildActions(point),
+					activate: () => { JumpToPoint(point); return true; },
+					searchText: () => point.Name,
+					contextLabel: () => point.Name));
+			}
+			roots.Add(new MenuNode(
+				() => (string)STRINGS.ONIACCESS.FAST_TRAVEL.CREATE_NEW,
+				activate: () => { OpenCreatePrompt(); return true; },
+				roleKey: "button"));
+			return roots;
+		}
+
+		private IReadOnlyList<NavItem> BuildActions(FastTravelPoint point) {
+			return new List<NavItem> {
+				new MenuNode(
+					() => (string)STRINGS.ONIACCESS.FAST_TRAVEL.RENAME,
+					activate: () => { OpenRenamePrompt(point); return true; }),
+				new MenuNode(
+					() => (string)STRINGS.ONIACCESS.FAST_TRAVEL.RELOCATE,
+					activate: () => { RelocatePoint(point); return true; }),
+				new MenuNode(
+					() => (string)STRINGS.ONIACCESS.FAST_TRAVEL.DELETE,
+					activate: () => { DeletePoint(point); return true; }),
+			};
+		}
+
+		// Enter on a bookmark jumps to it; Right drills into its actions.
+		protected override bool ShouldDrillOnActivate() => false;
 
 		// ========================================
 		// LIFECYCLE
@@ -50,12 +89,12 @@ namespace OniAccess.Handlers.Tiles.FastTravel {
 				_pendingFocusId = null;
 				_pendingFocusLevel = 0;
 			} else {
-				ClampIndices();
+				Nav.ClampToTree();
 			}
 			_search.Clear();
 			SuppressSearchThisFrame();
 			SpeechPipeline.SpeakInterrupt(DisplayName);
-			SpeakCurrentItemQueued();
+			AnnounceCurrent(interrupt: false);
 		}
 
 		public override bool HandleKeyDown(KButtonEvent e) {
@@ -73,107 +112,11 @@ namespace OniAccess.Handlers.Tiles.FastTravel {
 			HandlerStack.Pop();
 		}
 
-		// SpeakCurrentItem in NestedMenuHandler always interrupts. On open we
-		// want the title to land first and the focused item to follow, so we
-		// queue the item instead of interrupting.
-		private void SpeakCurrentItemQueued() {
-			var indices = new int[] { GetIndex(0), GetIndex(1) };
-			int count = GetItemCount(Level, indices);
-			if (count == 0) return;
-			string label = GetItemLabel(Level, indices);
-			if (string.IsNullOrWhiteSpace(label)) return;
-			SpeechPipeline.SpeakQueued(label);
-		}
-
 		private void RefreshPoints() {
 			int worldId = ClusterManager.Instance != null
 				? ClusterManager.Instance.activeWorldId
 				: 0;
 			_points = FastTravelStorage.GetForWorld(worldId);
-		}
-
-		private void ClampIndices() {
-			int level0Count = _points.Count + 1;
-			int idx0 = GetIndex(0);
-			if (idx0 >= level0Count) SetIndex(0, level0Count - 1);
-			if (idx0 < 0) SetIndex(0, 0);
-
-			// If we were drilled into a bookmark that no longer exists, go back.
-			if (Level > 0 && GetIndex(0) >= _points.Count) {
-				Level = 0;
-			}
-		}
-
-		// ========================================
-		// LEVEL DESCRIPTION
-		// ========================================
-
-		protected override int GetItemCount(int level, int[] indices) {
-			if (level == 0) return _points.Count + 1;
-			if (level == 1) {
-				if (indices[0] < 0 || indices[0] >= _points.Count) return 0;
-				return 3;
-			}
-			return 0;
-		}
-
-		protected override string GetItemLabel(int level, int[] indices) {
-			if (level == 0) {
-				int i = indices[0];
-				if (i == _points.Count) return (string)STRINGS.ONIACCESS.FAST_TRAVEL.CREATE_NEW;
-				if (i < 0 || i >= _points.Count) return null;
-				var point = _points[i];
-				string coords = GridCoordinates.Format(point.Cell);
-				return string.Format(STRINGS.ONIACCESS.FAST_TRAVEL.ENTRY, point.Name, coords);
-			}
-			if (level == 1) {
-				switch (indices[1]) {
-					case LeafRename: return (string)STRINGS.ONIACCESS.FAST_TRAVEL.RENAME;
-					case LeafRelocate: return (string)STRINGS.ONIACCESS.FAST_TRAVEL.RELOCATE;
-					case LeafDelete: return (string)STRINGS.ONIACCESS.FAST_TRAVEL.DELETE;
-				}
-			}
-			return null;
-		}
-
-		protected override string GetParentLabel(int level, int[] indices) {
-			if (level >= 1 && indices[0] >= 0 && indices[0] < _points.Count)
-				return _points[indices[0]].Name;
-			return null;
-		}
-
-		protected override bool ShouldDrillOnActivate() => false;
-
-		// ========================================
-		// LEAF ACTIVATION
-		// ========================================
-
-		protected override void ActivateLeafItem(int[] indices) {
-			if (Level == 0) {
-				int i = indices[0];
-				if (i == _points.Count) {
-					OpenCreatePrompt();
-					return;
-				}
-				if (i < 0 || i >= _points.Count) return;
-				JumpToPoint(_points[i]);
-				return;
-			}
-			if (Level == 1) {
-				if (indices[0] < 0 || indices[0] >= _points.Count) return;
-				var target = _points[indices[0]];
-				switch (indices[1]) {
-					case LeafRename:
-						OpenRenamePrompt(target);
-						return;
-					case LeafRelocate:
-						RelocatePoint(target);
-						return;
-					case LeafDelete:
-						DeletePoint(target);
-						return;
-				}
-			}
 		}
 
 		// ========================================
@@ -230,25 +173,10 @@ namespace OniAccess.Handlers.Tiles.FastTravel {
 		private void DeletePoint(FastTravelPoint target) {
 			FastTravelStorage.Remove(target.Id);
 			SpeechPipeline.SpeakInterrupt(string.Format(STRINGS.ONIACCESS.FAST_TRAVEL.DELETED, target.Name));
-			Level = 0;
 			RefreshPoints();
-			ClampIndices();
-			SpeakCurrentItem();
-		}
-
-		// ========================================
-		// SEARCH
-		// ========================================
-
-		protected override int GetSearchItemCount(int[] indices) => _points.Count;
-
-		protected override string GetSearchItemLabel(int flatIndex) {
-			if (flatIndex < 0 || flatIndex >= _points.Count) return null;
-			return _points[flatIndex].Name;
-		}
-
-		protected override void MapSearchIndex(int flatIndex, int[] outIndices) {
-			outIndices[0] = flatIndex;
+			Nav.SetPath(new[] { Nav.Path[0] });
+			Nav.ClampToTree();
+			AnnounceCurrent();
 		}
 
 		// ========================================
@@ -270,12 +198,12 @@ namespace OniAccess.Handlers.Tiles.FastTravel {
 				}
 			}
 			if (newIndex < 0) {
-				ClampIndices();
+				Nav.ClampToTree();
 				return;
 			}
-			SetIndex(0, newIndex);
-			Level = _pendingFocusLevel;
-			if (Level == 1) SetIndex(1, LeafRename);
+			Nav.SetPath(_pendingFocusLevel == 1
+				? new[] { newIndex, 0 }
+				: new[] { newIndex });
 		}
 	}
 }

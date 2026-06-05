@@ -1,21 +1,29 @@
+using System;
 using System.Collections.Generic;
 
+using OniAccess.Navigation;
 using OniAccess.Speech;
+using OniAccess.Widgets;
 
 namespace OniAccess.Handlers.Screens.Codex {
 	/// <summary>
-	/// Categories tab: 4-level NestedMenuHandler.
+	/// Categories tab: a drill tree over the codex.
 	/// Level 0 = top categories (programmatic CategoryEntry + YAML-based)
 	/// Level 1 = entries or sub-categories within a category
 	/// Level 2 = entries within a sub-category (CategoryEntry children)
 	///           OR SubEntries of a level 1 entry (critter morphs, etc.)
 	/// Level 3 = SubEntries of a level 2 entry inside a sub-category
 	///
-	/// Enter on a CodexEntry with SubEntries opens the article directly.
-	/// Right arrow drills into SubEntries. Enter on a SubEntry opens the
-	/// parent article with the content cursor at that SubEntry's section.
+	/// Each node's children are computed on demand: a category yields its entries,
+	/// a non-category entry yields its visible sub-entries. Enter on a CodexEntry
+	/// opens its article; Right drills into sub-entries; Enter on a sub-entry opens
+	/// the parent article at that sub-entry's section.
+	///
+	/// Type-ahead searches a custom frontier spanning leaf entries, sub-entries, and
+	/// the top categories (categories ordered last), so it overrides the search hooks
+	/// rather than using the engine's leaf frontier.
 	/// </summary>
-	internal class CategoriesTab: NestedMenuHandler, IScreenTab {
+	internal class CategoriesTab: NavTreeHandler, IScreenTab {
 		private readonly CodexScreenHandler _parent;
 		private List<FlatEntry> _flatEntries;
 
@@ -28,7 +36,7 @@ namespace OniAccess.Handlers.Screens.Codex {
 
 		public override string DisplayName => TabName;
 
-		public override IReadOnlyList<HelpEntry> HelpEntries => NestedNavHelpEntries;
+		public override IReadOnlyList<HelpEntry> HelpEntries => DrillNavHelpEntries;
 
 		// ========================================
 		// IScreenTab
@@ -49,11 +57,8 @@ namespace OniAccess.Handlers.Screens.Codex {
 				ResetState();
 			if (announce)
 				SpeechPipeline.SpeakInterrupt(TabName);
-			if (ItemCount > 0) {
-				string label = GetItemLabel(CurrentIndex);
-				if (!string.IsNullOrEmpty(label))
-					SpeechPipeline.SpeakQueued(label);
-			}
+			if (ItemCount > 0)
+				AnnounceCurrent(interrupt: false);
 		}
 
 		public void OnTabDeactivated() {
@@ -69,168 +74,110 @@ namespace OniAccess.Handlers.Screens.Codex {
 		}
 
 		// ========================================
-		// NestedMenuHandler abstracts
+		// TREE CONSTRUCTION
 		// ========================================
 
-		protected override int MaxLevel => 3;
-		protected override int SearchLevel => 1;
+		protected override IReadOnlyList<NavItem> BuildRoots() {
+			var topCats = CodexHelper.GetTopCategories();
+			var roots = new List<NavItem>(topCats.Count);
+			foreach (var cat in topCats) {
+				var c = cat;
+				roots.Add(new MenuNode(
+					() => CodexHelper.GetCategoryDisplayName(c),
+					children: () => ChildrenOf(c)));
+			}
+			return roots;
+		}
 
+		private IReadOnlyList<NavItem> ChildrenOf(CodexEntry entry) {
+			if (CodexHelper.IsCategory(entry)) {
+				var children = CodexHelper.GetEntriesInCategory(entry);
+				var list = new List<NavItem>(children.Count);
+				foreach (var child in children)
+					list.Add(EntryNode(child));
+				return list;
+			}
+			var subs = CodexHelper.GetVisibleSubEntries(entry);
+			var subList = new List<NavItem>(subs.Count);
+			foreach (var sub in subs) {
+				var s = sub;
+				subList.Add(new MenuNode(
+					() => CodexHelper.GetSubEntryName(s),
+					activate: () => { OpenSubEntry(s); return true; }));
+			}
+			return subList;
+		}
+
+		private NavItem EntryNode(CodexEntry entry) {
+			var e = entry;
+			if (CodexHelper.IsCategory(e)) {
+				// Sub-category: drillable, not directly activatable.
+				return new MenuNode(
+					() => CodexHelper.GetEntryName(e),
+					children: () => ChildrenOf(e));
+			}
+			// Leaf entry: opens its article on Enter; Right still drills into sub-entries.
+			return new MenuNode(
+				() => CodexHelper.GetEntryName(e),
+				children: () => ChildrenOf(e),
+				activate: () => { OpenEntry(e); return true; });
+		}
+
+		// Categories drill on Enter; entries and sub-entries open their article.
 		protected override bool ShouldDrillOnActivate() {
-			var entry = ResolveEntryAtLevel(Level);
-			return entry != null && CodexHelper.IsCategory(entry);
+			var node = Nav.Current();
+			return node != null && !node.IsActivatable();
 		}
 
-		protected override int GetItemCount(int level, int[] indices) {
-			if (level == 0)
-				return CodexHelper.GetTopCategories().Count;
-
-			var parent = ResolveEntryAtLevel(level - 1, indices);
-			if (parent == null) return 0;
-
-			if (CodexHelper.IsCategory(parent))
-				return CodexHelper.GetEntriesInCategory(parent).Count;
-
-			return CodexHelper.GetVisibleSubEntries(parent).Count;
-		}
-
-		protected override string GetItemLabel(int level, int[] indices) {
-			if (level == 0) {
-				var topCats = CodexHelper.GetTopCategories();
-				if (indices[0] < 0 || indices[0] >= topCats.Count) return null;
-				return CodexHelper.GetCategoryDisplayName(topCats[indices[0]]);
-			}
-
-			var parent = ResolveEntryAtLevel(level - 1, indices);
-			if (parent == null) return null;
-
-			if (CodexHelper.IsCategory(parent)) {
-				var children = CodexHelper.GetEntriesInCategory(parent);
-				if (indices[level] < 0 || indices[level] >= children.Count) return null;
-				return CodexHelper.GetEntryName(children[indices[level]]);
-			}
-
-			var subs = CodexHelper.GetVisibleSubEntries(parent);
-			if (indices[level] < 0 || indices[level] >= subs.Count) return null;
-			return CodexHelper.GetSubEntryName(subs[indices[level]]);
-		}
-
-		protected override string GetParentLabel(int level, int[] indices) {
-			if (level <= 0) return null;
-			var parent = ResolveEntryAtLevel(level - 1, indices);
-			if (parent == null) return null;
-			if (level == 1) return CodexHelper.GetCategoryDisplayName(parent);
-			return CodexHelper.GetEntryName(parent);
-		}
-
-		protected override void ActivateLeafItem(int[] indices) {
-			var sub = ResolveSubEntry(indices);
-			if (sub != null) {
-				_parent.ContentTabRef.SetPendingSubEntryId(sub.id);
-				var screen = _parent.CodexScreen;
-				if (screen == null) return;
-				PlaySound("HUD_Click_Open");
-				screen.ChangeArticle(sub.id);
-				_parent.JumpToContentTab();
-				return;
-			}
-
-			var entry = ResolveEntryAtLevel(Level, indices);
-			if (entry == null) return;
-
-			var codexScreen = _parent.CodexScreen;
-			if (codexScreen == null) return;
-
+		private void OpenEntry(CodexEntry entry) {
+			var screen = _parent.CodexScreen;
+			if (screen == null) return;
 			PlaySound("HUD_Click_Open");
-			codexScreen.ChangeArticle(entry.id);
+			screen.ChangeArticle(entry.id);
 			_parent.JumpToContentTab();
 		}
 
-		protected override int GetSearchTargetLevel(int flatIndex, int[] mappedIndices) {
-			var all = GetAllSearchableEntries();
-			if (flatIndex < 0 || flatIndex >= all.Count) return 1;
-			var item = all[flatIndex];
-			if (item.isCategory) return 0;
-			return item.targetLevel;
+		private void OpenSubEntry(SubEntry sub) {
+			_parent.ContentTabRef.SetPendingSubEntryId(sub.id);
+			var screen = _parent.CodexScreen;
+			if (screen == null) return;
+			PlaySound("HUD_Click_Open");
+			screen.ChangeArticle(sub.id);
+			_parent.JumpToContentTab();
 		}
 
 		// ========================================
-		// Search across all leaf entries and SubEntries
+		// SEARCH (custom frontier: leaf entries, sub-entries, and top categories)
 		// ========================================
 
-		protected override int GetSearchItemCount(int[] indices) {
-			return GetAllSearchableEntries().Count;
-		}
+		protected override int SearchCount() => GetAllSearchableEntries().Count;
 
-		protected override string GetSearchItemLabel(int flatIndex) {
+		protected override string SearchEntryText(int index) {
 			var all = GetAllSearchableEntries();
-			if (flatIndex < 0 || flatIndex >= all.Count) return null;
-			var item = all[flatIndex];
+			if (index < 0 || index >= all.Count) return null;
+			var item = all[index];
 			if (item.subEntryName != null) return item.subEntryName;
 			return CodexHelper.GetEntryName(item.entry);
 		}
 
-		protected override void MapSearchIndex(int flatIndex, int[] outIndices) {
+		protected override void MoveSearchCursor(int index) {
 			var all = GetAllSearchableEntries();
-			if (flatIndex < 0 || flatIndex >= all.Count) return;
-			var item = all[flatIndex];
-			outIndices[0] = item.catIdx;
-			outIndices[1] = item.entryIdx;
-			outIndices[2] = item.subCatIdx;
-			outIndices[3] = item.subEntryIdx;
+			if (index < 0 || index >= all.Count) return;
+			var item = all[index];
+			int targetLevel = item.isCategory ? 0 : item.targetLevel;
+			Nav.SetPath(PathFor(item, targetLevel));
+			_search.Clear();
+			AnnounceCurrent();
 		}
-
-		// ========================================
-		// Helpers
-		// ========================================
 
 		private int GetSearchGroup(int flatIndex) {
 			var all = GetAllSearchableEntries();
 			return (flatIndex >= 0 && flatIndex < all.Count && all[flatIndex].isCategory) ? 1 : 0;
 		}
 
-		/// <summary>
-		/// Resolve the CodexEntry at a given level using the current live indices.
-		/// </summary>
-		private CodexEntry ResolveEntryAtLevel(int level) {
-			// Build a snapshot of live indices for ResolveEntryAtLevel(int, int[])
-			int[] snap = new int[4];
-			for (int i = 0; i <= level && i < 4; i++)
-				snap[i] = GetIndex(i);
-			return ResolveEntryAtLevel(level, snap);
-		}
-
-		/// <summary>
-		/// Walk the category tree to resolve the CodexEntry at a given level.
-		/// Traverses both CategoryEntry and YAML-based category children.
-		/// </summary>
-		private static CodexEntry ResolveEntryAtLevel(int level, int[] indices) {
-			var topCats = CodexHelper.GetTopCategories();
-			if (indices[0] < 0 || indices[0] >= topCats.Count) return null;
-			if (level == 0) return topCats[indices[0]];
-
-			CodexEntry current = topCats[indices[0]];
-			for (int l = 1; l <= level; l++) {
-				if (!CodexHelper.IsCategory(current)) return null;
-				var children = CodexHelper.GetEntriesInCategory(current);
-				if (indices[l] < 0 || indices[l] >= children.Count) return null;
-				current = children[indices[l]];
-			}
-			return current;
-		}
-
-		/// <summary>
-		/// If the current level points to a SubEntry (parent is non-CategoryEntry
-		/// with visible SubEntries), return that SubEntry. Otherwise null.
-		/// </summary>
-		private SubEntry ResolveSubEntry(int[] indices) {
-			if (Level < 1) return null;
-			var parent = ResolveEntryAtLevel(Level - 1, indices);
-			if (parent == null || CodexHelper.IsCategory(parent)) return null;
-			var subs = CodexHelper.GetVisibleSubEntries(parent);
-			if (subs.Count == 0) return null;
-			if (indices[Level] < 0 || indices[Level] >= subs.Count) return null;
-			return subs[indices[Level]];
-		}
+		// ========================================
+		// CURSOR POSITIONING
+		// ========================================
 
 		/// <summary>
 		/// Position the cursor on the leaf entry matching entryId.
@@ -242,18 +189,27 @@ namespace OniAccess.Handlers.Screens.Codex {
 				if (all[i].isCategory) continue;
 				if (all[i].subEntryName != null) continue;
 				if (all[i].entry.id == entryId) {
+					// Original landed with subEntryIdx forced to 0.
 					var item = all[i];
-					SetIndex(0, item.catIdx);
-					SetIndex(1, item.entryIdx);
-					SetIndex(2, item.subCatIdx);
-					SetIndex(3, 0);
-					Level = item.targetLevel;
+					item.subEntryIdx = 0;
+					Nav.SetPath(PathFor(item, item.targetLevel));
 					_search.Clear();
 					SuppressSearchThisFrame();
 					return true;
 				}
 			}
 			return false;
+		}
+
+		/// <summary>
+		/// The cursor path for a flat entry at the given target level: the leading
+		/// indices of [catIdx, entryIdx, subCatIdx, subEntryIdx].
+		/// </summary>
+		private static int[] PathFor(FlatEntry item, int targetLevel) {
+			var full = new[] { item.catIdx, item.entryIdx, item.subCatIdx, item.subEntryIdx };
+			var path = new int[targetLevel + 1];
+			Array.Copy(full, path, targetLevel + 1);
+			return path;
 		}
 
 		private struct FlatEntry {

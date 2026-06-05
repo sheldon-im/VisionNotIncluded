@@ -203,12 +203,18 @@ namespace OniAccess.Handlers.Screens.Codex {
 
 		/// <summary>
 		/// The cursor path for a flat entry at the given target level: the leading
-		/// indices of [catIdx, entryIdx, subCatIdx, subEntryIdx].
+		/// indices of [catIdx, entryIdx, subCatIdx, subEntryIdx]. A sub-entry's
+		/// position lives in subEntryIdx, so for a sub-entry directly under a level-1
+		/// entry (target level 2) that index belongs at the deepest level — otherwise
+		/// the generic copy would place the (zero) sub-category index there and land
+		/// on the entry's first sub-entry instead of the matched one.
 		/// </summary>
 		private static int[] PathFor(FlatEntry item, int targetLevel) {
 			var full = new[] { item.catIdx, item.entryIdx, item.subCatIdx, item.subEntryIdx };
 			var path = new int[targetLevel + 1];
 			Array.Copy(full, path, targetLevel + 1);
+			if (item.subEntryName != null)
+				path[targetLevel] = item.subEntryIdx;
 			return path;
 		}
 

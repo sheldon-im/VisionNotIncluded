@@ -33,7 +33,7 @@ namespace OniAccess.Handlers.Screens.Schedule {
 			_search.Clear();
 			SuppressSearchThisFrame();
 			if (announce)
-				SpeechPipeline.SpeakInterrupt(WidgetSpeech.ComposeMessage(TabName));
+				SpeechPipeline.SpeakInterrupt(TabName);
 			var dupes = GetDupeList();
 			if (dupes.Count > 0)
 				SpeechPipeline.SpeakQueued(
@@ -93,7 +93,7 @@ namespace OniAccess.Handlers.Screens.Schedule {
 			targetSchedule.Assign(schedulable);
 
 			ScheduleHelper.PlayHoverSound();
-			SpeechPipeline.SpeakInterrupt(WidgetSpeech.ComposeMessage(targetSchedule.name));
+			SpeechPipeline.SpeakInterrupt(targetSchedule.name);
 		}
 
 		// ========================================

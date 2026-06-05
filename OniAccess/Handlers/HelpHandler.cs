@@ -66,8 +66,7 @@ namespace OniAccess.Handlers {
 				Speech.SpeechPipeline.SpeakQueued(
 					WidgetSpeech.ComposeLabel(_entries[CurrentIndex].ToString()));
 			else
-				Speech.SpeechPipeline.SpeakQueued(
-					WidgetSpeech.ComposeMessage(STRINGS.ONIACCESS.SPEECH.NO_COMMANDS));
+				Speech.SpeechPipeline.SpeakQueued(STRINGS.ONIACCESS.SPEECH.NO_COMMANDS);
 		}
 
 		public override bool Tick() {
@@ -90,8 +89,7 @@ namespace OniAccess.Handlers {
 		}
 
 		private void Close() {
-			Speech.SpeechPipeline.SpeakInterrupt(
-				WidgetSpeech.ComposeMessage(STRINGS.ONIACCESS.TOOLTIP.CLOSED));
+			Speech.SpeechPipeline.SpeakInterrupt(STRINGS.ONIACCESS.TOOLTIP.CLOSED);
 			PlaySound("HUD_Click_Close");
 			HandlerStack.Pop();
 		}

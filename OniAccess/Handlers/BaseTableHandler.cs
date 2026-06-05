@@ -385,16 +385,16 @@ namespace OniAccess.Handlers {
 			if (_sortColumn != _col) {
 				_sortColumn = _col;
 				_sortAscending = false;
-				SpeechPipeline.SpeakInterrupt(WidgetSpeech.ComposeMessage(
-					string.Format(STRINGS.ONIACCESS.TABLE.SORT_DESC_FMT, colName)));
+				SpeechPipeline.SpeakInterrupt(
+					string.Format(STRINGS.ONIACCESS.TABLE.SORT_DESC_FMT, colName));
 			} else if (!_sortAscending) {
 				_sortAscending = true;
-				SpeechPipeline.SpeakInterrupt(WidgetSpeech.ComposeMessage(
-					string.Format(STRINGS.ONIACCESS.TABLE.SORT_ASC_FMT, colName)));
+				SpeechPipeline.SpeakInterrupt(
+					string.Format(STRINGS.ONIACCESS.TABLE.SORT_ASC_FMT, colName));
 			} else {
 				_sortColumn = -1;
-				SpeechPipeline.SpeakInterrupt(WidgetSpeech.ComposeMessage(
-					string.Format(STRINGS.ONIACCESS.TABLE.SORT_CLEARED_FMT, colName)));
+				SpeechPipeline.SpeakInterrupt(
+					string.Format(STRINGS.ONIACCESS.TABLE.SORT_CLEARED_FMT, colName));
 			}
 
 			RebuildRows();

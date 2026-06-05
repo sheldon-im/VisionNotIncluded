@@ -210,8 +210,7 @@ namespace OniAccess.Handlers.Notifications {
 					return true;
 				if (e.TryConsume(Action.Escape)) {
 					HandlerStack.Pop();
-					SpeechPipeline.SpeakInterrupt(
-						WidgetSpeech.ComposeMessage(STRINGS.ONIACCESS.TOOLTIP.CLOSED));
+					SpeechPipeline.SpeakInterrupt(STRINGS.ONIACCESS.TOOLTIP.CLOSED);
 					return true;
 				}
 				return false;

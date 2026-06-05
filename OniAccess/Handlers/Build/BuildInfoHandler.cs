@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Database;
 using Klei.AI;
 using OniAccess.Speech;
+using OniAccess.Widgets;
 using UnityEngine;
 
 namespace OniAccess.Handlers.Build {
@@ -51,7 +52,7 @@ namespace OniAccess.Handlers.Build {
 
 		public override void SpeakCurrentItem(string parentContext = null) {
 			if (_items != null && CurrentIndex >= 0 && CurrentIndex < _items.Count)
-				SpeechPipeline.SpeakInterrupt(_items[CurrentIndex].Label);
+				SpeechPipeline.SpeakInterrupt(WidgetSpeech.ComposeLabel(_items[CurrentIndex].Label));
 		}
 
 		public override void OnActivate() {
@@ -61,7 +62,7 @@ namespace OniAccess.Handlers.Build {
 			_search.Clear();
 
 			if (_items.Count > 0)
-				SpeechPipeline.SpeakInterrupt(_items[0].Label);
+				SpeechPipeline.SpeakInterrupt(WidgetSpeech.ComposeLabel(_items[0].Label));
 			else
 				SpeechPipeline.SpeakInterrupt(DisplayName);
 		}

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using HarmonyLib;
 using OniAccess.Speech;
+using OniAccess.Widgets;
 
 namespace OniAccess.Handlers.Tools {
 	/// <summary>
@@ -47,7 +48,7 @@ namespace OniAccess.Handlers.Tools {
 
 		public override void SpeakCurrentItem(string parentContext = null) {
 			if (_filterNames != null && CurrentIndex >= 0 && CurrentIndex < _filterNames.Count)
-				SpeechPipeline.SpeakInterrupt(_filterNames[CurrentIndex]);
+				SpeechPipeline.SpeakInterrupt(WidgetSpeech.ComposeLabel(_filterNames[CurrentIndex]));
 		}
 
 		public override void OnActivate() {
@@ -84,7 +85,7 @@ namespace OniAccess.Handlers.Tools {
 			}
 
 			if (_filterNames.Count > 0) {
-				SpeechPipeline.SpeakInterrupt(_filterNames[CurrentIndex]);
+				SpeechPipeline.SpeakInterrupt(WidgetSpeech.ComposeLabel(_filterNames[CurrentIndex]));
 			} else {
 				Util.Log.Warn("ToolFilterHandler.OnActivate: no filter parameters available");
 				SpeechPipeline.SpeakInterrupt((string)STRINGS.ONIACCESS.TOOLTIP.CLOSED);

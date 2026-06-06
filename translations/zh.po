@@ -3188,7 +3188,7 @@ msgstr "快速搜索"
 
 #. STRINGS.ONIACCESS.HOTKEYS.TOGGLE_MOD
 msgctxt "STRINGS.ONIACCESS.HOTKEYS.TOGGLE_MOD"
-msgid "Toggle Oni-Access on/off"
+msgid "Toggle Vision Not Included on/off"
 msgstr "开关缺视"
 
 #. STRINGS.ONIACCESS.INFO.BIONIC_BUG
@@ -5074,17 +5074,17 @@ msgstr "错误，{0}失败"
 
 #. STRINGS.ONIACCESS.SPEECH.MOD_LOADED
 msgctxt "STRINGS.ONIACCESS.SPEECH.MOD_LOADED"
-msgid "Oni-Access version {0} loaded"
+msgid "Vision Not Included version {0} loaded"
 msgstr "缺视{0}版已加载"
 
 #. STRINGS.ONIACCESS.SPEECH.MOD_OFF
 msgctxt "STRINGS.ONIACCESS.SPEECH.MOD_OFF"
-msgid "Oni-Access off"
+msgid "Vision Not Included off"
 msgstr "缺视已关闭"
 
 #. STRINGS.ONIACCESS.SPEECH.MOD_ON
 msgctxt "STRINGS.ONIACCESS.SPEECH.MOD_ON"
-msgid "Oni-Access on"
+msgid "Vision Not Included on"
 msgstr "缺视已开启"
 
 #. STRINGS.ONIACCESS.SPEECH.NO_COMMANDS

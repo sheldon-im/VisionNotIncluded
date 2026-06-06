@@ -3190,7 +3190,7 @@ msgstr ""
 
 #. STRINGS.ONIACCESS.HOTKEYS.TOGGLE_MOD
 msgctxt "STRINGS.ONIACCESS.HOTKEYS.TOGGLE_MOD"
-msgid "Toggle Oni-Access on/off"
+msgid "Toggle Vision Not Included on/off"
 msgstr ""
 
 #. STRINGS.ONIACCESS.INFO.BIONIC_BUG
@@ -5075,17 +5075,17 @@ msgstr ""
 
 #. STRINGS.ONIACCESS.SPEECH.MOD_LOADED
 msgctxt "STRINGS.ONIACCESS.SPEECH.MOD_LOADED"
-msgid "Oni-Access version {0} loaded"
+msgid "Vision Not Included version {0} loaded"
 msgstr ""
 
 #. STRINGS.ONIACCESS.SPEECH.MOD_OFF
 msgctxt "STRINGS.ONIACCESS.SPEECH.MOD_OFF"
-msgid "Oni-Access off"
+msgid "Vision Not Included off"
 msgstr ""
 
 #. STRINGS.ONIACCESS.SPEECH.MOD_ON
 msgctxt "STRINGS.ONIACCESS.SPEECH.MOD_ON"
-msgid "Oni-Access on"
+msgid "Vision Not Included on"
 msgstr ""
 
 #. STRINGS.ONIACCESS.SPEECH.NO_COMMANDS

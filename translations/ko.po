@@ -3188,7 +3188,7 @@ msgstr "입력 검색"
 
 #. STRINGS.ONIACCESS.HOTKEYS.TOGGLE_MOD
 msgctxt "STRINGS.ONIACCESS.HOTKEYS.TOGGLE_MOD"
-msgid "Toggle Oni-Access on/off"
+msgid "Toggle Vision Not Included on/off"
 msgstr "시각미포함 켜기/끄기 전환"
 
 #. STRINGS.ONIACCESS.INFO.BIONIC_BUG
@@ -5073,17 +5073,17 @@ msgstr "오류, {0} 실패"
 
 #. STRINGS.ONIACCESS.SPEECH.MOD_LOADED
 msgctxt "STRINGS.ONIACCESS.SPEECH.MOD_LOADED"
-msgid "Oni-Access version {0} loaded"
+msgid "Vision Not Included version {0} loaded"
 msgstr "시각미포함 버전 {0} 로드됨"
 
 #. STRINGS.ONIACCESS.SPEECH.MOD_OFF
 msgctxt "STRINGS.ONIACCESS.SPEECH.MOD_OFF"
-msgid "Oni-Access off"
+msgid "Vision Not Included off"
 msgstr "시각미포함 꺼짐"
 
 #. STRINGS.ONIACCESS.SPEECH.MOD_ON
 msgctxt "STRINGS.ONIACCESS.SPEECH.MOD_ON"
-msgid "Oni-Access on"
+msgid "Vision Not Included on"
 msgstr "시각미포함 켜짐"
 
 #. STRINGS.ONIACCESS.SPEECH.NO_COMMANDS

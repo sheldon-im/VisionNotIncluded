@@ -29,8 +29,10 @@ namespace OniAccess.Handlers.Tiles.Scanner {
 
 		// ===== Queries =====
 
-		/// <summary>All categories in creation order (the live list).</summary>
-		public static List<CustomScannerCategory> GetAll() => All;
+		/// <summary>All categories, sorted alphabetically by name. A copy, so
+		/// the live list's creation order is left undisturbed.</summary>
+		public static List<CustomScannerCategory> GetAll() =>
+			All.OrderBy(c => c.Name, StringComparer.OrdinalIgnoreCase).ToList();
 
 		public static CustomScannerCategory Find(string id) =>
 			All.FirstOrDefault(c => c.Id == id);

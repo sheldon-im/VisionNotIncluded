@@ -9,7 +9,7 @@ namespace OniAccess.Handlers.Tiles.Scanner {
 	/// Modal menu for managing custom scanner categories, pushed from the
 	/// scanner config section.
 	///
-	/// A flat list: one row per custom category (creation order) plus a
+	/// A flat list: one row per custom category (alphabetical by name) plus a
 	/// "Create new" row at the end. Enter on a category opens its editor
 	/// (filter toggles plus Rename and Delete). Enter on "Create new" makes a
 	/// category named "Custom category N" and opens its editor immediately;

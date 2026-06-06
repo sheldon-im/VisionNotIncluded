@@ -2,6 +2,8 @@
 
 ## Unreleased changes since 1.5.2
 
+- Fix custom scanner categories not sorting alphabetically: they now order by name among themselves, in both the manager and the scan cycle, so renaming one moves it to its alphabetical place.
+
 ## 1.5.2
 
 - Renamed the mod to Vision Not Included.

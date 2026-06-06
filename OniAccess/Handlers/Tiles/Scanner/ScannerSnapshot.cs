@@ -135,7 +135,8 @@ namespace OniAccess.Handlers.Tiles.Scanner {
 				ScannerTaxonomy.CategorySortIndex(a.Name)
 					.CompareTo(ScannerTaxonomy.CategorySortIndex(b.Name)));
 
-			// Custom categories sort ahead of the built-ins, in creation order.
+			// Custom categories sort ahead of the built-ins, in the order the
+			// store supplies them (alphabetical by name).
 			var customCats = BuildCustomCategories(entries, cursorCell, customDefs);
 			if (customCats.Count == 0)
 				return categories;

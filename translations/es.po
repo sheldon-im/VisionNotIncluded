@@ -3187,7 +3187,7 @@ msgstr "Búsqueda predictiva"
 #. STRINGS.ONIACCESS.HOTKEYS.TOGGLE_MOD
 msgctxt "STRINGS.ONIACCESS.HOTKEYS.TOGGLE_MOD"
 msgid "Toggle Oni-Access on/off"
-msgstr "Activar o desactivar Oni-Access"
+msgstr "Activar o desactivar Visión no incluida"
 
 #. STRINGS.ONIACCESS.INFO.BIONIC_BUG
 msgctxt "STRINGS.ONIACCESS.INFO.BIONIC_BUG"
@@ -5070,17 +5070,17 @@ msgstr "Error, {0} falló"
 #. STRINGS.ONIACCESS.SPEECH.MOD_LOADED
 msgctxt "STRINGS.ONIACCESS.SPEECH.MOD_LOADED"
 msgid "Oni-Access version {0} loaded"
-msgstr "Oni-Access versión {0} cargado"
+msgstr "Visión no incluida versión {0} cargada"
 
 #. STRINGS.ONIACCESS.SPEECH.MOD_OFF
 msgctxt "STRINGS.ONIACCESS.SPEECH.MOD_OFF"
 msgid "Oni-Access off"
-msgstr "Oni-Access desactivado"
+msgstr "Visión no incluida desactivada"
 
 #. STRINGS.ONIACCESS.SPEECH.MOD_ON
 msgctxt "STRINGS.ONIACCESS.SPEECH.MOD_ON"
 msgid "Oni-Access on"
-msgstr "Oni-Access activado"
+msgstr "Visión no incluida activada"
 
 #. STRINGS.ONIACCESS.SPEECH.NO_COMMANDS
 msgctxt "STRINGS.ONIACCESS.SPEECH.NO_COMMANDS"

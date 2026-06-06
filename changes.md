@@ -1,6 +1,8 @@
 # Changelog
 
-## Unreleased changes since 1.5.0
+## Unreleased changes since 1.5.1
+
+## 1.5.1
 
 - Fix the Apply button being unreachable in graphics settings: it now appears in the list as soon as a setting change enables it, so you can apply your changes.
 

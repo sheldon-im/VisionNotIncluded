@@ -1,6 +1,6 @@
-# OniAccess Reference
+# Vision Not Included Reference
 
-OniAccess is an accessibility mod that makes Oxygen Not Included playable for blind users through screen reader speech output. This is the full feature reference. For install instructions and getting started, see [getting-started.md](getting-started.md). For recent changes, see [changes.md](changes.md).
+Vision Not Included is an accessibility mod that makes Oxygen Not Included playable for blind users through screen reader speech output. This is the full feature reference. For install instructions and getting started, see [getting-started.md](getting-started.md). For recent changes, see [changes.md](changes.md).
 
 ## Context help and mod toggle
 
@@ -447,7 +447,7 @@ If something isn't working, the player log usually has the answer. It's at `%USE
 ## Credits
 
 - **aaronr7734** — His work on Rimworld Access directly inspired many of the mod's complex UI adaptations, including the schedule screen, type-ahead search, and scanner search.
-- **Alexandr Epaneshnikov (alex19EP)** — Started the OniAccess project and provided much of the initial research.
+- **Alexandr Epaneshnikov (alex19EP)** — Started the Vision Not Included project and provided much of the initial research.
 - **Austin Hicks (ahicks)** — His general advice and work on Factorio Access inspired much of the mod's infrastructure. Many of the mod's core systems are lifted directly from Factorio Access.
 - **Brad Renshaw (chaosbringer216)** — Helped me keep my code organized, teaching me OOP along the way. His Slay the Spire mod inspired the graph/node tree approach.
 - **Keltosh_** — Provided the earcon sounds used for pipe and wire presence detection.

@@ -17,9 +17,9 @@ namespace STRINGS {
 		// System-level speech announcements
 		public class SPEECH {
 			// {0} = mod version string (e.g. "1.2.3")
-			public static LocString MOD_LOADED = "Oni-Access version {0} loaded";
-			public static LocString MOD_ON = "Oni-Access on";
-			public static LocString MOD_OFF = "Oni-Access off";
+			public static LocString MOD_LOADED = "Vision Not Included version {0} loaded";
+			public static LocString MOD_ON = "Vision Not Included on";
+			public static LocString MOD_OFF = "Vision Not Included off";
 			public static LocString NO_COMMANDS = "No commands available in this context";
 			// {0} = screen handler display name (e.g. "Key Bindings", "Minion Select")
 			public static LocString HANDLER_FAILED = "Error, {0} failed";
@@ -38,7 +38,7 @@ namespace STRINGS {
 
 		// Hotkey action descriptions shown in key binding UI
 		public class HOTKEYS {
-			public static LocString TOGGLE_MOD = "Toggle Oni-Access on/off";
+			public static LocString TOGGLE_MOD = "Toggle Vision Not Included on/off";
 		}
 
 		// Screen handler display names, announced when a screen opens

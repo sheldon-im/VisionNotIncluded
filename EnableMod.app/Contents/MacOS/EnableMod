@@ -58,7 +58,7 @@ on run
 		set modsJsonPath to findModsJson()
 
 		if modsJsonPath is missing value then
-			set userChoice to button returned of (display dialog "Could not find the OniAccess mod config." & return & return & "If you haven't subscribed yet, click Open Workshop Page." & return & "If you have subscribed, launch the game once, close it, then click Try Again." with title "OniAccess" buttons {"Close", "Try Again", "Open Workshop Page"} default button "Try Again" cancel button "Close")
+			set userChoice to button returned of (display dialog "Could not find the Vision Not Included mod config." & return & return & "If you haven't subscribed yet, click Open Workshop Page." & return & "If you have subscribed, launch the game once, close it, then click Try Again." with title "Vision Not Included" buttons {"Close", "Try Again", "Open Workshop Page"} default button "Try Again" cancel button "Close")
 			if userChoice is "Open Workshop Page" then
 				open location workshopUrl
 			end if
@@ -66,17 +66,17 @@ on run
 			try
 				set result to enableMod(modsJsonPath)
 			on error errMsg
-				display dialog errMsg with title "OniAccess" buttons {"OK"} default button "OK" with icon stop
+				display dialog errMsg with title "Vision Not Included" buttons {"OK"} default button "OK" with icon stop
 				return
 			end try
 
 			if result is "NOT_FOUND" then
-				set userChoice to button returned of (display dialog "Could not find the OniAccess mod config." & return & return & "If you haven't subscribed yet, click Open Workshop Page." & return & "If you have subscribed, launch the game once, close it, then click Try Again." with title "OniAccess" buttons {"Close", "Try Again", "Open Workshop Page"} default button "Try Again" cancel button "Close")
+				set userChoice to button returned of (display dialog "Could not find the Vision Not Included mod config." & return & return & "If you haven't subscribed yet, click Open Workshop Page." & return & "If you have subscribed, launch the game once, close it, then click Try Again." with title "Vision Not Included" buttons {"Close", "Try Again", "Open Workshop Page"} default button "Try Again" cancel button "Close")
 				if userChoice is "Open Workshop Page" then
 					open location workshopUrl
 				end if
 			else
-				set userChoice to button returned of (display dialog "OniAccess enabled. Launch the game?" with title "OniAccess" buttons {"No", "Yes"} default button "Yes")
+				set userChoice to button returned of (display dialog "Vision Not Included enabled. Launch the game?" with title "Vision Not Included" buttons {"No", "Yes"} default button "Yes")
 				if userChoice is "Yes" then
 					open location steamLaunchUrl
 				end if

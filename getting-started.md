@@ -1,4 +1,4 @@
-# OniAccess
+# Vision Not Included
 
 An accessibility mod for Oxygen Not Included that makes the game playable for blind users. All game information is delivered through speech output via your screen reader (using the Prism library). The mod doesn't change game behavior, only adds speech.
 
@@ -16,7 +16,7 @@ An accessibility mod for Oxygen Not Included that makes the game playable for bl
    - Uncheck "Enable the Steam Overlay while in-game".
    - Clear or change the "Screenshot shortcut key".
 3. Launch the game once, then close it. This lets the game discover the mod.
-4. Download and run the EnableMod tool. On Windows, use [EnableMod.exe](https://github.com/rashadnaqeeb/OniAccess/raw/main/EnableMod.exe). On Mac, use [EnableMod.app](https://github.com/rashadnaqeeb/OniAccess/raw/main/EnableMod.app.zip) (right-click > Open the first time to bypass Gatekeeper). It enables the mod in the game's config so you don't have to navigate the mod manager, and offers to launch the game. If the mod ever crashes and the game disables it, run it again to re-enable.
+4. Download and run the EnableMod tool. On Windows, use [EnableMod.exe](https://github.com/rashadnaqeeb/VisionNotIncluded/raw/main/EnableMod.exe). On Mac, use [EnableMod.app](https://github.com/rashadnaqeeb/VisionNotIncluded/raw/main/EnableMod.app.zip) (right-click > Open the first time to bypass Gatekeeper). It enables the mod in the game's config so you don't have to navigate the mod manager, and offers to launch the game. If the mod ever crashes and the game disables it, run it again to re-enable.
 5. Launch the game. The mod will announce when it's ready.
 
 Updates are delivered automatically through the Steam Workshop.
@@ -25,13 +25,13 @@ Updates are delivered automatically through the Steam Workshop.
 
 Use the Steam Workshop install above if at all possible. It handles updates automatically and is the primary distribution method. This manual method is only for players in regions where the Steam Workshop is unavailable.
 
-1. Download the latest release zip from the [GitHub releases page](https://github.com/rashadnaqeeb/OniAccess/releases).
+1. Download the latest release zip from the [GitHub releases page](https://github.com/rashadnaqeeb/VisionNotIncluded/releases).
 2. Extract the zip into your local mods folder: `Documents\Klei\OxygenNotIncluded\mods\local\OniAccess\` on Windows or `~/Library/Application Support/unity.Klei.Oxygen Not Included/mods/local/OniAccess/` on Mac. Create the folder if it doesn't exist. The folder should contain `OniAccess.dll`, `mod.yaml`, `mod_info.yaml`, and the `native`, `translations`, and `audio` folders directly -- not nested inside an extra subfolder.
 3. Disable two Steam hotkeys that interfere with the mod:
    - Open Steam > Settings > In-Game.
    - Uncheck "Enable the Steam Overlay while in-game".
    - Clear or change the "Screenshot shortcut key".
-4. Download and run the EnableMod tool. On Windows, use [EnableMod.exe](https://github.com/rashadnaqeeb/OniAccess/raw/main/EnableMod.exe). On Mac, use [EnableMod.app](https://github.com/rashadnaqeeb/OniAccess/raw/main/EnableMod.app.zip) (right-click > Open the first time to bypass Gatekeeper). It enables the mod in the game's config so you don't have to navigate the mod manager, and offers to launch the game. If the mod ever crashes and the game disables it, run it again to re-enable.
+4. Download and run the EnableMod tool. On Windows, use [EnableMod.exe](https://github.com/rashadnaqeeb/VisionNotIncluded/raw/main/EnableMod.exe). On Mac, use [EnableMod.app](https://github.com/rashadnaqeeb/VisionNotIncluded/raw/main/EnableMod.app.zip) (right-click > Open the first time to bypass Gatekeeper). It enables the mod in the game's config so you don't have to navigate the mod manager, and offers to launch the game. If the mod ever crashes and the game disables it, run it again to re-enable.
 5. Launch the game. The mod will announce when it's ready.
 
 To update, download the new release zip and extract it into the same folder, overwriting the existing files.

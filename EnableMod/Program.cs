@@ -44,15 +44,15 @@ static class Program {
 			} catch (Exception ex) {
 				MessageBox.Show(
 					"Failed to update mod config: " + ex.Message,
-					"OniAccess",
+					"Vision Not Included",
 					MessageBoxButtons.OK,
 					MessageBoxIcon.Error);
 				return;
 			}
 
 			var result = MessageBox.Show(
-				"OniAccess enabled. Launch the game?",
-				"OniAccess",
+				"Vision Not Included enabled. Launch the game?",
+				"Vision Not Included",
 				MessageBoxButtons.YesNo,
 				MessageBoxIcon.Information);
 			if (result == DialogResult.Yes)
@@ -130,7 +130,7 @@ static class Program {
 
 	static NotFoundAction ShowNotFoundDialog() {
 		using (var form = new Form()) {
-			form.Text = "OniAccess";
+			form.Text = "Vision Not Included";
 			form.StartPosition = FormStartPosition.CenterScreen;
 			form.FormBorderStyle = FormBorderStyle.FixedDialog;
 			form.MaximizeBox = false;
@@ -138,7 +138,7 @@ static class Program {
 			form.ClientSize = new System.Drawing.Size(450, 140);
 
 			var message = new Label {
-				Text = "Could not find the OniAccess mod config.\n\n" +
+				Text = "Could not find the Vision Not Included mod config.\n\n" +
 					   "If you haven't subscribed yet, click Open Workshop Page.\n" +
 					   "If you have subscribed, launch the game once, close it, then click Try Again.",
 				Location = new System.Drawing.Point(12, 12),

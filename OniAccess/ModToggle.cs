@@ -6,9 +6,9 @@ namespace OniAccess {
 	/// Mod on/off toggle with full handler-stack integration.
 	///
 	/// Per locked decisions:
-	/// - Toggle OFF: speak "Oni-Access off" THEN full disable (deactivate all handlers,
+	/// - Toggle OFF: speak "Vision Not Included off" THEN full disable (deactivate all handlers,
 	///   stop speech, set flag). Speech must happen BEFORE disable.
-	/// - Toggle ON: set flag first, enable speech, speak "Oni-Access on", detect current
+	/// - Toggle ON: set flag first, enable speech, speak "Vision Not Included on", detect current
 	///   state and activate handler. NO state dump.
 	/// - No background work when off -- full stop.
 	/// - Only Ctrl+Shift+F12 remains active when mod is off (handled by KeyPoller directly).

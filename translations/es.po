@@ -224,6 +224,11 @@ msgctxt "STRINGS.ONIACCESS.BOOKMARKS.HELP_ORIENT_BOOKMARK"
 msgid "Distance to bookmark"
 msgstr "Distancia al marcador"
 
+#. STRINGS.ONIACCESS.BOOKMARKS.HELP_ORIENT_HOME
+msgctxt "STRINGS.ONIACCESS.BOOKMARKS.HELP_ORIENT_HOME"
+msgid "Distance to Printing Pod"
+msgstr "Distancia a la Imprenta de Duplicantes"
+
 #. STRINGS.ONIACCESS.BOOKMARKS.HELP_SET_BOOKMARK
 msgctxt "STRINGS.ONIACCESS.BOOKMARKS.HELP_SET_BOOKMARK"
 msgid "Set bookmark"

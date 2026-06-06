@@ -2,6 +2,8 @@
 
 ## Unreleased changes since 1.5.0
 
+- Fix the Apply button being unreachable in graphics settings: it now appears in the list as soon as a setting change enables it, so you can apply your changes.
+
 ## 1.5.0
 
 - Fix Codex Categories type-ahead landing on the first section of an article instead of the section you searched for.

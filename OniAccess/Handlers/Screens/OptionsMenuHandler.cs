@@ -30,6 +30,13 @@ namespace OniAccess.Handlers.Screens {
 
 		private string _displayName;
 
+		/// <summary>
+		/// Live reference to GraphicsOptionsScreen's Apply button (null on other screens).
+		/// The game keeps it non-interactable until a graphics setting changes, so we read
+		/// its state live each Tick to surface it the moment it becomes usable.
+		/// </summary>
+		private KButton _applyButton;
+
 		public override string DisplayName => _displayName ?? (string)STRINGS.UI.FRONTEND.PAUSE_SCREEN.OPTIONS;
 
 		public override IReadOnlyList<HelpEntry> HelpEntries { get; }
@@ -74,7 +81,41 @@ namespace OniAccess.Handlers.Screens {
 
 		public override void OnActivate() {
 			_displayName = GetDisplayNameForScreen(_screen);
+			if (_screen.GetType() == GraphicsOptionsScreenType)
+				_applyButton = Traverse.Create(_screen).Field("applyButton").GetValue<KButton>();
 			base.OnActivate();
+		}
+
+		public override void OnDeactivate() {
+			base.OnDeactivate();
+			_applyButton = null;
+		}
+
+		public override bool Tick() {
+			SyncApplyButton();
+			return base.Tick();
+		}
+
+		/// <summary>
+		/// GraphicsOptionsScreen's Apply button is non-interactable until a graphics
+		/// setting changes, so initial discovery excludes it. Re-run discovery when its
+		/// live interactable state stops matching list membership: this surfaces the
+		/// button once the game enables it, and drops it again after the player applies.
+		/// The player's position is preserved because Apply joins the trailing button
+		/// group, after the setting widget they just changed.
+		/// </summary>
+		private void SyncApplyButton() {
+			if (_applyButton == null) return;
+
+			bool inList = false;
+			for (int i = 0; i < _widgets.Count; i++) {
+				if (_widgets[i].Component == _applyButton) { inList = true; break; }
+			}
+			if (_applyButton.isInteractable == inList) return;
+
+			int saved = CurrentIndex;
+			DiscoverWidgets(_screen);
+			CurrentIndex = System.Math.Min(saved, System.Math.Max(0, _widgets.Count - 1));
 		}
 
 		public override bool DiscoverWidgets(KScreen screen) {

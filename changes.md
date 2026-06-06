@@ -1,6 +1,8 @@
 # Changelog
 
-## Unreleased changes since 1.5.3
+## Unreleased changes since 1.5.4
+
+## 1.5.4
 
 - Fix being unable to set per-robot access on a door's Access Control: the Robots category can now be drilled into to set individual robot access, not just the category default.
 

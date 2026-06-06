@@ -128,7 +128,7 @@ namespace OniAccess.Tests {
 		public static (string, bool, string) NextSingleItemIsNoOp() {
 			var t = Tree();
 			t.SetPath(new[] { 1, 1, 0 }); // B2 — Sub1 has one child, but depth-2 frontier has many
-			// At depth 0 with a single navigable root we'd no-op; build that case:
+										  // At depth 0 with a single navigable root we'd no-op; build that case:
 			var single = new NavTree(() => new List<NavItem> { new N("only") });
 			var m = single.Next();
 			bool ok = !m.Moved;
@@ -462,7 +462,7 @@ namespace OniAccess.Tests {
 		public static (string, bool, string) SetPathClampsOutOfRange() {
 			var t = Tree();
 			t.SetPath(new[] { 1, 5, 9 }); // Build has 3 children; clamp to SubEmpty (idx 2),
-										   // which has no children → truncate the depth-2 index.
+										  // which has no children → truncate the depth-2 index.
 			var p = t.Path;
 			bool ok = p.Count == 2 && p[0] == 1 && p[1] == 2;
 			return Check("SetPathClampsOutOfRange", ok, $"path=[{string.Join(",", p)}]");
@@ -472,7 +472,7 @@ namespace OniAccess.Tests {
 			List<NavItem> roots = MakeTree();
 			var t = new NavTree(() => roots);
 			t.SetPath(new[] { 1, 1, 0 }); // B2 (Build/Sub1)
-			// Build now has only Sub0 (with one child B0).
+										  // Build now has only Sub0 (with one child B0).
 			roots = new List<NavItem> {
 				roots[0],
 				new N("Build", new N("Sub0", new N("B0"))),

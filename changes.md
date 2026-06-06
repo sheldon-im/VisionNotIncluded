@@ -2,6 +2,10 @@
 
 ## Unreleased changes since 1.5.3
 
+- Fix being unable to set per-robot access on a door's Access Control: the Robots category can now be drilled into to set individual robot access, not just the category default.
+
+- Fix being unable to pick a specific resource in a storage building's filter (storage bin, bottle emptier, etc.): you can now drill into a category like Liquids to choose Clean Water or Polluted Water, even on a newly placed building where nothing is selected yet.
+
 ## 1.5.3
 
 - Alt+H now reports the direction and distance to your home location without moving the cursor, the same way Alt plus a number key orients toward a bookmark.

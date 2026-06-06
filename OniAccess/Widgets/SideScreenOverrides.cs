@@ -394,6 +394,13 @@ namespace OniAccess.Widgets {
 			// Build children for individual elements
 			List<Widget> children = null;
 			if (rowElements != null && rowElements.Count > 0) {
+				// Expand the row so its element GameObjects are activeInHierarchy.
+				// The game collapses categories whose state is Off (nothing
+				// selected, e.g. every category on a newly placed building),
+				// which leaves the elements out of the hierarchy. The nav engine
+				// then treats them as non-navigable and the user can't drill in
+				// to pick a specific resource. Visual state is irrelevant here.
+				row.SetArrowToggleState(true);
 				children = new List<Widget>();
 				var capturedScreen = screen;
 				foreach (var elem in rowElements) {
@@ -790,6 +797,13 @@ namespace OniAccess.Widgets {
 			});
 
 			if (content != null) {
+				// Expand the section so its rows are activeInHierarchy. The game
+				// collapses a section's content by default (the Robots section
+				// stays collapsed until first opened), which leaves the per-entity
+				// rows out of the hierarchy, so the nav engine treats them as
+				// non-navigable and the user can't drill in to set per-entity
+				// access. Visual state is irrelevant here.
+				content.SetActive(true);
 				var contentT = content.transform;
 				for (int i = 0; i < contentT.childCount; i++) {
 					var rowGO = contentT.GetChild(i).gameObject;

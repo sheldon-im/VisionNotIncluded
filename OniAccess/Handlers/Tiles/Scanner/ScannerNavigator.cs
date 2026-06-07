@@ -86,7 +86,7 @@ namespace OniAccess.Handlers.Tiles.Scanner {
 
 			if (allEntries == null) {
 				SpeechPipeline.SpeakInterrupt(
-					(string)STRINGS.ONIACCESS.SCANNER.EMPTY);
+					(string)STRINGS.ONIACCESS.SCANNER.SCAN_FAILED);
 				return;
 			}
 
@@ -122,7 +122,12 @@ namespace OniAccess.Handlers.Tiles.Scanner {
 			_lastWorldId = worldId;
 
 			var allEntries = RunAllBackends(worldId);
-			if (allEntries == null) allEntries = new List<ScanEntry>();
+			if (allEntries == null) {
+				// Don't let a failed scan masquerade as a query with no matches.
+				SpeechPipeline.SpeakInterrupt(
+					(string)STRINGS.ONIACCESS.SCANNER.SCAN_FAILED);
+				return;
+			}
 
 			var searchEntries = ScannerSearch.Filter(allEntries, query);
 

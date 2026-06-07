@@ -1110,6 +1110,9 @@ namespace STRINGS {
 			// Confirmation
 			public static LocString REFRESHED = "scanned";
 			public static LocString EMPTY = "no results";
+			// A backend threw and the whole scan was discarded; distinct from
+			// EMPTY so the user knows the scan broke rather than found nothing.
+			public static LocString SCAN_FAILED = "scan failed";
 			// Announced when a previously scanned entity no longer exists
 			public static LocString INVALID = "gone";
 

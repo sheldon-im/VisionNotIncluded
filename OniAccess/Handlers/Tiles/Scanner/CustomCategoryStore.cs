@@ -49,23 +49,29 @@ namespace OniAccess.Handlers.Tiles.Scanner {
 			return category;
 		}
 
-		public static void Rename(string id, string newName) {
+		/// <summary>Returns false (no-op) when the id is unknown, so the editor
+		/// never announces a rename that didn't happen.</summary>
+		public static bool Rename(string id, string newName) {
 			var category = Find(id);
 			if (category == null) {
 				Log.Warn($"CustomCategoryStore.Rename: unknown id {id}");
-				return;
+				return false;
 			}
 			category.Name = newName;
 			ConfigManager.Save();
+			return true;
 		}
 
-		public static void Delete(string id) {
+		/// <summary>Returns false (no-op) when the id is unknown, so the editor
+		/// never announces a delete that didn't happen.</summary>
+		public static bool Delete(string id) {
 			int removed = All.RemoveAll(c => c.Id == id);
 			if (removed == 0) {
 				Log.Warn($"CustomCategoryStore.Delete: unknown id {id}");
-				return;
+				return false;
 			}
 			ConfigManager.Save();
+			return true;
 		}
 
 		// ===== Keyword mutation =====

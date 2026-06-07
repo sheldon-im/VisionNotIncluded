@@ -2,6 +2,7 @@ using System.Collections.Generic;
 
 using OniAccess.Navigation;
 using OniAccess.Speech;
+using OniAccess.Util;
 using OniAccess.Widgets;
 
 namespace OniAccess.Handlers.Tiles.Scanner {
@@ -28,7 +29,11 @@ namespace OniAccess.Handlers.Tiles.Scanner {
 		public override string DisplayName {
 			get {
 				var category = CustomCategoryStore.Find(_id);
-				return category != null ? category.Name : "";
+				if (category == null) {
+					Log.Warn($"CustomCategoryEditorHandler.DisplayName: unknown id {_id}");
+					return (string)STRINGS.ONIACCESS.SCANNER.INVALID;
+				}
+				return category.Name;
 			}
 		}
 
@@ -198,20 +203,25 @@ namespace OniAccess.Handlers.Tiles.Scanner {
 			string prompt = (string)STRINGS.ONIACCESS.CUSTOM_CATEGORY.RENAME_PROMPT;
 			HandlerStack.Push(new TextPromptHandler(prompt, DisplayName, name => {
 				if (string.IsNullOrWhiteSpace(name)) return;
-				CustomCategoryStore.Rename(_id, name);
-				ScannerNavigator.Instance?.InvalidateSnapshot();
-				// Spoken when this editor reactivates as the prompt pops.
-				_pendingAnnouncement = string.Format(
-					STRINGS.ONIACCESS.CUSTOM_CATEGORY.RENAMED, name);
+				bool renamed = CustomCategoryStore.Rename(_id, name);
+				if (renamed) ScannerNavigator.Instance?.InvalidateSnapshot();
+				// Spoken when this editor reactivates as the prompt pops. Don't
+				// claim a rename the store rejected because the category is gone.
+				_pendingAnnouncement = renamed
+					? string.Format(STRINGS.ONIACCESS.CUSTOM_CATEGORY.RENAMED, name)
+					: (string)STRINGS.ONIACCESS.SCANNER.INVALID;
 			}));
 		}
 
 		private void DeleteCategory() {
 			string name = DisplayName;
-			CustomCategoryStore.Delete(_id);
+			bool deleted = CustomCategoryStore.Delete(_id);
 			ScannerNavigator.Instance?.InvalidateSnapshot();
-			_manager.AnnounceOnReturn(string.Format(
-				STRINGS.ONIACCESS.CUSTOM_CATEGORY.DELETED, name));
+			// Either way the editor is leaving; announce truthfully rather than
+			// claiming a delete that didn't happen because the category was gone.
+			_manager.AnnounceOnReturn(deleted
+				? string.Format(STRINGS.ONIACCESS.CUSTOM_CATEGORY.DELETED, name)
+				: (string)STRINGS.ONIACCESS.SCANNER.INVALID);
 			PlaySound("HUD_Click_Close");
 			HandlerStack.Pop();
 		}

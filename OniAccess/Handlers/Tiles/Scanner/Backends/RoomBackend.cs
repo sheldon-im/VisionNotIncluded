@@ -35,6 +35,10 @@ namespace OniAccess.Handlers.Tiles.Scanner.Backends {
 			var room = (Room)entry.BackendData;
 			if (!Game.Instance.roomProber.rooms.Contains(room))
 				return false;
+			// The room can survive in the prober list while its cavity is torn
+			// down and rebuilt; re-check what Scan checked before dereferencing.
+			if (room.cavity == null) return false;
+			if (room.cavity.cells == null || room.cavity.cells.Count == 0) return false;
 
 			int bestCell = room.cavity.cells[0];
 			int bestDist = GridUtil.CellDistance(cursorCell, bestCell);

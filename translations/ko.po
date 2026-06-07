@@ -1587,6 +1587,11 @@ msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.WOODDEER"
 msgid "A fox-like critter with a fluffy teal-green body and a long curling tail. It has a narrow white face with a wide open mouth showing teeth, and tall dark antler-like branches growing from the back of its head. Its body is covered in soft fur and it stands on four short legs, giving it a woodland creature look."
 msgstr "푹신한 청록색 몸과 길고 말린 꼬리를 가진 여우 같은 생물입니다. 이빨이 보이는 크게 벌린 입이 있는 좁고 흰 얼굴과, 머리 뒤에서 자라는 높은 어두운 뿔 모양 가지를 가지고 있습니다. 몸은 부드러운 털로 덮여 있고 네 개의 짧은 다리로 서서 숲속 생물 같은 느낌을 줍니다."
 
+#. STRINGS.ONIACCESS.CUSTOM_CATEGORY.ADD_KEYWORD
+msgctxt "STRINGS.ONIACCESS.CUSTOM_CATEGORY.ADD_KEYWORD"
+msgid "Add search keyword"
+msgstr "검색 키워드 추가"
+
 #. STRINGS.ONIACCESS.CUSTOM_CATEGORY.CREATE_NEW
 msgctxt "STRINGS.ONIACCESS.CUSTOM_CATEGORY.CREATE_NEW"
 msgid "Create new"
@@ -1616,6 +1621,26 @@ msgstr "카테고리 편집"
 msgctxt "STRINGS.ONIACCESS.CUSTOM_CATEGORY.HELP_TOGGLE"
 msgid "Toggle filter"
 msgstr "필터 전환"
+
+#. STRINGS.ONIACCESS.CUSTOM_CATEGORY.KEYWORD_ADDED
+msgctxt "STRINGS.ONIACCESS.CUSTOM_CATEGORY.KEYWORD_ADDED"
+msgid "Added {0}"
+msgstr "{0} 추가됨"
+
+#. STRINGS.ONIACCESS.CUSTOM_CATEGORY.KEYWORD_DUPLICATE
+msgctxt "STRINGS.ONIACCESS.CUSTOM_CATEGORY.KEYWORD_DUPLICATE"
+msgid "{0} already added"
+msgstr "{0} 이미 추가됨"
+
+#. STRINGS.ONIACCESS.CUSTOM_CATEGORY.KEYWORD_PROMPT
+msgctxt "STRINGS.ONIACCESS.CUSTOM_CATEGORY.KEYWORD_PROMPT"
+msgid "Search keyword"
+msgstr "검색 키워드"
+
+#. STRINGS.ONIACCESS.CUSTOM_CATEGORY.KEYWORD_REMOVED
+msgctxt "STRINGS.ONIACCESS.CUSTOM_CATEGORY.KEYWORD_REMOVED"
+msgid "Removed {0}"
+msgstr "{0} 제거됨"
 
 #. STRINGS.ONIACCESS.CUSTOM_CATEGORY.RENAME
 msgctxt "STRINGS.ONIACCESS.CUSTOM_CATEGORY.RENAME"
@@ -4360,6 +4385,11 @@ msgstr "{0}, {1}"
 msgctxt "STRINGS.ONIACCESS.SCANNER.REFRESHED"
 msgid "scanned"
 msgstr "스캔됨"
+
+#. STRINGS.ONIACCESS.SCANNER.SCAN_FAILED
+msgctxt "STRINGS.ONIACCESS.SCANNER.SCAN_FAILED"
+msgid "scan failed"
+msgstr "스캔 실패"
 
 #. STRINGS.ONIACCESS.SCANNER.SEARCH.PROMPT
 msgctxt "STRINGS.ONIACCESS.SCANNER.SEARCH.PROMPT"

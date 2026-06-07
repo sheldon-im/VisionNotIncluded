@@ -1587,6 +1587,11 @@ msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.WOODDEER"
 msgid "A fox-like critter with a fluffy teal-green body and a long curling tail. It has a narrow white face with a wide open mouth showing teeth, and tall dark antler-like branches growing from the back of its head. Its body is covered in soft fur and it stands on four short legs, giving it a woodland creature look."
 msgstr "Лисоподобное существо с пушистым бирюзово-зелёным телом и длинным закрученным хвостом. Узкая белая морда с широко раскрытой пастью, показывающей зубы, и высокие тёмные рогоподобные ветви, растущие из затылка. Тело покрыто мягким мехом, стоит на четырёх коротких ногах, придающих ему вид лесного существа."
 
+#. STRINGS.ONIACCESS.CUSTOM_CATEGORY.ADD_KEYWORD
+msgctxt "STRINGS.ONIACCESS.CUSTOM_CATEGORY.ADD_KEYWORD"
+msgid "Add search keyword"
+msgstr "Добавить ключевое слово поиска"
+
 #. STRINGS.ONIACCESS.CUSTOM_CATEGORY.CREATE_NEW
 msgctxt "STRINGS.ONIACCESS.CUSTOM_CATEGORY.CREATE_NEW"
 msgid "Create new"
@@ -1616,6 +1621,26 @@ msgstr "Редактировать категорию"
 msgctxt "STRINGS.ONIACCESS.CUSTOM_CATEGORY.HELP_TOGGLE"
 msgid "Toggle filter"
 msgstr "Переключить фильтр"
+
+#. STRINGS.ONIACCESS.CUSTOM_CATEGORY.KEYWORD_ADDED
+msgctxt "STRINGS.ONIACCESS.CUSTOM_CATEGORY.KEYWORD_ADDED"
+msgid "Added {0}"
+msgstr "Добавлено: {0}"
+
+#. STRINGS.ONIACCESS.CUSTOM_CATEGORY.KEYWORD_DUPLICATE
+msgctxt "STRINGS.ONIACCESS.CUSTOM_CATEGORY.KEYWORD_DUPLICATE"
+msgid "{0} already added"
+msgstr "{0} уже добавлено"
+
+#. STRINGS.ONIACCESS.CUSTOM_CATEGORY.KEYWORD_PROMPT
+msgctxt "STRINGS.ONIACCESS.CUSTOM_CATEGORY.KEYWORD_PROMPT"
+msgid "Search keyword"
+msgstr "Ключевое слово поиска"
+
+#. STRINGS.ONIACCESS.CUSTOM_CATEGORY.KEYWORD_REMOVED
+msgctxt "STRINGS.ONIACCESS.CUSTOM_CATEGORY.KEYWORD_REMOVED"
+msgid "Removed {0}"
+msgstr "Убрано: {0}"
 
 #. STRINGS.ONIACCESS.CUSTOM_CATEGORY.RENAME
 msgctxt "STRINGS.ONIACCESS.CUSTOM_CATEGORY.RENAME"
@@ -4360,6 +4385,11 @@ msgstr "{0}, {1}"
 msgctxt "STRINGS.ONIACCESS.SCANNER.REFRESHED"
 msgid "scanned"
 msgstr "отсканировано"
+
+#. STRINGS.ONIACCESS.SCANNER.SCAN_FAILED
+msgctxt "STRINGS.ONIACCESS.SCANNER.SCAN_FAILED"
+msgid "scan failed"
+msgstr "ошибка сканирования"
 
 #. STRINGS.ONIACCESS.SCANNER.SEARCH.PROMPT
 msgctxt "STRINGS.ONIACCESS.SCANNER.SEARCH.PROMPT"

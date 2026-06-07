@@ -1587,6 +1587,11 @@ msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.WOODDEER"
 msgid "A fox-like critter with a fluffy teal-green body and a long curling tail. It has a narrow white face with a wide open mouth showing teeth, and tall dark antler-like branches growing from the back of its head. Its body is covered in soft fur and it stands on four short legs, giving it a woodland creature look."
 msgstr "狐狸状生物，蓬松的青绿色身体和长卷尾巴。狭窄的白色面孔张大嘴露出牙齿，头部后方长出高大的深色鹿角状枝条。身体覆盖柔软毛发，四条短腿站立，呈现林地生物的外观。"
 
+#. STRINGS.ONIACCESS.CUSTOM_CATEGORY.ADD_KEYWORD
+msgctxt "STRINGS.ONIACCESS.CUSTOM_CATEGORY.ADD_KEYWORD"
+msgid "Add search keyword"
+msgstr "添加搜索关键词"
+
 #. STRINGS.ONIACCESS.CUSTOM_CATEGORY.CREATE_NEW
 msgctxt "STRINGS.ONIACCESS.CUSTOM_CATEGORY.CREATE_NEW"
 msgid "Create new"
@@ -1616,6 +1621,26 @@ msgstr "编辑分类"
 msgctxt "STRINGS.ONIACCESS.CUSTOM_CATEGORY.HELP_TOGGLE"
 msgid "Toggle filter"
 msgstr "切换筛选"
+
+#. STRINGS.ONIACCESS.CUSTOM_CATEGORY.KEYWORD_ADDED
+msgctxt "STRINGS.ONIACCESS.CUSTOM_CATEGORY.KEYWORD_ADDED"
+msgid "Added {0}"
+msgstr "已添加 {0}"
+
+#. STRINGS.ONIACCESS.CUSTOM_CATEGORY.KEYWORD_DUPLICATE
+msgctxt "STRINGS.ONIACCESS.CUSTOM_CATEGORY.KEYWORD_DUPLICATE"
+msgid "{0} already added"
+msgstr "{0} 已添加"
+
+#. STRINGS.ONIACCESS.CUSTOM_CATEGORY.KEYWORD_PROMPT
+msgctxt "STRINGS.ONIACCESS.CUSTOM_CATEGORY.KEYWORD_PROMPT"
+msgid "Search keyword"
+msgstr "搜索关键词"
+
+#. STRINGS.ONIACCESS.CUSTOM_CATEGORY.KEYWORD_REMOVED
+msgctxt "STRINGS.ONIACCESS.CUSTOM_CATEGORY.KEYWORD_REMOVED"
+msgid "Removed {0}"
+msgstr "已移除 {0}"
 
 #. STRINGS.ONIACCESS.CUSTOM_CATEGORY.RENAME
 msgctxt "STRINGS.ONIACCESS.CUSTOM_CATEGORY.RENAME"
@@ -4361,6 +4386,11 @@ msgstr "{0}, {1}"
 msgctxt "STRINGS.ONIACCESS.SCANNER.REFRESHED"
 msgid "scanned"
 msgstr "已扫描"
+
+#. STRINGS.ONIACCESS.SCANNER.SCAN_FAILED
+msgctxt "STRINGS.ONIACCESS.SCANNER.SCAN_FAILED"
+msgid "scan failed"
+msgstr "扫描失败"
 
 #. STRINGS.ONIACCESS.SCANNER.SEARCH.PROMPT
 msgctxt "STRINGS.ONIACCESS.SCANNER.SEARCH.PROMPT"

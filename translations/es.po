@@ -1586,6 +1586,11 @@ msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.WOODDEER"
 msgid "A fox-like critter with a fluffy teal-green body and a long curling tail. It has a narrow white face with a wide open mouth showing teeth, and tall dark antler-like branches growing from the back of its head. Its body is covered in soft fur and it stands on four short legs, giving it a woodland creature look."
 msgstr "Una criatura tipo zorro con un cuerpo esponjoso verde-azulado y una larga cola enroscada. Tiene una cara blanca estrecha con una boca muy abierta mostrando dientes, y altas ramas oscuras tipo cornamenta que crecen desde la parte trasera de la cabeza. Su cuerpo está cubierto de pelaje suave y se apoya en cuatro patas cortas, dándole un aspecto de criatura del bosque."
 
+#. STRINGS.ONIACCESS.CUSTOM_CATEGORY.ADD_KEYWORD
+msgctxt "STRINGS.ONIACCESS.CUSTOM_CATEGORY.ADD_KEYWORD"
+msgid "Add search keyword"
+msgstr "Añadir palabra clave de búsqueda"
+
 #. STRINGS.ONIACCESS.CUSTOM_CATEGORY.CREATE_NEW
 msgctxt "STRINGS.ONIACCESS.CUSTOM_CATEGORY.CREATE_NEW"
 msgid "Create new"
@@ -1615,6 +1620,26 @@ msgstr "Editar categoría"
 msgctxt "STRINGS.ONIACCESS.CUSTOM_CATEGORY.HELP_TOGGLE"
 msgid "Toggle filter"
 msgstr "Alternar filtro"
+
+#. STRINGS.ONIACCESS.CUSTOM_CATEGORY.KEYWORD_ADDED
+msgctxt "STRINGS.ONIACCESS.CUSTOM_CATEGORY.KEYWORD_ADDED"
+msgid "Added {0}"
+msgstr "{0} añadido"
+
+#. STRINGS.ONIACCESS.CUSTOM_CATEGORY.KEYWORD_DUPLICATE
+msgctxt "STRINGS.ONIACCESS.CUSTOM_CATEGORY.KEYWORD_DUPLICATE"
+msgid "{0} already added"
+msgstr "{0} ya añadido"
+
+#. STRINGS.ONIACCESS.CUSTOM_CATEGORY.KEYWORD_PROMPT
+msgctxt "STRINGS.ONIACCESS.CUSTOM_CATEGORY.KEYWORD_PROMPT"
+msgid "Search keyword"
+msgstr "Palabra clave de búsqueda"
+
+#. STRINGS.ONIACCESS.CUSTOM_CATEGORY.KEYWORD_REMOVED
+msgctxt "STRINGS.ONIACCESS.CUSTOM_CATEGORY.KEYWORD_REMOVED"
+msgid "Removed {0}"
+msgstr "{0} quitado"
 
 #. STRINGS.ONIACCESS.CUSTOM_CATEGORY.RENAME
 msgctxt "STRINGS.ONIACCESS.CUSTOM_CATEGORY.RENAME"
@@ -4357,6 +4382,11 @@ msgstr "{0}, {1}"
 msgctxt "STRINGS.ONIACCESS.SCANNER.REFRESHED"
 msgid "scanned"
 msgstr "escaneado"
+
+#. STRINGS.ONIACCESS.SCANNER.SCAN_FAILED
+msgctxt "STRINGS.ONIACCESS.SCANNER.SCAN_FAILED"
+msgid "scan failed"
+msgstr "escaneo fallido"
 
 #. STRINGS.ONIACCESS.SCANNER.SEARCH.PROMPT
 msgctxt "STRINGS.ONIACCESS.SCANNER.SEARCH.PROMPT"

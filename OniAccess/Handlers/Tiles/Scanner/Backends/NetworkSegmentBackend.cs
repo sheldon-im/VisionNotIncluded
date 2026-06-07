@@ -6,15 +6,13 @@ namespace OniAccess.Handlers.Tiles.Scanner.Backends {
 	/// Segments are clustered; bridges are individual instances.
 	/// Both coexist within the same scanner subcategory.
 	/// </summary>
-	public class NetworkSegmentBackend: IScannerBackend {
+	public class NetworkSegmentBackend: IScannerBackend, IGridConsumerBackend {
 		private List<NetworkSegmentCluster> _segments;
 		private List<BridgeInstance> _bridges;
 
-		public void SetGridData(
-				List<NetworkSegmentCluster> segments,
-				List<BridgeInstance> bridges) {
-			_segments = segments;
-			_bridges = bridges;
+		public void SetGridData(GridScanResult grid) {
+			_segments = grid.NetworkSegments;
+			_bridges = grid.Bridges;
 		}
 
 		public IEnumerable<ScanEntry> Scan(int worldId) {

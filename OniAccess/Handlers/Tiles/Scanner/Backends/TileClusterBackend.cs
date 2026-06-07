@@ -6,11 +6,11 @@ namespace OniAccess.Handlers.Tiles.Scanner.Backends {
 	/// like FarmTile → Buildings > Farming). Receives pre-clustered data
 	/// from GridScanner.
 	/// </summary>
-	public class TileClusterBackend: IScannerBackend {
+	public class TileClusterBackend: IScannerBackend, IGridConsumerBackend {
 		private List<TileCluster> _clusters;
 
-		public void SetGridData(List<TileCluster> clusters) {
-			_clusters = clusters;
+		public void SetGridData(GridScanResult grid) {
+			_clusters = grid.Tiles;
 		}
 
 		public IEnumerable<ScanEntry> Scan(int worldId) {

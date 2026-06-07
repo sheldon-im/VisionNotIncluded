@@ -6,11 +6,11 @@ namespace OniAccess.Handlers.Tiles.Scanner.Backends {
 	/// Backend for Zones > Biomes. Receives pre-clustered biome zones
 	/// from GridScanner. Each contiguous same-ZoneType region is one instance.
 	/// </summary>
-	public class BiomeBackend: IScannerBackend {
+	public class BiomeBackend: IScannerBackend, IGridConsumerBackend {
 		private List<BiomeCluster> _clusters;
 
-		public void SetGridData(List<BiomeCluster> clusters) {
-			_clusters = clusters;
+		public void SetGridData(GridScanResult grid) {
+			_clusters = grid.Biomes;
 		}
 
 		public IEnumerable<ScanEntry> Scan(int worldId) {

@@ -26,4 +26,24 @@ namespace OniAccess.Handlers.Tiles.Scanner {
 		/// </summary>
 		string FormatName(ScanEntry entry);
 	}
+
+	/// <summary>
+	/// Capability for backends that consume GridScanner output. The navigator
+	/// hands the whole scan result to each consumer before calling Scan(); the
+	/// backend pulls the fields it needs. Keeps grid-to-backend wiring out of
+	/// the navigator so adding a clustered source is a one-line list edit.
+	/// </summary>
+	public interface IGridConsumerBackend {
+		void SetGridData(GridScanResult grid);
+	}
+
+	/// <summary>
+	/// Capability for backends that speak a supplemental detail after the item
+	/// name (e.g. element mass). Optional: the navigator queries it only when
+	/// the backend implements it, so the navigator stays blind to backend types.
+	/// </summary>
+	public interface IDetailBackend {
+		/// <summary>Detail clause to append after the name, or null for none.</summary>
+		string FormatDetail(ScanEntry entry);
+	}
 }

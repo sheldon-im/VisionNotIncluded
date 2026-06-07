@@ -8,15 +8,13 @@ namespace OniAccess.Handlers.Tiles.Scanner.Backends {
 	/// (box-selection and same-type) and individual orders (attack, capture,
 	/// empty pipe). Receives pre-processed data from GridScanner.
 	/// </summary>
-	public class OrderBackend: IScannerBackend {
+	public class OrderBackend: IScannerBackend, IGridConsumerBackend {
 		private List<OrderCluster> _clusters;
 		private List<IndividualOrder> _individuals;
 
-		public void SetGridData(
-				List<OrderCluster> clusters,
-				List<IndividualOrder> individuals) {
-			_clusters = clusters;
-			_individuals = individuals;
+		public void SetGridData(GridScanResult grid) {
+			_clusters = grid.OrderClusters;
+			_individuals = grid.IndividualOrders;
 		}
 
 		public IEnumerable<ScanEntry> Scan(int worldId) {

@@ -7,6 +7,9 @@ namespace OniAccess.Handlers.Tiles.Scanner {
 	public class ScanEntry {
 		public int Cell;
 		public IScannerBackend Backend;
+		// Owned and interpreted solely by Backend. The navigator only ever
+		// dispatches an entry to its own Backend (ValidateEntry/FormatName), so
+		// each backend's cast back to its concrete type is total, not a guess.
 		public object BackendData;
 		public string Category;
 		public string Subcategory;

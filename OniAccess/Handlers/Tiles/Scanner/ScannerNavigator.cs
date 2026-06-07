@@ -29,6 +29,9 @@ namespace OniAccess.Handlers.Tiles.Scanner {
 		private readonly EntityBackend _entityBackend;
 		private readonly GeyserBackend _geyserBackend = new GeyserBackend();
 		private readonly RoomBackend _roomBackend = new RoomBackend();
+		// Iterated uniformly in RunAllBackends; grid consumers pull what they
+		// need via IGridConsumerBackend. Add a backend here and nowhere else.
+		private readonly List<IScannerBackend> _backends;
 
 		// LocString lookup for spoken names — store LocString, cast at speech time
 		private static readonly Dictionary<string, LocString> _categoryNames = BuildCategoryNames();
@@ -39,6 +42,10 @@ namespace OniAccess.Handlers.Tiles.Scanner {
 			var biomeResolver = new BiomeNameResolver();
 			_gridScanner = new GridScanner(biomeResolver);
 			_entityBackend = new EntityBackend(new BuildingRouter());
+			_backends = new List<IScannerBackend> {
+				_elementBackend, _tileBackend, _networkBackend, _orderBackend,
+				_biomeBackend, _entityBackend, _geyserBackend, _roomBackend,
+			};
 		}
 
 		public static void Destroy() {
@@ -314,22 +321,12 @@ namespace OniAccess.Handlers.Tiles.Scanner {
 		private List<ScanEntry> RunAllBackends(int worldId) {
 			var allEntries = new List<ScanEntry>();
 			try {
-				var gridResult = _gridScanner.Scan(worldId);
-
-				_elementBackend.SetGridData(gridResult.Elements);
-				_tileBackend.SetGridData(gridResult.Tiles);
-				_networkBackend.SetGridData(gridResult.NetworkSegments, gridResult.Bridges);
-				_orderBackend.SetGridData(gridResult.OrderClusters, gridResult.IndividualOrders);
-				_biomeBackend.SetGridData(gridResult.Biomes);
-
-				allEntries.AddRange(_elementBackend.Scan(worldId));
-				allEntries.AddRange(_tileBackend.Scan(worldId));
-				allEntries.AddRange(_networkBackend.Scan(worldId));
-				allEntries.AddRange(_orderBackend.Scan(worldId));
-				allEntries.AddRange(_biomeBackend.Scan(worldId));
-				allEntries.AddRange(_entityBackend.Scan(worldId));
-				allEntries.AddRange(_geyserBackend.Scan(worldId));
-				allEntries.AddRange(_roomBackend.Scan(worldId));
+				var grid = _gridScanner.Scan(worldId);
+				foreach (var backend in _backends) {
+					if (backend is IGridConsumerBackend consumer)
+						consumer.SetGridData(grid);
+					allEntries.AddRange(backend.Scan(worldId));
+				}
 				return allEntries;
 			} catch (System.Exception ex) {
 				Log.Error($"ScannerNavigator.RunAllBackends: {ex}");
@@ -418,25 +415,10 @@ namespace OniAccess.Handlers.Tiles.Scanner {
 
 		private string FormatAnnouncement(ScanEntry entry, ScannerItem item) {
 			string name = entry.Backend.FormatName(entry);
-			string massInfo = null;
-			if (ConfigManager.Config.ScannerMassReadout
-				&& entry.Backend is Backends.ElementClusterBackend) {
-				var cluster = (ElementCluster)entry.BackendData;
-				if (cluster.TotalMass > 0f) {
-					if (cluster.Category == ScannerTaxonomy.Categories.Gases
-						&& cluster.Cells.Count > 1) {
-						string formatted = Sections.ElementSection.FormatGlanceMass(
-							cluster.TotalMass / cluster.Cells.Count);
-						massInfo = string.Format(
-							(string)STRINGS.ONIACCESS.SCANNER.MASS_AVERAGE, formatted);
-					} else {
-						massInfo = Sections.ElementSection.FormatGlanceMass(cluster.TotalMass);
-					}
-				}
-			}
+			string detail = (entry.Backend as IDetailBackend)?.FormatDetail(entry);
 			return AnnouncementFormatter.FormatEntityInstance(
 				name, ReferenceCell(), entry.Cell,
-				_instanceIndex + 1, item.Instances.Count, massInfo);
+				_instanceIndex + 1, item.Instances.Count, detail);
 		}
 
 		private int ReferenceCell() {

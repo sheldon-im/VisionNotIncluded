@@ -346,6 +346,8 @@ namespace OniAccess.Handlers.Tiles {
 			var creatureItems = Db.Get().CreatureStatusItems;
 			_statusChecks = new StatusCheck[] {
 				new StatusCheck(
+					mi => ResolveStatusItemName(mi, dupeItems.SuffocatingIncapacitated)),
+				new StatusCheck(
 					mi => mi.GetComponent<Health>().State == Health.HealthState.Incapacitated,
 					(string)STRINGS.ONIACCESS.DUPES.INCAPACITATED),
 				new StatusCheck(
@@ -401,6 +403,17 @@ namespace OniAccess.Handlers.Tiles {
 				Log.Warn($"DupeNavigator.BuildStatusPart: {ex}");
 			}
 			return results.Count > 0 ? string.Join(", ", results) : null;
+		}
+
+		// Resolves through the live entry because the raw status item NAME can
+		// contain placeholders (e.g. {TimeUntilDeath}) only the game can fill in.
+		private static string ResolveStatusItemName(MinionIdentity mi, StatusItem item) {
+			var group = mi.GetComponent<KSelectable>().GetStatusItemGroup();
+			foreach (var entry in group) {
+				if (entry.item == item)
+					return entry.GetName().Trim();
+			}
+			return null;
 		}
 
 		private struct StatusCheck {

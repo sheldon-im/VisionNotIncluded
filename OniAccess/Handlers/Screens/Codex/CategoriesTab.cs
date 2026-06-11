@@ -173,7 +173,6 @@ namespace OniAccess.Handlers.Screens.Codex {
 			var item = _flatEntries[index];
 			int targetLevel = item.isCategory ? 0 : item.targetLevel;
 			Nav.SetPath(PathFor(item, targetLevel));
-			_search.Clear();
 			AnnounceCurrent();
 		}
 

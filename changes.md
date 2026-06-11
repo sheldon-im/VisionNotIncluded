@@ -2,6 +2,8 @@
 
 ## Unreleased changes since 1.5.5
 
+- Fix type-ahead in the codex categories tab forgetting previous letters: each keystroke started a new single-letter search instead of refining the match, and Up/Down could not walk the results.
+
 - Updated the mod to support game update U59-736649.
 
 ## 1.5.5

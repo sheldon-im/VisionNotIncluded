@@ -2,6 +2,8 @@
 
 ## Unreleased changes since 1.5.5
 
+- The pathing description when examining a duplicant now includes their swimming abilities once they have the swim skill, and the new Slogo, Seaquine, and Glo Squid movement types are described when examining those critters.
+
 - Cycling duplicants with the bracket keys now announces when a duplicant has collapsed from suffocation, including the time left to rescue them. Follow mode and notifications already pick up the new suffocation rescue mechanic on their own.
 
 - Fix type-ahead in the codex categories tab forgetting previous letters: each keystroke started a new single-letter search instead of refining the match, and Up/Down could not walk the results.

@@ -36,6 +36,7 @@ namespace OniAccess.Handlers.Screens.Details {
 				{ "MinionNavGrid", STRINGS.ONIACCESS.DETAILS.PATHING_DESC.DUPLICANT },
 				{ "WalkerNavGrid1x1", STRINGS.ONIACCESS.DETAILS.PATHING_DESC.WALKER_1X1 },
 				{ "WalkerBabyNavGrid", STRINGS.ONIACCESS.DETAILS.PATHING_DESC.WALKER_BABY },
+				{ "WalkerNavGrid1x1NoJump", STRINGS.ONIACCESS.DETAILS.PATHING_DESC.WALKER_1X1_NOJUMP },
 				{ "WalkerNavGrid1x2", STRINGS.ONIACCESS.DETAILS.PATHING_DESC.WALKER_1X2 },
 				{ "WalkerNavGrid2x2", STRINGS.ONIACCESS.DETAILS.PATHING_DESC.WALKER_2X2 },
 				{ "DreckoNavGrid", STRINGS.ONIACCESS.DETAILS.PATHING_DESC.SURFACE_CLIMBER },
@@ -46,6 +47,7 @@ namespace OniAccess.Handlers.Screens.Details {
 				{ "FlyerNavGrid1x2", STRINGS.ONIACCESS.DETAILS.PATHING_DESC.FLYER_1X2 },
 				{ "FlyerNavGrid2x2", STRINGS.ONIACCESS.DETAILS.PATHING_DESC.FLYER_2X2 },
 				{ "SwimmerNavGrid", STRINGS.ONIACCESS.DETAILS.PATHING_DESC.SWIMMER_1X1 },
+				{ "SwimmerNavGrid1x2", STRINGS.ONIACCESS.DETAILS.PATHING_DESC.SWIMMER_1X2 },
 				{ "SwimmerGrid2x2", STRINGS.ONIACCESS.DETAILS.PATHING_DESC.SWIMMER_2X2 },
 				{ "DiggerNavGrid", STRINGS.ONIACCESS.DETAILS.PATHING_DESC.DIGGER },
 				{ "RobotNavGrid", STRINGS.ONIACCESS.DETAILS.PATHING_DESC.ROBOT },
@@ -250,8 +252,13 @@ namespace OniAccess.Handlers.Screens.Details {
 		private static string FormatPathing(Navigator navigator) {
 			var gridName = navigator.NavGridName;
 
-			if (NavGridDescriptions.TryGetValue(gridName, out var desc))
-				return string.Format((string)STRINGS.ONIACCESS.DETAILS.PATHING, (string)desc);
+			if (NavGridDescriptions.TryGetValue(gridName, out var desc)) {
+				string text = (string)desc;
+				var resume = navigator.GetComponent<MinionResume>();
+				if (resume != null && resume.HasPerk(Db.Get().SkillPerks.CanSwim))
+					text += " " + (string)STRINGS.ONIACCESS.DETAILS.PATHING_DESC.DUPLICANT_SWIM;
+				return string.Format((string)STRINGS.ONIACCESS.DETAILS.PATHING, text);
+			}
 
 			Util.Log.Warn($"PropertiesTab: unmapped NavGrid '{gridName}'");
 			return string.Format((string)STRINGS.ONIACCESS.DETAILS.PATHING,

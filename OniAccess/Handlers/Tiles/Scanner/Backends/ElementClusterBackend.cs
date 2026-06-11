@@ -28,6 +28,11 @@ namespace OniAccess.Handlers.Tiles.Scanner.Backends {
 
 		public bool ValidateEntry(ScanEntry entry, int cursorCell) {
 			var cluster = (ElementCluster)entry.BackendData;
+			if (cluster.IsBackwall)
+				return GridUtil.ValidateCluster(cluster.Cells, cursorCell, entry,
+					cell => Grid.IsValidCell(cell) && !Grid.Solid[cell]
+						&& BackwallManager.HasBackwall(cell)
+						&& BackwallManager.At(cell).Element.id == cluster.ElementId);
 			return GridUtil.ValidateCluster(cluster.Cells, cursorCell, entry,
 				cell => Grid.IsValidCell(cell)
 					&& Grid.Element[cell].id == cluster.ElementId);

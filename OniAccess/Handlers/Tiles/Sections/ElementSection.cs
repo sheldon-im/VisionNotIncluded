@@ -11,24 +11,45 @@ namespace OniAccess.Handlers.Tiles.Sections {
 	/// - Solid on a building (not foundation tile): entombment, gameplay-critical.
 	/// Still speaks when only a Backwall (drywall, tempshift plate) is present,
 	/// since sighted players see the element through background buildings.
+	/// Appends a natural backwall token ("Granite Backwall") when the cell is
+	/// not solid and a backwall is exposed behind it, even if the element
+	/// itself is suppressed.
 	/// </summary>
 	public class ElementSection: ICellSection {
 		public IEnumerable<string> Read(int cell, CellContext ctx) {
 			var element = Grid.Element[cell];
+			string backwall = BackwallToken(cell);
 			if (OverlayScreen.Instance.GetMode() != OverlayModes.Oxygen.ID && !element.IsLiquid) {
 				if (Grid.Objects[cell, (int)ObjectLayer.FoundationTile] != null)
-					return System.Array.Empty<string>();
+					return Tokens(null, backwall);
 				if (!element.IsSolid && Grid.Objects[cell, (int)ObjectLayer.Building] != null)
-					return System.Array.Empty<string>();
+					return Tokens(null, backwall);
 			}
-			if (element == null) return System.Array.Empty<string>();
+			if (element == null) return Tokens(null, backwall);
 			if (element.IsVacuum)
-				return new[] { element.name };
+				return Tokens(element.name, backwall);
 			float kg = Grid.Mass[cell];
 			string text = $"{element.name}, {FormatGlanceMass(kg)}";
 			if (Game.Instance.GetComponent<EntombedItemVisualizer>().IsEntombedItem(cell))
 				text += ", " + (string)STRINGS.MISC.STATUSITEMS.BURIEDITEM.NAME;
-			return new[] { text };
+			return Tokens(text, backwall);
+		}
+
+		private static IEnumerable<string> Tokens(string element, string backwall) {
+			if (element != null) yield return element;
+			if (backwall != null) yield return backwall;
+		}
+
+		// Natural backwall is only visible (and diggable) behind non-solid cells
+		private static string BackwallToken(int cell) {
+			if (Grid.Solid[cell] || !BackwallManager.HasBackwall(cell)) return null;
+			return FormatBackwallName(BackwallManager.At(cell).Element);
+		}
+
+		internal static string FormatBackwallName(Element element) {
+			return string.Format((string)STRINGS.ONIACCESS.SCANNER.BACKWALL_NAME,
+				element.name,
+				(string)STRINGS.UI.TOOLS.GENERIC.NATURAL_BACKWALL_LABEL_TITLECASE);
 		}
 
 		/// <summary>

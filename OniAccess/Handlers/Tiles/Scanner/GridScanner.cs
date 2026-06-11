@@ -13,6 +13,8 @@ namespace OniAccess.Handlers.Tiles.Scanner {
 
 	public class ElementCluster {
 		public SimHashes ElementId;
+		// Natural backwall layer cluster; ElementId is the backwall element
+		public bool IsBackwall;
 		public string Category;
 		public string Subcategory;
 		public string ElementName;
@@ -80,6 +82,7 @@ namespace OniAccess.Handlers.Tiles.Scanner {
 
 		// UnionFind instances — one per clustering domain
 		private UnionFind _ufElements;
+		private UnionFind _ufBackwalls;
 		private UnionFind _ufTiles;
 		private readonly UnionFind[] _ufBoxOrders; // one per box-order type (4)
 		private UnionFind _ufSameTypeOrders;
@@ -88,6 +91,7 @@ namespace OniAccess.Handlers.Tiles.Scanner {
 		// Per-cell type keys, indexed by cell. Set during forward pass,
 		// used for union decisions and cluster extraction.
 		private int[] _elementKey;       // SimHashes cast to int; 0 = none
+		private int[] _backwallKey;      // backwall SimHashes cast to int; 0 = none
 		private int[] _tileKey;          // prefab ID hash; 0 = none
 		private int[][] _networkId;      // [networkTypeIndex][cell]; network.id + 1, 0 = none
 		private int[][] _boxOrderKey;    // [boxOrderIndex][cell]; 1 = present, 0 = none
@@ -96,6 +100,8 @@ namespace OniAccess.Handlers.Tiles.Scanner {
 
 		// Cluster accumulator maps, keyed by union-find root cell
 		private readonly Dictionary<int, ElementCluster> _elementClusters
+			= new Dictionary<int, ElementCluster>();
+		private readonly Dictionary<int, ElementCluster> _backwallClusters
 			= new Dictionary<int, ElementCluster>();
 		private readonly Dictionary<int, TileCluster> _tileClusters
 			= new Dictionary<int, TileCluster>();
@@ -184,6 +190,7 @@ namespace OniAccess.Handlers.Tiles.Scanner {
 
 		private void AllocateOrReset(int cellCount) {
 			_ufElements = ResetUF(_ufElements, cellCount);
+			_ufBackwalls = ResetUF(_ufBackwalls, cellCount);
 			_ufTiles = ResetUF(_ufTiles, cellCount);
 			for (int i = 0; i < _ufBoxOrders.Length; i++)
 				_ufBoxOrders[i] = ResetUF(_ufBoxOrders[i], cellCount);
@@ -191,6 +198,7 @@ namespace OniAccess.Handlers.Tiles.Scanner {
 			_ufBiomes = ResetUF(_ufBiomes, cellCount);
 
 			_elementKey = ResetIntArray(_elementKey, cellCount, 0);
+			_backwallKey = ResetIntArray(_backwallKey, cellCount, 0);
 			_tileKey = ResetIntArray(_tileKey, cellCount, 0);
 			for (int i = 0; i < _networkId.Length; i++)
 				_networkId[i] = ResetIntArray(_networkId[i], cellCount, 0);
@@ -222,6 +230,7 @@ namespace OniAccess.Handlers.Tiles.Scanner {
 
 		private void ClearAccumulators() {
 			_elementClusters.Clear();
+			_backwallClusters.Clear();
 			_tileClusters.Clear();
 			for (int i = 0; i < _networkClusters.Length; i++)
 				_networkClusters[i].Clear();
@@ -263,6 +272,7 @@ namespace OniAccess.Handlers.Tiles.Scanner {
 
 		private void ProcessCell(int cell) {
 			ProcessElement(cell);
+			ProcessBackwall(cell);
 			ProcessTiles(cell);
 			for (int i = 0; i < NetworkLayerConfig.Types.Length; i++)
 				ProcessNetwork(cell, i);
@@ -283,6 +293,15 @@ namespace OniAccess.Handlers.Tiles.Scanner {
 
 			_elementKey[cell] = (int)elem.id;
 			UnionWithNeighbors(_ufElements, _elementKey, cell);
+		}
+
+		// --- Natural backwall (only visible behind non-solid cells) ---
+
+		private void ProcessBackwall(int cell) {
+			if (Grid.Solid[cell] || !BackwallManager.HasBackwall(cell)) return;
+
+			_backwallKey[cell] = (int)BackwallManager.At(cell).Element.id;
+			UnionWithNeighbors(_ufBackwalls, _backwallKey, cell);
 		}
 
 		// --- Constructed tiles (FoundationTile layer 12, LadderTile layer 27) ---
@@ -490,6 +509,8 @@ namespace OniAccess.Handlers.Tiles.Scanner {
 			for (int cell = 0; cell < cellCount; cell++) {
 				if (_elementKey[cell] != 0)
 					ExtractElement(cell);
+				if (_backwallKey[cell] != 0)
+					ExtractBackwall(cell);
 				if (_tileKey[cell] != 0)
 					ExtractTile(cell);
 				for (int i = 0; i < _networkId.Length; i++)
@@ -530,6 +551,23 @@ namespace OniAccess.Handlers.Tiles.Scanner {
 			}
 			cluster.Cells.Add(cell);
 			cluster.TotalMass += Grid.Mass[cell];
+		}
+
+		private void ExtractBackwall(int cell) {
+			int root = _ufBackwalls.Find(cell);
+			if (!_backwallClusters.TryGetValue(root, out var cluster)) {
+				var elem = BackwallManager.At(cell).Element;
+				cluster = new ElementCluster {
+					ElementId = elem.id,
+					IsBackwall = true,
+					Category = ScannerTaxonomy.Categories.Solids,
+					Subcategory = ElementRouter.GetSolidSubcategory(elem),
+					ElementName = Sections.ElementSection.FormatBackwallName(elem),
+				};
+				_backwallClusters[root] = cluster;
+			}
+			cluster.Cells.Add(cell);
+			cluster.TotalMass += BackwallManager.At(cell).Mass;
 		}
 
 		private void ExtractTile(int cell) {
@@ -676,6 +714,8 @@ namespace OniAccess.Handlers.Tiles.Scanner {
 			var result = new GridScanResult();
 
 			foreach (var kvp in _elementClusters)
+				result.Elements.Add(kvp.Value);
+			foreach (var kvp in _backwallClusters)
 				result.Elements.Add(kvp.Value);
 			foreach (var kvp in _tileClusters)
 				result.Tiles.Add(kvp.Value);

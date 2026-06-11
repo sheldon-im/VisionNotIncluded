@@ -1144,6 +1144,8 @@ namespace STRINGS {
 			public static LocString BOTTLE_NAME = "Bottled {0}";
 			// {0} = element name (e.g. "Sand")
 			public static LocString LOOSE_NAME = "Loose {0}";
+			// {0} = element name (e.g. "Granite"), {1} = the game's localized "Backwall" label
+			public static LocString BACKWALL_NAME = "{0} {1}";
 
 			// Direction tokens
 			public static LocString DIRECTION_UP = "up";

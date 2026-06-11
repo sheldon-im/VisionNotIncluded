@@ -2,6 +2,8 @@
 
 ## Unreleased changes since 1.5.5
 
+- Natural backwall is now reported: the tile cursor speaks it after the cell's element (for example "Granite Backwall"), and backwall clusters appear in the scanner under Solids next to their element. The dig tool's new Natural Backwall and Plants filters work through the existing filter menu.
+
 - The pathing description when examining a duplicant now includes their swimming abilities once they have the swim skill, and the new Slogo, Seaquine, and Glo Squid movement types are described when examining those critters.
 
 - Cycling duplicants with the bracket keys now announces when a duplicant has collapsed from suffocation, including the time left to rescue them. Follow mode and notifications already pick up the new suffocation rescue mechanic on their own.

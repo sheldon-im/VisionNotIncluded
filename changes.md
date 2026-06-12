@@ -11,7 +11,7 @@ Updated the game to support the new Aquatic Planet Pack DLC.
 * Fixed the Geothermal victory loop video descriptions never being spoken: the game names that clip in lowercase, unlike every other video, and the lookup is case sensitive.
 * The dig tool now has a filter menu (F) with the game's new checkbox filters. Unlike all other filters, these are not radio buttons. You can check and uncheck each of them independently. The plants filter is the same as using the uproot tool, just brought into the dig tool for convenience.
 * Fixed scanner items for large regions (gas pockets, biomes, backwall sheets) sorting far down the list even when the cursor is inside them: distance now measures to the nearest tile of a region instead of its bottom-left corner.
-* Fix molten steel, salt, carbon, uranium, syngas, sucrose, nickel, and iridium sorting under Liquids, Misc in the scanner: they now join magma and the other molten elements in the Molten subcategory.
+* Fixed molten steel, salt, carbon, uranium, syngas, sucrose, nickel, and iridium sorting under Liquids, Misc in the scanner: they now join magma and the other molten elements in the Molten subcategory.
 * The pathing description when examining a duplicant now includes their swimming abilities once they have the swim skill, and the new Slogo, Seaquine, and Glo Squid movement types are described when examining those critters.
 * Fixed type-ahead in the codex categories tab forgetting previous letters: each keystroke started a new single-letter search instead of refining the match, and Up/Down could not walk the results.
 

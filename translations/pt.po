@@ -1517,10 +1517,20 @@ msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PACUTROPICAL"
 msgid "A colorful Pacu variant with a bright pink-orange body rimmed with frilly, leaf-shaped green fins. It has the same single large eye, but in a warmer orange tone. The fins are wider and more ornamental than the base Pacu's, giving it a tropical reef-fish appearance."
 msgstr "Uma variante colorida do Pacu com corpo rosa-alaranjado brilhante cercado por barbatanas verdes franjadas em forma de folha. Tem o mesmo olho grande único, mas em tom alaranjado mais quente. As barbatanas são mais largas e ornamentais que as do Pacu base, dando aparência de peixe de recife tropical."
 
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PARROTFISH
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PARROTFISH"
+msgid "A stubby fish that looks assembled from overlapping purple fans, each pleated segment trimmed in gold where it meets the next. Its oversized head is a smooth purple plate ending in a sharp parrot-like beak with a dark zigzag mouth line, and it has a round cream-gold eye. The tail flares out in a bat-wing-shaped fluke. The overall effect is somewhere between a fish and an art deco lamp."
+msgstr "Um peixe atarracado que parece montado a partir de leques roxos sobrepostos, cada segmento plissado debruado em dourado onde encontra o seguinte. Sua cabeça enorme é uma placa roxa lisa terminando em um bico afiado de papagaio com uma linha de boca escura em ziguezague, e tem um olho redondo creme-dourado. A cauda se abre em uma nadadeira em forma de asa de morcego. O efeito geral fica em algum lugar entre um peixe e uma luminária art déco."
+
 #. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PREHISTORICPACU
 msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PREHISTORICPACU"
 msgid "A large, deep blue predatory fish with a massive hinged jaw lined with jagged yellow teeth. Its body is dark navy with scattered orange and blue spots, and it has a curved blue fin sweeping back from the top of its head. Small fins and a thick tail propel it through the water, and its overall silhouette is dominated by that enormous underbite."
 msgstr "Um grande peixe predatório azul-profundo com uma enorme mandíbula articulada forrada de dentes amarelos irregulares. O corpo é azul-marinho escuro com manchas alaranjadas e azuis espalhadas, e tem uma barbatana azul curva se estendendo do topo da cabeça. Barbatanas pequenas e uma cauda grossa o impulsionam pela água, e a silhueta geral é dominada por aquele enorme prognatismo."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PUFFERFISH
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PUFFERFISH"
+msgid "A plump fish with a turquoise back smudged with orange-brown patches and dashed with short dark spines lying flat, over a cream-yellow belly. Three googly eyes with yellow pupils cluster above an enormous flat orange bill. Its fins and broad tail are striped in tan and cream. It can puff up into a near-perfect spiked ball, teal on top and cream underneath."
+msgstr "Um peixe rechonchudo com dorso turquesa borrado de manchas marrom-alaranjadas e pontilhado de espinhos curtos e escuros deitados rentes, sobre uma barriga creme-amarelada. Três olhos esbugalhados com pupilas amarelas se agrupam acima de um enorme bico laranja achatado. Suas nadadeiras e a cauda larga são listradas em castanho-claro e creme. Ele pode se inflar numa bola de espinhos quase perfeita, azul-petróleo em cima e creme embaixo."
 
 #. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PUFT
 msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PUFT"
@@ -1547,10 +1557,40 @@ msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.RAPTOR"
 msgid "A small bird-dinosaur hybrid with a bright yellow head and a large crest of blue-teal feathers fanning up and back from its head like a mohawk. Its body is covered in layered blue feathers that fade to green at the tail. It stands upright on two legs with a short beak and an alert, energetic posture."
 msgstr "Um híbrido pequeno de pássaro-dinossauro com cabeça amarela brilhante e uma grande crista de penas azul-esverdeadas abrindo-se como moicano da cabeça para trás. O corpo é coberto por penas azuis em camadas que desvanecem para verde na cauda. Fica em pé sobre duas pernas com bico curto e postura alerta e energética."
 
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.SEAFAIRY
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.SEAFAIRY"
+msgid "A critter that looks exactly like a swimming kelp leaf. Its head is a smooth green teardrop with a round yellow eye and a tiny open mouth at the tip, and its body trails behind as a long leaf-blade tail in layered greens with darker veins. Only the eye gives it away as an animal rather than a piece of drifting seaweed."
+msgstr "Uma criatura que parece exatamente uma folha de alga nadando. Sua cabeça é uma gota verde lisa com um olho redondo amarelo e uma boquinha aberta na ponta, e o corpo se arrasta atrás como uma longa cauda em lâmina de folha em verdes sobrepostos com veias mais escuras. Só o olho a denuncia como animal em vez de um pedaço de alga à deriva."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.SEAHORSE
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.SEAHORSE"
+msgid "A seahorse with a deep blue-violet body speckled in tiny white dots, like a piece of night sky bent into an S-curve. A fan of magenta-pink spiny fins crests the back of its head, with a matching smaller fan on its back. Its segmented belly is pale pink, its snout is a long upturned tube, and it has a large dark eye and two small antenna stubs on top of its head. It floats upright with its tail curled beneath it."
+msgstr "Um cavalo-marinho com corpo azul-violeta profundo salpicado de minúsculos pontos brancos, como um pedaço de céu noturno dobrado em forma de S. Um leque de nadadeiras espinhosas rosa-magenta coroa a parte de trás da cabeça, com um leque menor combinando nas costas. A barriga segmentada é rosa-clara, o focinho é um longo tubo virado para cima, e ele tem um grande olho escuro e dois pequenos tocos de antena no topo da cabeça. Flutua na vertical com a cauda enrolada embaixo."
+
 #. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.SEAL
 msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.SEAL"
 msgid "A round, blob-shaped seal with a smooth teal body and a single large purple eye. A pointed horn or spigot juts forward from its nose like a narwhal tusk. It has a few small spots on its body, tiny flippers, and a content expression. Its shape is simple and blobby, like a water balloon with a horn."
 msgstr "Uma foca redonda em forma de bolha com corpo liso verde-azulado e um único olho roxo grande. Um chifre pontudo ou bico se projeta do nariz como uma presa de narval. Tem algumas pequenas manchas no corpo, nadadeiras minúsculas e expressão contente. A forma é simples e arredondada, como um balão d'água com chifre."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.SEATURTLE
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.SEATURTLE"
+msgid "A sea turtle with a pale green body and a low, dark green domed shell crowned by a cluster of tall sky-blue crystal shards, like a walking mineral deposit. Its head sports two big googly white eyes set close together above a small snout. Sturdy flippers stick out from under the shell, and a forked fish-tail fin trails behind."
+msgstr "Uma tartaruga marinha com corpo verde-claro e um casco abaulado baixo verde-escuro coroado por um aglomerado de altos cristais azul-celeste, como uma jazida mineral ambulante. A cabeça exibe dois grandes olhos brancos esbugalhados bem juntos acima de um focinho pequeno. Nadadeiras robustas despontam de sob o casco, e uma cauda bifurcada de peixe se arrasta atrás."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.SNAIL
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.SNAIL"
+msgid "A snail almost entirely hidden beneath a huge cone-shaped spiral shell in pale pink and cream, carried on its back with the pointed tip angled up and behind it. Soft ridged bands wrap around the shell's curve. A small beige body pokes out from the wide opening at the front: a wedge-shaped head with two ear-like stubs, dark dot eyes, and a pointed little snout, like a tiny mouse peeking out from under its house. It rides on a flat skirt-like foot that hugs the ground."
+msgstr "Um caracol quase inteiramente escondido sob uma enorme concha espiral em forma de cone, rosa-clara e creme, carregada nas costas com a ponta inclinada para cima e para trás. Faixas suaves e onduladas envolvem a curva da concha. Um pequeno corpo bege desponta da ampla abertura na frente: uma cabeça em cunha com dois tocos parecidos com orelhas, olhos de pontinhos escuros e um focinho pequeno e pontudo, como um ratinho espiando de debaixo de sua casa. Ele desliza sobre um pé achatado como uma saia que abraça o chão."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.SNAILIRON
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.SNAILIRON"
+msgid "A Slogo variant that traded the soft pink shell for full battle armor. Its shell is deep plum-black, bristling with tall dark-crimson spikes and dotted with oval golden studs between them. The body underneath is dark maroon, nearly black, with two glowing white dot eyes and a few small spikes of its own. The whole package looks less like a snail and more like a spiked mace someone left on the beach."
+msgstr "Uma variante de Slogo que trocou a concha rosa macia por uma armadura de batalha completa. Sua concha é preto-ameixa profundo, eriçada de altos espinhos carmesim-escuros e pontilhada de tachas douradas ovais entre eles. O corpo embaixo é marrom-escuro, quase preto, com dois olhos de pontinhos brancos brilhantes e alguns pequenos espinhos próprios. O conjunto parece menos um caracol e mais uma maça de espinhos que alguém esqueceu na praia."
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.SQUID
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.SQUID"
+msgid "An upright squid wearing its deep crimson mantle like a drooping nightcap, swept back to a point, with two ear-like fins at the crown. The mantle is dusted with darker speckles that light up in pinks and blues when it glows. Beneath it, a thick beard of wavy orange tentacles hangs down like a mop, with two longer, thinner arms dangling at the sides, and a pale face peeking out between hood and beard."
+msgstr "Uma lula ereta que usa seu manto carmesim profundo como uma touca de dormir caída, puxada para trás em ponta, com duas nadadeiras parecidas com orelhas no topo. O manto é polvilhado de pintinhas mais escuras que se acendem em rosas e azuis quando ele brilha. Embaixo, uma barba espessa de tentáculos laranja ondulados pende como um esfregão, com dois braços mais longos e finos balançando dos lados, e um rosto pálido espiando entre capuz e barba."
 
 #. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.SQUIRREL
 msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.SQUIRREL"
@@ -2127,6 +2167,11 @@ msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.JOSHUA"
 msgid "Dark brown skin and short dark hair. His eyes are closed and he wears a soft, blissful smile, balanced on one foot with his arms stretched wide like a child pretending to be an airplane. Blue top with orange accents and black pants. He has the round, gentle face and carefree posture of a duplicant who has never once been startled by anything."
 msgstr "Pele marrom escura e cabelo curto e escuro. Os olhos estão fechados e ele exibe um sorriso suave e sereno, equilibrado num pé só com os braços abertos como uma criança fingindo ser um avião. Camiseta azul com detalhes laranja e calça preta. Tem o rosto redondo e gentil e a postura despreocupada de um duplicante que nunca na vida se assustou com nada."
 
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.KAI
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.KAI"
+msgid "Tan skin and a shaggy golden-blonde bob that falls around their face in loose beachy waves, like they just wandered up from the surf and shook dry. Their expression is calm and unbothered, small dark eyes and a relaxed little smile. They wear a deep red top over black pants patterned with fish scales like a wetsuit, with gold trim at the cuffs and belt. The whole outfit says lifeguard; the face says nap."
+msgstr "Pele bronzeada e um chanel desgrenhado loiro-dourado que cai ao redor do rosto em ondas soltas de praia, como se elu tivesse acabado de sair da arrebentação e se sacudido para secar. A expressão é calma e despreocupada, olhos pequenos e escuros e um sorrisinho relaxado. Elu veste uma camiseta vermelho-escura sobre calça preta estampada com escamas de peixe como uma roupa de mergulho, com acabamento dourado nos punhos e no cinto. A roupa inteira diz salva-vidas; o rosto diz soneca."
+
 #. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.LEIRA
 msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.LEIRA"
 msgid "Medium-brown skin and a big, buoyant puff of curly brown hair that looks like it could cushion a fall from any height. She has bright eyes and a wide, toothy smile, hands clasped together in front of her in the universal gesture of someone who is genuinely delighted to see you. Yellow top with black trim and black pants."
@@ -2171,6 +2216,11 @@ msgstr "Pele clara e um corte de cabelo castanho reto com um tufinho no topo, co
 msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.MI_MA"
 msgid "Pale skin and a big puff of grey curly hair, the kind that has seen decades and is not impressed by any of them. Her eyes are narrowed into a permanent squint and her mouth is a thin, flat line of judgment. Blue top with gold accents, black pants. She has the posture and expression of a grandmother who has already decided you're not dressed warmly enough."
 msgstr "Pele clara e um grande volume de cabelo grisalho cacheado, do tipo que já viu décadas e não se impressionou com nenhuma. Os olhos estão estreitados num olhar apertado permanente e a boca é uma linha fina e reta de julgamento. Camiseta azul com detalhes dourados, calça preta. Ela tem a postura e a expressão de uma avó que já decidiu que você não está agasalhado o suficiente."
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.MINNOW
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.MINNOW"
+msgid "Pale porcelain skin and a tumble of pearlescent hair that fades from pinkish white at the crown through lavender to purple at the tips, with bright blue and pink streaks tucked underneath and choppy bangs sweeping across her forehead. A sprinkle of small blue dots marks her cheeks, like freckles that decided to be sea spray instead. She has big round dark eyes and a gentle, contented smile. She wears a dusty purple top over black fish-scale-patterned pants, with sky-blue gloves and matching blue trim."
+msgstr "Pele pálida de porcelana e uma cascata de cabelo perolado que vai do branco-rosado no topo, passando pelo lilás, até o roxo nas pontas, com mechas azul-vivas e rosas escondidas por baixo e uma franja repicada varrendo a testa. Um punhado de pontinhos azuis marca suas bochechas, como sardas que decidiram ser respingos do mar. Ela tem olhos grandes, redondos e escuros e um sorriso suave e contente. Veste uma camiseta roxo-acinzentada sobre calça preta estampada com escamas de peixe, com luvas azul-celeste e acabamento azul combinando."
 
 #. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.NAILS
 msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.NAILS"
@@ -5965,6 +6015,26 @@ msgstr "continuando"
 msgctxt "STRINGS.ONIACCESS.TOOLTIP.NO_TOOLTIP"
 msgid "no tooltip"
 msgstr "sem dica"
+
+#. STRINGS.ONIACCESS.VIDEO.DESCRIPTIONS.AQUATIC_LOOP.CAMP
+msgctxt "STRINGS.ONIACCESS.VIDEO.DESCRIPTIONS.AQUATIC_LOOP.CAMP"
+msgid "The empty aquatic camp continues to gently sway with the water's current. With the mysterious survivor Minnow officially recruited, her former underwater outpost is left behind as a serene monument to your diplomatic victory."
+msgstr "O acampamento aquático vazio continua balançando suavemente com a correnteza. Com a misteriosa sobrevivente Minnow oficialmente recrutada, seu antigo posto avançado submarino fica para trás como um monumento sereno à sua vitória diplomática."
+
+#. STRINGS.ONIACCESS.VIDEO.DESCRIPTIONS.AQUATIC_LOOP.CHAIR
+msgctxt "STRINGS.ONIACCESS.VIDEO.DESCRIPTIONS.AQUATIC_LOOP.CHAIR"
+msgid "Sunlight filters down through the rippling waves of a tranquil, flooded biome. A wooden chair adorned with a starfish sits empty among the colorful anemones and marine vines."
+msgstr "A luz do sol se filtra pelas ondas tremulantes de um bioma inundado e tranquilo. Uma cadeira de madeira enfeitada com uma estrela-do-mar repousa vazia entre as anêmonas coloridas e as vinhas marinhas."
+
+#. STRINGS.ONIACCESS.VIDEO.DESCRIPTIONS.AQUATIC_LOOP.FISH
+msgctxt "STRINGS.ONIACCESS.VIDEO.DESCRIPTIONS.AQUATIC_LOOP.FISH"
+msgid "A cute, puffed-up fish with bright orange and pink scales and little green fins swims into view. Finding the cozy spot vacant, it flutters over and settles comfortably onto the seat of the abandoned chair."
+msgstr "Um peixinho fofo e estufado, com escamas laranja e rosa vivas e pequenas nadadeiras verdes, entra nadando em cena. Encontrando o cantinho aconchegante vago, ele esvoaça até lá e se acomoda confortavelmente no assento da cadeira abandonada."
+
+#. STRINGS.ONIACCESS.VIDEO.DESCRIPTIONS.AQUATIC_LOOP.REST
+msgctxt "STRINGS.ONIACCESS.VIDEO.DESCRIPTIONS.AQUATIC_LOOP.REST"
+msgid "The round little critter rests peacefully for a moment, blinking its large, expressive eyes. Perhaps realizing there are no duplicants around to share a breath of air with, it floats back up and leisurely swims away."
+msgstr "A criaturinha redonda descansa em paz por um momento, piscando seus olhos grandes e expressivos. Talvez percebendo que não há duplicantes por perto com quem dividir um sopro de ar, ela volta a flutuar para cima e se afasta nadando sem pressa."
 
 #. STRINGS.ONIACCESS.VIDEO.DESCRIPTIONS.ARTIFACT.CARRYING
 msgctxt "STRINGS.ONIACCESS.VIDEO.DESCRIPTIONS.ARTIFACT.CARRYING"

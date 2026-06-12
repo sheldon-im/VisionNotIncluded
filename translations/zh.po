@@ -1517,10 +1517,20 @@ msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PACUTROPICAL"
 msgid "A colorful Pacu variant with a bright pink-orange body rimmed with frilly, leaf-shaped green fins. It has the same single large eye, but in a warmer orange tone. The fins are wider and more ornamental than the base Pacu's, giving it a tropical reef-fish appearance."
 msgstr "Pacu的多彩变种，亮粉橙色身体边缘是褶边叶状绿色鱼鳍。同样的一只大眼睛，但为更温暖的橙色调。鱼鳍比基础Pacu更宽更具装饰性，呈现热带珊瑚鱼外观。"
 
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PARROTFISH
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PARROTFISH"
+msgid "A stubby fish that looks assembled from overlapping purple fans, each pleated segment trimmed in gold where it meets the next. Its oversized head is a smooth purple plate ending in a sharp parrot-like beak with a dark zigzag mouth line, and it has a round cream-gold eye. The tail flares out in a bat-wing-shaped fluke. The overall effect is somewhere between a fish and an art deco lamp."
+msgstr "一条矮胖的鱼，看起来像由层层叠叠的紫色扇片拼装而成，每个褶皱节段与下一节相接处都镶着金边。超大的头部是一块光滑的紫色板，末端是带有深色锯齿状嘴线的尖锐鹦鹉喙，还有一只圆圆的奶油金色眼睛。尾巴展开成蝙蝠翅膀形状的尾鳍。整体效果介于鱼和装饰艺术风格台灯之间。"
+
 #. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PREHISTORICPACU
 msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PREHISTORICPACU"
 msgid "A large, deep blue predatory fish with a massive hinged jaw lined with jagged yellow teeth. Its body is dark navy with scattered orange and blue spots, and it has a curved blue fin sweeping back from the top of its head. Small fins and a thick tail propel it through the water, and its overall silhouette is dominated by that enormous underbite."
 msgstr "大型深蓝色掠食鱼，巨大的铰接下颚排列着锯齿状黄色牙齿。深海军蓝身体上散布橙色和蓝色斑点，头顶有一片弯曲的蓝色鳍向后延伸。小鳍和粗尾在水中推进，整体轮廓以那巨大的地包天下颚为主。"
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PUFFERFISH
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PUFFERFISH"
+msgid "A plump fish with a turquoise back smudged with orange-brown patches and dashed with short dark spines lying flat, over a cream-yellow belly. Three googly eyes with yellow pupils cluster above an enormous flat orange bill. Its fins and broad tail are striped in tan and cream. It can puff up into a near-perfect spiked ball, teal on top and cream underneath."
+msgstr "一条圆滚滚的鱼，青绿色的背部沾着橙棕色斑块，点缀着平贴的短小深色棘刺，腹部是奶油黄色。三只黄色瞳孔的凸眼挤在一张巨大扁平的橙色嘴喙上方。鱼鳍和宽尾带有棕褐色和奶油色条纹。它能鼓成一个近乎完美的刺球，上面青绿，下面奶油色。"
 
 #. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PUFT
 msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.PUFT"
@@ -1547,10 +1557,40 @@ msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.RAPTOR"
 msgid "A small bird-dinosaur hybrid with a bright yellow head and a large crest of blue-teal feathers fanning up and back from its head like a mohawk. Its body is covered in layered blue feathers that fade to green at the tail. It stands upright on two legs with a short beak and an alert, energetic posture."
 msgstr "小型鸟龙混合体，亮黄色头部，蓝青色大羽冠从头部向上向后扇开如莫西干发型。身体覆盖着层叠的蓝色羽毛，到尾部渐变为绿色。两腿直立，短喙，姿态警觉而充满活力。"
 
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.SEAFAIRY
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.SEAFAIRY"
+msgid "A critter that looks exactly like a swimming kelp leaf. Its head is a smooth green teardrop with a round yellow eye and a tiny open mouth at the tip, and its body trails behind as a long leaf-blade tail in layered greens with darker veins. Only the eye gives it away as an animal rather than a piece of drifting seaweed."
+msgstr "一种看起来和游动的海带叶一模一样的生物。头部是光滑的绿色水滴形，尖端有一只圆圆的黄眼睛和一张微张的小嘴，身体拖在后面，是一条层层叠叠的绿色长叶片尾巴，带有较深的叶脉。只有那只眼睛暴露了它是动物而不是一片漂流的海草。"
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.SEAHORSE
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.SEAHORSE"
+msgid "A seahorse with a deep blue-violet body speckled in tiny white dots, like a piece of night sky bent into an S-curve. A fan of magenta-pink spiny fins crests the back of its head, with a matching smaller fan on its back. Its segmented belly is pale pink, its snout is a long upturned tube, and it has a large dark eye and two small antenna stubs on top of its head. It floats upright with its tail curled beneath it."
+msgstr "一只海马，深蓝紫色的身体点缀着细小的白点，像一块被弯成S形的夜空。一扇洋红粉色的棘状鳍冠立在脑后，背上还有一扇相配的小扇。分节的腹部是淡粉色，吻部是一根上翘的长管，它有一只大大的深色眼睛，头顶还有两个小触角凸起。它直立漂浮，尾巴在身下卷曲。"
+
 #. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.SEAL
 msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.SEAL"
 msgid "A round, blob-shaped seal with a smooth teal body and a single large purple eye. A pointed horn or spigot juts forward from its nose like a narwhal tusk. It has a few small spots on its body, tiny flippers, and a content expression. Its shape is simple and blobby, like a water balloon with a horn."
 msgstr "圆形团状海豹，光滑的青色身体和一只大紫色眼睛。鼻子上有一个尖角或管嘴向前突出，像独角鲸的牙。身上有几个小斑点，小鳍状肢，满足的表情。外形简单如团状，像一个带角的水气球。"
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.SEATURTLE
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.SEATURTLE"
+msgid "A sea turtle with a pale green body and a low, dark green domed shell crowned by a cluster of tall sky-blue crystal shards, like a walking mineral deposit. Its head sports two big googly white eyes set close together above a small snout. Sturdy flippers stick out from under the shell, and a forked fish-tail fin trails behind."
+msgstr "一只海龟，淡绿色的身体，低矮的深绿色圆顶龟壳上耸立着一簇高高的天蓝色水晶碎片，像一座行走的矿藏。头上有两只紧挨在一起的白色大凸眼，位于小小的吻部上方。结实的鳍状肢从壳下伸出，身后拖着一条分叉的鱼尾鳍。"
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.SNAIL
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.SNAIL"
+msgid "A snail almost entirely hidden beneath a huge cone-shaped spiral shell in pale pink and cream, carried on its back with the pointed tip angled up and behind it. Soft ridged bands wrap around the shell's curve. A small beige body pokes out from the wide opening at the front: a wedge-shaped head with two ear-like stubs, dark dot eyes, and a pointed little snout, like a tiny mouse peeking out from under its house. It rides on a flat skirt-like foot that hugs the ground."
+msgstr "一只几乎完全藏在巨大锥形螺旋壳下的蜗牛，壳呈淡粉色和奶油色，背在背上，尖端朝后上方翘起。柔和的脊状条带环绕着壳的曲线。一个米色的小身体从前面的宽阔开口探出：楔形的头上有两个耳朵般的凸起、点状黑眼睛和尖尖的小吻，像一只从自己房子底下探头的小老鼠。它靠一只紧贴地面的扁平裙状足滑行。"
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.SNAILIRON
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.SNAILIRON"
+msgid "A Slogo variant that traded the soft pink shell for full battle armor. Its shell is deep plum-black, bristling with tall dark-crimson spikes and dotted with oval golden studs between them. The body underneath is dark maroon, nearly black, with two glowing white dot eyes and a few small spikes of its own. The whole package looks less like a snail and more like a spiked mace someone left on the beach."
+msgstr "一种把柔软粉壳换成全套战甲的Slogo变种。壳是深李子黑色，竖满高高的暗深红色尖刺，刺与刺之间点缀着椭圆形金钉。下面的身体是深栗色，近乎黑色，有两只发光的白色点状眼睛和几根自己的小刺。整体看起来与其说是蜗牛，不如说是谁落在沙滩上的一柄狼牙棒。"
+
+#. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.SQUID
+msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.SQUID"
+msgid "An upright squid wearing its deep crimson mantle like a drooping nightcap, swept back to a point, with two ear-like fins at the crown. The mantle is dusted with darker speckles that light up in pinks and blues when it glows. Beneath it, a thick beard of wavy orange tentacles hangs down like a mop, with two longer, thinner arms dangling at the sides, and a pale face peeking out between hood and beard."
+msgstr "一只直立的鱿鱼，深绯红色的外套膜像一顶耷拉的睡帽，向后收成尖角，顶端有两片耳朵般的鳍。外套膜上撒着较深的斑点，发光时会亮起粉色和蓝色。下面，一把浓密的波浪状橙色触须像拖把一样垂下，两条更长更细的腕在两侧晃荡，一张苍白的脸从帽兜和胡须之间探出。"
 
 #. STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.SQUIRREL
 msgctxt "STRINGS.ONIACCESS.CRITTER_DESCRIPTIONS.SQUIRREL"
@@ -2128,6 +2168,11 @@ msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.JOSHUA"
 msgid "Dark brown skin and short dark hair. His eyes are closed and he wears a soft, blissful smile, balanced on one foot with his arms stretched wide like a child pretending to be an airplane. Blue top with orange accents and black pants. He has the round, gentle face and carefree posture of a duplicant who has never once been startled by anything."
 msgstr "深棕色皮肤，短短的深色头发。眼睛闭着，带着柔和幸福的微笑，单脚站立双臂大张，像一个假装自己是飞机的小孩。蓝色上衣配橙色装饰和黑色裤子。他有着一张圆润温和的脸和无忧无虑的姿态，像一个从未被任何事吓到过的复制人。"
 
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.KAI
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.KAI"
+msgid "Tan skin and a shaggy golden-blonde bob that falls around their face in loose beachy waves, like they just wandered up from the surf and shook dry. Their expression is calm and unbothered, small dark eyes and a relaxed little smile. They wear a deep red top over black pants patterned with fish scales like a wetsuit, with gold trim at the cuffs and belt. The whole outfit says lifeguard; the face says nap."
+msgstr "小麦色皮肤，蓬乱的金色波波头以松散的海滩波浪垂在脸旁，像刚从浪里走上来抖干了身子。表情平静淡然，小小的深色眼睛和一抹放松的浅笑。他们穿着深红色上衣，配有鱼鳞图案的黑色裤子，像一件潜水服，袖口和腰带饰有金边。整套衣服写着救生员；脸上写着午睡。"
+
 #. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.LEIRA
 msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.LEIRA"
 msgid "Medium-brown skin and a big, buoyant puff of curly brown hair that looks like it could cushion a fall from any height. She has bright eyes and a wide, toothy smile, hands clasped together in front of her in the universal gesture of someone who is genuinely delighted to see you. Yellow top with black trim and black pants."
@@ -2172,6 +2217,11 @@ msgstr "白皙皮肤，平平的棕色发型顶上翘着一小撮，像有人开
 msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.MI_MA"
 msgid "Pale skin and a big puff of grey curly hair, the kind that has seen decades and is not impressed by any of them. Her eyes are narrowed into a permanent squint and her mouth is a thin, flat line of judgment. Blue top with gold accents, black pants. She has the posture and expression of a grandmother who has already decided you're not dressed warmly enough."
 msgstr "白皙皮肤，一大蓬灰色卷发——那种见证了几十年风雨并且对每一年都不以为然的头发。眼睛永久性地眯成一条缝，嘴巴是一条细细的、扁扁的审判线。蓝色上衣配金色装饰，黑色裤子。她的姿态和表情就是一个已经判定你穿得不够暖和的奶奶。"
+
+#. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.MINNOW
+msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.MINNOW"
+msgid "Pale porcelain skin and a tumble of pearlescent hair that fades from pinkish white at the crown through lavender to purple at the tips, with bright blue and pink streaks tucked underneath and choppy bangs sweeping across her forehead. A sprinkle of small blue dots marks her cheeks, like freckles that decided to be sea spray instead. She has big round dark eyes and a gentle, contented smile. She wears a dusty purple top over black fish-scale-patterned pants, with sky-blue gloves and matching blue trim."
+msgstr "苍白的瓷质皮肤，一头珠光头发从头顶的粉白色经薰衣草色渐变到发梢的紫色，底下藏着亮蓝色和粉色挑染，参差的刘海扫过额头。脸颊上点缀着小小的蓝点，像一些决定变成浪花的雀斑。她有大而圆的深色眼睛和温柔满足的微笑。她穿着灰紫色上衣，配鱼鳞图案的黑色裤子，戴着天蓝色手套和相配的蓝色饰边。"
 
 #. STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.NAILS
 msgctxt "STRINGS.ONIACCESS.DUPE_DESCRIPTIONS.NAILS"
@@ -5971,6 +6021,26 @@ msgstr "继续中"
 msgctxt "STRINGS.ONIACCESS.TOOLTIP.NO_TOOLTIP"
 msgid "no tooltip"
 msgstr "无提示"
+
+#. STRINGS.ONIACCESS.VIDEO.DESCRIPTIONS.AQUATIC_LOOP.CAMP
+msgctxt "STRINGS.ONIACCESS.VIDEO.DESCRIPTIONS.AQUATIC_LOOP.CAMP"
+msgid "The empty aquatic camp continues to gently sway with the water's current. With the mysterious survivor Minnow officially recruited, her former underwater outpost is left behind as a serene monument to your diplomatic victory."
+msgstr "空荡荡的水下营地继续随水流轻轻摇曳。随着神秘幸存者Minnow正式加入，她昔日的水下前哨被留在身后，成为你外交胜利的宁静纪念碑。"
+
+#. STRINGS.ONIACCESS.VIDEO.DESCRIPTIONS.AQUATIC_LOOP.CHAIR
+msgctxt "STRINGS.ONIACCESS.VIDEO.DESCRIPTIONS.AQUATIC_LOOP.CHAIR"
+msgid "Sunlight filters down through the rippling waves of a tranquil, flooded biome. A wooden chair adorned with a starfish sits empty among the colorful anemones and marine vines."
+msgstr "阳光透过宁静水淹生物群系的粼粼波纹洒落下来。一把装饰着海星的木椅空空地立在五彩缤纷的海葵和海藤之间。"
+
+#. STRINGS.ONIACCESS.VIDEO.DESCRIPTIONS.AQUATIC_LOOP.FISH
+msgctxt "STRINGS.ONIACCESS.VIDEO.DESCRIPTIONS.AQUATIC_LOOP.FISH"
+msgid "A cute, puffed-up fish with bright orange and pink scales and little green fins swims into view. Finding the cozy spot vacant, it flutters over and settles comfortably onto the seat of the abandoned chair."
+msgstr "一条可爱的鼓胀小鱼游入画面，鳞片呈亮橙色和粉色，长着小小的绿鳍。它发现这个舒适的位置空着，便扑腾过去，舒舒服服地在被遗弃的椅子上安顿下来。"
+
+#. STRINGS.ONIACCESS.VIDEO.DESCRIPTIONS.AQUATIC_LOOP.REST
+msgctxt "STRINGS.ONIACCESS.VIDEO.DESCRIPTIONS.AQUATIC_LOOP.REST"
+msgid "The round little critter rests peacefully for a moment, blinking its large, expressive eyes. Perhaps realizing there are no duplicants around to share a breath of air with, it floats back up and leisurely swims away."
+msgstr "这只圆滚滚的小生物安详地休息了片刻，眨着大而富有表情的眼睛。也许是意识到周围没有可以分享一口空气的复制人，它重新浮起，悠然游走。"
 
 #. STRINGS.ONIACCESS.VIDEO.DESCRIPTIONS.ARTIFACT.CARRYING
 msgctxt "STRINGS.ONIACCESS.VIDEO.DESCRIPTIONS.ARTIFACT.CARRYING"

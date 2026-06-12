@@ -793,6 +793,19 @@ namespace STRINGS {
 					// [00:06] Right dupe taps along
 					public static LocString DANCING = "Over on the right a second duplicant in a yellow hard hat taps their foot and nods along rhythmically while holding a clipboard. The entire scene continues to bounce along in a lively endless loop of geothermal triumph.";
 				}
+
+				/// Finding Minnow victory loop (20s). A fish visits the empty
+				/// chair at Minnow's abandoned underwater camp.
+				public class AQUATIC_LOOP {
+					// [00:00] Flooded biome, empty chair
+					public static LocString CHAIR = "Sunlight filters down through the rippling waves of a tranquil, flooded biome. A wooden chair adorned with a starfish sits empty among the colorful anemones and marine vines.";
+					// [00:06] Fish settles onto the chair
+					public static LocString FISH = "A cute, puffed-up fish with bright orange and pink scales and little green fins swims into view. Finding the cozy spot vacant, it flutters over and settles comfortably onto the seat of the abandoned chair.";
+					// [00:12] Fish rests, then swims away
+					public static LocString REST = "The round little critter rests peacefully for a moment, blinking its large, expressive eyes. Perhaps realizing there are no duplicants around to share a breath of air with, it floats back up and leisurely swims away.";
+					// [00:19] Empty camp sways in the current
+					public static LocString CAMP = "The empty aquatic camp continues to gently sway with the water's current. With the mysterious survivor Minnow officially recruited, her former underwater outpost is left behind as a serene monument to your diplomatic victory.";
+				}
 			}
 		}
 

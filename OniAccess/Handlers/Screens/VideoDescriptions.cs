@@ -138,6 +138,13 @@ namespace OniAccess.Handlers.Screens {
 					(3, D.GEOTHERMAL_LOOP.PUMPING),
 					(6, D.GEOTHERMAL_LOOP.DANCING),
 				},
+				// Lowercase in the game's assets, like geothermal_loop
+				["aquatic_loop"] = new List<(double, string)> {
+					(0, D.AQUATIC_LOOP.CHAIR),
+					(6, D.AQUATIC_LOOP.FISH),
+					(12, D.AQUATIC_LOOP.REST),
+					(19, D.AQUATIC_LOOP.CAMP),
+				},
 			};
 
 		public static List<(double time, string text)> GetDescriptions(string clipName) {

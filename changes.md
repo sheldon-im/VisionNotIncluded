@@ -2,137 +2,115 @@
 
 ## Unreleased changes since 1.5.5
 
-- Completing an Unknown Duplicant quest now announces the rewards dropped at the site ("Rewards gained: Plastic Gasket, 2 Flue Coral Seed") and, when the game reveals the next quest site, its direction and distance from the cursor ("Unknown Duplicant revealed, 80 tiles right, 12 tiles down").
+* Updated the mod to support game update U59-736649.
 
-- The scanner now finds the Aquatic Planet Pack's Unknown Duplicant quest sites under Buildings, Gravitas, alongside the other story points of interest.
+Updated the game to support the new Aquatic Planet Pack DLC.
 
-- The scanner now finds Thermal Gas Fissures (Geysers, Gas) and Tidal Springs (Geysers, Liquid), and the ruins beach chair under Buildings, Gravitas.
+&#x20;An audio description of the DLC's YouTube trailer can be found here, curtesy of Scene Tell, a soon to be released product bringing AI powered audio descriptions to the wider community. for more info, contact Austin Hix. the link: https://github.com/rashadnaqeeb/VisionNotIncluded/blob/main/videos/Aquatic%20Intro%20Described.m4a
 
-- The new Beach, Reef, Kelp Forest, and Abyss biomes use the game's localized names in the scanner instead of English fallbacks.
-
-- Fix tool filter menus (F) broken by the game update: the game reworked its filter menu internals, which silently emptied the menu for Cancel, Deconstruct, and Prioritize, stopped filter changes from applying, and made confirm counts ignore the active filter.
-
-- The dig tool now has a filter menu (F) with the game's new checkbox filters: Tiles, Natural Backwall, and Plants. Checkboxes toggle in place and announce their new state; the menu stays open until Escape. Note that Plants is on by default, so dig drags also mark plants in the area for uprooting; the dig confirmation announces how many plants that affects (for example "marked 14 for digging at priority 5, 3 plants to uproot").
-
-- Scanner dig order clusters over backwall name the backwall material (for example "dig Granite Backwall") instead of the gas or liquid occupying the cell.
-
-- The tile cursor qualifies partial dig orders: when a cell has both a solid tile and a backwall but the order only digs one of them, it reads "dig tile" or "dig backwall" instead of a plain "dig".
-
-- Fix scanner items for large regions (gas pockets, biomes, backwall sheets) sorting far down the list even when the cursor is inside them: distance now measures to the nearest tile of a region instead of its bottom-left corner.
-
-- Fix molten steel, salt, carbon, uranium, syngas, sucrose, nickel, and iridium sorting under Liquids, Misc in the scanner: they now join the Molten subcategory with the other molten metals.
-
-- Natural backwall is now reported: the tile cursor speaks it after the cell's element (for example "Granite Backwall"), and backwall clusters appear in the scanner under Solids next to their element. The dig tool's new Natural Backwall and Plants filters work through the existing filter menu.
-
-- The pathing description when examining a duplicant now includes their swimming abilities once they have the swim skill, and the new Slogo, Seaquine, and Glo Squid movement types are described when examining those critters.
-
-- Cycling duplicants with the bracket keys now announces when a duplicant has collapsed from suffocation, including the time left to rescue them. Follow mode and notifications already pick up the new suffocation rescue mechanic on their own.
-
-- Fix type-ahead in the codex categories tab forgetting previous letters: each keystroke started a new single-letter search instead of refining the match, and Up/Down could not walk the results.
-
-- Updated the mod to support game update U59-736649.
+* The dig tool now has a filter menu (F) with the game's new checkbox filters. Unlike all other filters, these are not radio buttons. You can check and uncheck each of them independently. The plants filter is the same as using the uproot tool, just brought into the dig tool for convenience.
+* Fixed scanner items for large regions (gas pockets, biomes, backwall sheets) sorting far down the list even when the cursor is inside them: distance now measures to the nearest tile of a region instead of its bottom-left corner.
+* Fix molten steel, salt, carbon, uranium, syngas, sucrose, nickel, and iridium sorting under Liquids, Misc in the scanner: they now join magma and the other molten elements in the Molten subcategory.
+* The pathing description when examining a duplicant now includes their swimming abilities once they have the swim skill, and the new Slogo, Seaquine, and Glo Squid movement types are described when examining those critters.
+* Fixed type-ahead in the codex categories tab forgetting previous letters: each keystroke started a new single-letter search instead of refining the match, and Up/Down could not walk the results.
 
 ## 1.5.5
 
-- Custom scanner categories can now include search keywords. Add a keyword in a category's editor and it becomes a subcategory that gathers everything whose name matches, sorted ahead of the taxonomy subcategories.
+* Custom scanner categories can now include search keywords. Add a keyword in a category's editor and it becomes a subcategory that gathers everything whose name matches, sorted ahead of the taxonomy subcategories.
 
 ## 1.5.4
 
-- Fix being unable to set per-robot access on a door's Access Control: the Robots category can now be drilled into to set individual robot access, not just the category default.
-
-- Fix being unable to pick a specific resource in a storage building's filter (storage bin, bottle emptier, etc.): you can now drill into a category like Liquids to choose Clean Water or Polluted Water, even on a newly placed building where nothing is selected yet.
+* Fix being unable to set per-robot access on a door's Access Control: the Robots category can now be drilled into to set individual robot access, not just the category default.
+* Fix being unable to pick a specific resource in a storage building's filter (storage bin, bottle emptier, etc.): you can now drill into a category like Liquids to choose Clean Water or Polluted Water, even on a newly placed building where nothing is selected yet.
 
 ## 1.5.3
 
-- Alt+H now reports the direction and distance to your home location without moving the cursor, the same way Alt plus a number key orients toward a bookmark.
-
-- Fix custom scanner categories not sorting alphabetically: they now order by name among themselves, in both the manager and the scan cycle, so renaming one moves it to its alphabetical place.
+* Alt+H now reports the direction and distance to your home location without moving the cursor, the same way Alt plus a number key orients toward a bookmark.
+* Fix custom scanner categories not sorting alphabetically: they now order by name among themselves, in both the manager and the scan cycle, so renaming one moves it to its alphabetical place.
 
 ## 1.5.2
 
-- Renamed the mod to Vision Not Included.
+* Renamed the mod to Vision Not Included.
 
 ## 1.5.1
 
-- Fix the Apply button being unreachable in graphics settings: it now appears in the list as soon as a setting change enables it, so you can apply your changes.
+* Fix the Apply button being unreachable in graphics settings: it now appears in the list as soon as a setting change enables it, so you can apply your changes.
 
 ## 1.5.0
 
-- Fix Codex Categories type-ahead landing on the first section of an article instead of the section you searched for.
-
-- Duplicants now report the practical suit they are wearing (atmo, jet, lead, or oxygen mask) when you cycle to them or arrow over them, and while following a dupe with the camera you hear when they put one on or take it off.
-
-- Added custom scanner categories: bundle the taxonomy filters you use most into your own named categories that appear first when cycling scanner categories. Create and edit them from "Custom scanner categories" in the scanner settings; they are saved globally and follow you to every colony.
+* Fix Codex Categories type-ahead landing on the first section of an article instead of the section you searched for.
+* Duplicants now report the practical suit they are wearing (atmo, jet, lead, or oxygen mask) when you cycle to them or arrow over them, and while following a dupe with the camera you hear when they put one on or take it off.
+* Added custom scanner categories: bundle the taxonomy filters you use most into your own named categories that appear first when cycling scanner categories. Create and edit them from "Custom scanner categories" in the scanner settings; they are saved globally and follow you to every colony.
 
 ## 1.4.7
 
-- Updated Prism speech library to v0.16.1
+* Updated Prism speech library to v0.16.1
 
 ## 1.4.6
 
-- Updated Prism speech library to v0.15.0
+* Updated Prism speech library to v0.15.0
 
 ## 1.4.5
 
-- The Select Module side screen (rocket platform module construction) now reads the reasons a module is not buildable, matching the tooltip the game shows sighted players. Reasons are also announced when pressing Build while the button is disabled.
+* The Select Module side screen (rocket platform module construction) now reads the reasons a module is not buildable, matching the tooltip the game shows sighted players. Reasons are also announced when pressing Build while the button is disabled.
 
 ## 1.4.4
 
-- Type-ahead search now accepts IME-composed input, so players using a Chinese, Japanese, or Korean IME can type CJK characters to filter lists.
-- Fix a crash that could happen after using copy-building (PlanScreen's Copy hotkey) when the game's copy didn't actually enter build mode. The mod was previously pushing a build handler in this case, then crashing on the first rectangle selection because no build tool was active.
+* Type-ahead search now accepts IME-composed input, so players using a Chinese, Japanese, or Korean IME can type CJK characters to filter lists.
+* Fix a crash that could happen after using copy-building (PlanScreen's Copy hotkey) when the game's copy didn't actually enter build mode. The mod was previously pushing a build handler in this case, then crashing on the first rectangle selection because no build tool was active.
 
 ## 1.4.3
 
-- Fix the game crashing when opening the material picker for a multi-ingredient building (e.g. Gas Filter) before each ingredient slot had a default material chosen.
+* Fix the game crashing when opening the material picker for a multi-ingredient building (e.g. Gas Filter) before each ingredient slot had a default material chosen.
 
 ## 1.4.2
 
-- Shift+Home (scanner orient) now appends the current item's name after the direction, so you can confirm what you're getting the bearing for.
+* Shift+Home (scanner orient) now appends the current item's name after the direction, so you can confirm what you're getting the bearing for.
 
 ## 1.4.1
 
-- Fix fast travel jump silently failing when the menu was opened from build or tool mode. The cursor now teleports to the selected point regardless of which handler is on top.
-- Add a Relocate action to the fast travel menu (Shift+V), between Rename and Delete, that moves an existing point to the cursor's current location.
+* Fix fast travel jump silently failing when the menu was opened from build or tool mode. The cursor now teleports to the selected point regardless of which handler is on top.
+* Add a Relocate action to the fast travel menu (Shift+V), between Rename and Delete, that moves an existing point to the cursor's current location.
 
 ## 1.4.0
 
-- Add a fast travel menu (Shift+V) for naming and jumping to cursor positions on the active world. Each entry stores a name and grid coordinates; right-arrow into an entry to rename or delete it. Bookmarks are scoped to the colony and the asteroid, and live in a YAML file alongside the save so the .sav itself stays unchanged.
+* Add a fast travel menu (Shift+V) for naming and jumping to cursor positions on the active world. Each entry stores a name and grid coordinates; right-arrow into an entry to rename or delete it. Bookmarks are scoped to the colony and the asteroid, and live in a YAML file alongside the save so the .sav itself stays unchanged.
 
 ## 1.3.9
 
-- Fix sandbox parameter sliders (mass, temperature, etc.) so the value you set is actually applied. Adjustments now persist to the sandbox settings, so the brush paints with your chosen values instead of the defaults.
-- The OS mouse pointer now follows the focused widget across menus and side screens, so a sighted observer can see where the blind player is focused. Widgets inside scroll containers are brought into view before the pointer is moved.
+* Fix sandbox parameter sliders (mass, temperature, etc.) so the value you set is actually applied. Adjustments now persist to the sandbox settings, so the brush paints with your chosen values instead of the defaults.
+* The OS mouse pointer now follows the focused widget across menus and side screens, so a sighted observer can see where the blind player is focused. Widgets inside scroll containers are brought into view before the pointer is moved.
 
 ## 1.3.8
 
-- Text edit fields now speak as you navigate: arrow keys announce the character to the right of the caret, Ctrl+arrows announce the next word, Home/End jump and announce, Up/Down re-read the full contents, and Backspace/Delete announce what was removed.
-- Text edit fields now support selection: Shift+arrows, Ctrl+Shift+arrows, Shift+Home/End, and Ctrl+A announce what was selected or unselected. Ctrl+C copies the current selection (or the full text when nothing is selected).
+* Text edit fields now speak as you navigate: arrow keys announce the character to the right of the caret, Ctrl+arrows announce the next word, Home/End jump and announce, Up/Down re-read the full contents, and Backspace/Delete announce what was removed.
+* Text edit fields now support selection: Shift+arrows, Ctrl+Shift+arrows, Shift+Home/End, and Ctrl+A announce what was selected or unselected. Ctrl+C copies the current selection (or the full text when nothing is selected).
 
 ## 1.3.7
 
-- Activating a notification or a Vitals row now moves the cursor to the focused target, so reading the cursor announces the POI instead of your previous location.
-- Type-ahead search now accepts space-delimited abbreviations: typing "ga pi" matches "Gas Pipe", "o n i" matches "Oxygen Not Included", etc. Each token must prefix a distinct word, in order. Existing matches are unchanged and always outrank abbreviation matches.
-- Type-ahead search now ranks shorter names first across all match tiers, with match position as the tiebreaker (e.g. searching "wood" puts "Pinewood" before "Oakwood Shelf")
-- Fix build rect mode so pressing Enter after setting one corner completes the rectangle at the cursor instead of speaking "no valid cells"
-- Add Hijacked Headquarters "Choose Blueprint" catalog screen: browse printable critters and plants as a searchable tree, then flip to a details tab to hear description, cost, and trigger a Print.
-- Trapped duplicants are now announced immediately when they become trapped, even if you're viewing a different world. A follow-up message confirms when they're no longer trapped.
+* Activating a notification or a Vitals row now moves the cursor to the focused target, so reading the cursor announces the POI instead of your previous location.
+* Type-ahead search now accepts space-delimited abbreviations: typing "ga pi" matches "Gas Pipe", "o n i" matches "Oxygen Not Included", etc. Each token must prefix a distinct word, in order. Existing matches are unchanged and always outrank abbreviation matches.
+* Type-ahead search now ranks shorter names first across all match tiers, with match position as the tiebreaker (e.g. searching "wood" puts "Pinewood" before "Oakwood Shelf")
+* Fix build rect mode so pressing Enter after setting one corner completes the rectangle at the cursor instead of speaking "no valid cells"
+* Add Hijacked Headquarters "Choose Blueprint" catalog screen: browse printable critters and plants as a searchable tree, then flip to a details tab to hear description, cost, and trigger a Print.
+* Trapped duplicants are now announced immediately when they become trapped, even if you're viewing a different world. A follow-up message confirms when they're no longer trapped.
 
 ## 1.3.6
 
-- Fix valve side screen reading flow rate as a percentage instead of grams per second
+* Fix valve side screen reading flow rate as a percentage instead of grams per second
 
 ## 1.3.5
 
-- Add Spice Grinder recipe selection screen with dropdown cycling and description readout
-- Fix unable to drill into categories on side screens like the pedestal
-- Fix cursor unable to reach map edges at high zoom levels
+* Add Spice Grinder recipe selection screen with dropdown cycling and description readout
+* Fix unable to drill into categories on side screens like the pedestal
+* Fix cursor unable to reach map edges at high zoom levels
 
 ## 1.3.4
 
-- Updated Prism speech library to v0.11.3
-- Fix Alt+Left/Right not navigating history in the Codex content tab
-- Help screen now shows keys for the active tab instead of a fixed list on all tabbed screens (Codex, Research, Skills, Schedule, Starmap, Inventory, Outfits)
-- Pressing Escape or Backspace while type-ahead search is active now clears the search first instead of closing the screen or navigating history
+* Updated Prism speech library to v0.11.3
+* Fix Alt+Left/Right not navigating history in the Codex content tab
+* Help screen now shows keys for the active tab instead of a fixed list on all tabbed screens (Codex, Research, Skills, Schedule, Starmap, Inventory, Outfits)
+* Pressing Escape or Backspace while type-ahead search is active now clears the search first instead of closing the screen or navigating history
 
 ## 1.3.3
 
@@ -192,7 +170,7 @@
 * Starmap scanner now finds non-empty harvestable resource containers under POIs
 * Entity details now show harvestable resource container contents when items are present
 * Entity details now show pathing behaviour for duplicants and critters, describing how they navigate the world
-* Re-added Tolk override support: drop tolk_override.dll and companion DLLs into the data folder to use Tolk instead of Prism
+* Re-added Tolk override support: drop tolk\_override.dll and companion DLLs into the data folder to use Tolk instead of Prism
 * Building details now show range coordinates for buildings like Auto-Sweeper, Robo-Miner, and Meteor Blaster
 * Dupe navigator now announces work progress percentage when cycling dupes
 * Rocket module selection now reads module descriptions and effects

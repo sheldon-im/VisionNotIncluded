@@ -47,6 +47,9 @@ namespace OniAccess.Handlers.Tiles.Scanner.Routing {
 				{ "PropGravitasWall", (ScannerTaxonomy.Categories.Buildings, ScannerTaxonomy.Subcategories.Gravitas) },
 				{ "PropGravitasWallPurple", (ScannerTaxonomy.Categories.Buildings, ScannerTaxonomy.Subcategories.Gravitas) },
 				{ "PropGravitasWallPurpleWhiteDiagonal", (ScannerTaxonomy.Categories.Buildings, ScannerTaxonomy.Subcategories.Gravitas) },
+				// Ruins-spawned rec building (Aquatic DLC); hidden from the build
+				// menu so it never enters the PLANORDER-derived map
+				{ "PropBeachChair", (ScannerTaxonomy.Categories.Buildings, ScannerTaxonomy.Subcategories.Gravitas) },
 				{ "Headquarters", (ScannerTaxonomy.Categories.Buildings, ScannerTaxonomy.Subcategories.Infrastructure) },
 				{ "ResetSkillsStation", (ScannerTaxonomy.Categories.Buildings, ScannerTaxonomy.Subcategories.Production) },
 				{ "RoleStation", (ScannerTaxonomy.Categories.Buildings, ScannerTaxonomy.Subcategories.Production) },

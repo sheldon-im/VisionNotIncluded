@@ -37,6 +37,10 @@ namespace OniAccess.Handlers.Tiles.Scanner.Routing {
 			{ SubWorld.ZoneType.PrehistoricGarden,   "GARDEN" },
 			{ SubWorld.ZoneType.PrehistoricRaptor,   "RAPTOR" },
 			{ SubWorld.ZoneType.PrehistoricWetlands, "WETLANDS" },
+			{ SubWorld.ZoneType.KelpForest,          "KELPFOREST" },
+			{ SubWorld.ZoneType.Reef,                "REEF" },
+			{ SubWorld.ZoneType.Abyss,               "ABYSS" },
+			{ SubWorld.ZoneType.Beach,               "BEACH" },
 		};
 
 		public string GetName(SubWorld.ZoneType zoneType) {

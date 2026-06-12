@@ -27,25 +27,35 @@ namespace OniAccess.Handlers.Tiles.Scanner.Backends {
 				yield return MakeEntry(go, cell, ScannerTaxonomy.Subcategories.Geothermal);
 			}
 
-			// Oil reservoirs are IEntityConfig, not IBuildingConfig, so they
-			// aren't in Components.Geysers or Components.BuildingCompletes.
-			// They do register a BuildingAttachPoint with GameTags.OilWell,
-			// which is how we find them.
+			// Oil reservoirs, Thermal Gas Fissures, and Tidal Springs are
+			// IEntityConfig, not IBuildingConfig, so they aren't in
+			// Components.Geysers or Components.BuildingCompletes. Each
+			// registers a BuildingAttachPoint for its tamer building, which
+			// is how we find them.
 			foreach (var attachPoint in Components.BuildingAttachPoints.GetWorldItems(worldId)) {
-				if (!HasOilWellHardpoint(attachPoint)) continue;
+				string subcategory = HardpointSubcategory(attachPoint);
+				if (subcategory == null) continue;
 				var go = attachPoint.gameObject;
 				int cell = Grid.PosToCell(go.transform.GetPosition());
 				if (!Grid.IsVisible(cell)) continue;
-				yield return MakeEntry(go, cell, ScannerTaxonomy.Subcategories.Liquid);
+				yield return MakeEntry(go, cell, subcategory);
 			}
 		}
 
-		private static bool HasOilWellHardpoint(BuildingAttachPoint attachPoint) {
+		private static string HardpointSubcategory(BuildingAttachPoint attachPoint) {
 			var points = attachPoint.points;
-			for (int i = 0; i < points.Length; i++)
-				if (points[i].attachableType == GameTags.OilWell)
-					return true;
-			return false;
+			for (int i = 0; i < points.Length; i++) {
+				var type = points[i].attachableType;
+				if (type == GameTags.OilWell)
+					return ScannerTaxonomy.Subcategories.Liquid;
+				// Thermal Gas Fissure (emits natural gas, Marine Drill attaches)
+				if (type == GameTags.UnderwaterVentDrill)
+					return ScannerTaxonomy.Subcategories.Gas;
+				// Tidal Spring (breathes liquid, Tidal Turbine attaches)
+				if (type == GameTags.ReefGenerator)
+					return ScannerTaxonomy.Subcategories.Liquid;
+			}
+			return null;
 		}
 
 		public bool ValidateEntry(ScanEntry entry, int cursorCell) {

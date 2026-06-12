@@ -872,6 +872,16 @@ namespace STRINGS {
 			public static LocString STATUS = "Demolior {0}%, {1}";
 		}
 
+		// Minnow quest (Aquatic DLC) completion sequence
+		public class MINNOW {
+			// {0} = comma-joined localized reward item names, with counts
+			public static LocString REWARDS = "Rewards gained: {0}";
+			// {0} = item count, {1} = localized item name
+			public static LocString REWARD_COUNT = "{0} {1}";
+			// {0} = the quest site's localized name, {1} = distance from the cursor
+			public static LocString NEXT_SITE = "{0} revealed, {1}";
+		}
+
 		// Tooltip summary readout at cursor
 		public class TOOLTIP {
 			public static LocString NO_TOOLTIP = "no tooltip";

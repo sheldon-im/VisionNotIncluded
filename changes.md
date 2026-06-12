@@ -2,6 +2,8 @@
 
 ## Unreleased changes since 1.5.5
 
+- Completing an Unknown Duplicant quest now announces the rewards dropped at the site ("Rewards gained: Plastic Gasket, 2 Flue Coral Seed") and, when the game reveals the next quest site, its direction and distance from the cursor ("Unknown Duplicant revealed, 80 tiles right, 12 tiles down").
+
 - The scanner now finds the Aquatic Planet Pack's Unknown Duplicant quest sites under Buildings, Gravitas, alongside the other story points of interest.
 
 - The scanner now finds Thermal Gas Fissures (Geysers, Gas) and Tidal Springs (Geysers, Liquid), and the ruins beach chair under Buildings, Gravitas.

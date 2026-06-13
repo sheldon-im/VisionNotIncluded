@@ -39,6 +39,24 @@ namespace OniAccess.Patches {
 	}
 
 	/// <summary>
+	/// Tracks whether MainMenu.OnSpawn is running. ONI creates the LoadScreen during
+	/// that window (force_active + activateOnSpawn) and keeps it active to show its
+	/// save-migration panel. That activation is not a user-initiated open, so we must
+	/// not push a handler for it -- doing so speaks "Save and load" behind the main
+	/// menu and leaves a stale handler on the stack.
+	/// </summary>
+	internal static class MainMenuSpawnGuard {
+		internal static bool IsSpawning;
+	}
+
+	[HarmonyPatch(typeof(MainMenu), "OnSpawn")]
+	internal static class MainMenu_OnSpawn_Patch {
+		private static void Prefix() => MainMenuSpawnGuard.IsSpawning = true;
+		// Finalizer so the flag is cleared even if OnSpawn throws.
+		private static void Finalizer() => MainMenuSpawnGuard.IsSpawning = false;
+	}
+
+	/// <summary>
 	/// Detect screen activations for context-aware handler switching.
 	/// Postfix: fires after KScreen.Activate completes (screen is now on the stack).
 	/// </summary>
@@ -49,6 +67,10 @@ namespace OniAccess.Patches {
 			// Skip screens managed via Show patches -- their OnActivate calls Show(false)
 			// during prefab init, so this postfix would push a zombie handler.
 			if (ContextDetector.IsShowPatched(__instance.GetType())) return;
+			// The LoadScreen activates during MainMenu.OnSpawn (and stays active for the
+			// save-migration panel) without the user opening it. Ignore that activation;
+			// the real open via LoadGame happens after OnSpawn returns.
+			if (MainMenuSpawnGuard.IsSpawning && __instance is LoadScreen) return;
 			ContextDetector.OnScreenActivated(__instance);
 		}
 	}

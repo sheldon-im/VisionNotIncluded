@@ -13,9 +13,14 @@ namespace OniAccess.Handlers.Screens {
 	///
 	/// Enter on a colony drills into its saves. Enter on a save drills into its
 	/// detail view. Enter on Load loads the game. Escape goes back one level.
+	///
+	/// When ONI finds legacy saves loose in the save root it overlays a migration
+	/// panel on this screen. While that panel is up it gates everything, so we
+	/// present it as its own level (info text plus Migrate/Continue/More Info/Open
+	/// Saves buttons) until the player dismisses or acts on it.
 	/// </summary>
 	public class SaveLoadHandler: BaseWidgetHandler {
-		private enum ViewLevel { ColonyList, SaveList, SaveDetail }
+		private enum ViewLevel { Migration, ColonyList, SaveList, SaveDetail }
 		private ViewLevel _viewLevel;
 		private bool _pendingViewTransition;
 		private HierarchyReferences _selectedSaveEntry;
@@ -36,6 +41,17 @@ namespace OniAccess.Handlers.Screens {
 
 		public override bool DiscoverWidgets(KScreen screen) {
 			_widgets.Clear();
+
+			// The migration panel overlays the whole screen and must be acted on or
+			// dismissed before the colony list is usable. Present it first whenever active.
+			if (IsMigrationPanelActive()) {
+				_viewLevel = ViewLevel.Migration;
+				DiscoverMigration(screen);
+				Util.Log.Debug($"SaveLoadHandler.DiscoverWidgets: {_widgets.Count} widgets (Migration)");
+				return true;
+			}
+			if (_viewLevel == ViewLevel.Migration)
+				_viewLevel = ViewLevel.ColonyList;
 
 			switch (_viewLevel) {
 				case ViewLevel.ColonyList:
@@ -506,6 +522,116 @@ namespace OniAccess.Handlers.Screens {
 		}
 
 		// ========================================
+		// MIGRATION PANEL
+		// ========================================
+
+		/// <summary>
+		/// Access the LoadScreen's migrationPanelRefs. ONI shows this panel when it
+		/// finds legacy saves loose in the save root; it is dismissed by its own
+		/// Continue button (or after a successful migrate).
+		/// </summary>
+		private HierarchyReferences GetMigrationPanel() {
+			try {
+				return Traverse.Create(_screen).Field("migrationPanelRefs")
+					.GetValue<HierarchyReferences>();
+			} catch (System.Exception ex) {
+				Util.Log.Error($"SaveLoadHandler.GetMigrationPanel: {ex.Message}");
+				return null;
+			}
+		}
+
+		private bool IsMigrationPanelActive() {
+			var panel = GetMigrationPanel();
+			return panel != null && panel.gameObject.activeInHierarchy;
+		}
+
+		/// <summary>
+		/// Discover the migration panel's info text and currently active action
+		/// buttons. The panel changes which buttons it shows as the flow progresses
+		/// (Migrate, then Continue on success or More Info on failure), so only
+		/// active, interactable buttons are included.
+		/// </summary>
+		private void DiscoverMigration(KScreen screen) {
+			var panel = GetMigrationPanel();
+			if (panel == null) return;
+
+			AddMigrationLabel(panel, "CountText");
+			AddMigrationLabel(panel, "InfoText");
+
+			AddMigrationButton(panel, "MigrateSaves");
+			AddMigrationButton(panel, "Continue");
+			AddMigrationButton(panel, "MoreInfo");
+			AddMigrationButton(panel, "OpenSaves");
+		}
+
+		/// <summary>
+		/// Add an active LocText field from the migration panel as a label widget.
+		/// </summary>
+		private void AddMigrationLabel(HierarchyReferences panel, string refName) {
+			if (!panel.HasReference(refName)) return;
+			try {
+				var component = panel.GetReference(refName);
+				if (component == null || !component.gameObject.activeInHierarchy) return;
+				var locText = component as LocText
+					?? component.gameObject.GetComponent<LocText>();
+				if (locText == null || string.IsNullOrEmpty(locText.text)) return;
+				_widgets.Add(new LabelWidget {
+					Label = locText.text.Trim(),
+					GameObject = component.gameObject
+				});
+			} catch (System.Exception ex) {
+				Util.Log.Error($"SaveLoadHandler.AddMigrationLabel({refName}): {ex.Message}");
+			}
+		}
+
+		/// <summary>
+		/// Add an active, interactable migration-panel button. The label comes from
+		/// the button's own LocText (game-localized).
+		/// </summary>
+		private void AddMigrationButton(HierarchyReferences panel, string refName) {
+			if (!panel.HasReference(refName)) return;
+			try {
+				var component = panel.GetReference(refName);
+				if (component == null || !component.gameObject.activeInHierarchy) return;
+				var button = component.gameObject.GetComponent<KButton>();
+				if (button == null || !button.isInteractable) return;
+				var locText = component.gameObject.GetComponentInChildren<LocText>();
+				string label = (locText != null && !string.IsNullOrEmpty(locText.text))
+					? locText.text.Trim() : null;
+				if (string.IsNullOrEmpty(label)) return;
+				_widgets.Add(new ButtonWidget {
+					Label = label,
+					Component = button,
+					GameObject = component.gameObject
+				});
+			} catch (System.Exception ex) {
+				Util.Log.Error($"SaveLoadHandler.AddMigrationButton({refName}): {ex.Message}");
+			}
+		}
+
+		/// <summary>
+		/// Re-evaluate the screen after a migration button is clicked. Continue hides
+		/// the panel, dropping us into the colony list; otherwise the panel's buttons
+		/// change (Migrate becomes Continue/More Info), so rediscover and announce.
+		/// </summary>
+		private void AfterMigrationAction() {
+			if (!IsMigrationPanelActive()) {
+				_viewLevel = ViewLevel.ColonyList;
+				DiscoverWidgets(_screen);
+				CurrentIndex = 0;
+				Speech.SpeechPipeline.SpeakInterrupt(DisplayName);
+				if (_widgets.Count > 0)
+					Speech.SpeechPipeline.SpeakQueued(GetWidgetSpeechText(_widgets[0]));
+				return;
+			}
+
+			DiscoverWidgets(_screen);
+			CurrentIndex = 0;
+			if (_widgets.Count > 0)
+				Speech.SpeechPipeline.SpeakInterrupt(GetWidgetSpeechText(_widgets[0]));
+		}
+
+		// ========================================
 		// VIEW TRANSITIONS
 		// ========================================
 
@@ -520,6 +646,11 @@ namespace OniAccess.Handlers.Screens {
 			var widget = _widgets[CurrentIndex];
 
 			switch (_viewLevel) {
+				case ViewLevel.Migration:
+					base.ActivateCurrentItem();
+					AfterMigrationAction();
+					break;
+
 				case ViewLevel.ColonyList:
 					if (widget is ButtonWidget
 						&& widget.Tag is string tag && tag == "colony_entry") {

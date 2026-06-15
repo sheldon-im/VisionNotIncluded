@@ -64,8 +64,46 @@ namespace OniAccess.Handlers.Screens {
 				});
 			}
 
+			AddWorldSeedCopyButton(screen);
+
 			Util.Log.Debug($"PauseMenuHandler.DiscoverWidgets: {_widgets.Count} widgets");
 			return true;
+		}
+
+		private void AddWorldSeedCopyButton(KScreen screen) {
+			try {
+				var clipboard = Traverse.Create(screen).Field("clipboard")
+					.GetValue<CopyTextFieldToClipboard>();
+				if (clipboard == null) return;
+
+				var kbutton = Traverse.Create(clipboard).Field("button")
+					.GetValue<KButton>();
+				if (kbutton == null || !kbutton.isInteractable) return;
+
+				var buttonGO = kbutton.gameObject;
+				if (buttonGO == null || !buttonGO.activeInHierarchy) return;
+
+				string label = (string)STRINGS.UI.CRASHSCREEN.COPYTOCLIPBOARDBUTTON;
+				if (string.IsNullOrEmpty(label))
+					label = (string)STRINGS.UI.FRONTEND.PAUSE_SCREEN.WORLD_SEED_COPY_TOOLTIP;
+				if (string.IsNullOrEmpty(label)) return;
+
+				var widget = new ButtonWidget {
+					Label = label,
+					Component = kbutton,
+					GameObject = buttonGO
+				};
+
+				// The copy control is visually grouped with the world seed at the top of the
+				// pause screen.  Insert it after the first normal pause action so it is easy
+				// to find without changing the initial "continue" focus.
+				if (_widgets.Count > 0)
+					_widgets.Insert(1, widget);
+				else
+					_widgets.Add(widget);
+			} catch (System.Exception ex) {
+				Util.Log.Warn($"PauseMenuHandler: failed to add world seed copy button: {ex}");
+			}
 		}
 	}
 }

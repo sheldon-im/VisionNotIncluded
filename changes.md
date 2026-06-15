@@ -2,6 +2,8 @@
 
 ## Unreleased changes since 1.6.1
 
+* The pause menu now includes the world seed/coordinate copy button, so keyboard-only and screen reader users can copy the current colony coordinates from the ESC menu.
+
 ## 1.6.1
 
 * Fixed the load screen announcing itself at the main menu on startup. The game quietly activates that screen in the background to check for old saves, and the mod was treating it as if you had opened it.

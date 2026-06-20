@@ -83,6 +83,12 @@ namespace OniAccess.Handlers.Screens {
 		private bool _pendingClusterRefresh;
 
 		/// <summary>
+		/// When true, the deferred refresh came from the Shuffle button and should
+		/// announce the newly applied world traits instead of the focused button.
+		/// </summary>
+		private bool _pendingShuffleTraitSpeech;
+
+		/// <summary>
 		/// When true, the next cluster speech omits the "Choose a Destination" prefix.
 		/// Set by Left/Right cycling so the repeated prefix isn't annoying.
 		/// </summary>
@@ -409,15 +415,8 @@ namespace OniAccess.Handlers.Screens {
 		/// at the given key: name, difficulty, N traits, N planetoids.
 		/// </summary>
 		private string BuildClusterSelectorLabel(string clusterKey, bool includePrefix = true) {
-			var panelTraverse = Traverse.Create(_screen).Field("destinationMapPanel");
-			var panel = panelTraverse.GetValue<object>();
-			if (panel == null) return clusterKey;
-
-			var pt = Traverse.Create(panel);
-			var asteroidData = pt.Field("asteroidData")
-				.GetValue<Dictionary<string, ColonyDestinationAsteroidBeltData>>();
-			if (asteroidData == null || !asteroidData.TryGetValue(clusterKey, out var belt))
-				return clusterKey;
+			var belt = GetBelt(clusterKey);
+			if (belt == null) return clusterKey;
 
 			// Cluster name
 			string name = "";
@@ -465,20 +464,91 @@ namespace OniAccess.Handlers.Screens {
 		}
 
 		/// <summary>
+		/// Look up the belt data for a cluster key from the destination panel.
+		/// Returns null if the panel or asteroid data isn't available yet.
+		/// </summary>
+		private ColonyDestinationAsteroidBeltData GetBelt(string clusterKey) {
+			if (string.IsNullOrEmpty(clusterKey)) return null;
+			var panel = Traverse.Create(_screen).Field("destinationMapPanel").GetValue<object>();
+			if (panel == null) return null;
+			var asteroidData = Traverse.Create(panel).Field("asteroidData")
+				.GetValue<Dictionary<string, ColonyDestinationAsteroidBeltData>>();
+			if (asteroidData == null) return null;
+			return asteroidData.TryGetValue(clusterKey, out var belt) ? belt : null;
+		}
+
+		/// <summary>
+		/// The cluster key currently selected for Left/Right cycling, or null.
+		/// </summary>
+		private string CurrentClusterKey() =>
+			(_clusterKeys != null && _clusterIndex >= 0 && _clusterIndex < _clusterKeys.Count)
+				? _clusterKeys[_clusterIndex] : null;
+
+		/// <summary>
+		/// Format the colored trait descriptors for one world into spoken labels.
+		/// With includeTooltips, each label is "name, description" for the info
+		/// submenu; without, just the trait name for the quick shuffle overview.
+		/// Returns an empty list when the world has no traits; callers decide how
+		/// to announce the empty case.
+		/// </summary>
+		private static List<string> BuildWorldTraitLabels(ColonyDestinationAsteroidBeltData belt, ProcGen.World world, bool includeTooltips) {
+			var labels = new List<string>();
+			foreach (var trait in belt.GenerateTraitDescriptors(world)) {
+				string text = trait.text?.Trim() ?? "";
+				if (!text.StartsWith("<color")) continue;
+				string traitLabel = Speech.TextFilter.FilterForSpeech(text);
+				if (includeTooltips) {
+					string tooltip = trait.tooltip?.Trim() ?? "";
+					if (!string.IsNullOrEmpty(tooltip))
+						traitLabel += $", {Speech.TextFilter.FilterForSpeech(tooltip)}";
+				}
+				labels.Add(traitLabel);
+			}
+			return labels;
+		}
+
+		/// <summary>
+		/// Build the post-shuffle announcement: each world in the current cluster
+		/// spoken as "world name: trait, trait", worlds separated by periods, with
+		/// "no traits" for any world that has none. Returns null if no cluster is
+		/// resolvable so the caller falls back to the focused widget.
+		/// </summary>
+		private string BuildShuffleTraitsSpeech() {
+			try {
+				var belt = GetBelt(CurrentClusterKey());
+				if (belt == null) return null;
+
+				var allWorlds = new List<ProcGen.World>();
+				if (belt.GetStartWorld != null) allWorlds.Add(belt.GetStartWorld);
+				if (belt.worlds != null) allWorlds.AddRange(belt.worlds);
+
+				var segments = new List<string>();
+				foreach (var world in allWorlds) {
+					string wName = world.GetProperName();
+					if (string.IsNullOrEmpty(wName)) continue;
+					var traitLabels = BuildWorldTraitLabels(belt, world, includeTooltips: false);
+					string traits = traitLabels.Count > 0
+						? string.Join(", ", traitLabels)
+						: (string)STRINGS.UI.FRONTEND.COLONYDESTINATIONSCREEN.NO_TRAITS;
+					segments.Add($"{Speech.TextFilter.FilterForSpeech(wName)}: {traits}");
+				}
+
+				return segments.Count > 0 ? string.Join(". ", segments) : null;
+			} catch (System.Exception ex) {
+				Util.Log.Error($"ColonySetupHandler.BuildShuffleTraitsSpeech: {ex.Message}");
+				return null;
+			}
+		}
+
+		/// <summary>
 		/// Build info submenu widgets for the cluster stored in _infoClusterKey.
 		/// Single-world clusters: description, difficulty, traits.
 		/// Multi-world clusters: description, difficulty, nearby/distant asteroid lists,
 		/// then per-world sections (name, description, traits).
 		/// </summary>
 		private void DiscoverClusterInfoWidgets(KScreen screen) {
-			var panelTraverse = Traverse.Create(screen).Field("destinationMapPanel");
-			var panel = panelTraverse.GetValue<object>();
-			if (panel == null) return;
-
-			var pt = Traverse.Create(panel);
-			var asteroidData = pt.Field("asteroidData")
-				.GetValue<Dictionary<string, ColonyDestinationAsteroidBeltData>>();
-			if (asteroidData == null || !asteroidData.TryGetValue(_infoClusterKey, out var belt)) return;
+			var belt = GetBelt(_infoClusterKey);
+			if (belt == null) return;
 
 			var startWorld = belt.GetStartWorld;
 			bool hasPlanetoids = belt.worlds != null && belt.worlds.Count > 0;
@@ -569,32 +639,17 @@ namespace OniAccess.Handlers.Screens {
 					}
 
 					// World traits for this specific world
-					var worldTraits = belt.GenerateTraitDescriptors(world);
-					bool hasTraits = false;
-					foreach (var trait in worldTraits) {
-						string text = trait.text?.Trim() ?? "";
-						if (string.IsNullOrEmpty(text)) continue;
-						if (!text.StartsWith("<color")) continue;
-
-						string traitLabel = Speech.TextFilter.FilterForSpeech(text);
-						string tooltip = trait.tooltip?.Trim() ?? "";
-						if (!string.IsNullOrEmpty(tooltip))
-							traitLabel += $", {Speech.TextFilter.FilterForSpeech(tooltip)}";
-						_widgets.Add(new LabelWidget {
-							Label = traitLabel
-						});
-						hasTraits = true;
-					}
-
-					if (!hasTraits) {
+					var traitLabels = BuildWorldTraitLabels(belt, world, includeTooltips: true);
+					if (traitLabels.Count > 0) {
+						foreach (var traitLabel in traitLabels)
+							_widgets.Add(new LabelWidget { Label = traitLabel });
+					} else {
 						string noTraits = STRINGS.WORLD_TRAITS.NO_TRAITS.NAME;
 						string noTraitsDesc = STRINGS.WORLD_TRAITS.NO_TRAITS.DESCRIPTION;
 						string label = Speech.TextFilter.FilterForSpeech(noTraits);
 						if (!string.IsNullOrEmpty(noTraitsDesc))
 							label += $", {Speech.TextFilter.FilterForSpeech(noTraitsDesc)}";
-						_widgets.Add(new LabelWidget {
-							Label = label
-						});
+						_widgets.Add(new LabelWidget { Label = label });
 					}
 				}
 			} else {
@@ -1125,6 +1180,7 @@ namespace OniAccess.Handlers.Screens {
 				if (shuffleField != null && shuffleField == shuffleCandidate) {
 					base.ActivateCurrentItem();
 					_pendingClusterRefresh = true;
+					_pendingShuffleTraitSpeech = true;
 					return;
 				} else {
 					Util.Log.Warn("ColonySetupHandler: shuffleButton field not found via Traverse");
@@ -1266,12 +1322,22 @@ namespace OniAccess.Handlers.Screens {
 			// after Left/Right cycling or shuffle fired OnAsteroidClicked.
 			// Re-discover widgets and speak the current cluster.
 			if (_pendingClusterRefresh) {
+				bool speakShuffleTraits = _pendingShuffleTraitSpeech;
 				_pendingClusterRefresh = false;
+				_pendingShuffleTraitSpeech = false;
 				int savedIndex = CurrentIndex;
 				DiscoverWidgets(_screen);
 				CurrentIndex = UnityEngine.Mathf.Clamp(savedIndex, 0,
 					_widgets.Count > 0 ? _widgets.Count - 1 : 0);
-				SpeakCurrentWidget();
+				if (speakShuffleTraits) {
+					string traitsSpeech = BuildShuffleTraitsSpeech();
+					if (!string.IsNullOrEmpty(traitsSpeech))
+						Speech.SpeechPipeline.SpeakInterrupt(traitsSpeech);
+					else
+						SpeakCurrentWidget();
+				} else {
+					SpeakCurrentWidget();
+				}
 				return false;
 			}
 

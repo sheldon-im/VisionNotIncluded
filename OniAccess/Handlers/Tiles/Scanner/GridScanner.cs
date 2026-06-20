@@ -378,6 +378,7 @@ namespace OniAccess.Handlers.Tiles.Scanner {
 
 		private void ProcessSameTypeOrders(int cell) {
 			TrySameTypeOrder(cell, OrderRouter.GetBuildOrderType, "Build");
+			TrySameTypeOrder(cell, OrderRouter.GetReplaceOrderType, "Replace");
 			TrySameTypeOrder(cell, OrderRouter.GetDeconstructOrderType, "Deconstruct");
 			TrySameTypeOrder(cell, OrderRouter.GetHarvestOrderType, "Harvest");
 			TrySameTypeOrder(cell, OrderRouter.GetUprootOrderType, "Uproot");
@@ -620,10 +621,10 @@ namespace OniAccess.Handlers.Tiles.Scanner {
 
 		private void ExtractSameTypeOrder(int cell) {
 			int root = _ufSameTypeOrders.Find(cell);
+			string key = _sameTypeKey[cell];
+			string orderLabel = key.Substring(0, key.IndexOf(':'));
+
 			if (!_sameTypeOrderClusters.TryGetValue(root, out var cluster)) {
-				string key = _sameTypeKey[cell];
-				int colon = key.IndexOf(':');
-				string orderLabel = key.Substring(0, colon);
 				string targetName = ReadSameTypeOrderName(cell, orderLabel);
 				cluster = new OrderCluster {
 					OrderType = OrderTypeFromLabel(orderLabel),
@@ -632,11 +633,11 @@ namespace OniAccess.Handlers.Tiles.Scanner {
 				_sameTypeOrderClusters[root] = cluster;
 			}
 
-			// Multi-cell building dedup: a 3x3 building occupies 9 cells
-			// on the Building layer. Only count one cell per unique
-			// GameObject to avoid inflating the cluster tile count.
-			var go = Grid.Objects[cell, (int)ObjectLayer.Building]
-				?? Grid.Objects[cell, (int)ObjectLayer.FoundationTile];
+			// Multi-cell order dedup: a 3x3 building, a conduit bridge, or a
+			// tile registers one GameObject across all the cells it occupies.
+			// Count each unique GameObject once so the cluster's cell count
+			// reflects the number of orders, not occupied cells.
+			var go = OrderRouter.GetSameTypeOrderObject(cell, orderLabel);
 			if (go != null) {
 				if (!_sameTypeSeenIds.TryGetValue(root, out var seen)) {
 					seen = new HashSet<int>();
@@ -742,6 +743,7 @@ namespace OniAccess.Handlers.Tiles.Scanner {
 		private static OrderRouter.OrderType OrderTypeFromLabel(string label) {
 			switch (label) {
 				case "Build": return OrderRouter.Build;
+				case "Replace": return OrderRouter.Replace;
 				case "Deconstruct": return OrderRouter.Deconstruct;
 				case "Harvest": return OrderRouter.Harvest;
 				case "Uproot": return OrderRouter.Uproot;
@@ -754,6 +756,7 @@ namespace OniAccess.Handlers.Tiles.Scanner {
 		private static string ReadSameTypeOrderName(int cell, string orderLabel) {
 			switch (orderLabel) {
 				case "Build": return OrderRouter.GetBuildOrderName(cell);
+				case "Replace": return OrderRouter.GetReplaceOrderName(cell);
 				case "Deconstruct": return OrderRouter.GetDeconstructOrderName(cell);
 				case "Harvest": return OrderRouter.GetHarvestOrderName(cell);
 				case "Uproot": return OrderRouter.GetUprootOrderName(cell);

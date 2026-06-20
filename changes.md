@@ -2,6 +2,10 @@
 
 ## Unreleased changes since 1.6.2
 
+* Fixed the scanner missing build orders for wires, pipes, conduit bridges, and logic wires; it only ever found build orders for regular buildings. It now also reports pipe, wire, and tile replacement tasks.
+
+* Fixed the scanner counting a conduit bridge as two tiles in an order cluster; bridges now count once for build, deconstruct, and replace orders.
+
 ## 1.6.2
 
 * Fixed the DLC list on the main menu's second tab going un-arrowable after the Aquatic Planet Pack update. The game now builds the DLC logos dynamically, so the mod discovers them live and will pick up future DLCs automatically.

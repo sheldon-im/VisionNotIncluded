@@ -48,6 +48,11 @@ namespace OniAccess.Handlers.Tiles.Scanner.Routing {
 			Strategy = ClusterStrategy.SameType,
 		};
 
+		public static readonly OrderType Replace = new OrderType {
+			Label = (string)STRINGS.ONIACCESS.GLANCE.ORDER_REPLACE,
+			Strategy = ClusterStrategy.SameType,
+		};
+
 		public static readonly OrderType Harvest = new OrderType {
 			Label = (string)STRINGS.ONIACCESS.GLANCE.ORDER_HARVEST,
 			Strategy = ClusterStrategy.SameType,
@@ -149,32 +154,13 @@ namespace OniAccess.Handlers.Tiles.Scanner.Routing {
 					Db.Get().MiscStatusItems.MarkedForDisinfection);
 		}
 
-		/// <summary>
-		/// Checks for a build order (Constructable) on the Building layer.
-		/// Returns the building prefab ID as the type key for same-type clustering.
-		/// </summary>
-		public static string GetBuildOrderType(int cell) {
-			var go = Grid.Objects[cell, (int)ObjectLayer.Building];
-			if (go == null || go.GetComponent<Constructable>() == null)
-				go = Grid.Objects[cell, (int)ObjectLayer.AttachableBuilding];
-			if (go == null) return null;
-			var constructable = go.GetComponent<Constructable>();
-			if (constructable == null) return null;
-			return go.GetComponent<Building>().Def.PrefabID;
-		}
-
-		/// <summary>
-		/// Returns the building name for a build order cell (for announcement).
-		/// </summary>
-		public static string GetBuildOrderName(int cell) {
-			var go = Grid.Objects[cell, (int)ObjectLayer.Building];
-			if (go == null || go.GetComponent<Constructable>() == null)
-				go = Grid.Objects[cell, (int)ObjectLayer.AttachableBuilding];
-			if (go == null) return null;
-			return go.GetComponent<KSelectable>()?.GetName();
-		}
-
-		private static readonly int[] _deconstructLayers = {
+		// Layers on which a building can live, whether complete or under
+		// construction. Shared by build and deconstruct detection: a build
+		// order is a Constructable on one of these layers, a deconstruct order
+		// is a Deconstructable marked for deconstruction. Wires, pipes, conduit
+		// bridges, and logic wires each occupy their own layer, so checking
+		// only the Building layer would miss their build orders.
+		private static readonly int[] _buildingLayers = {
 			(int)ObjectLayer.Building,
 			(int)ObjectLayer.AttachableBuilding,
 			(int)ObjectLayer.FoundationTile,
@@ -192,37 +178,102 @@ namespace OniAccess.Handlers.Tiles.Scanner.Routing {
 			(int)ObjectLayer.LogicGate,
 		};
 
-		public static string GetDeconstructOrderType(int cell) {
-			for (int i = 0; i < _deconstructLayers.Length; i++) {
-				string type = GetDeconstructOnLayer(cell, _deconstructLayers[i]);
-				if (type != null) return type;
+		// Replacement layers hold the under-construction object for a
+		// pipe/wire/tile replacement task. The original stays on its own layer
+		// (complete, unmarked) while the replacement Constructable lives here,
+		// so replacements need a separate detection pass from build orders.
+		private static readonly int[] _replacementLayers = {
+			(int)ObjectLayer.ReplacementWire,
+			(int)ObjectLayer.ReplacementLogicWire,
+			(int)ObjectLayer.ReplacementGasConduit,
+			(int)ObjectLayer.ReplacementLiquidConduit,
+			(int)ObjectLayer.ReplacementSolidConduit,
+			(int)ObjectLayer.ReplacementTile,
+			(int)ObjectLayer.ReplacementLadder,
+			(int)ObjectLayer.ReplacementTravelTube,
+			(int)ObjectLayer.ReplacementBackwall,
+		};
+
+		/// <summary>
+		/// Checks for a build order (Constructable) on any building layer.
+		/// Returns the building prefab ID as the type key for same-type clustering.
+		/// </summary>
+		public static string GetBuildOrderType(int cell) {
+			var go = FindConstructable(cell, _buildingLayers);
+			return go != null ? go.GetComponent<Building>().Def.PrefabID : null;
+		}
+
+		/// <summary>
+		/// Returns the building name for a build order cell (for announcement).
+		/// </summary>
+		public static string GetBuildOrderName(int cell) {
+			var go = FindConstructable(cell, _buildingLayers);
+			return go != null ? go.GetComponent<KSelectable>()?.GetName() : null;
+		}
+
+		/// <summary>
+		/// Checks for a replacement order (Constructable on a replacement
+		/// layer). Returns the replacing building's prefab ID as the cluster key.
+		/// </summary>
+		public static string GetReplaceOrderType(int cell) {
+			var go = FindConstructable(cell, _replacementLayers);
+			return go != null ? go.GetComponent<Building>().Def.PrefabID : null;
+		}
+
+		/// <summary>
+		/// Returns the replacing building's name for a replacement order cell.
+		/// </summary>
+		public static string GetReplaceOrderName(int cell) {
+			var go = FindConstructable(cell, _replacementLayers);
+			return go != null ? go.GetComponent<KSelectable>()?.GetName() : null;
+		}
+
+		private static UnityEngine.GameObject FindConstructable(int cell, int[] layers) {
+			for (int i = 0; i < layers.Length; i++) {
+				var go = Grid.Objects[cell, layers[i]];
+				if (go != null && go.GetComponent<Constructable>() != null)
+					return go;
 			}
 			return null;
 		}
 
-		private static string GetDeconstructOnLayer(int cell, int layer) {
-			var go = Grid.Objects[cell, layer];
-			if (go == null) return null;
-			var deconstructable = go.GetComponent<Deconstructable>();
-			if (deconstructable == null) return null;
-			if (!deconstructable.IsMarkedForDeconstruction()) return null;
-			return go.GetComponent<Building>().Def.PrefabID;
+		public static string GetDeconstructOrderType(int cell) {
+			var go = FindDeconstructable(cell);
+			return go != null ? go.GetComponent<Building>().Def.PrefabID : null;
 		}
 
 		public static string GetDeconstructOrderName(int cell) {
-			for (int i = 0; i < _deconstructLayers.Length; i++) {
-				string name = GetDeconstructNameOnLayer(cell, _deconstructLayers[i]);
-				if (name != null) return name;
+			var go = FindDeconstructable(cell);
+			return go != null ? go.GetComponent<KSelectable>()?.GetName() : null;
+		}
+
+		private static UnityEngine.GameObject FindDeconstructable(int cell) {
+			for (int i = 0; i < _buildingLayers.Length; i++) {
+				var go = Grid.Objects[cell, _buildingLayers[i]];
+				if (go == null) continue;
+				var d = go.GetComponent<Deconstructable>();
+				if (d != null && d.IsMarkedForDeconstruction())
+					return go;
 			}
 			return null;
 		}
 
-		private static string GetDeconstructNameOnLayer(int cell, int layer) {
-			var go = Grid.Objects[cell, layer];
-			if (go == null) return null;
-			var d = go.GetComponent<Deconstructable>();
-			if (d == null || !d.IsMarkedForDeconstruction()) return null;
-			return go.GetComponent<KSelectable>()?.GetName();
+		/// <summary>
+		/// Returns the GameObject backing a same-type order at the cell, used
+		/// to dedup multi-cell orders (buildings, conduit bridges, tiles) that
+		/// register one instance across several cells. Returns null when the
+		/// order has no single backing object to dedup on.
+		/// </summary>
+		public static UnityEngine.GameObject GetSameTypeOrderObject(
+				int cell, string orderLabel) {
+			switch (orderLabel) {
+				case "Build": return FindConstructable(cell, _buildingLayers);
+				case "Replace": return FindConstructable(cell, _replacementLayers);
+				case "Deconstruct": return FindDeconstructable(cell);
+				case "Harvest":
+				case "Uproot": return Grid.Objects[cell, (int)ObjectLayer.Building];
+				default: return null;
+			}
 		}
 
 		public static string GetHarvestOrderType(int cell) {

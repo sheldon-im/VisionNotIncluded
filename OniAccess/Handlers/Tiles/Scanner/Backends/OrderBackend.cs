@@ -163,6 +163,8 @@ namespace OniAccess.Handlers.Tiles.Scanner.Backends {
 				int cell, OrderRouter.OrderType orderType) {
 			if (orderType.Label == OrderRouter.Build.Label)
 				return OrderRouter.GetBuildOrderType(cell) != null;
+			if (orderType.Label == OrderRouter.Replace.Label)
+				return OrderRouter.GetReplaceOrderType(cell) != null;
 			if (orderType.Label == OrderRouter.Deconstruct.Label)
 				return OrderRouter.GetDeconstructOrderType(cell) != null;
 			if (orderType.Label == OrderRouter.Harvest.Label)

@@ -1045,6 +1045,7 @@ namespace STRINGS {
 			public static LocString ORDER_MOP = "mop";
 			public static LocString ORDER_SWEEP = "sweep";
 			public static LocString ORDER_DECONSTRUCT = "deconstruct";
+			public static LocString ORDER_REPLACE = "replace";
 			public static LocString ORDER_HARVEST = "harvest";
 			public static LocString ORDER_UPROOT = "uproot";
 			public static LocString ORDER_DISINFECT = "disinfect";

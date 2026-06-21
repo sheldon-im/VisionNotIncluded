@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using OniAccess.Handlers.Tiles.Scanner.Routing;
 
 namespace OniAccess.Handlers.Tiles.AreaScan {
 	/// <summary>
@@ -141,54 +142,35 @@ namespace OniAccess.Handlers.Tiles.AreaScan {
 		}
 
 		private static void CountOrders(int cell, Dictionary<string, int> orders,
-				HashSet<UnityEngine.GameObject> seenBuildings) {
+				HashSet<UnityEngine.GameObject> seen) {
 			if (Grid.Objects[cell, (int)ObjectLayer.DigPlacer] != null)
 				Increment(orders, Strings.Get("STRINGS.UI.TOOLS.DIG.TOOLNAME"));
 			if (Grid.Objects[cell, (int)ObjectLayer.MopPlacer] != null)
 				Increment(orders, Strings.Get("STRINGS.UI.TOOLS.MOP.TOOLNAME"));
 
-			CountOrdersOnBuildingLayer(cell, ObjectLayer.Building, orders, seenBuildings);
-			CountOrdersOnBuildingLayer(cell, ObjectLayer.AttachableBuilding, orders, seenBuildings);
+			// Build and deconstruct orders sit on whichever object layer the
+			// building occupies. Pipes, wires, conduit bridges, and logic wires
+			// each have their own layer, so checking only the Building layers
+			// would miss them. OrderRouter scans every building layer and returns
+			// the order's GameObject, deduped here so a multi-cell building or a
+			// two-cell bridge counts once, not once per occupied cell.
+			var buildGo = OrderRouter.GetSameTypeOrderObject(cell, "Build");
+			if (buildGo != null && seen.Add(buildGo))
+				Increment(orders, Strings.Get("STRINGS.UI.TOOLS.BUILD.TOOLNAME"));
 
-			var foundationGo = Grid.Objects[cell, (int)ObjectLayer.FoundationTile];
-			if (foundationGo != null && seenBuildings.Add(foundationGo)) {
-				var constructable = foundationGo.GetComponent<Constructable>();
-				if (constructable != null)
-					Increment(orders, Strings.Get("STRINGS.UI.TOOLS.BUILD.TOOLNAME"));
-				var decon = foundationGo.GetComponent<Deconstructable>();
-				if (decon != null && decon.IsMarkedForDeconstruction())
-					Increment(orders,
-						Strings.Get("STRINGS.UI.TOOLS.DECONSTRUCT.TOOLNAME"));
-			}
+			var deconGo = OrderRouter.GetSameTypeOrderObject(cell, "Deconstruct");
+			if (deconGo != null && seen.Add(deconGo))
+				Increment(orders, Strings.Get("STRINGS.UI.TOOLS.DECONSTRUCT.TOOLNAME"));
 
-			var pickGo = Grid.Objects[cell, (int)ObjectLayer.Pickupables];
-			if (pickGo != null) {
-				var pickupable = pickGo.GetComponent<Pickupable>();
-				if (pickupable != null) {
-					for (var item = pickupable.objectLayerListItem;
-						item != null; item = item.nextItem) {
-						var clearable = item.gameObject.GetComponent<Clearable>();
-						if (clearable != null && clearable.HasTag(GameTags.Garbage)) {
-							Increment(orders,
-								Strings.Get("STRINGS.UI.TOOLS.MARKFORSTORAGE.TOOLNAME"));
-							break;
-						}
-					}
-				}
-			}
+			CountPlantOrders(cell, ObjectLayer.Building, orders, seen);
+			CountPlantOrders(cell, ObjectLayer.AttachableBuilding, orders, seen);
+			CountSweepOrder(cell, orders);
 		}
 
-		private static void CountOrdersOnBuildingLayer(int cell, ObjectLayer layer,
+		private static void CountPlantOrders(int cell, ObjectLayer layer,
 				Dictionary<string, int> orders, HashSet<UnityEngine.GameObject> seen) {
 			var go = Grid.Objects[cell, (int)layer];
 			if (go == null || !seen.Add(go)) return;
-			var constructable = go.GetComponent<Constructable>();
-			if (constructable != null)
-				Increment(orders, Strings.Get("STRINGS.UI.TOOLS.BUILD.TOOLNAME"));
-			var decon = go.GetComponent<Deconstructable>();
-			if (decon != null && decon.IsMarkedForDeconstruction())
-				Increment(orders,
-					Strings.Get("STRINGS.UI.TOOLS.DECONSTRUCT.TOOLNAME"));
 			var harvest = go.GetComponent<HarvestDesignatable>();
 			if (harvest != null && harvest.MarkedForHarvest)
 				Increment(orders,
@@ -197,6 +179,22 @@ namespace OniAccess.Handlers.Tiles.AreaScan {
 			if (uproot != null && uproot.IsMarkedForUproot)
 				Increment(orders,
 					Strings.Get("STRINGS.UI.TOOLS.UPROOT.TOOLNAME"));
+		}
+
+		private static void CountSweepOrder(int cell, Dictionary<string, int> orders) {
+			var pickGo = Grid.Objects[cell, (int)ObjectLayer.Pickupables];
+			if (pickGo == null) return;
+			var pickupable = pickGo.GetComponent<Pickupable>();
+			if (pickupable == null) return;
+			for (var item = pickupable.objectLayerListItem;
+				item != null; item = item.nextItem) {
+				var clearable = item.gameObject.GetComponent<Clearable>();
+				if (clearable != null && clearable.HasTag(GameTags.Garbage)) {
+					Increment(orders,
+						Strings.Get("STRINGS.UI.TOOLS.MARKFORSTORAGE.TOOLNAME"));
+					break;
+				}
+			}
 		}
 
 		private static void Increment(Dictionary<string, int> dict, string key) {

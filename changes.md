@@ -2,6 +2,8 @@
 
 ## Unreleased changes since 1.6.3
 
+* Fixed the area scan not counting under-construction pipes, wires, and conduit bridges. It only looked for build orders on regular building layers, so pending utility construction was left out of the order count.
+
 ## 1.6.3
 
 * Fixed the scanner missing build orders for wires, pipes, conduit bridges, and logic wires; it only ever found build orders for regular buildings. It now also reports pipe, wire, and tile replacement tasks.

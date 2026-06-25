@@ -10,7 +10,7 @@ namespace OniAccess.Handlers.Screens.Research {
 	/// Left/Right cycles among siblings from the last Up/Down move.
 	/// Enter queues the current tech for research.
 	/// </summary>
-	internal class TreeTab: IScreenTab {
+	internal class TreeTab: IScreenTab, IReviewableTab {
 		private readonly ResearchScreenHandler _parent;
 		private readonly NavigableGraph<Tech> _graph;
 
@@ -37,6 +37,11 @@ namespace OniAccess.Handlers.Screens.Research {
 		private string TechSpeech(Tech t) =>
 			WidgetSpeech.ComposeListItem(ResearchHelper.BuildTechLabel(t),
 				_graph.SiblingPosition, _graph.SiblingCount);
+
+		public string GetReviewContent() =>
+			_graph.Current != null ? TechSpeech(_graph.Current) : null;
+
+		public object GetReviewFocusKey() => _graph.Current;
 
 		// ========================================
 		// IScreenTab

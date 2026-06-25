@@ -66,6 +66,23 @@ namespace OniAccess.Handlers {
 			return Widgets.WidgetSpeech.ComposeListItem(text, position, total, roleKey);
 		}
 
+		/// <summary>
+		/// The focused item's full spoken text, without the verbose position tail, for
+		/// the line reviewer. Defaults to the type-ahead search label; subclasses whose
+		/// SpeakCurrentItem composes a richer announcement (a built dupe/instance label,
+		/// a status line) override this and feed it into SpeakCurrentItem too, so the
+		/// reviewed text and the spoken text stay one source. Tree and widget subclasses
+		/// replace GetReviewContent itself instead.
+		/// </summary>
+		protected virtual string GetReviewItemText() => GetItemLabel(CurrentIndex);
+
+		internal override string GetReviewContent() {
+			if (CurrentIndex < 0 || CurrentIndex >= ItemCount) return null;
+			return GetReviewItemText();
+		}
+
+		internal override object GetReviewFocusKey() => CurrentIndex;
+
 		// ========================================
 		// VIRTUAL HOOKS
 		// ========================================
@@ -128,6 +145,7 @@ namespace OniAccess.Handlers {
 			new HelpEntry("Shift+Left/Right", STRINGS.ONIACCESS.HELP.ADJUST_VALUE_LARGE),
 			new HelpEntry("Ctrl+Left/Right", STRINGS.ONIACCESS.HELP.ADJUST_VALUE_LARGER),
 			new HelpEntry("Ctrl+Shift+Left/Right", STRINGS.ONIACCESS.HELP.ADJUST_VALUE_LARGEST),
+			LineReviewHelpEntry,
 		};
 
 		/// <summary>
@@ -311,6 +329,9 @@ namespace OniAccess.Handlers {
 			// navigating candidates, etc.). Consume the frame so list navigation doesn't
 			// fire alongside candidate selection.
 			if (UnityEngine.Input.compositionString.Length > 0)
+				return true;
+
+			if (TryLineReview())
 				return true;
 
 			bool ctrlHeld = InputUtil.CtrlHeld();

@@ -2,6 +2,8 @@
 
 ## Unreleased changes since 1.6.3
 
+* Added Alt+Up and Alt+Down to step through the item the cursor is on one line at a time, in menus, lists, tables, and detail screens. Useful for packed readouts like the Vitals morale column or a building's status panel, where a single cell or line crams in many values.
+
 * Added a Verbose interface setting (off by default, in Settings under Interface). When on, menus and lists announce each item's control type (button, picker, slider, toggle, radio button, submenu) and its position, like "3 of 9"; tables announce the row count as you change rows and the column count as you change columns, and tag a sortable column header as a sort button; the table or grid name itself is announced, for example "Vitals, table" or "Schedules, grid"; and switching tabs ends with the tab's position, like "tab 2 of 4".
 
 * The tool filter now says which option is currently selected, and the build material and facade pickers mark the current choice as selected.

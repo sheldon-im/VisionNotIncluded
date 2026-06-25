@@ -64,10 +64,16 @@ namespace OniAccess.Handlers.Screens.Schedule {
 			return dupes[index].GetProperName();
 		}
 
+		protected override string GetReviewItemText() {
+			var dupes = GetDupeList();
+			if (CurrentIndex < 0 || CurrentIndex >= dupes.Count) return null;
+			return ScheduleHelper.BuildDupeLabel(dupes[CurrentIndex]);
+		}
+
 		public override void SpeakCurrentItem(string parentContext = null) {
 			var dupes = GetDupeList();
 			if (CurrentIndex < 0 || CurrentIndex >= dupes.Count) return;
-			string label = ScheduleHelper.BuildDupeLabel(dupes[CurrentIndex]);
+			string label = GetReviewItemText();
 			if (!string.IsNullOrEmpty(parentContext))
 				label = parentContext + ", " + label;
 			SpeechPipeline.SpeakInterrupt(ComposeItem(label, CurrentIndex));

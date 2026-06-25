@@ -13,7 +13,7 @@ namespace OniAccess.Handlers.Screens.Schedule {
 	/// Does not extend BaseMenuHandler — the 2D cursor and custom key routing
 	/// conflict with 1D list navigation.
 	/// </summary>
-	internal class SchedulesTab: IScreenTab {
+	internal class SchedulesTab: IScreenTab, IReviewableTab {
 		private readonly ScheduleScreenHandler _parent;
 
 		// 2D cursor
@@ -74,6 +74,15 @@ namespace OniAccess.Handlers.Screens.Schedule {
 				return count + 1;
 			}
 		}
+
+		public string GetReviewContent() {
+			var gr = GetRow(_row);
+			if (gr.IsAddButton)
+				return (string)STRINGS.ONIACCESS.SCHEDULE.ADD_SCHEDULE;
+			return BuildFullCellAnnouncement(gr, forceScheduleName: true);
+		}
+
+		public object GetReviewFocusKey() => (_row, _col);
 
 		private GridRow GetRow(int flatRow) {
 			var schedules = ScheduleManager.Instance.GetSchedules();

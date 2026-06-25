@@ -35,9 +35,10 @@ namespace OniAccess.Handlers.Screens {
 			get {
 				var tabEntries = _tabArray[_activeTabIndex].HelpEntries;
 				if (tabEntries == null)
-					return new System.Collections.Generic.List<HelpEntry> { _tabSwitchHelp };
+					return new System.Collections.Generic.List<HelpEntry> { _tabSwitchHelp, LineReviewHelpEntry };
 				var entries = new System.Collections.Generic.List<HelpEntry>(tabEntries);
 				entries.Add(_tabSwitchHelp);
+				entries.Add(LineReviewHelpEntry);
 				return entries;
 			}
 		}
@@ -85,8 +86,33 @@ namespace OniAccess.Handlers.Screens {
 			base.OnDeactivate();
 		}
 
+		/// <summary>
+		/// Pull review content from the active tab. Nearly every tab is itself a menu
+		/// or tree handler, so it already supplies its focused item; a tab that is not
+		/// a handler (or has nothing focused) yields null and the reviewer says so.
+		/// </summary>
+		internal override string GetReviewContent() {
+			var tab = _tabArray[_activeTabIndex];
+			if (tab is BaseScreenHandler h) return h.GetReviewContent();
+			if (tab is IReviewableTab r) return r.GetReviewContent();
+			return null;
+		}
+
+		// Fold the active tab index into the key so switching tabs rewinds the
+		// reviewer, then defer to the tab for its own focus identity.
+		internal override object GetReviewFocusKey() {
+			var tab = _tabArray[_activeTabIndex];
+			object inner = tab is BaseScreenHandler h ? h.GetReviewFocusKey()
+				: tab is IReviewableTab r ? r.GetReviewFocusKey()
+				: null;
+			return (_activeTabIndex, inner);
+		}
+
 		public override bool Tick() {
 			if (base.Tick()) return true;
+
+			if (TryLineReview())
+				return true;
 
 			if (UnityEngine.Input.GetKeyDown(UnityEngine.KeyCode.Tab)) {
 				return HandleTabKey();

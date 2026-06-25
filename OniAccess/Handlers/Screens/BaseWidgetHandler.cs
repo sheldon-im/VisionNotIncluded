@@ -85,6 +85,19 @@ namespace OniAccess.Handlers.Screens {
 			return IsWidgetValid(_widgets[index]);
 		}
 
+		/// <summary>
+		/// The focused widget's announcement for the line reviewer, built the same way
+		/// as the spoken navigation text.
+		/// </summary>
+		internal override string GetReviewContent() {
+			if (CurrentIndex < 0 || CurrentIndex >= _widgets.Count) return null;
+			var w = _widgets[CurrentIndex];
+			if (!IsWidgetValid(w)) return null;
+			return BuildWidgetText(w);
+		}
+
+		internal override object GetReviewFocusKey() => CurrentIndex;
+
 		// ========================================
 		// ABSTRACT: WIDGET DISCOVERY
 		// ========================================

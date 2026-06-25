@@ -185,6 +185,8 @@ namespace STRINGS {
 			public static LocString ADJUST_VALUE_LARGER = "Adjust value by 100 or 25 percent";
 			public static LocString ADJUST_VALUE_LARGEST = "Adjust value by 1000 or 50 percent";
 			public static LocString TYPE_SEARCH = "Type-ahead search";
+			public static LocString REVIEW_LINES = "Review current item line by line";
+			public static LocString NOTHING_TO_REVIEW = "Nothing to review";
 			public static LocString SWITCH_PANEL = "Switch panel";
 			public static LocString SWITCH_SECTION = "Switch section";
 			public static LocString COPY_SETTINGS = "Copy settings";

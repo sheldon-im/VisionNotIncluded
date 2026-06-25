@@ -12,7 +12,7 @@ namespace OniAccess.Handlers.Screens.Skills {
 	/// Left/Right cycles among siblings from the last Up/Down move.
 	/// Enter learns the current skill.
 	/// </summary>
-	internal class TreeTab: IScreenTab {
+	internal class TreeTab: IScreenTab, IReviewableTab {
 		private readonly SkillsScreenHandler _parent;
 		private NavigableGraph<Skill> _graph;
 		private Tag _lastModel;
@@ -36,6 +36,11 @@ namespace OniAccess.Handlers.Screens.Skills {
 		private string SkillSpeech(Skill s) =>
 			WidgetSpeech.ComposeListItem(SkillsHelper.BuildSkillLabel(s, _parent.SelectedDupe),
 				_graph.SiblingPosition, _graph.SiblingCount);
+
+		public string GetReviewContent() =>
+			_graph?.Current != null ? SkillSpeech(_graph.Current) : null;
+
+		public object GetReviewFocusKey() => _graph?.Current;
 
 		// ========================================
 		// IScreenTab

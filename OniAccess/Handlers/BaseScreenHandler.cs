@@ -47,6 +47,13 @@ namespace OniAccess.Handlers {
 		private static readonly IReadOnlyList<ConsumedKey> _noKeys = System.Array.Empty<ConsumedKey>();
 		public virtual IReadOnlyList<ConsumedKey> ConsumedKeys => _noKeys;
 
+		/// <summary>
+		/// Help entry for the Alt+Up/Down line reviewer. Shared by the UI base
+		/// handlers that wire in <see cref="TryLineReview"/>.
+		/// </summary>
+		protected static readonly HelpEntry LineReviewHelpEntry =
+			new HelpEntry("Alt+Up/Down", STRINGS.ONIACCESS.HELP.REVIEW_LINES);
+
 		// ========================================
 		// CONSTRUCTOR
 		// ========================================
@@ -78,6 +85,48 @@ namespace OniAccess.Handlers {
 		/// Subclasses override for screen-specific key handling.
 		/// </summary>
 		public virtual bool Tick() => false;
+
+		/// <summary>
+		/// The current navigation focus rendered as an announcement string, for the
+		/// line reviewer to split and step through. Returns null when nothing is
+		/// focused. Overridden by the UI base handlers (menu, table, tabbed) to hand
+		/// back the same text the user last heard for the focused item; the default
+		/// (null) leaves world/map handlers without review, which is intended.
+		/// Internal (not protected) so TabbedScreenHandler can pull it from a tab that
+		/// is itself a handler.
+		/// </summary>
+		internal virtual string GetReviewContent() => null;
+
+		/// <summary>
+		/// Identity of the current focus, for the line reviewer to tell a move apart
+		/// from a live value change: the cursor rewinds when this changes, not when
+		/// GetReviewContent's text changes. Overridden alongside GetReviewContent
+		/// (the focused index, cell, or node). Must stay stable while the same item
+		/// is focused even as its value ticks.
+		/// </summary>
+		internal virtual object GetReviewFocusKey() => null;
+
+		/// <summary>
+		/// Alt+Up / Alt+Down step through the current focused item's announcement one
+		/// line at a time (see <see cref="Speech.LineReview"/>). Called from the Tick
+		/// of the UI base handlers (menu, table, tabbed) before their own arrow
+		/// handling. Deliberately not wired into the world map or cluster map
+		/// handlers, where the arrow keys drive cursor movement. Returns true when it
+		/// consumes the key.
+		/// </summary>
+		protected bool TryLineReview() {
+			if (!Input.InputUtil.AltHeld() || Input.InputUtil.CtrlHeld())
+				return false;
+			if (UnityEngine.Input.GetKeyDown(UnityEngine.KeyCode.DownArrow)) {
+				Speech.LineReview.Step(GetReviewContent(), GetReviewFocusKey(), 1);
+				return true;
+			}
+			if (UnityEngine.Input.GetKeyDown(UnityEngine.KeyCode.UpArrow)) {
+				Speech.LineReview.Step(GetReviewContent(), GetReviewFocusKey(), -1);
+				return true;
+			}
+			return false;
+		}
 
 		/// <summary>
 		/// Handle Escape interception from ONI's KButtonEvent system.

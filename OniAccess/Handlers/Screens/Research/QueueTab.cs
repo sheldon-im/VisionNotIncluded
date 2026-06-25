@@ -85,8 +85,10 @@ namespace OniAccess.Handlers.Screens.Research {
 			return queue[queueIndex].tech.Name;
 		}
 
+		protected override string GetReviewItemText() => GetCurrentLabel();
+
 		public override void SpeakCurrentItem(string parentContext = null) {
-			string label = GetCurrentLabel();
+			string label = GetReviewItemText();
 			if (label == null) return;
 			if (!string.IsNullOrEmpty(parentContext))
 				label = parentContext + ", " + label;

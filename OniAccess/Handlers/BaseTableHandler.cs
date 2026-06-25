@@ -248,33 +248,53 @@ namespace OniAccess.Handlers {
 				WidgetSpeech.Compose(BuildCellParts(forceFullContext: false), null, CellMeta()));
 		}
 
-		protected string BuildCellParts(bool forceFullContext) {
-			var row = _rows[_row];
-			var parts = new List<string>();
+		/// <summary>
+		/// The current cell as a full announcement (row label, column name, value)
+		/// for the line reviewer. Always includes both dimensions and never touches the
+		/// verbose row/column bookkeeping, so pulling it for review can't make the next
+		/// real cell move misjudge whether the row or column changed.
+		/// </summary>
+		internal override string GetReviewContent() {
+			if (_row < 0 || _row >= _rows.Count) return null;
+			return AssembleCell(_rows[_row], includeRow: true, includeCol: true);
+		}
 
+		/// <summary>
+		/// The focused cell's identity, so the line reviewer rewinds on a cell move
+		/// but not when the cell's value ticks.
+		/// </summary>
+		internal override object GetReviewFocusKey() => (_row, _col);
+
+		// Join the row label, column name, and cell value for the current cell. The
+		// row/column are gated by the caller so both the spoken path (which omits a
+		// dimension that didn't change) and review (which always wants both) share one
+		// assembly. Pure: no verbose bookkeeping, unlike BuildCellParts which wraps it.
+		private string AssembleCell(RowEntry row, bool includeRow, bool includeCol) {
+			var parts = new List<string>();
+			if (includeRow) {
+				string rowLabel = GetRowLabel(row);
+				if (rowLabel != null) parts.Add(rowLabel);
+			}
+			if (includeCol) {
+				string colName = GetColumnName(_col);
+				if (colName != null) parts.Add(colName);
+			}
+			parts.Add(GetCellValue(row));
+			return string.Join(", ", parts);
+		}
+
+		protected string BuildCellParts(bool forceFullContext) {
 			// Captured for CellMeta() so the verbose row/column counts re-speak only when
 			// their label/name does (i.e. when that dimension changed), not on every move.
 			_rowSpoken = forceFullContext || _row != _lastSpokenRow;
 			_colSpoken = forceFullContext || _col != _lastSpokenCol;
 
-			if (_rowSpoken) {
-				string rowLabel = GetRowLabel(row);
-				if (rowLabel != null)
-					parts.Add(rowLabel);
-			}
-
-			if (_colSpoken) {
-				string colName = GetColumnName(_col);
-				if (colName != null)
-					parts.Add(colName);
-			}
-
-			parts.Add(GetCellValue(row));
+			string result = AssembleCell(_rows[_row], _rowSpoken, _colSpoken);
 
 			_lastSpokenRow = _row;
 			_lastSpokenCol = _col;
 
-			return string.Join(", ", parts);
+			return result;
 		}
 
 		/// <summary>
@@ -498,6 +518,7 @@ namespace OniAccess.Handlers {
 			new HelpEntry("Home/End", STRINGS.ONIACCESS.TABLE.JUMP_FIRST_LAST),
 			new HelpEntry("Tab/Shift+Tab", STRINGS.ONIACCESS.TABLE.SWITCH_WORLD),
 			new HelpEntry("A-Z", STRINGS.ONIACCESS.HELP.TYPE_SEARCH),
+			LineReviewHelpEntry,
 		};
 
 		protected static readonly HelpEntry TableSortHelpEntry =
@@ -509,6 +530,9 @@ namespace OniAccess.Handlers {
 
 		public override bool Tick() {
 			if (base.Tick()) return true;
+
+			if (TryLineReview())
+				return true;
 
 			bool ctrlHeld = InputUtil.CtrlHeld();
 			bool altHeld = InputUtil.AltHeld();

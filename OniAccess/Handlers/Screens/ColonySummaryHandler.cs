@@ -90,11 +90,14 @@ namespace OniAccess.Handlers.Screens {
 			return _items[index].Label;
 		}
 
+		protected override string GetReviewItemText() {
+			if (CurrentIndex < 0 || CurrentIndex >= _items.Count) return null;
+			return BuildSpeech(_items[CurrentIndex]);
+		}
+
 		public override void SpeakCurrentItem(string parentContext = null) {
 			if (CurrentIndex < 0 || CurrentIndex >= _items.Count) return;
-			var item = _items[CurrentIndex];
-			string speech = BuildSpeech(item);
-			Speech.SpeechPipeline.SpeakInterrupt(ComposeItem(speech, CurrentIndex));
+			Speech.SpeechPipeline.SpeakInterrupt(ComposeItem(GetReviewItemText(), CurrentIndex));
 		}
 
 		// ========================================

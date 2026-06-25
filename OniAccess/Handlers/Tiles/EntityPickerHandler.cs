@@ -40,10 +40,14 @@ namespace OniAccess.Handlers.Tiles {
 			return GetDisplayText(index);
 		}
 
+		protected override string GetReviewItemText() {
+			if (CurrentIndex < 0 || CurrentIndex >= _selectables.Count) return null;
+			return TextFilter.FilterForSpeech(GetDisplayText(CurrentIndex));
+		}
+
 		public override void SpeakCurrentItem(string parentContext = null) {
 			if (CurrentIndex >= 0 && CurrentIndex < _selectables.Count)
-				SpeechPipeline.SpeakInterrupt(ComposeItem(
-					TextFilter.FilterForSpeech(GetDisplayText(CurrentIndex)), CurrentIndex));
+				SpeechPipeline.SpeakInterrupt(ComposeItem(GetReviewItemText(), CurrentIndex));
 		}
 
 		public override void OnActivate() {

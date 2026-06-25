@@ -355,6 +355,15 @@ namespace OniAccess.Handlers.Screens {
 			AnnounceCurrent();
 		}
 
+		/// <summary>
+		/// Pull the focused line for review against fresh widget data, so a status or
+		/// value that changed since the user landed there is reviewed current, not stale.
+		/// </summary>
+		internal override string GetReviewContent() {
+			RefreshSections();
+			return base.GetReviewContent();
+		}
+
 		// ========================================
 		// LIFECYCLE
 		// ========================================

@@ -263,6 +263,22 @@ namespace OniAccess.Handlers {
 		}
 
 		/// <summary>
+		/// The focused node's announcement (item plus tooltip) for the line reviewer.
+		/// Excludes the ancestor breadcrumb a move adds, since that is framing, not the
+		/// item the cursor is on.
+		/// </summary>
+		internal override string GetReviewContent() {
+			var item = Nav.Current();
+			if (item == null) return null;
+			return ComposeCurrent(item, GetTooltip(item));
+		}
+
+		// The focused node itself is the identity. SectionMerger updates matched nodes
+		// in place, so this stays the same object while a value ticks, and only changes
+		// when the cursor actually moves to a different node.
+		internal override object GetReviewFocusKey() => Nav.Current();
+
+		/// <summary>
 		/// Verbose context for the cursor's current node: its 1-based rank among the
 		/// navigable siblings at this level, the navigable sibling count, and whether
 		/// it drills. Skipped (Position -1) when the cursor isn't on a navigable item,

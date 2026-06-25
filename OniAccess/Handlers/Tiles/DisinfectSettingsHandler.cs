@@ -57,9 +57,14 @@ namespace OniAccess.Handlers.Tiles {
 			}
 		}
 
+		protected override string GetReviewItemText() {
+			if (CurrentIndex < 0 || CurrentIndex >= ItemTotal) return null;
+			return BuildItemSpeech(CurrentIndex);
+		}
+
 		public override void SpeakCurrentItem(string parentContext = null) {
 			if (CurrentIndex < 0 || CurrentIndex >= ItemTotal) return;
-			SpeechPipeline.SpeakInterrupt(ComposeItem(BuildItemSpeech(CurrentIndex), CurrentIndex, RoleForItem(CurrentIndex)));
+			SpeechPipeline.SpeakInterrupt(ComposeItem(GetReviewItemText(), CurrentIndex, RoleForItem(CurrentIndex)));
 		}
 
 		protected override bool IsItemValid(int index) {

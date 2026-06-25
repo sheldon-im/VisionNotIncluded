@@ -72,9 +72,14 @@ namespace OniAccess.Handlers.Screens {
 			return _widgets[index].Label;
 		}
 
+		protected override string GetReviewItemText() {
+			if (CurrentIndex < 0 || CurrentIndex >= _widgets.Count) return null;
+			return _widgets[CurrentIndex].GetSpeechText();
+		}
+
 		public override void SpeakCurrentItem(string parentContext = null) {
 			if (CurrentIndex < 0 || CurrentIndex >= _widgets.Count) return;
-			var text = _widgets[CurrentIndex].GetSpeechText();
+			var text = GetReviewItemText();
 			if (!string.IsNullOrEmpty(text))
 				SpeechPipeline.SpeakInterrupt(ComposeItem(text, CurrentIndex));
 		}

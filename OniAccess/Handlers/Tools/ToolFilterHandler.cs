@@ -49,9 +49,15 @@ namespace OniAccess.Handlers.Tools {
 			return _filterNames[index];
 		}
 
+		protected override string GetReviewItemText() {
+			if (_filterNames == null || CurrentIndex < 0 || CurrentIndex >= _filterNames.Count)
+				return null;
+			return ItemSpeech(CurrentIndex);
+		}
+
 		public override void SpeakCurrentItem(string parentContext = null) {
 			if (_filterNames != null && CurrentIndex >= 0 && CurrentIndex < _filterNames.Count)
-				SpeechPipeline.SpeakInterrupt(ComposeItem(ItemSpeech(CurrentIndex), CurrentIndex, RoleForItem(CurrentIndex)));
+				SpeechPipeline.SpeakInterrupt(ComposeItem(GetReviewItemText(), CurrentIndex, RoleForItem(CurrentIndex)));
 		}
 
 		// Checkbox (inclusive) filters are on/off toggles; the others (including the

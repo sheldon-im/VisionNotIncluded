@@ -45,16 +45,19 @@ namespace OniAccess.Handlers.Notifications {
 			return label;
 		}
 
+		protected override string GetReviewItemText() {
+			var groups = _tracker.Groups;
+			if (CurrentIndex < 0 || CurrentIndex >= groups.Count) return null;
+			string label = GetItemLabel(CurrentIndex);
+			string tooltip = groups[CurrentIndex].GetTooltipText();
+			return string.IsNullOrEmpty(tooltip) ? label : label + ". " + tooltip;
+		}
+
 		public override void SpeakCurrentItem(string parentContext = null) {
 			var groups = _tracker.Groups;
 			if (CurrentIndex < 0 || CurrentIndex >= groups.Count) return;
-			var group = groups[CurrentIndex];
 
-			string label = GetItemLabel(CurrentIndex);
-			string tooltip = group.GetTooltipText();
-			if (!string.IsNullOrEmpty(tooltip))
-				label = label + ". " + tooltip;
-
+			string label = GetReviewItemText();
 			if (!string.IsNullOrEmpty(parentContext))
 				label = parentContext + ", " + label;
 

@@ -621,14 +621,14 @@ namespace OniAccess.Handlers.Screens {
 				CurrentIndex = 0;
 				Speech.SpeechPipeline.SpeakInterrupt(DisplayName);
 				if (_widgets.Count > 0)
-					Speech.SpeechPipeline.SpeakQueued(GetWidgetSpeechText(_widgets[0]));
+					Speech.SpeechPipeline.SpeakQueued(ComposeWidgetText(_widgets[0]));
 				return;
 			}
 
 			DiscoverWidgets(_screen);
 			CurrentIndex = 0;
 			if (_widgets.Count > 0)
-				Speech.SpeechPipeline.SpeakInterrupt(GetWidgetSpeechText(_widgets[0]));
+				Speech.SpeechPipeline.SpeakInterrupt(ComposeWidgetText(_widgets[0]));
 		}
 
 		// ========================================
@@ -703,7 +703,7 @@ namespace OniAccess.Handlers.Screens {
 						CurrentIndex = _widgets.Count > 0 ? _widgets.Count - 1 : 0;
 					if (_widgets.Count > 0 && CurrentIndex < _widgets.Count) {
 						Speech.SpeechPipeline.SpeakInterrupt(
-							GetWidgetSpeechText(_widgets[CurrentIndex]));
+							ComposeWidgetText(_widgets[CurrentIndex]));
 					}
 					return false;
 				}
@@ -740,7 +740,7 @@ namespace OniAccess.Handlers.Screens {
 			CurrentIndex = 0;
 
 			if (_widgets.Count > 0) {
-				Speech.SpeechPipeline.SpeakInterrupt(GetWidgetSpeechText(_widgets[0]));
+				Speech.SpeechPipeline.SpeakInterrupt(ComposeWidgetText(_widgets[0]));
 			}
 		}
 
@@ -764,7 +764,7 @@ namespace OniAccess.Handlers.Screens {
 			CurrentIndex = 0;
 
 			if (_widgets.Count > 0) {
-				Speech.SpeechPipeline.SpeakInterrupt(GetWidgetSpeechText(_widgets[0]));
+				Speech.SpeechPipeline.SpeakInterrupt(ComposeWidgetText(_widgets[0]));
 			}
 		}
 
@@ -783,7 +783,7 @@ namespace OniAccess.Handlers.Screens {
 
 			if (_widgets.Count > 0 && CurrentIndex < _widgets.Count) {
 				Speech.SpeechPipeline.SpeakInterrupt(
-					GetWidgetSpeechText(_widgets[CurrentIndex]));
+					ComposeWidgetText(_widgets[CurrentIndex]));
 			}
 		}
 
@@ -816,7 +816,7 @@ namespace OniAccess.Handlers.Screens {
 
 			Speech.SpeechPipeline.SpeakInterrupt(DisplayName);
 			if (_widgets.Count > 0) {
-				Speech.SpeechPipeline.SpeakQueued(GetWidgetSpeechText(_widgets[0]));
+				Speech.SpeechPipeline.SpeakQueued(ComposeWidgetText(_widgets[0]));
 			}
 		}
 

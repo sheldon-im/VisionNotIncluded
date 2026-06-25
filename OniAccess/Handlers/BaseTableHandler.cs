@@ -34,6 +34,10 @@ namespace OniAccess.Handlers {
 		protected int _lastSpokenRow = -1;
 		protected int _lastSpokenCol = -1;
 
+		// Whether the last BuildCellParts spoke the row label / column name, so the
+		// verbose counts can dedupe in lockstep with them.
+		private bool _rowSpoken, _colSpoken;
+
 		// Row list, rebuilt on every navigation event
 		protected List<RowEntry> _rows = new List<RowEntry>();
 
@@ -193,16 +197,13 @@ namespace OniAccess.Handlers {
 			_lastSpokenRow = -1;
 			_lastSpokenCol = -1;
 
-			SpeechPipeline.SpeakInterrupt(WidgetSpeech.ComposeLabel(
-				name + ", " + BuildCellParts(forceFullContext: true)));
+			SpeechPipeline.SpeakInterrupt(WidgetSpeech.Compose(
+				name + ", " + BuildCellParts(forceFullContext: true), null, CellMeta()));
 		}
 
 		private int FindFirstDataRow() {
 			for (int i = 0; i < _rows.Count; i++) {
-				var kind = _rows[i].Kind;
-				if (kind != TableRowKind.Toolbar
-					&& kind != TableRowKind.ColumnHeader
-					&& !IsRowSkipped(kind))
+				if (IsDataRow(_rows[i].Kind))
 					return i;
 			}
 			return 0;
@@ -227,9 +228,9 @@ namespace OniAccess.Handlers {
 			_lastSpokenCol = -1;
 			_search.Clear();
 			SuppressSearchThisFrame();
-			base.OnActivate();
+			SpeechPipeline.SpeakInterrupt(ComposeTableName());
 			SpeechPipeline.SpeakQueued(
-				WidgetSpeech.ComposeLabel(BuildCellParts(forceFullContext: true)));
+				WidgetSpeech.Compose(BuildCellParts(forceFullContext: true), null, CellMeta()));
 		}
 
 		public override void OnDeactivate() {
@@ -244,20 +245,25 @@ namespace OniAccess.Handlers {
 		protected void SpeakCell() {
 			if (_row < 0 || _row >= _rows.Count) return;
 			SpeechPipeline.SpeakInterrupt(
-				WidgetSpeech.ComposeLabel(BuildCellParts(forceFullContext: false)));
+				WidgetSpeech.Compose(BuildCellParts(forceFullContext: false), null, CellMeta()));
 		}
 
 		protected string BuildCellParts(bool forceFullContext) {
 			var row = _rows[_row];
 			var parts = new List<string>();
 
-			if (forceFullContext || _row != _lastSpokenRow) {
+			// Captured for CellMeta() so the verbose row/column counts re-speak only when
+			// their label/name does (i.e. when that dimension changed), not on every move.
+			_rowSpoken = forceFullContext || _row != _lastSpokenRow;
+			_colSpoken = forceFullContext || _col != _lastSpokenCol;
+
+			if (_rowSpoken) {
 				string rowLabel = GetRowLabel(row);
 				if (rowLabel != null)
 					parts.Add(rowLabel);
 			}
 
-			if (forceFullContext || _col != _lastSpokenCol) {
+			if (_colSpoken) {
 				string colName = GetColumnName(_col);
 				if (colName != null)
 					parts.Add(colName);
@@ -270,6 +276,43 @@ namespace OniAccess.Handlers {
 
 			return string.Join(", ", parts);
 		}
+
+		/// <summary>
+		/// The word appended to the table's name when verbose: "table" by default,
+		/// overridden to "grid" by 2D grid surfaces.
+		/// </summary>
+		protected virtual LocString TableKindSuffix => STRINGS.ONIACCESS.VERBOSE.TABLE;
+
+		private string ComposeTableName() {
+			return Verbosity.WithKindSuffix(DisplayName, (string)TableKindSuffix);
+		}
+
+		/// <summary>
+		/// Verbose metadata for the current cell: a header row gets a sort affordance
+		/// (when the column sorts) plus the column count; a data row gets the row count
+		/// when the row changed and the column count when the column changed (the same
+		/// dedupe as the row label / column name); the toolbar control row gets none.
+		/// </summary>
+		private VerboseMeta CellMeta() {
+			if (!Verbosity.IsOn || _row < 0 || _row >= _rows.Count) return VerboseMeta.None;
+			var kind = _rows[_row].Kind;
+			int colTotal = GetColumnCount(kind);
+			int colPos = _col + 1;
+			if (kind == TableRowKind.ColumnHeader)
+				return _colSpoken
+					? VerboseMeta.HeaderCell(IsColumnSortable(_col), colPos, colTotal)
+					: VerboseMeta.None;
+			if (kind == TableRowKind.Toolbar)
+				return VerboseMeta.None;
+			int rowPos = 0, rowTotal = 0;
+			if (_rowSpoken)
+				(rowPos, rowTotal) = Widgets.NavPosition.RankAmongValid(
+					_rows.Count, i => IsDataRow(_rows[i].Kind), _row);
+			return VerboseMeta.DataCell(_rowSpoken, rowPos, rowTotal, _colSpoken, colPos, colTotal);
+		}
+
+		protected bool IsDataRow(TableRowKind kind) =>
+			kind != TableRowKind.Toolbar && kind != TableRowKind.ColumnHeader && !IsRowSkipped(kind);
 
 		// ========================================
 		// NAVIGATION
@@ -297,11 +340,11 @@ namespace OniAccess.Handlers {
 				var landedKind = _rows[beyondDivider].Kind;
 				if (landedKind == TableRowKind.Minion || landedKind == TableRowKind.StoredMinion) {
 					string worldName = GetWorldName(_rows[beyondDivider].WorldId);
-					SpeechPipeline.SpeakInterrupt(WidgetSpeech.ComposeLabel(
-						worldName + ", " + BuildCellParts(forceFullContext: true)));
+					SpeechPipeline.SpeakInterrupt(WidgetSpeech.Compose(
+						worldName + ", " + BuildCellParts(forceFullContext: true), null, CellMeta()));
 				} else {
 					SpeechPipeline.SpeakInterrupt(
-						WidgetSpeech.ComposeLabel(BuildCellParts(forceFullContext: true)));
+						WidgetSpeech.Compose(BuildCellParts(forceFullContext: true), null, CellMeta()));
 				}
 				return;
 			}
@@ -341,10 +384,7 @@ namespace OniAccess.Handlers {
 		protected void NavigateHome() {
 			RebuildRows();
 			for (int i = 0; i < _rows.Count; i++) {
-				var kind = _rows[i].Kind;
-				if (kind != TableRowKind.Toolbar
-					&& kind != TableRowKind.ColumnHeader
-					&& !IsRowSkipped(kind)) {
+				if (IsDataRow(_rows[i].Kind)) {
 					_row = i;
 					PlaySound("HUD_Mouseover");
 					SpeakCell();

@@ -48,7 +48,7 @@ namespace OniAccess.Handlers.Screens.Skills {
 				SpeechPipeline.SpeakInterrupt(TabName);
 			if (dupes.Count > 0 && CurrentIndex < dupes.Count)
 				SpeechPipeline.SpeakQueued(
-					WidgetSpeech.ComposeLabel(SkillsHelper.BuildDupeLabel(dupes[CurrentIndex])));
+					ComposeItem(SkillsHelper.BuildDupeLabel(dupes[CurrentIndex]), CurrentIndex));
 		}
 
 		public void OnTabDeactivated() {
@@ -83,7 +83,7 @@ namespace OniAccess.Handlers.Screens.Skills {
 			string label = SkillsHelper.BuildDupeLabel(dupes[CurrentIndex]);
 			if (!string.IsNullOrEmpty(parentContext))
 				label = parentContext + ", " + label;
-			SpeechPipeline.SpeakInterrupt(WidgetSpeech.ComposeLabel(label));
+			SpeechPipeline.SpeakInterrupt(ComposeItem(label, CurrentIndex));
 		}
 
 		protected override void ActivateCurrentItem() {

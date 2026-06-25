@@ -286,7 +286,31 @@ namespace OniAccess.Handlers.Screens {
 		protected virtual string GetWidgetSpeechText(Widget widget) => WidgetOps.GetSpeechText(widget);
 
 		protected string BuildWidgetText(Widget widget) {
-			return WidgetSpeech.Compose(widget, NavContext.None, GetTooltipText(widget));
+			return WidgetSpeech.Compose(widget, WidgetContext(widget), GetTooltipText(widget));
+		}
+
+		/// <summary>
+		/// Compose an out-of-band widget announcement (view transitions, first-item,
+		/// stale rebuilds) that historically spoke raw <see cref="GetWidgetSpeechText"/>:
+		/// same body, no tooltip, but with the verbose role/position tail so these
+		/// announcements carry the same position readout as ordinary navigation. With
+		/// verbose off the result is the old text, unchanged.
+		/// </summary>
+		protected string ComposeWidgetText(Widget widget) {
+			return WidgetSpeech.Compose(GetWidgetSpeechText(widget), null,
+				VerboseMeta.ForItem(widget, WidgetContext(widget)));
+		}
+
+		/// <summary>
+		/// Verbose context for a widget: its 1-based rank among the valid widgets in
+		/// the flat list and the valid-widget count. Position -1 (suppressed) when the
+		/// widget isn't in the list. This list never drills, so no submenu tag.
+		/// </summary>
+		private NavContext WidgetContext(Widget widget) {
+			if (!Verbosity.IsOn) return NavContext.None;
+			var (position, total) = NavPosition.RankAmongValid(
+				_widgets.Count, i => IsWidgetValid(_widgets[i]), _widgets.IndexOf(widget));
+			return new NavContext { Position = position, Total = total };
 		}
 
 		/// <summary>

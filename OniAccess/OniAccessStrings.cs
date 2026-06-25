@@ -85,6 +85,8 @@ namespace STRINGS {
 
 		// Config screen option labels
 		public class CONFIG {
+			public static LocString SECTION_INTERFACE = "Interface";
+			public static LocString VERBOSE_UI = "Verbose interface";
 			public static LocString SECTION_TILE_CURSOR = "Tile Cursor Settings";
 			public static LocString SECTION_SCANNER = "Scanner Settings";
 			public static LocString SECTION_UTILITY = "Utility Readouts";
@@ -1494,6 +1496,35 @@ namespace STRINGS {
 			// World filter
 			public static LocString ALL_WORLDS = "All";
 			public static LocString SWITCH_WORLD = "Switch between worlds";
+		}
+
+		// Verbose-interface metadata. Spoken only when the Verbose interface setting
+		// is on, always appended at the END of an announcement so the leading
+		// distinguishing word is never delayed. Control roles follow screen-reader
+		// convention; ONI dropdowns are presented as left/right pickers, so the
+		// dropdown role is spoken as "picker", never "combo box".
+		public class VERBOSE {
+			public static LocString ROLE_BUTTON = "button";
+			public static LocString ROLE_PICKER = "picker";
+			public static LocString ROLE_SLIDER = "slider";
+			// Spoken for on/off toggles. The control is a checkbox, but the value
+			// (on/off) is already spoken, so "toggle" reads better than "checkbox".
+			public static LocString ROLE_TOGGLE = "toggle";
+			// Spoken for a one-of-several selection (e.g. radio-style tool filters).
+			public static LocString ROLE_RADIO = "radio button";
+			// Appended to a drillable item (one that opens a sub-list on Enter).
+			public static LocString SUBMENU = "submenu";
+			// Header-row affordance: this column header sorts the table on Enter.
+			public static LocString SORT_BUTTON = "sort button";
+			// {0} = 1-based position, {1} = total count.
+			public static LocString POSITION = "{0} of {1}";
+			public static LocString ROW_OF = "row {0} of {1}";
+			public static LocString COLUMN_OF = "column {0} of {1}";
+			// Spoken at the end of a tab switch.
+			public static LocString TAB_OF = "tab {0} of {1}";
+			// Suffix on a table/grid screen or tab name.
+			public static LocString TABLE = "table";
+			public static LocString GRID = "grid";
 		}
 
 		// Priorities table screen

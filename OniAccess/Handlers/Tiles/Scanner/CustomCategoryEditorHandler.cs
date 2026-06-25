@@ -95,13 +95,15 @@ namespace OniAccess.Handlers.Tiles.Scanner {
 			list.Add(new MenuNode(
 				() => WithState((string)STRINGS.ONIACCESS.SCANNER.SUBCATEGORIES.ALL,
 					CustomCategoryStore.IsAll(_id, category)),
-				activate: () => { ToggleAll(category); return true; }));
+				activate: () => { ToggleAll(category); return true; },
+				roleKey: NavRoles.Toggle));
 			foreach (var sub in subs) {
 				var s = sub;
 				list.Add(new MenuNode(
 					() => WithState(ScannerNavigator.GetSubcategoryName(s),
 						CustomCategoryStore.IsSub(_id, category, s)),
-					activate: () => { ToggleSub(category, s); return true; }));
+					activate: () => { ToggleSub(category, s); return true; },
+					roleKey: NavRoles.Toggle));
 			}
 			return list;
 		}

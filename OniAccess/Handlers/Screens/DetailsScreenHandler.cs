@@ -246,8 +246,7 @@ namespace OniAccess.Handlers.Screens {
 				RefreshSections();
 				var fresh = Nav.Current() as Widget;
 				if (fresh != null)
-					SpeechPipeline.SpeakInterrupt(
-						WidgetSpeech.ComposeLabel(WidgetOps.GetSpeechText(fresh)));
+					SpeechPipeline.SpeakInterrupt(ComposeCurrent(fresh));
 			}
 		}
 
@@ -264,8 +263,7 @@ namespace OniAccess.Handlers.Screens {
 				RefreshSections();
 				var fresh = Nav.Current() as Widget;
 				if (fresh != null)
-					SpeechPipeline.SpeakInterrupt(
-						WidgetSpeech.ComposeLabel(WidgetOps.GetSpeechText(fresh)));
+					SpeechPipeline.SpeakInterrupt(ComposeCurrent(fresh));
 			}
 		}
 
@@ -440,6 +438,7 @@ namespace OniAccess.Handlers.Screens {
 				RebuildSections();
 				ResetNavigation();
 				SpeakFirstSection();
+				AnnounceTabPosition();
 			}
 
 			var currentTarget = DetailsScreen.Instance != null
@@ -583,7 +582,22 @@ namespace OniAccess.Handlers.Screens {
 				RebuildSections();
 				ResetNavigation();
 				SpeakFirstSection();
+				AnnounceTabPosition();
 			}
+		}
+
+		/// <summary>
+		/// Queue "tab X of Y" after a tab switch, where the count is the number of
+		/// tabs in the current section (what Tab cycles through) and the position is
+		/// this tab's place within it. Suppressed when verbose is off or the section
+		/// holds a single tab.
+		/// </summary>
+		private void AnnounceTabPosition() {
+			if (_sectionStarts.Count == 0) return;
+			int start = _sectionStarts[_sectionIndex];
+			int end = _sectionIndex + 1 < _sectionStarts.Count
+				? _sectionStarts[_sectionIndex + 1] : _activeTabs.Count;
+			Verbosity.SpeakTabPosition(_tabIndex - start + 1, end - start);
 		}
 
 		// ========================================
@@ -716,6 +730,12 @@ namespace OniAccess.Handlers.Screens {
 			SuppressSearchThisFrame();
 		}
 
+		private static bool HasNavigableChild(NavItem item) {
+			foreach (var child in item.GetChildren())
+				if (child.IsNavigable()) return true;
+			return false;
+		}
+
 		private void SpeakFirstSection() {
 			if (_sections.Count == 0) {
 				if (_tabIndex >= 0 && _tabIndex < _activeTabs.Count) {
@@ -741,11 +761,20 @@ namespace OniAccess.Handlers.Screens {
 			if (Nav.Depth > 0) {
 				var items = _sections[0].Items;
 				if (items.Count == 0) return;
-				string item = WidgetOps.GetSpeechText(items[0]);
-				if (string.IsNullOrWhiteSpace(item)) return;
-				string label = headerIsTabName ? item
-					: string.Format(STRINGS.ONIACCESS.DETAILS.HEADER_ITEM, header, item);
-				SpeechPipeline.SpeakQueued(WidgetSpeech.ComposeLabel(label));
+				var first = items[0];
+				string body = WidgetOps.GetSpeechText(first);
+				if (string.IsNullOrWhiteSpace(body)) return;
+				// Decorate the landed item with its role and position-within-section so the
+				// first item after a tab switch / open matches ordinary navigation. Drillable
+				// mirrors Nav.CanDrill (a navigable child exists), not merely any child, and
+				// the body is reused rather than re-read inside Compose.
+				var (pos, total) = NavPosition.RankAmongValid(
+					items.Count, i => items[i].IsNavigable(), 0);
+				var ctx = new NavContext { Position = pos, Total = total, Drillable = HasNavigableChild(first) };
+				string itemSpeech = WidgetSpeech.Compose(body, null, VerboseMeta.ForItem(first, ctx));
+				string label = headerIsTabName ? itemSpeech
+					: string.Format(STRINGS.ONIACCESS.DETAILS.HEADER_ITEM, header, itemSpeech);
+				SpeechPipeline.SpeakQueued(label);
 			} else {
 				if (!headerIsTabName)
 					SpeechPipeline.SpeakQueued(WidgetSpeech.ComposeLabel(header));

@@ -2,6 +2,10 @@
 
 ## Unreleased changes since 1.6.3
 
+* Added a Verbose interface setting (off by default, in Settings under Interface). When on, menus and lists announce each item's control type (button, picker, slider, toggle, radio button, submenu) and its position, like "3 of 9"; tables announce the row count as you change rows and the column count as you change columns, and tag a sortable column header as a sort button; the table or grid name itself is announced, for example "Vitals, table" or "Schedules, grid"; and switching tabs ends with the tab's position, like "tab 2 of 4".
+
+* The tool filter now says which option is currently selected, and the build material and facade pickers mark the current choice as selected.
+
 * Fixed the area scan not counting under-construction pipes, wires, and conduit bridges. It only looked for build orders on regular building layers, so pending utility construction was left out of the order count.
 
 ## 1.6.3

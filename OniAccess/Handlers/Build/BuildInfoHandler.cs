@@ -52,7 +52,7 @@ namespace OniAccess.Handlers.Build {
 
 		public override void SpeakCurrentItem(string parentContext = null) {
 			if (_items != null && CurrentIndex >= 0 && CurrentIndex < _items.Count)
-				SpeechPipeline.SpeakInterrupt(WidgetSpeech.ComposeLabel(_items[CurrentIndex].Label));
+				SpeechPipeline.SpeakInterrupt(ComposeItem(_items[CurrentIndex].Label, CurrentIndex));
 		}
 
 		public override void OnActivate() {
@@ -62,7 +62,7 @@ namespace OniAccess.Handlers.Build {
 			_search.Clear();
 
 			if (_items.Count > 0)
-				SpeechPipeline.SpeakInterrupt(WidgetSpeech.ComposeLabel(_items[0].Label));
+				SpeechPipeline.SpeakInterrupt(ComposeItem(_items[0].Label, 0));
 			else
 				SpeechPipeline.SpeakInterrupt(DisplayName);
 		}

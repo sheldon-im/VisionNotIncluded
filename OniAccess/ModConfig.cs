@@ -4,6 +4,7 @@ using OniAccess.Handlers.Tiles.Scanner;
 
 namespace OniAccess {
 	public class ModConfig {
+		public bool VerboseUi { get; set; } = false;
 		public CoordinateMode CoordinateMode { get; set; } = CoordinateMode.Off;
 		public bool AutoMoveCursor { get; set; } = false;
 		public bool ScannerMassReadout { get; set; } = true;

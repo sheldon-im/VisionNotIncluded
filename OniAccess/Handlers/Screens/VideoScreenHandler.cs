@@ -132,7 +132,7 @@ namespace OniAccess.Handlers.Screens {
 						DiscoverWidgets(_screen);
 						CurrentIndex = 0;
 						if (_widgets.Count > 0) {
-							Speech.SpeechPipeline.SpeakQueued(GetWidgetSpeechText(_widgets[0]));
+							Speech.SpeechPipeline.SpeakQueued(ComposeWidgetText(_widgets[0]));
 						}
 					}
 				} catch (System.Exception ex) {

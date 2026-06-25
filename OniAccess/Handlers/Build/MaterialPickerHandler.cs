@@ -38,7 +38,7 @@ namespace OniAccess.Handlers.Build {
 
 		public override void SpeakCurrentItem(string parentContext = null) {
 			if (_materials != null && CurrentIndex >= 0 && CurrentIndex < _materials.Count)
-				SpeechPipeline.SpeakInterrupt(WidgetSpeech.ComposeLabel(_materials[CurrentIndex].Label));
+				SpeechPipeline.SpeakInterrupt(ComposeItem(_materials[CurrentIndex].Label, CurrentIndex));
 		}
 
 		public override void OnActivate() {
@@ -52,7 +52,7 @@ namespace OniAccess.Handlers.Build {
 			PositionOnSelected();
 
 			if (_materials.Count > 0)
-				SpeechPipeline.SpeakInterrupt(WidgetSpeech.ComposeLabel(_materials[CurrentIndex].Label));
+				SpeechPipeline.SpeakInterrupt(ComposeItem(_materials[CurrentIndex].Label, CurrentIndex));
 		}
 
 		public override void OnDeactivate() {
@@ -67,7 +67,7 @@ namespace OniAccess.Handlers.Build {
 			var entry = _materials[CurrentIndex];
 			if (!entry.Sufficient) {
 				PlaySound("Negative");
-				SpeechPipeline.SpeakInterrupt(WidgetSpeech.ComposeLabel(_materials[CurrentIndex].Label));
+				SpeechPipeline.SpeakInterrupt(ComposeItem(_materials[CurrentIndex].Label, CurrentIndex));
 				return;
 			}
 			SelectMaterial(entry.Tag);
@@ -95,6 +95,8 @@ namespace OniAccess.Handlers.Build {
 			if (selector == null)
 				return;
 
+			// Direct field read (not the panel's asserting getter), as in PositionOnSelected.
+			var selectedTag = selector.CurrentSelectedElement;
 			var ingredient = recipe.Ingredients[_selectorIndex];
 			var sufficient = new List<MaterialEntry>();
 			var insufficient = new List<MaterialEntry>();
@@ -128,6 +130,9 @@ namespace OniAccess.Handlers.Build {
 						effects.Add(global::Util.StripTextFormatting(desc.text));
 					label += ", " + string.Join(", ", effects.ToArray());
 				}
+
+				if (tag == selectedTag)
+					label += ", " + (string)STRINGS.ONIACCESS.STATES.SELECTED;
 
 				var entry = new MaterialEntry { Tag = tag, Label = label, Sufficient = hasSufficient };
 				if (hasSufficient)

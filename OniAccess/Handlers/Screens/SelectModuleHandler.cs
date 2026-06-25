@@ -283,8 +283,11 @@ namespace OniAccess.Handlers.Screens {
 			if (_pendingActivation) {
 				_pendingActivation = false;
 				string title = (string)STRINGS.UI.UISIDESCREENS.SELECTMODULESIDESCREEN.TITLE;
-				string firstSection = Nav.Current()?.Announce();
-				SpeechPipeline.SpeakInterrupt(title + ", " + firstSection);
+				var current = Nav.Current();
+				// ComposeCurrent so the first item carries its role/position/submenu like
+				// ordinary navigation, rather than a bare Announce().
+				SpeechPipeline.SpeakInterrupt(
+					current != null ? title + ", " + ComposeCurrent(current) : title);
 				return false;
 			}
 			return base.Tick();

@@ -93,7 +93,7 @@ namespace OniAccess.Handlers.Screens {
 			CurrentIndex = 0;
 			if (_widgets.Count > 0) {
 				Speech.SpeechPipeline.SpeakInterrupt(
-					$"{string.Format(STRINGS.ONIACCESS.INFO.SLOT, _currentSlot + 1)}, {GetWidgetSpeechText(_widgets[0])}");
+					$"{string.Format(STRINGS.ONIACCESS.INFO.SLOT, _currentSlot + 1)}, {ComposeWidgetText(_widgets[0])}");
 			}
 		}
 
@@ -518,7 +518,7 @@ namespace OniAccess.Handlers.Screens {
 				CurrentIndex = 0;
 				if (ready && _widgets.Count > 0) {
 					Speech.SpeechPipeline.SpeakInterrupt(
-						$"{string.Format(STRINGS.ONIACCESS.INFO.SLOT, _currentSlot + 1)}, {GetWidgetSpeechText(_widgets[0])}");
+						$"{string.Format(STRINGS.ONIACCESS.INFO.SLOT, _currentSlot + 1)}, {ComposeWidgetText(_widgets[0])}");
 				} else {
 					_pendingRediscovery = true;
 				}
@@ -607,7 +607,7 @@ namespace OniAccess.Handlers.Screens {
 			DiscoverWidgets(_screen);
 			CurrentIndex = FindWidgetByTag("dupe_shuffle_name");
 			if (_widgets.Count > 0) {
-				Speech.SpeechPipeline.SpeakInterrupt(GetWidgetSpeechText(_widgets[0]));
+				Speech.SpeechPipeline.SpeakInterrupt(ComposeWidgetText(_widgets[0]));
 			}
 		}
 
@@ -628,7 +628,7 @@ namespace OniAccess.Handlers.Screens {
 		/// </summary>
 		private void AnnounceNameAndInterests() {
 			if (_widgets.Count > 0)
-				Speech.SpeechPipeline.SpeakInterrupt(GetWidgetSpeechText(_widgets[0]));
+				Speech.SpeechPipeline.SpeakInterrupt(ComposeWidgetText(_widgets[0]));
 			QueueNameAndInterests(includeName: false);
 		}
 
@@ -643,7 +643,7 @@ namespace OniAccess.Handlers.Screens {
 				bool isInterest = w.Tag is string tag && tag == "interest";
 
 				if (i == 0 && includeName || isInterest) {
-					Speech.SpeechPipeline.SpeakQueued(GetWidgetSpeechText(w));
+					Speech.SpeechPipeline.SpeakQueued(ComposeWidgetText(w));
 					if (isInterest) seenInterest = true;
 				} else if (seenInterest) {
 					break;
@@ -770,7 +770,7 @@ namespace OniAccess.Handlers.Screens {
 					DiscoverWidgets(_screen);
 					CurrentIndex = 0;
 					if (_widgets.Count > 0)
-						Speech.SpeechPipeline.SpeakInterrupt(GetWidgetSpeechText(_widgets[0]));
+						Speech.SpeechPipeline.SpeakInterrupt(ComposeWidgetText(_widgets[0]));
 					return true;
 				}
 			}

@@ -53,21 +53,27 @@ namespace OniAccess.Widgets {
 		IReadOnlyList<NavItem> GetChildren();
 
 		/// <summary>
-		/// Control role key ("button", "slider", null, ...) consumed by future
-		/// decoration such as a verbose UI mode. Not spoken today.
+		/// Control role key ("button", "slider", null, ...). When the Verbose interface
+		/// setting is on, <see cref="VerboseMeta.RoleTag(NavItem)"/> turns it into a
+		/// spoken role tag; null means no role is announced.
 		/// </summary>
 		string RoleKey { get; }
 	}
 
 	/// <summary>
 	/// Position context for an item within its list, passed to
-	/// <see cref="WidgetSpeech.Compose"/>. Ignored today; reserved for future
-	/// decoration (position readout, verbose UI).
+	/// <see cref="WidgetSpeech.Compose"/>. Consumed by the verbose-UI decoration:
+	/// <see cref="Position"/>/<see cref="Total"/> drive the "X of Y" readout and
+	/// <see cref="Drillable"/> drives the "submenu" tag. A <see cref="Position"/>
+	/// below 1 suppresses the count (e.g. cursor not on a navigable item).
 	/// </summary>
 	public struct NavContext {
 		public int Position;
 		public int Total;
 		public int Level;
+
+		/// <summary>Whether the item opens a sub-list on Enter; adds the "submenu" tag.</summary>
+		public bool Drillable;
 
 		public static readonly NavContext None = new NavContext { Position = -1, Total = -1, Level = 0 };
 	}

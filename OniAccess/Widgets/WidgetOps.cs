@@ -77,6 +77,17 @@ namespace OniAccess.Widgets {
 		/// that duplicates an existing comma-separated segment of the speech.
 		/// </summary>
 		public static string AppendTooltip(string speech, string tooltip) {
+			return AppendTooltip(speech, tooltip, speech);
+		}
+
+		/// <summary>
+		/// As <see cref="AppendTooltip(string,string)"/>, but dedups tooltip sentences
+		/// against <paramref name="dedupAgainst"/> rather than the full
+		/// <paramref name="speech"/>. Lets a caller append the tooltip after decoration
+		/// (verbose role tags, "submenu") while still only suppressing sentences that
+		/// repeat the item's own label/value, never the injected role words.
+		/// </summary>
+		public static string AppendTooltip(string speech, string tooltip, string dedupAgainst) {
 			if (tooltip == null) return speech;
 			if (string.IsNullOrEmpty(speech)) return tooltip;
 
@@ -87,7 +98,7 @@ namespace OniAccess.Widgets {
 			if (string.IsNullOrEmpty(tooltip)) return speech;
 
 			var speechSegments = new System.Collections.Generic.HashSet<string>(
-				speech.Split(new[] { ", " }, System.StringSplitOptions.None));
+				(dedupAgainst ?? speech).Split(new[] { ", " }, System.StringSplitOptions.None));
 
 			var tooltipSentences = tooltip.Split(new[] { ". " }, System.StringSplitOptions.None);
 			var novel = new System.Collections.Generic.List<string>();

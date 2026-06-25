@@ -142,7 +142,7 @@ namespace OniAccess.Handlers.Screens.Outfits {
 			if (CurrentIndex < 0 || CurrentIndex >= _items.Count) return;
 			string text = _items[CurrentIndex].text;
 			if (!string.IsNullOrEmpty(text))
-				SpeechPipeline.SpeakInterrupt(Widgets.WidgetSpeech.ComposeLabel(text));
+				SpeechPipeline.SpeakInterrupt(ComposeItem(text, CurrentIndex, RoleForItem(CurrentIndex)));
 		}
 
 		protected override void ActivateCurrentItem() {
@@ -276,7 +276,15 @@ namespace OniAccess.Handlers.Screens.Outfits {
 			if (CurrentIndex < 0 || CurrentIndex >= _items.Count) return;
 			string text = _items[CurrentIndex].text;
 			if (!string.IsNullOrEmpty(text))
-				SpeechPipeline.SpeakQueued(Widgets.WidgetSpeech.ComposeLabel(text));
+				SpeechPipeline.SpeakQueued(ComposeItem(text, CurrentIndex, RoleForItem(CurrentIndex)));
+		}
+
+		// Index 0 is the outfit-type cycler (a left/right picker); Edit and Change Outfit
+		// are buttons; the composition lines in between are read-only.
+		private string RoleForItem(int index) {
+			if (index == 0) return Widgets.NavRoles.Dropdown;
+			if (index < 0 || index >= _items.Count) return null;
+			return _items[index].action == DetailAction.None ? null : Widgets.NavRoles.Button;
 		}
 
 		private enum DetailAction { None, Edit, ChangeOutfit }

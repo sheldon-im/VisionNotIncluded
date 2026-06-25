@@ -118,13 +118,15 @@ namespace OniAccess.Handlers.Screens {
 					children: () => BuildMaterials(slot),
 					activate: () => { SpeakUndiscovered(); return true; }));
 			}
-			roots.Add(new MenuNode(() => BuildQueueLabel()));
+			roots.Add(new MenuNode(() => BuildQueueLabel(), roleKey: NavRoles.Slider));
 			roots.Add(new MenuNode(
 				() => BuildInfiniteLabel(),
-				activate: () => { ToggleInfinite(); return true; }));
+				activate: () => { ToggleInfinite(); return true; },
+				roleKey: NavRoles.Toggle));
 			roots.Add(new MenuNode(
 				() => (string)STRINGS.UI.CONFIRMDIALOG.OK,
-				activate: () => { CloseScreen(); return true; }));
+				activate: () => { CloseScreen(); return true; },
+				roleKey: NavRoles.Button));
 			return roots;
 		}
 
@@ -411,12 +413,12 @@ namespace OniAccess.Handlers.Screens {
 			else
 				PlaySound("Slider_Move");
 
-			SpeechPipeline.SpeakInterrupt(BuildQueueLabel());
+			AnnounceCurrent();
 		}
 
 		private void ToggleInfinite() {
 			RecipeScreen.InfiniteButton.SignalClick(KKeyCode.Mouse0);
-			SpeechPipeline.SpeakInterrupt(BuildInfiniteLabel());
+			AnnounceCurrent();
 		}
 
 		private void SpeakUndiscovered() {

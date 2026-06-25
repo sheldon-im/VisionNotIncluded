@@ -68,6 +68,16 @@ namespace OniAccess.Handlers.Screens {
 		/// </summary>
 		protected void ActivateCurrentTab(bool announce) {
 			_tabArray[_activeTabIndex].OnTabActivated(announce);
+			if (announce) AnnounceTabPosition();
+		}
+
+		/// <summary>
+		/// Queue "tab X of Y" after the active tab's own announcement so a verbose
+		/// tab switch ends with the tab's position. Queued (not interrupt) so it
+		/// trails the tab name and the landed content the tab just spoke.
+		/// </summary>
+		private void AnnounceTabPosition() {
+			Verbosity.SpeakTabPosition(_activeTabIndex + 1, _tabArray.Length);
 		}
 
 		public override void OnDeactivate() {
@@ -106,7 +116,7 @@ namespace OniAccess.Handlers.Screens {
 			_activeTabIndex = next;
 			if (wrapped) PlaySound("HUD_Click");
 			else PlaySound("HUD_Mouseover");
-			_tabArray[_activeTabIndex].OnTabActivated(announce: true);
+			ActivateCurrentTab(announce: true);
 		}
 	}
 }

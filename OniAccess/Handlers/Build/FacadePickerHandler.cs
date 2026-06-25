@@ -37,7 +37,7 @@ namespace OniAccess.Handlers.Build {
 
 		public override void SpeakCurrentItem(string parentContext = null) {
 			if (_facades != null && CurrentIndex >= 0 && CurrentIndex < _facades.Count)
-				SpeechPipeline.SpeakInterrupt(WidgetSpeech.ComposeLabel(_facades[CurrentIndex].Label));
+				SpeechPipeline.SpeakInterrupt(ComposeItem(_facades[CurrentIndex].Label, CurrentIndex));
 		}
 
 		public override void OnActivate() {
@@ -50,7 +50,7 @@ namespace OniAccess.Handlers.Build {
 			PositionOnSelected();
 
 			if (_facades.Count > 0)
-				SpeechPipeline.SpeakInterrupt(WidgetSpeech.ComposeLabel(_facades[CurrentIndex].Label));
+				SpeechPipeline.SpeakInterrupt(ComposeItem(_facades[CurrentIndex].Label, CurrentIndex));
 		}
 
 		public override void OnDeactivate() {
@@ -81,9 +81,12 @@ namespace OniAccess.Handlers.Build {
 		private void RebuildList() {
 			_facades = new List<FacadeEntry>();
 
+			string selected = GetSelectedFacadeId();
+
 			_facades.Add(new FacadeEntry {
 				Id = BuildMenuData.DefaultFacadeId,
-				Label = (string)STRINGS.ONIACCESS.BUILD_MENU.FACADE_DEFAULT,
+				Label = MarkIfSelected((string)STRINGS.ONIACCESS.BUILD_MENU.FACADE_DEFAULT,
+					BuildMenuData.DefaultFacadeId, selected),
 			});
 
 			foreach (var id in _def.AvailableFacades) {
@@ -101,8 +104,23 @@ namespace OniAccess.Handlers.Build {
 
 				_facades.Add(new FacadeEntry {
 					Id = id,
-					Label = label,
+					Label = MarkIfSelected(label, id, selected),
 				});
+			}
+		}
+
+		private static string MarkIfSelected(string label, string id, string selectedId) {
+			return id == selectedId
+				? label + ", " + (string)STRINGS.ONIACCESS.STATES.SELECTED
+				: label;
+		}
+
+		private string GetSelectedFacadeId() {
+			try {
+				return PlanScreen.Instance.ProductInfoScreen.FacadeSelectionPanel.SelectedFacade;
+			} catch (System.Exception ex) {
+				Util.Log.Warn($"FacadePickerHandler.GetSelectedFacadeId: {ex.Message}");
+				return null;
 			}
 		}
 

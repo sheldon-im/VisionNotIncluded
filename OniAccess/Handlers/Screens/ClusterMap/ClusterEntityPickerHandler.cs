@@ -30,7 +30,7 @@ namespace OniAccess.Handlers.Screens.ClusterMap {
 
 		public override void SpeakCurrentItem(string parentContext = null) {
 			if (CurrentIndex >= 0 && CurrentIndex < _entities.Count)
-				SpeechPipeline.SpeakInterrupt(WidgetSpeech.ComposeLabel(_entities[CurrentIndex].Name));
+				SpeechPipeline.SpeakInterrupt(ComposeItem(_entities[CurrentIndex].Name, CurrentIndex));
 		}
 
 		public override void OnActivate() {
@@ -40,7 +40,7 @@ namespace OniAccess.Handlers.Screens.ClusterMap {
 			SpeechPipeline.SpeakQueued(
 				(string)STRINGS.ONIACCESS.CLUSTER_MAP.SELECT_OBJECT);
 			if (_entities.Count > 0)
-				SpeechPipeline.SpeakQueued(WidgetSpeech.ComposeLabel(_entities[0].Name));
+				SpeechPipeline.SpeakQueued(ComposeItem(_entities[0].Name, 0));
 		}
 
 		public override void OnDeactivate() {

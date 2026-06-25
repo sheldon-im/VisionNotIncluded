@@ -76,14 +76,14 @@ namespace OniAccess.Handlers.Screens {
 			if (CurrentIndex < 0 || CurrentIndex >= _widgets.Count) return;
 			var text = _widgets[CurrentIndex].GetSpeechText();
 			if (!string.IsNullOrEmpty(text))
-				SpeechPipeline.SpeakInterrupt(WidgetSpeech.ComposeLabel(text));
+				SpeechPipeline.SpeakInterrupt(ComposeItem(text, CurrentIndex));
 		}
 
 		private void SpeakCurrentItemQueued() {
 			if (CurrentIndex < 0 || CurrentIndex >= _widgets.Count) return;
 			var text = _widgets[CurrentIndex].GetSpeechText();
 			if (!string.IsNullOrEmpty(text))
-				SpeechPipeline.SpeakQueued(WidgetSpeech.ComposeLabel(text));
+				SpeechPipeline.SpeakQueued(ComposeItem(text, CurrentIndex));
 		}
 
 		protected override void ActivateCurrentItem() {

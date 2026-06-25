@@ -94,7 +94,7 @@ namespace OniAccess.Handlers.Screens {
 			if (CurrentIndex < 0 || CurrentIndex >= _items.Count) return;
 			var item = _items[CurrentIndex];
 			string speech = BuildSpeech(item);
-			Speech.SpeechPipeline.SpeakInterrupt(Widgets.WidgetSpeech.ComposeLabel(speech));
+			Speech.SpeechPipeline.SpeakInterrupt(ComposeItem(speech, CurrentIndex));
 		}
 
 		// ========================================
@@ -120,7 +120,7 @@ namespace OniAccess.Handlers.Screens {
 
 			if (_items.Count > 0)
 				Speech.SpeechPipeline.SpeakQueued(
-				Widgets.WidgetSpeech.ComposeLabel(BuildSpeech(_items[0])));
+				ComposeItem(BuildSpeech(_items[0]), 0));
 
 			var pendingIds = NotificationActivator.PendingAchievementIds;
 			if (pendingIds != null) {
@@ -553,7 +553,7 @@ namespace OniAccess.Handlers.Screens {
 			CurrentIndex = 0;
 			if (_items.Count > 0)
 				Speech.SpeechPipeline.SpeakQueued(
-				Widgets.WidgetSpeech.ComposeLabel(BuildSpeech(_items[0])));
+				ComposeItem(BuildSpeech(_items[0]), 0));
 		}
 
 		private void ClickExplorerButton(int index) {
@@ -635,7 +635,7 @@ namespace OniAccess.Handlers.Screens {
 			Speech.SpeechPipeline.SpeakInterrupt(DisplayName);
 			if (_items.Count > 0)
 				Speech.SpeechPipeline.SpeakQueued(
-				Widgets.WidgetSpeech.ComposeLabel(BuildSpeech(_items[0])));
+				ComposeItem(BuildSpeech(_items[0]), 0));
 		}
 
 		// ========================================
@@ -664,7 +664,7 @@ namespace OniAccess.Handlers.Screens {
 			Speech.SpeechPipeline.SpeakInterrupt(sectionName);
 			if (_items.Count > 0)
 				Speech.SpeechPipeline.SpeakQueued(
-				Widgets.WidgetSpeech.ComposeLabel(BuildSpeech(_items[0])));
+				ComposeItem(BuildSpeech(_items[0]), 0));
 		}
 
 		private string GetSectionName(int section) {

@@ -39,7 +39,7 @@ namespace OniAccess.Handlers.Screens.Research {
 			if (announce)
 				SpeechPipeline.SpeakInterrupt(TabName);
 			if (ItemCount > 0)
-				SpeechPipeline.SpeakQueued(WidgetSpeech.ComposeLabel(GetCurrentLabel()));
+				SpeechPipeline.SpeakQueued(ComposeItem(GetCurrentLabel(), CurrentIndex));
 			else
 				SpeechPipeline.SpeakQueued(STRINGS.ONIACCESS.RESEARCH.QUEUE_EMPTY);
 		}
@@ -90,7 +90,7 @@ namespace OniAccess.Handlers.Screens.Research {
 			if (label == null) return;
 			if (!string.IsNullOrEmpty(parentContext))
 				label = parentContext + ", " + label;
-			SpeechPipeline.SpeakInterrupt(WidgetSpeech.ComposeLabel(label));
+			SpeechPipeline.SpeakInterrupt(ComposeItem(label, CurrentIndex));
 		}
 
 		protected override void ActivateCurrentItem() {

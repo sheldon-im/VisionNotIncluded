@@ -49,6 +49,7 @@ namespace OniAccess.Handlers {
 				list.Add(new MenuNode(
 					() => ItemLabel(item),
 					activate: () => { ActivateConfigItem(item); return true; },
+					roleKey: item.RoleKey,
 					searchText: () => item.Label));
 			}
 			return list;
@@ -134,6 +135,18 @@ namespace OniAccess.Handlers {
 
 		private static ConfigSection[] BuildSections() {
 			return new[] {
+				// --- Interface ---
+				new ConfigSection {
+					Title = (string)STRINGS.ONIACCESS.CONFIG.SECTION_INTERFACE,
+					Items = new List<ConfigItem> {
+						new BoolConfigItem(
+							(string)STRINGS.ONIACCESS.CONFIG.VERBOSE_UI,
+							() => ConfigManager.Config.VerboseUi,
+							value => ConfigManager.Config.VerboseUi = value
+						),
+					}
+				},
+
 				// --- Tile Cursor Settings ---
 				new ConfigSection {
 					Title = (string)STRINGS.ONIACCESS.CONFIG.SECTION_TILE_CURSOR,

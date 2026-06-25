@@ -1,27 +1,70 @@
 namespace OniAccess.Widgets {
 	/// <summary>
 	/// The single composer for spoken item text. Every navigation model routes
-	/// per-item speech through here, so a future cross-cutting feature (verbose
-	/// UI, role announcement, position readout) becomes a one-place change.
+	/// per-item speech through here, so cross-cutting decoration (verbose UI: role
+	/// tags, "submenu" on drillables, position-within-list, table row/column counts)
+	/// is implemented in exactly one place.
 	///
-	/// Today it wraps the item's live <see cref="NavItem.Announce"/> text with
-	/// its tooltip, matching the previous BuildWidgetText behavior byte for byte.
-	/// The <see cref="NavContext"/> and <see cref="NavItem.RoleKey"/> are accepted
-	/// but not yet spoken.
+	/// Assembly order, matching the established verbose result: body (the item's own
+	/// label/value, already including any "unavailable" marker), then the role tag,
+	/// then "submenu", then the tooltip, then the count tail. Role/submenu/counts are
+	/// spoken only when <see cref="Verbosity.IsOn"/>; with verbose off the output is
+	/// byte-for-byte the pre-verbosity speech (body plus tooltip).
 	/// </summary>
 	public static class WidgetSpeech {
-		public static string Compose(NavItem item, NavContext ctx, string tooltip) {
-			string text = item.Announce();
-			return WidgetOps.AppendTooltip(text, tooltip);
+		/// <summary>
+		/// Core composer: an already-assembled body plus its tooltip and verbose
+		/// metadata. All other overloads funnel here.
+		/// </summary>
+		public static string Compose(string body, string tooltip, VerboseMeta meta) {
+			string text = body;
+			if (Verbosity.IsOn) {
+				text = Append(text, meta.Role);
+				if (meta.Drillable)
+					text = Append(text, (string)STRINGS.ONIACCESS.VERBOSE.SUBMENU);
+			}
+			// Dedup the tooltip against the undecorated body only, so a tooltip
+			// sentence is never dropped just for matching an injected role word.
+			text = WidgetOps.AppendTooltip(text, tooltip, body);
+			if (Verbosity.IsOn && meta.Counts != null) {
+				for (int i = 0; i < meta.Counts.Length; i++)
+					text = Append(text, meta.Counts[i]);
+			}
+			return text;
 		}
 
 		/// <summary>
-		/// Convenience for the common case: an item with no live UI control and no
-		/// tooltip, whose announcement is an already-assembled string. Equivalent
-		/// to composing a <see cref="LabelItem"/> with no context or tooltip.
+		/// Structured item (live widget or menu node): derive the verbose metadata
+		/// from the item's role and the navigation context, then compose.
+		/// </summary>
+		public static string Compose(NavItem item, NavContext ctx, string tooltip) {
+			return Compose(item.Announce(), tooltip, VerboseMeta.ForItem(item, ctx));
+		}
+
+		/// <summary>
+		/// A flat-list entry: an assembled body with a position readout. Pass a 1-based
+		/// position; a value below 1 suppresses the count. A generic list selection
+		/// passes no role; a hand-built control row (a settings toggle/slider) passes its
+		/// role key so it speaks the role like a widget-backed control would.
+		/// </summary>
+		public static string ComposeListItem(string body, int position, int total, string roleKey = null) {
+			var meta = VerboseMeta.Position(position, total);
+			meta.Role = VerboseMeta.RoleTag(roleKey, true);
+			return Compose(body, null, meta);
+		}
+
+		/// <summary>
+		/// A context-free status string (toasts, errors, feedback) that carries no
+		/// item role or position. Spoken identically with verbose on or off.
 		/// </summary>
 		public static string ComposeLabel(string text) {
-			return Compose(new LabelItem(text), NavContext.None, null);
+			return Compose(text, null, VerboseMeta.None);
+		}
+
+		private static string Append(string text, string segment) {
+			if (string.IsNullOrEmpty(segment)) return text;
+			if (string.IsNullOrEmpty(text)) return segment;
+			return text + ", " + segment;
 		}
 	}
 }

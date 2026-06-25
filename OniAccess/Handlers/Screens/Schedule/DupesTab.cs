@@ -37,7 +37,7 @@ namespace OniAccess.Handlers.Screens.Schedule {
 			var dupes = GetDupeList();
 			if (dupes.Count > 0)
 				SpeechPipeline.SpeakQueued(
-					WidgetSpeech.ComposeLabel(ScheduleHelper.BuildDupeLabel(dupes[0])));
+					ComposeItem(ScheduleHelper.BuildDupeLabel(dupes[0]), 0));
 		}
 
 		public void OnTabDeactivated() {
@@ -70,7 +70,7 @@ namespace OniAccess.Handlers.Screens.Schedule {
 			string label = ScheduleHelper.BuildDupeLabel(dupes[CurrentIndex]);
 			if (!string.IsNullOrEmpty(parentContext))
 				label = parentContext + ", " + label;
-			SpeechPipeline.SpeakInterrupt(WidgetSpeech.ComposeLabel(label));
+			SpeechPipeline.SpeakInterrupt(ComposeItem(label, CurrentIndex));
 		}
 
 		protected override void AdjustCurrentItem(int direction, int stepLevel) {

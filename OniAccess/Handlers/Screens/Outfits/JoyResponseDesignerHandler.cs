@@ -61,7 +61,7 @@ namespace OniAccess.Handlers.Screens.Outfits {
 			if (ItemCount > 0) {
 				string label = GetItemLabel(CurrentIndex);
 				if (!string.IsNullOrEmpty(label))
-					SpeechPipeline.SpeakQueued(Widgets.WidgetSpeech.ComposeLabel(label));
+					SpeechPipeline.SpeakQueued(ComposeItem(label, CurrentIndex));
 			}
 		}
 
@@ -124,7 +124,7 @@ namespace OniAccess.Handlers.Screens.Outfits {
 		public override void SpeakCurrentItem(string parentContext = null) {
 			string label = GetItemLabel(CurrentIndex);
 			if (!string.IsNullOrEmpty(label))
-				SpeechPipeline.SpeakInterrupt(Widgets.WidgetSpeech.ComposeLabel(label));
+				SpeechPipeline.SpeakInterrupt(ComposeItem(label, CurrentIndex));
 		}
 
 		// ========================================

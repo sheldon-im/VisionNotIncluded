@@ -31,6 +31,12 @@ namespace OniAccess.Handlers.Screens.Skills {
 
 		public IReadOnlyList<HelpEntry> HelpEntries => _helpEntries;
 
+		// Announce a skill node with its position among the current siblings (the
+		// Left/Right cycle set). No sibling context yet -> position 0, count suppressed.
+		private string SkillSpeech(Skill s) =>
+			WidgetSpeech.ComposeListItem(SkillsHelper.BuildSkillLabel(s, _parent.SelectedDupe),
+				_graph.SiblingPosition, _graph.SiblingCount);
+
 		// ========================================
 		// IScreenTab
 		// ========================================
@@ -43,8 +49,7 @@ namespace OniAccess.Handlers.Screens.Skills {
 			var roots = SkillsHelper.GetRootSkills(model);
 			if (roots.Count > 0) {
 				_graph.MoveToWithSiblings(roots[0], roots);
-				SpeechPipeline.SpeakQueued(WidgetSpeech.ComposeLabel(
-					SkillsHelper.BuildSkillLabel(roots[0], _parent.SelectedDupe)));
+				SpeechPipeline.SpeakQueued(SkillSpeech(roots[0]));
 			}
 		}
 
@@ -61,8 +66,7 @@ namespace OniAccess.Handlers.Screens.Skills {
 				var roots = SkillsHelper.GetRootSkills(model);
 				_graph.MoveToWithSiblings(skill, roots);
 			}
-			SpeechPipeline.SpeakQueued(WidgetSpeech.ComposeLabel(
-				SkillsHelper.BuildSkillLabel(skill, _parent.SelectedDupe)));
+			SpeechPipeline.SpeakQueued(SkillSpeech(skill));
 		}
 
 		public void OnTabDeactivated() { }
@@ -73,8 +77,7 @@ namespace OniAccess.Handlers.Screens.Skills {
 				var node = _graph.NavigateDown();
 				if (node != null) {
 					BaseScreenHandler.PlaySound("HUD_Mouseover");
-					SpeechPipeline.SpeakInterrupt(WidgetSpeech.ComposeLabel(
-						SkillsHelper.BuildSkillLabel(node, _parent.SelectedDupe)));
+					SpeechPipeline.SpeakInterrupt(SkillSpeech(node));
 				} else {
 					SpeechPipeline.SpeakInterrupt(
 						STRINGS.ONIACCESS.SKILLS.DEAD_END);
@@ -86,8 +89,7 @@ namespace OniAccess.Handlers.Screens.Skills {
 				var node = _graph.NavigateUp();
 				if (node != null) {
 					BaseScreenHandler.PlaySound("HUD_Mouseover");
-					SpeechPipeline.SpeakInterrupt(WidgetSpeech.ComposeLabel(
-						SkillsHelper.BuildSkillLabel(node, _parent.SelectedDupe)));
+					SpeechPipeline.SpeakInterrupt(SkillSpeech(node));
 				} else {
 					SpeechPipeline.SpeakInterrupt(
 						STRINGS.ONIACCESS.RESEARCH.ROOT_NODE);
@@ -100,8 +102,7 @@ namespace OniAccess.Handlers.Screens.Skills {
 				if (node != null) {
 					if (wrapped) BaseScreenHandler.PlaySound("HUD_Click");
 					else BaseScreenHandler.PlaySound("HUD_Mouseover");
-					SpeechPipeline.SpeakInterrupt(WidgetSpeech.ComposeLabel(
-						SkillsHelper.BuildSkillLabel(node, _parent.SelectedDupe)));
+					SpeechPipeline.SpeakInterrupt(SkillSpeech(node));
 				}
 				return true;
 			}
@@ -111,8 +112,7 @@ namespace OniAccess.Handlers.Screens.Skills {
 				if (node != null) {
 					if (wrapped) BaseScreenHandler.PlaySound("HUD_Click");
 					else BaseScreenHandler.PlaySound("HUD_Mouseover");
-					SpeechPipeline.SpeakInterrupt(WidgetSpeech.ComposeLabel(
-						SkillsHelper.BuildSkillLabel(node, _parent.SelectedDupe)));
+					SpeechPipeline.SpeakInterrupt(SkillSpeech(node));
 				}
 				return true;
 			}

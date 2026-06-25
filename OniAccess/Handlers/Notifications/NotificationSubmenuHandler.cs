@@ -78,13 +78,13 @@ namespace OniAccess.Handlers.Notifications {
 			if (label == null) return;
 			if (!string.IsNullOrEmpty(parentContext))
 				label = parentContext + ", " + label;
-			SpeechPipeline.SpeakInterrupt(WidgetSpeech.ComposeLabel(label));
+			SpeechPipeline.SpeakInterrupt(ComposeItem(label, CurrentIndex));
 		}
 
 		public override void OnActivate() {
 			base.OnActivate();
 			if (ItemCount > 0)
-				SpeechPipeline.SpeakQueued(WidgetSpeech.ComposeLabel(GetItemLabel(0)));
+				SpeechPipeline.SpeakQueued(ComposeItem(GetItemLabel(0), 0));
 		}
 
 		public override bool Tick() {

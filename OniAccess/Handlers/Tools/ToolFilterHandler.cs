@@ -51,7 +51,16 @@ namespace OniAccess.Handlers.Tools {
 
 		public override void SpeakCurrentItem(string parentContext = null) {
 			if (_filterNames != null && CurrentIndex >= 0 && CurrentIndex < _filterNames.Count)
-				SpeechPipeline.SpeakInterrupt(WidgetSpeech.ComposeLabel(ItemSpeech(CurrentIndex)));
+				SpeechPipeline.SpeakInterrupt(ComposeItem(ItemSpeech(CurrentIndex), CurrentIndex, RoleForItem(CurrentIndex)));
+		}
+
+		// Checkbox (inclusive) filters are on/off toggles; the others (including the
+		// harvest-tool path, where _toggles is null) are a one-of-several selection
+		// spoken as radio buttons.
+		private string RoleForItem(int index) {
+			if (_toggles != null && index >= 0 && index < _toggles.Count)
+				return _toggles[index].isToggleInclusive ? Widgets.NavRoles.Toggle : Widgets.NavRoles.Radio;
+			return Widgets.NavRoles.Radio;
 		}
 
 		/// <summary>
@@ -62,7 +71,11 @@ namespace OniAccess.Handlers.Tools {
 			string name = _filterNames[index];
 			if (_toggles == null) return name;
 			var toggle = _toggles[index];
-			if (!toggle.isToggleInclusive) return name;
+			// Radio filters: mark the one currently chosen. Spoken in both modes; in
+			// verbose mode it precedes the appended "radio button" role since it is part
+			// of the body.
+			if (!toggle.isToggleInclusive)
+				return toggle.IsOn ? name + ", " + (string)STRINGS.ONIACCESS.STATES.SELECTED : name;
 			string state = toggle.IsOn
 				? (string)STRINGS.ONIACCESS.STATES.ON
 				: (string)STRINGS.ONIACCESS.STATES.OFF;
@@ -109,7 +122,7 @@ namespace OniAccess.Handlers.Tools {
 			}
 
 			if (_filterNames.Count > 0) {
-				SpeechPipeline.SpeakInterrupt(WidgetSpeech.ComposeLabel(ItemSpeech(CurrentIndex)));
+				SpeechPipeline.SpeakInterrupt(ComposeItem(ItemSpeech(CurrentIndex), CurrentIndex, RoleForItem(CurrentIndex)));
 			} else {
 				Util.Log.Warn("ToolFilterHandler.OnActivate: no filter parameters available");
 				SpeechPipeline.SpeakInterrupt((string)STRINGS.ONIACCESS.TOOLTIP.CLOSED);

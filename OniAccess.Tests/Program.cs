@@ -389,6 +389,10 @@ namespace OniAccess.Tests {
 			foreach (var r in NavTreeTests.All())
 				results.Add(r);
 
+			// --- Verbose-UI composer (WidgetSpeech + VerboseMeta) ---
+			foreach (var r in VerboseSpeechTests.All())
+				results.Add(r);
+
 			int passed = 0, failed = 0;
 			foreach (var (name, ok, detail) in results) {
 				if (ok) {

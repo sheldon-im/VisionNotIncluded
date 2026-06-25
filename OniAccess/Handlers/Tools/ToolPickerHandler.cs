@@ -34,7 +34,7 @@ namespace OniAccess.Handlers.Tools {
 		public override void SpeakCurrentItem(string parentContext = null) {
 			if (CurrentIndex >= 0 && CurrentIndex < ToolHandler.AllTools.Count)
 				SpeechPipeline.SpeakInterrupt(
-					WidgetSpeech.ComposeLabel(ToolHandler.AllTools[CurrentIndex].Label));
+					ComposeItem(ToolHandler.AllTools[CurrentIndex].Label, CurrentIndex));
 		}
 
 		public override void OnActivate() {
@@ -43,7 +43,7 @@ namespace OniAccess.Handlers.Tools {
 			_search.Clear();
 			if (ToolHandler.AllTools.Count > 0)
 				SpeechPipeline.SpeakInterrupt(
-					WidgetSpeech.ComposeLabel(ToolHandler.AllTools[0].Label));
+					ComposeItem(ToolHandler.AllTools[0].Label, 0));
 		}
 
 		public override void OnDeactivate() {

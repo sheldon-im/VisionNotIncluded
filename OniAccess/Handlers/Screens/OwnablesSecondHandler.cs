@@ -94,7 +94,7 @@ namespace OniAccess.Handlers.Screens {
 		}
 
 		public override void SpeakCurrentItem(string parentContext = null) {
-			SpeechPipeline.SpeakInterrupt(WidgetSpeech.ComposeLabel(GetItemLabel(CurrentIndex)));
+			SpeechPipeline.SpeakInterrupt(ComposeItem(GetItemLabel(CurrentIndex), CurrentIndex));
 		}
 
 		// ========================================
@@ -176,7 +176,7 @@ namespace OniAccess.Handlers.Screens {
 				string firstItem = GetItemLabel(0);
 				if (!string.IsNullOrEmpty(firstItem))
 					label += ": " + firstItem;
-				SpeechPipeline.SpeakInterrupt(WidgetSpeech.ComposeLabel(label));
+				SpeechPipeline.SpeakInterrupt(ComposeItem(label, 0));
 				return false;
 			}
 			return base.Tick();

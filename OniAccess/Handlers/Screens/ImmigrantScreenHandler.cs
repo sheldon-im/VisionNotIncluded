@@ -64,7 +64,7 @@ namespace OniAccess.Handlers.Screens {
 			DiscoverWidgets(_screen);
 			CurrentIndex = 0;
 			if (_widgets.Count > 0) {
-				Speech.SpeechPipeline.SpeakInterrupt(GetWidgetSpeechText(_widgets[0]));
+				Speech.SpeechPipeline.SpeakInterrupt(ComposeWidgetText(_widgets[0]));
 			}
 		}
 
@@ -401,7 +401,7 @@ namespace OniAccess.Handlers.Screens {
 					DiscoverWidgets(_screen);
 					CurrentIndex = 0;
 					if (_widgets.Count > 0) {
-						Speech.SpeechPipeline.SpeakInterrupt(GetWidgetSpeechText(_widgets[0]));
+						Speech.SpeechPipeline.SpeakInterrupt(ComposeWidgetText(_widgets[0]));
 					}
 				}
 			} catch (System.Exception ex) {

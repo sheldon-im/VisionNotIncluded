@@ -16,6 +16,7 @@ namespace OniAccess.Widgets {
 		public const string Priority = "priority";
 		public const string TextInput = "textinput";
 		public const string Toggle = "toggle";
+		public const string Radio = "radio";
 
 		/// <summary>A synthetic pinned-resource duplicate; excluded from search.</summary>
 		public const string Pinned = "pinned";

@@ -141,6 +141,12 @@ namespace OniAccess.Handlers {
 
 		public bool HasSiblings => _siblings != null && _siblings.Count > 1;
 
+		/// <summary>1-based index of the current node among its siblings, or 0 when there is no sibling context.</summary>
+		public int SiblingPosition => _siblings != null ? _siblingIndex + 1 : 0;
+
+		/// <summary>Number of siblings at the current level, or 0 when there is no sibling context.</summary>
+		public int SiblingCount => _siblings?.Count ?? 0;
+
 		private static int IndexOf(IReadOnlyList<T> list, T item) {
 			if (list == null) return 0;
 			for (int i = 0; i < list.Count; i++) {

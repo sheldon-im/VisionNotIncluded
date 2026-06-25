@@ -271,7 +271,7 @@ namespace OniAccess.Handlers.Screens {
 
 			string category = GetCurrentCategoryName();
 			if (_widgets.Count > 0) {
-				string widgetText = GetWidgetSpeechText(_widgets[0]);
+				string widgetText = ComposeWidgetText(_widgets[0]);
 				Speech.SpeechPipeline.SpeakInterrupt($"{category}, {widgetText}");
 			} else {
 				Speech.SpeechPipeline.SpeakInterrupt(category);

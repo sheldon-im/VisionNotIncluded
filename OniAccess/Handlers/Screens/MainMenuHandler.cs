@@ -235,7 +235,7 @@ namespace OniAccess.Handlers.Screens {
 			Speech.SpeechPipeline.SpeakInterrupt(sectionName);
 			if (_widgets.Count > 0) {
 				CurrentIndex = 0;
-				Speech.SpeechPipeline.SpeakQueued(GetWidgetSpeechText(_widgets[0]));
+				Speech.SpeechPipeline.SpeakQueued(ComposeWidgetText(_widgets[0]));
 			} else if (_currentSection == SectionNews) {
 				Speech.SpeechPipeline.SpeakQueued(STRINGS.ONIACCESS.PANELS.NO_NEWS);
 			}

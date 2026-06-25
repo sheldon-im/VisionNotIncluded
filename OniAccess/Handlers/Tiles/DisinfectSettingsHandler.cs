@@ -38,7 +38,7 @@ namespace OniAccess.Handlers.Tiles {
 			}
 			PlaySound("HUD_Click_Open");
 			base.OnActivate();
-			SpeechPipeline.SpeakQueued(WidgetSpeech.ComposeLabel(BuildItemSpeech(0)));
+			SpeechPipeline.SpeakQueued(ComposeItem(BuildItemSpeech(0), 0, RoleForItem(0)));
 		}
 
 		public override void OnDeactivate() {
@@ -59,7 +59,7 @@ namespace OniAccess.Handlers.Tiles {
 
 		public override void SpeakCurrentItem(string parentContext = null) {
 			if (CurrentIndex < 0 || CurrentIndex >= ItemTotal) return;
-			SpeechPipeline.SpeakInterrupt(WidgetSpeech.ComposeLabel(BuildItemSpeech(CurrentIndex)));
+			SpeechPipeline.SpeakInterrupt(ComposeItem(BuildItemSpeech(CurrentIndex), CurrentIndex, RoleForItem(CurrentIndex)));
 		}
 
 		protected override bool IsItemValid(int index) {
@@ -72,7 +72,7 @@ namespace OniAccess.Handlers.Tiles {
 			switch ((Item)CurrentIndex) {
 				case Item.Toggle:
 					_toggle.Click();
-					SpeechPipeline.SpeakInterrupt(WidgetSpeech.ComposeLabel(BuildItemSpeech(CurrentIndex)));
+					SpeechPipeline.SpeakInterrupt(ComposeItem(BuildItemSpeech(CurrentIndex), CurrentIndex, RoleForItem(CurrentIndex)));
 					return;
 				case Item.Slider:
 					return;
@@ -105,7 +105,7 @@ namespace OniAccess.Handlers.Tiles {
 			_inputField.SetDisplayValue(germs.ToString());
 
 			PlaySound("Slider_Move");
-			SpeechPipeline.SpeakInterrupt(WidgetSpeech.ComposeLabel(BuildItemSpeech(CurrentIndex)));
+			SpeechPipeline.SpeakInterrupt(ComposeItem(BuildItemSpeech(CurrentIndex), CurrentIndex, RoleForItem(CurrentIndex)));
 		}
 
 		public override bool Tick() {
@@ -130,7 +130,15 @@ namespace OniAccess.Handlers.Tiles {
 
 		private void SpeakCurrentItemQueued() {
 			if (CurrentIndex >= 0 && CurrentIndex < ItemTotal)
-				SpeechPipeline.SpeakQueued(WidgetSpeech.ComposeLabel(BuildItemSpeech(CurrentIndex)));
+				SpeechPipeline.SpeakQueued(ComposeItem(BuildItemSpeech(CurrentIndex), CurrentIndex, RoleForItem(CurrentIndex)));
+		}
+
+		private static string RoleForItem(int index) {
+			switch ((Item)index) {
+				case Item.Toggle: return Widgets.NavRoles.Toggle;
+				case Item.Slider: return Widgets.NavRoles.Slider;
+				default: return null; // Input is a text field; no verbose role tag
+			}
 		}
 
 		private string BuildItemSpeech(int index) {

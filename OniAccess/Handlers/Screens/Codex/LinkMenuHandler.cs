@@ -45,7 +45,7 @@ namespace OniAccess.Handlers.Screens.Codex {
 			string text = _links[CurrentIndex].text;
 			if (!string.IsNullOrEmpty(parentContext))
 				text = parentContext + ", " + text;
-			SpeechPipeline.SpeakInterrupt(WidgetSpeech.ComposeLabel(text));
+			SpeechPipeline.SpeakInterrupt(ComposeItem(text, CurrentIndex));
 		}
 
 		protected override void ActivateCurrentItem() {

@@ -248,8 +248,37 @@ namespace OniAccess.Handlers {
 		}
 
 		private string ComposeMove(NavMove m) {
-			string body = WidgetSpeech.Compose(m.Item, NavContext.None, GetTooltip(m.Item));
+			string body = WidgetSpeech.Compose(m.Item, CurrentContext(), GetTooltip(m.Item));
 			return FormatWithContext(body, m.ChangedAncestors);
+		}
+
+		/// <summary>
+		/// Compose the cursor's current item with its verbose context (role, submenu,
+		/// position) for an out-of-band re-announcement that doesn't ride a NavMove,
+		/// such as re-speaking a row after a live value change. Mirrors the decoration
+		/// a move announcement gets.
+		/// </summary>
+		protected string ComposeCurrent(NavItem item, string tooltip = null) {
+			return WidgetSpeech.Compose(item, CurrentContext(), tooltip);
+		}
+
+		/// <summary>
+		/// Verbose context for the cursor's current node: its 1-based rank among the
+		/// navigable siblings at this level, the navigable sibling count, and whether
+		/// it drills. Skipped (Position -1) when the cursor isn't on a navigable item,
+		/// which suppresses the count rather than emitting a misleading "0 of N".
+		/// </summary>
+		private NavContext CurrentContext() {
+			if (!Verbosity.IsOn) return NavContext.None;
+			var siblings = Nav.SiblingsAtCurrent();
+			var (position, total) = NavPosition.RankAmongValid(
+				siblings.Count, i => siblings[i].IsNavigable(), Nav.Path[Nav.Depth]);
+			return new NavContext {
+				Position = position,
+				Total = total,
+				Level = Nav.Depth,
+				Drillable = Nav.CanDrill(),
+			};
 		}
 
 		/// <summary>

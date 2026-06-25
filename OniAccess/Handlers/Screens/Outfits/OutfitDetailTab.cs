@@ -137,7 +137,7 @@ namespace OniAccess.Handlers.Screens.Outfits {
 			if (CurrentIndex < 0 || CurrentIndex >= _items.Count) return;
 			string text = _items[CurrentIndex].text;
 			if (!string.IsNullOrEmpty(text))
-				SpeechPipeline.SpeakInterrupt(WidgetSpeech.ComposeLabel(text));
+				SpeechPipeline.SpeakInterrupt(ComposeItem(text, CurrentIndex));
 		}
 
 		protected override void ActivateCurrentItem() {
@@ -191,7 +191,7 @@ namespace OniAccess.Handlers.Screens.Outfits {
 			if (CurrentIndex < 0 || CurrentIndex >= _items.Count) return;
 			string text = _items[CurrentIndex].text;
 			if (!string.IsNullOrEmpty(text))
-				SpeechPipeline.SpeakQueued(WidgetSpeech.ComposeLabel(text));
+				SpeechPipeline.SpeakQueued(ComposeItem(text, CurrentIndex));
 		}
 
 		private enum DetailAction { None, Pick, Edit, Rename, Delete }

@@ -32,6 +32,12 @@ namespace OniAccess.Handlers.Screens.Research {
 
 		public IReadOnlyList<HelpEntry> HelpEntries => _helpEntries;
 
+		// Announce a tech node with its position among the current siblings (the
+		// Left/Right cycle set). No sibling context yet -> position 0, count suppressed.
+		private string TechSpeech(Tech t) =>
+			WidgetSpeech.ComposeListItem(ResearchHelper.BuildTechLabel(t),
+				_graph.SiblingPosition, _graph.SiblingCount);
+
 		// ========================================
 		// IScreenTab
 		// ========================================
@@ -43,7 +49,7 @@ namespace OniAccess.Handlers.Screens.Research {
 			var roots = ResearchHelper.GetRootTechs();
 			if (roots.Count > 0) {
 				_graph.MoveToWithSiblings(roots[0], roots);
-				SpeechPipeline.SpeakQueued(WidgetSpeech.ComposeLabel(ResearchHelper.BuildTechLabel(roots[0])));
+				SpeechPipeline.SpeakQueued(TechSpeech(roots[0]));
 			}
 		}
 
@@ -54,7 +60,7 @@ namespace OniAccess.Handlers.Screens.Research {
 		internal void OnTabActivatedAt(Tech tech) {
 			SpeechPipeline.SpeakInterrupt(TabName);
 			_graph.MoveTo(tech);
-			SpeechPipeline.SpeakQueued(WidgetSpeech.ComposeLabel(ResearchHelper.BuildTechLabel(tech)));
+			SpeechPipeline.SpeakQueued(TechSpeech(tech));
 		}
 
 		public void OnTabDeactivated() { }
@@ -64,7 +70,7 @@ namespace OniAccess.Handlers.Screens.Research {
 				var node = _graph.NavigateDown();
 				if (node != null) {
 					BaseScreenHandler.PlaySound("HUD_Mouseover");
-					SpeechPipeline.SpeakInterrupt(WidgetSpeech.ComposeLabel(ResearchHelper.BuildTechLabel(node)));
+					SpeechPipeline.SpeakInterrupt(TechSpeech(node));
 				} else {
 					SpeechPipeline.SpeakInterrupt(STRINGS.ONIACCESS.RESEARCH.DEAD_END);
 				}
@@ -74,7 +80,7 @@ namespace OniAccess.Handlers.Screens.Research {
 				var node = _graph.NavigateUp();
 				if (node != null) {
 					BaseScreenHandler.PlaySound("HUD_Mouseover");
-					SpeechPipeline.SpeakInterrupt(WidgetSpeech.ComposeLabel(ResearchHelper.BuildTechLabel(node)));
+					SpeechPipeline.SpeakInterrupt(TechSpeech(node));
 				} else {
 					SpeechPipeline.SpeakInterrupt(STRINGS.ONIACCESS.RESEARCH.ROOT_NODE);
 				}
@@ -85,7 +91,7 @@ namespace OniAccess.Handlers.Screens.Research {
 				if (node != null) {
 					if (wrapped) BaseScreenHandler.PlaySound("HUD_Click");
 					else BaseScreenHandler.PlaySound("HUD_Mouseover");
-					SpeechPipeline.SpeakInterrupt(WidgetSpeech.ComposeLabel(ResearchHelper.BuildTechLabel(node)));
+					SpeechPipeline.SpeakInterrupt(TechSpeech(node));
 				}
 				return true;
 			}
@@ -94,7 +100,7 @@ namespace OniAccess.Handlers.Screens.Research {
 				if (node != null) {
 					if (wrapped) BaseScreenHandler.PlaySound("HUD_Click");
 					else BaseScreenHandler.PlaySound("HUD_Mouseover");
-					SpeechPipeline.SpeakInterrupt(WidgetSpeech.ComposeLabel(ResearchHelper.BuildTechLabel(node)));
+					SpeechPipeline.SpeakInterrupt(TechSpeech(node));
 				}
 				return true;
 			}

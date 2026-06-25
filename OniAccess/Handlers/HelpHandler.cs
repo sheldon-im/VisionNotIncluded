@@ -56,7 +56,7 @@ namespace OniAccess.Handlers {
 		public override void SpeakCurrentItem(string parentContext = null) {
 			if (CurrentIndex >= 0 && CurrentIndex < _entries.Count)
 				Speech.SpeechPipeline.SpeakInterrupt(
-					WidgetSpeech.ComposeLabel(_entries[CurrentIndex].ToString()));
+					ComposeItem(_entries[CurrentIndex].ToString(), CurrentIndex));
 		}
 
 		public override void OnActivate() {
@@ -64,7 +64,7 @@ namespace OniAccess.Handlers {
 			base.OnActivate();
 			if (_entries.Count > 0)
 				Speech.SpeechPipeline.SpeakQueued(
-					WidgetSpeech.ComposeLabel(_entries[CurrentIndex].ToString()));
+					ComposeItem(_entries[CurrentIndex].ToString(), CurrentIndex));
 			else
 				Speech.SpeechPipeline.SpeakQueued(STRINGS.ONIACCESS.SPEECH.NO_COMMANDS);
 		}

@@ -1,6 +1,8 @@
 using System;
 using UnityEngine;
 
+using OniAccess.Widgets;
+
 namespace OniAccess.Config {
 	public abstract class ConfigItem {
 		public string Label { get; }
@@ -11,6 +13,11 @@ namespace OniAccess.Config {
 
 		public abstract string GetDisplayValue();
 		public abstract void Cycle(int direction);
+
+		/// <summary>
+		/// Verbose control role spoken for this row (toggle, picker, slider, button).
+		/// </summary>
+		public abstract string RoleKey { get; }
 	}
 
 	public class BoolConfigItem: ConfigItem {
@@ -33,6 +40,8 @@ namespace OniAccess.Config {
 			_setter(!_getter());
 			ConfigManager.Save();
 		}
+
+		public override string RoleKey => NavRoles.Toggle;
 	}
 
 	public class FloatConfigItem: ConfigItem {
@@ -65,6 +74,8 @@ namespace OniAccess.Config {
 			_setter(value);
 			ConfigManager.Save();
 		}
+
+		public override string RoleKey => NavRoles.Slider;
 	}
 
 	/// <summary>
@@ -89,6 +100,8 @@ namespace OniAccess.Config {
 		public override void Cycle(int direction) {
 			_action();
 		}
+
+		public override string RoleKey => NavRoles.Button;
 	}
 
 	public class EnumConfigItem<T>: ConfigItem where T : struct {
@@ -118,5 +131,7 @@ namespace OniAccess.Config {
 			_setter(_values[index]);
 			ConfigManager.Save();
 		}
+
+		public override string RoleKey => NavRoles.Dropdown;
 	}
 }

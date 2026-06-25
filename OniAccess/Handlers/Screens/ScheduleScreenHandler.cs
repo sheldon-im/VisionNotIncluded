@@ -35,7 +35,9 @@ namespace OniAccess.Handlers.Screens {
 		public override void OnActivate() {
 			base.OnActivate();
 			ActiveTabIndex = (int)TabId.Schedules;
-			_schedulesTab.OnTabActivated(announce: false);
+			// announce: true so the opening announcement includes the "grid" suffix,
+			// matching what is spoken when the user tabs back to this tab.
+			_schedulesTab.OnTabActivated(announce: true);
 		}
 
 		// ========================================

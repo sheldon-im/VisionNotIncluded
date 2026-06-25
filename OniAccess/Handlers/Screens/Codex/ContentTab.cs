@@ -117,7 +117,7 @@ namespace OniAccess.Handlers.Screens.Codex {
 			if (string.IsNullOrEmpty(text)) return;
 			if (!string.IsNullOrEmpty(parentContext))
 				text = parentContext + ", " + text;
-			SpeechPipeline.SpeakInterrupt(WidgetSpeech.ComposeLabel(text));
+			SpeechPipeline.SpeakInterrupt(ComposeItem(text, CurrentIndex));
 		}
 
 		// ========================================
@@ -486,7 +486,7 @@ namespace OniAccess.Handlers.Screens.Codex {
 			if (CurrentIndex < 0 || CurrentIndex >= _items.Count) return;
 			string text = _items[CurrentIndex].text;
 			if (!string.IsNullOrEmpty(text))
-				SpeechPipeline.SpeakQueued(WidgetSpeech.ComposeLabel(text));
+				SpeechPipeline.SpeakQueued(ComposeItem(text, CurrentIndex));
 		}
 
 		// ========================================

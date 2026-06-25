@@ -49,6 +49,24 @@ namespace OniAccess.Handlers {
 		public abstract void SpeakCurrentItem(string parentContext = null);
 
 		// ========================================
+		// SPEECH COMPOSITION
+		// ========================================
+
+		/// <summary>
+		/// Compose a flat-list item announcement, appending the verbose position
+		/// readout for the item at <paramref name="index"/> (its 1-based rank among the
+		/// valid items, suppressed when verbose is off). A plain list selection passes no
+		/// <paramref name="roleKey"/>; a hand-built control row (a settings toggle or
+		/// slider) passes its role so it speaks the role like a widget-backed control.
+		/// </summary>
+		protected string ComposeItem(string text, int index, string roleKey = null) {
+			if (!Verbosity.IsOn)
+				return Widgets.WidgetSpeech.ComposeLabel(text);
+			var (position, total) = Widgets.NavPosition.RankAmongValid(ItemCount, IsItemValid, index);
+			return Widgets.WidgetSpeech.ComposeListItem(text, position, total, roleKey);
+		}
+
+		// ========================================
 		// VIRTUAL HOOKS
 		// ========================================
 

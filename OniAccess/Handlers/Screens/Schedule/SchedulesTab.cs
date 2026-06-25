@@ -129,7 +129,8 @@ namespace OniAccess.Handlers.Screens.Schedule {
 			ClampCursor();
 
 			if (announce)
-				SpeechPipeline.SpeakInterrupt(TabName);
+				SpeechPipeline.SpeakInterrupt(
+					Verbosity.WithKindSuffix(TabName, (string)STRINGS.ONIACCESS.VERBOSE.GRID));
 
 			// Speak opening state
 			var gr = GetRow(_row);
@@ -204,6 +205,11 @@ namespace OniAccess.Handlers.Screens.Schedule {
 			SpeakCurrentCell();
 		}
 
+		// Alarm flips a setting (toggle); every other option performs an action (button).
+		private static string RoleForOption(OptionId id) {
+			return id == OptionId.Alarm ? NavRoles.Toggle : NavRoles.Button;
+		}
+
 		private List<(OptionId id, string label)> BuildOptionsList(GridRow gr) {
 			var options = new List<(OptionId, string)>();
 			if (gr.IsAddButton) return options;
@@ -239,7 +245,9 @@ namespace OniAccess.Handlers.Screens.Schedule {
 				_optionIndex = next;
 				ScheduleHelper.PlayHoverSound();
 			}
-			SpeechPipeline.SpeakInterrupt(WidgetSpeech.ComposeLabel(_currentOptions[_optionIndex].label));
+			SpeechPipeline.SpeakInterrupt(WidgetSpeech.ComposeListItem(
+				_currentOptions[_optionIndex].label, _optionIndex + 1, _currentOptions.Count,
+				RoleForOption(_currentOptions[_optionIndex].id)));
 		}
 
 		private void ActivateOption() {
@@ -420,7 +428,9 @@ namespace OniAccess.Handlers.Screens.Schedule {
 					_inOptions = true;
 					_optionIndex = 0;
 					if (_currentOptions.Count > 0)
-						SpeechPipeline.SpeakInterrupt(WidgetSpeech.ComposeLabel(_currentOptions[0].label));
+						SpeechPipeline.SpeakInterrupt(WidgetSpeech.ComposeListItem(
+							_currentOptions[0].label, 1, _currentOptions.Count,
+							RoleForOption(_currentOptions[0].id)));
 				}
 				return true;
 			}

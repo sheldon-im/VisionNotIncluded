@@ -103,7 +103,8 @@ namespace OniAccess.Handlers.Screens {
 				var r = row;
 				list.Add(new MenuNode(
 					() => BuildRowLabel(r),
-					activate: () => { ToggleRow(r); return true; }));
+					activate: () => { ToggleRow(r); return true; },
+					roleKey: NavRoles.Toggle));
 			}
 			return list;
 		}
@@ -177,8 +178,12 @@ namespace OniAccess.Handlers.Screens {
 				string title = (string)STRINGS.UI.UISIDESCREENS.ASSIGNMENTGROUPCONTROLLER.TITLE;
 				int memberCount = GetTarget().GetMembers().Count;
 				string countLabel = string.Format(STRINGS.ONIACCESS.SKILLS.ASSIGNED, memberCount);
-				string firstItem = Nav.Current()?.Announce();
-				string announcement = title + ", " + countLabel + ", " + firstItem;
+				var current = Nav.Current();
+				// ComposeCurrent so the first row carries its role/position like ordinary
+				// navigation, rather than a bare Announce().
+				string announcement = current != null
+					? title + ", " + countLabel + ", " + ComposeCurrent(current)
+					: title + ", " + countLabel;
 				SpeechPipeline.SpeakInterrupt(announcement);
 				return false;
 			}

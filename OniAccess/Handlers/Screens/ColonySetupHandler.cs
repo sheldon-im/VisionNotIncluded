@@ -223,7 +223,7 @@ namespace OniAccess.Handlers.Screens {
 			string name = GetPanelName();
 			Speech.SpeechPipeline.SpeakInterrupt(name);
 			if (_widgets.Count > 0)
-				Speech.SpeechPipeline.SpeakQueued(GetWidgetSpeechText(_widgets[0]));
+				Speech.SpeechPipeline.SpeakQueued(ComposeWidgetText(_widgets[0]));
 		}
 
 		// ========================================
@@ -1128,7 +1128,7 @@ namespace OniAccess.Handlers.Screens {
 					RediscoverAndReset();
 					Speech.SpeechPipeline.SpeakInterrupt((string)STRINGS.UI.FRONTEND.COLONYDESTINATIONSCREEN.SELECTED_CLUSTER_TRAITS_HEADER);
 					if (_widgets.Count > 0)
-						Speech.SpeechPipeline.SpeakQueued(GetWidgetSpeechText(_widgets[0]));
+						Speech.SpeechPipeline.SpeakQueued(ComposeWidgetText(_widgets[0]));
 				}
 				return;
 			}
@@ -1137,7 +1137,7 @@ namespace OniAccess.Handlers.Screens {
 			if (_inCustomize && _currentSubTab == SubTabStoryTraits && widget is ToggleWidget
 				&& widget.Component is MultiToggle storyCheckbox) {
 				storyCheckbox.onClick?.Invoke();
-				Speech.SpeechPipeline.SpeakInterrupt(GetWidgetSpeechText(widget));
+				Speech.SpeechPipeline.SpeakInterrupt(ComposeWidgetText(widget));
 				return;
 			}
 
@@ -1167,7 +1167,7 @@ namespace OniAccess.Handlers.Screens {
 					string panelName = GetPanelName();
 					Speech.SpeechPipeline.SpeakInterrupt(panelName);
 					if (_widgets.Count > 0)
-						Speech.SpeechPipeline.SpeakQueued(GetWidgetSpeechText(_widgets[0]));
+						Speech.SpeechPipeline.SpeakQueued(ComposeWidgetText(_widgets[0]));
 					return;
 				} else {
 					Util.Log.Warn("ColonySetupHandler: customizeButton field not found via Traverse");
@@ -1212,7 +1212,7 @@ namespace OniAccess.Handlers.Screens {
 					.GetValue<KButton>();
 				if (randomizeBtn != null)
 					ClickButton(randomizeBtn);
-				Speech.SpeechPipeline.SpeakInterrupt(GetWidgetSpeechText(widget));
+				Speech.SpeechPipeline.SpeakInterrupt(ComposeWidgetText(widget));
 				return;
 			}
 
@@ -1387,7 +1387,7 @@ namespace OniAccess.Handlers.Screens {
 					SyncGameTab();
 					RediscoverAndReset();
 					if (_widgets.Count > 0)
-						Speech.SpeechPipeline.SpeakInterrupt(GetWidgetSpeechText(_widgets[0]));
+						Speech.SpeechPipeline.SpeakInterrupt(ComposeWidgetText(_widgets[0]));
 					return true;
 				}
 			}
@@ -1398,7 +1398,7 @@ namespace OniAccess.Handlers.Screens {
 					_inInfoSubmenu = false;
 					RediscoverAndReset();
 					if (_widgets.Count > 0)
-						Speech.SpeechPipeline.SpeakInterrupt(GetWidgetSpeechText(_widgets[0]));
+						Speech.SpeechPipeline.SpeakInterrupt(ComposeWidgetText(_widgets[0]));
 					return true;
 				}
 			}

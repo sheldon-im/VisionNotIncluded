@@ -102,6 +102,7 @@ namespace OniAccess.Handlers.Screens {
 				roots.Add(new MenuNode(
 					() => BuildDiagnosticLabel(diag),
 					children: () => BuildCriteria(diag),
+					roleKey: NavRoles.Toggle,
 					searchText: () => diag.name,
 					contextLabel: () => diag.name));
 			}
@@ -113,7 +114,8 @@ namespace OniAccess.Handlers.Screens {
 			var list = new List<NavItem>(criteria.Length);
 			foreach (var c in criteria) {
 				var criterion = c;
-				list.Add(new MenuNode(() => BuildCriterionLabel(diag, criterion)));
+				list.Add(new MenuNode(() => BuildCriterionLabel(diag, criterion),
+					roleKey: NavRoles.Toggle));
 			}
 			return list;
 		}

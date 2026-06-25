@@ -58,7 +58,7 @@ namespace OniAccess.Handlers.Notifications {
 			if (!string.IsNullOrEmpty(parentContext))
 				label = parentContext + ", " + label;
 
-			SpeechPipeline.SpeakInterrupt(WidgetSpeech.ComposeLabel(label));
+			SpeechPipeline.SpeakInterrupt(ComposeItem(label, CurrentIndex));
 		}
 
 		public override void OnActivate() {
@@ -66,7 +66,7 @@ namespace OniAccess.Handlers.Notifications {
 			base.OnActivate();
 			_tracker.OnChanged += OnTrackerChanged;
 			if (ItemCount > 0)
-				SpeechPipeline.SpeakQueued(WidgetSpeech.ComposeLabel(BuildCurrentLabel()));
+				SpeechPipeline.SpeakQueued(ComposeItem(BuildCurrentLabel(), CurrentIndex));
 			else
 				SpeechPipeline.SpeakQueued((string)STRINGS.ONIACCESS.NOTIFICATIONS.EMPTY);
 		}
@@ -152,7 +152,7 @@ namespace OniAccess.Handlers.Notifications {
 			if (ItemCount > 0) {
 				SpeechPipeline.SpeakInterrupt(
 					(string)STRINGS.ONIACCESS.NOTIFICATIONS.DISMISSED);
-				SpeechPipeline.SpeakQueued(WidgetSpeech.ComposeLabel(BuildCurrentLabel()));
+				SpeechPipeline.SpeakQueued(ComposeItem(BuildCurrentLabel(), CurrentIndex));
 			} else {
 				SpeechPipeline.SpeakInterrupt(
 					(string)STRINGS.ONIACCESS.NOTIFICATIONS.EMPTY);

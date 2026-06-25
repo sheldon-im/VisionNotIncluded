@@ -33,7 +33,7 @@ namespace OniAccess.Handlers.Tiles {
 
 		public override void SpeakCurrentItem(string parentContext = null) {
 			if (CurrentIndex < 0 || CurrentIndex >= _items.Count) return;
-			Speech.SpeechPipeline.SpeakInterrupt(WidgetSpeech.ComposeLabel(BuildSpeech(CurrentIndex)));
+			Speech.SpeechPipeline.SpeakInterrupt(ComposeItem(BuildSpeech(CurrentIndex), CurrentIndex));
 		}
 
 		public override void OnActivate() {
@@ -41,7 +41,7 @@ namespace OniAccess.Handlers.Tiles {
 			PlaySound("HUD_Click_Open");
 			base.OnActivate();
 			if (_items.Count > 0)
-				Speech.SpeechPipeline.SpeakQueued(WidgetSpeech.ComposeLabel(BuildSpeech(0)));
+				Speech.SpeechPipeline.SpeakQueued(ComposeItem(BuildSpeech(0), 0));
 		}
 
 		protected override void ActivateCurrentItem() {

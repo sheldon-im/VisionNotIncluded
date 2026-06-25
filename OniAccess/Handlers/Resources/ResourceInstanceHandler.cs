@@ -49,14 +49,14 @@ namespace OniAccess.Handlers.Resources {
 			string label = BuildInstanceLabel(instances[CurrentIndex]);
 			if (!string.IsNullOrEmpty(parentContext))
 				label = parentContext + ", " + label;
-			SpeechPipeline.SpeakInterrupt(WidgetSpeech.ComposeLabel(label));
+			SpeechPipeline.SpeakInterrupt(ComposeItem(label, CurrentIndex));
 		}
 
 		public override void OnActivate() {
 			base.OnActivate();
 			var instances = ResourceHelper.GetInstances(_resourceTag);
 			if (instances.Count > 0)
-				SpeechPipeline.SpeakQueued(WidgetSpeech.ComposeLabel(BuildInstanceLabel(instances[0])));
+				SpeechPipeline.SpeakQueued(ComposeItem(BuildInstanceLabel(instances[0]), 0));
 		}
 
 		protected override void ActivateCurrentItem() {

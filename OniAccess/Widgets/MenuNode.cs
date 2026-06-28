@@ -17,6 +17,7 @@ namespace OniAccess.Widgets {
 		private readonly Func<string> _announce;
 		private readonly Func<string> _searchText;
 		private readonly Func<string> _contextLabel;
+		private readonly Func<string> _tooltip;
 		private readonly Func<IReadOnlyList<NavItem>> _children;
 		private readonly Func<bool> _activate;
 		private readonly bool _navigable;
@@ -28,10 +29,12 @@ namespace OniAccess.Widgets {
 				bool navigable = true,
 				string roleKey = null,
 				Func<string> searchText = null,
-				Func<string> contextLabel = null) {
+				Func<string> contextLabel = null,
+				Func<string> tooltip = null) {
 			_announce = announce;
 			_searchText = searchText;
 			_contextLabel = contextLabel;
+			_tooltip = tooltip;
 			_children = children;
 			_activate = activate;
 			_navigable = navigable;
@@ -48,6 +51,9 @@ namespace OniAccess.Widgets {
 
 		/// <summary>Parent-context label, when it differs from the spoken label; otherwise the label.</summary>
 		public string ContextLabel => _contextLabel != null ? _contextLabel() : _announce();
+
+		/// <summary>Supplementary text appended through the tooltip slot, or null when none.</summary>
+		public string Tooltip => _tooltip?.Invoke();
 		public bool Activate() => _activate != null && _activate();
 		public bool Adjust(int direction, int stepLevel) => false;
 

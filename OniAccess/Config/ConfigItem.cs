@@ -7,8 +7,15 @@ namespace OniAccess.Config {
 	public abstract class ConfigItem {
 		public string Label { get; }
 
-		protected ConfigItem(string label) {
+		/// <summary>
+		/// Optional supplementary text spoken after the row's body and role, routed
+		/// through the same tooltip slot as live widgets. Null when the row has none.
+		/// </summary>
+		public Func<string> Tooltip { get; }
+
+		protected ConfigItem(string label, Func<string> tooltip = null) {
 			Label = label;
+			Tooltip = tooltip;
 		}
 
 		public abstract string GetDisplayValue();
@@ -24,8 +31,9 @@ namespace OniAccess.Config {
 		private readonly Func<bool> _getter;
 		private readonly Action<bool> _setter;
 
-		public BoolConfigItem(string label, Func<bool> getter, Action<bool> setter)
-			: base(label) {
+		public BoolConfigItem(string label, Func<bool> getter, Action<bool> setter,
+				Func<string> tooltip = null)
+			: base(label, tooltip) {
 			_getter = getter;
 			_setter = setter;
 		}

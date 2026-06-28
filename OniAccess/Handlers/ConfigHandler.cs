@@ -50,10 +50,13 @@ namespace OniAccess.Handlers {
 					() => ItemLabel(item),
 					activate: () => { ActivateConfigItem(item); return true; },
 					roleKey: item.RoleKey,
-					searchText: () => item.Label));
+					searchText: () => item.Label,
+					tooltip: item.Tooltip));
 			}
 			return list;
 		}
+
+		protected override string GetTooltip(NavItem item) => (item as MenuNode)?.Tooltip;
 
 		private static string ItemLabel(ConfigItem item) {
 			string value = item.GetDisplayValue();
@@ -142,7 +145,8 @@ namespace OniAccess.Handlers {
 						new BoolConfigItem(
 							(string)STRINGS.ONIACCESS.CONFIG.VERBOSE_UI,
 							() => ConfigManager.Config.VerboseUi,
-							value => ConfigManager.Config.VerboseUi = value
+							value => ConfigManager.Config.VerboseUi = value,
+							() => (string)STRINGS.ONIACCESS.CONFIG.VERBOSE_UI_TOOLTIP
 						),
 					}
 				},

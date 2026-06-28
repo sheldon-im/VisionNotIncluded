@@ -2,6 +2,8 @@
 
 ## Unreleased changes since 1.6.4
 
+* Fixed the scanner search prompt so it accepts IME-composed text such as Korean.
+
 * Fixed Alt+Up and Alt+Down reading a packed item's whole breakdown as one line. Tooltip-backed readouts like the Vitals Endurance or Morale lines now split into one line per field, so you can step through them.
 
 ## 1.6.4

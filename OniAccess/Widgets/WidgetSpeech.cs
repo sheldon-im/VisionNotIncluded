@@ -17,18 +17,27 @@ namespace OniAccess.Widgets {
 		/// metadata. All other overloads funnel here.
 		/// </summary>
 		public static string Compose(string body, string tooltip, VerboseMeta meta) {
+			return Compose(body, tooltip, meta, perLine: false);
+		}
+
+		// perLine joins the tooltip fields and the count tail with ". " instead of ", "
+		// so the Alt+Up/Down reviewer splits each onto its own line; the spoken path
+		// (perLine: false) keeps the flat comma cadence. Role and "submenu" stay attached
+		// to the body's line either way.
+		private static string Compose(string body, string tooltip, VerboseMeta meta, bool perLine) {
 			string text = body;
 			if (Verbosity.IsOn) {
 				text = Append(text, meta.Role);
 				if (meta.Drillable)
 					text = Append(text, (string)STRINGS.ONIACCESS.VERBOSE.SUBMENU);
 			}
+			string sep = perLine ? ". " : ", ";
 			// Dedup the tooltip against the undecorated body only, so a tooltip
 			// sentence is never dropped just for matching an injected role word.
-			text = WidgetOps.AppendTooltip(text, tooltip, body);
+			text = WidgetOps.AppendTooltip(text, tooltip, body, sep);
 			if (Verbosity.IsOn && meta.Counts != null) {
 				for (int i = 0; i < meta.Counts.Length; i++)
-					text = Append(text, meta.Counts[i]);
+					text = AppendSep(text, meta.Counts[i], sep);
 			}
 			return text;
 		}
@@ -39,6 +48,17 @@ namespace OniAccess.Widgets {
 		/// </summary>
 		public static string Compose(NavItem item, NavContext ctx, string tooltip) {
 			return Compose(item.Announce(), tooltip, VerboseMeta.ForItem(item, ctx));
+		}
+
+		/// <summary>
+		/// Compose a structured item for the Alt+Up/Down line reviewer: identical to the
+		/// spoken <see cref="Compose(NavItem,NavContext,string)"/> except the tooltip
+		/// fields and the position tail are joined with ". " instead of ", ", so the
+		/// reviewer's splitter breaks each onto its own line. The spoken announcement is
+		/// unaffected.
+		/// </summary>
+		public static string ComposeReview(NavItem item, NavContext ctx, string tooltip) {
+			return Compose(item.Announce(), tooltip, VerboseMeta.ForItem(item, ctx), perLine: true);
 		}
 
 		/// <summary>
@@ -61,10 +81,12 @@ namespace OniAccess.Widgets {
 			return Compose(text, null, VerboseMeta.None);
 		}
 
-		private static string Append(string text, string segment) {
+		private static string Append(string text, string segment) => AppendSep(text, segment, ", ");
+
+		private static string AppendSep(string text, string segment, string sep) {
 			if (string.IsNullOrEmpty(segment)) return text;
 			if (string.IsNullOrEmpty(text)) return segment;
-			return text + ", " + segment;
+			return text + sep + segment;
 		}
 	}
 }

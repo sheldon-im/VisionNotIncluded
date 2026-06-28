@@ -93,7 +93,7 @@ namespace OniAccess.Handlers.Screens {
 			if (CurrentIndex < 0 || CurrentIndex >= _widgets.Count) return null;
 			var w = _widgets[CurrentIndex];
 			if (!IsWidgetValid(w)) return null;
-			return BuildWidgetText(w);
+			return WidgetSpeech.ComposeReview(w, WidgetContext(w), GetTooltipText(w));
 		}
 
 		internal override object GetReviewFocusKey() => CurrentIndex;

@@ -270,7 +270,7 @@ namespace OniAccess.Handlers {
 		internal override string GetReviewContent() {
 			var item = Nav.Current();
 			if (item == null) return null;
-			return ComposeCurrent(item, GetTooltip(item));
+			return WidgetSpeech.ComposeReview(item, CurrentContext(), GetTooltip(item));
 		}
 
 		// The focused node itself is the identity. SectionMerger updates matched nodes

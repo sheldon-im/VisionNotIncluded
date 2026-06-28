@@ -101,6 +101,19 @@ namespace OniAccess.Tests {
 			return Check("PositionIsLastAfterTooltip", ok, $"got \"{r}\"");
 		}
 
+		private static (string, bool, string) ReviewJoinsTooltipFieldsWithPeriods() {
+			SetVerbose(true);
+			var item = new FakeItem { Text = "Endurance: 75%" };
+			string r = WidgetSpeech.ComposeReview(item,
+				new NavContext { Position = 5, Total = 10 },
+				"Standard Duplicant: -70%/cycle. Barracks: 100%/cycle");
+			// The tooltip fields and the position tail join with ". " (not the spoken
+			// ", ") so the line reviewer splits each onto its own line. Without this the
+			// whole readout collapses into one un-steppable line.
+			bool ok = r == "Endurance: 75%. Standard Duplicant: -70%/cycle. Barracks: 100%/cycle. 5 of 10";
+			return Check("ReviewJoinsTooltipFieldsWithPeriods", ok, $"got \"{r}\"");
+		}
+
 		// ========================================
 		// Flat-list path (position only, never a role)
 		// ========================================
@@ -189,6 +202,7 @@ namespace OniAccess.Tests {
 			yield return ToggleRoleSpokenAsToggle();
 			yield return PositionSuppressedWhenInvalid();
 			yield return PositionIsLastAfterTooltip();
+			yield return ReviewJoinsTooltipFieldsWithPeriods();
 			yield return ListItemPositionOnly();
 			yield return ListItemSuppressedWhenZero();
 			yield return ListItemSuppressedWhenSingle();

@@ -2,6 +2,8 @@
 
 ## Unreleased changes since 1.6.4
 
+* Fixed Alt+Up and Alt+Down reading a packed item's whole breakdown as one line. Tooltip-backed readouts like the Vitals Endurance or Morale lines now split into one line per field, so you can step through them.
+
 ## 1.6.4
 
 * Added Alt+Up and Alt+Down to step through the item the cursor is on one line at a time, in menus, lists, tables, and detail screens. Useful for packed readouts like the Vitals morale column or a building's status panel, where a single cell or line crams in many values.

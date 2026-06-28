@@ -88,6 +88,16 @@ namespace OniAccess.Widgets {
 		/// repeat the item's own label/value, never the injected role words.
 		/// </summary>
 		public static string AppendTooltip(string speech, string tooltip, string dedupAgainst) {
+			return AppendTooltip(speech, tooltip, dedupAgainst, ", ");
+		}
+
+		/// <summary>
+		/// As above, but joins the novel tooltip fields (and attaches them to the speech)
+		/// with <paramref name="separator"/>. The line reviewer passes ". " so each field
+		/// becomes its own reviewable line; the spoken path passes ", " for its flat cadence.
+		/// </summary>
+		public static string AppendTooltip(
+				string speech, string tooltip, string dedupAgainst, string separator) {
 			if (tooltip == null) return speech;
 			if (string.IsNullOrEmpty(speech)) return tooltip;
 
@@ -109,7 +119,7 @@ namespace OniAccess.Widgets {
 			}
 
 			if (novel.Count == 0) return speech;
-			return $"{speech}, {string.Join(", ", novel)}";
+			return speech + separator + string.Join(separator, novel);
 		}
 
 		/// <summary>

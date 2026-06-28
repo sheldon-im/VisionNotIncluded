@@ -1277,6 +1277,11 @@ msgctxt "STRINGS.ONIACCESS.CONFIG.VERBOSE_UI"
 msgid "Verbose interface"
 msgstr "상세 인터페이스"
 
+#. STRINGS.ONIACCESS.CONFIG.VERBOSE_UI_TOOLTIP
+msgctxt "STRINGS.ONIACCESS.CONFIG.VERBOSE_UI_TOOLTIP"
+msgid "for weaklings like Chaosbringer who get lost in \"basic\" UI"
+msgstr "카오스브링어처럼 '기본' UI에서도 길을 잃는 약골들을 위한 기능"
+
 #. STRINGS.ONIACCESS.CONSUMABLES_SCREEN.ALL_FORBIDDEN
 msgctxt "STRINGS.ONIACCESS.CONSUMABLES_SCREEN.ALL_FORBIDDEN"
 msgid "all forbidden"

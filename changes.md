@@ -1,6 +1,8 @@
 # Changelog
 
-## Unreleased changes since 1.6.4
+## Unreleased changes since 1.6.5
+
+## 1.6.5
 
 * Fixed the scanner search prompt so it accepts IME-composed text such as Korean.
 
